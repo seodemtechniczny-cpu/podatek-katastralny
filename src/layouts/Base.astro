@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+
+interface Props { title: string; description: string; noindex?: boolean }
+const { title, description, noindex = import.meta.env.PUBLIC_NOINDEX === '1' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname.slice(base.length - 1), Astro.site).href;
+
+const nav = [
+  ['#stan', 'Stan sprawy'],
+  ['#projekt', 'Projekt'],
+  ['#kalkulator', 'Kalkulator'],
+  ['#os-czasu', 'Oś czasu'],
+  ['#europa', 'Europa'],
+].map(([h, l]) => [base + h, l]);
+---
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:site_name" content="podatek-katastralny.pl" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+  <link rel="alternate" type="application/atom+xml" title="Zmiany w sprawie podatku katastralnego" href={`${base}zmiany.xml`} />
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f1215" media="(prefers-color-scheme: dark)" />
+  <script is:inline>
+    // Motyw przed pierwszym malowaniem, żeby nie mignął jasny przy wybranym ciemnym.
+    try { const t = localStorage.getItem('motyw'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#tresc">Przejdź do treści</a>
+  <header class="top">
+    <div class="wrap top__in">
+      <a class="logo" href={base} aria-label="podatek-katastralny.pl — strona główna">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="4" fill="currentColor"/><path d="M6 8h20M6 16h12M18 16v10M6 24h20M13 8v8M22 16v8" stroke="var(--bg)" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+        <span>podatek&#8209;katastralny<span class="logo__tld">.pl</span></span>
+      </a>
+      <nav aria-label="Główna">
+        <ul class="nav">{nav.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ul>
+      </nav>
+      <button class="theme" type="button" aria-label="Przełącz tryb jasny i ciemny" title="Tryb jasny / ciemny">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+  <main id="tresc"><slot /></main>
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <p><strong>podatek-katastralny.pl</strong> — niezależny serwis informacyjny. Nie popieramy ani nie zwalczamy żadnego rozwiązania. Każda liczba ma źródło i datę sprawdzenia.</p>
+      <p class="muted">Treści mają charakter informacyjny i nie są poradą podatkową.</p>
+    </div>
+  </footer>
+  <script>
+    const root = document.documentElement;
+    const btn = document.querySelector<HTMLButtonElement>('.theme')!;
+    const dark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    const sync = () => btn.setAttribute('aria-pressed', String(dark()));
+    sync();
+    btn.addEventListener('click', () => {
+      const next = dark() ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('motyw', next); } catch {}
+      sync();
+    });
+  </script>
+</body>
+</html>
+
+<style>
+  .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); border-bottom: 1px solid var(--line); }
+  .top__in { display: flex; align-items: center; gap: 24px; min-height: 64px; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 650 1rem/1 var(--sans); letter-spacing: -0.01em; }
+  .logo svg { color: var(--accent); flex: none; }
+  .logo__tld { color: var(--ink-3); font-weight: 500; }
+  nav { margin-left: auto; }
+  .nav { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .nav a { color: var(--ink-2); text-decoration: none; font-size: 0.92rem; font-weight: 500; padding-block: 8px; }
+  .nav a:hover { color: var(--ink); }
+  .theme { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 3px; cursor: pointer; transition: transform var(--t-2) var(--ease); }
+  .theme[aria-pressed='true'] svg { transform: rotate(180deg); }
+  .theme svg { transition: transform var(--t-2) var(--ease); }
+  .foot { border-top: 1px solid var(--line); padding-block: 48px; background: var(--bg-2); }
+  .foot__in p { max-width: 70ch; }
+  @media (max-width: 860px) {
+    .top__in { flex-wrap: wrap; gap: 0 12px; }
+    .theme { margin-left: auto; }
+    nav { order: 3; width: calc(100% + var(--gut) * 2); margin: 0 calc(var(--gut) * -1); }
+    .nav { overflow-x: auto; gap: 18px; padding: 0 var(--gut) 6px; scrollbar-width: none; }
+    .nav a { white-space: nowrap; display: block; padding-block: 6px; }
+  }
+</style>

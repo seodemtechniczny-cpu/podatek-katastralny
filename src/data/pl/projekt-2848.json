@@ -1,0 +1,99 @@
+{
+  "druk": "2848",
+  "tytul": "Poselski projekt ustawy o zmianie ustawy o podatkach i opłatach lokalnych oraz niektórych innych ustaw",
+  "wnioskodawcy": "20 posłów klubu Lewicy; przedstawicielka wnioskodawców: Anna Maria Żukowska",
+  "wplynal": "2026-03-20",
+  "wersja": "z autopoprawką (RPW/9790/2026)",
+  "etap": "Skierowany do I czytania na posiedzeniu Sejmu (27.07.2026)",
+  "krok_procedury": 1,
+  "ostatnia_zmiana": "2026-07-27",
+  "uchwalony": false,
+  "wejscie_w_zycie": "2027-06-01",
+  "zrodla": [
+    {
+      "nazwa": "Przebieg procesu legislacyjnego, Sejm RP (API)",
+      "url": "https://api.sejm.gov.pl/sejm/term10/processes/2848",
+      "zweryfikowano": "2026-10-03"
+    },
+    {
+      "nazwa": "Druk nr 2848 (PDF)",
+      "url": "https://api.sejm.gov.pl/sejm/term10/prints/2848/2848.pdf",
+      "zweryfikowano": "2026-10-03"
+    },
+    {
+      "nazwa": "Autopoprawka do druku nr 2848",
+      "url": "https://api.sejm.gov.pl/sejm/term10/prints/2848/2848-autopoprawka.docx",
+      "zweryfikowano": "2026-10-03"
+    },
+    {
+      "nazwa": "Ocena skutków regulacji, druk 2848-001",
+      "url": "https://api.sejm.gov.pl/sejm/term10/prints/2848-001/2848-001.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  ],
+  "parametry": [
+    {
+      "co": "Kogo dotyczy",
+      "tresc": "Budynki mieszkalne jednorodzinne, budynki mieszkalne wielorodzinne i lokale mieszkalne. Budynki i grunty firm zostają przy stawkach od m².",
+      "przepis": "art. 4 ust. 1 pkt 2a, art. 5a"
+    },
+    {
+      "co": "Podstawa opodatkowania",
+      "tresc": "Powierzchnia użytkowa × średnia cena transakcyjna m² w gminie z Portalu Danych o Obrocie Mieszkaniami (stan na 30 września roku poprzedniego). Bez tych danych: wskaźnik kosztu odtworzenia 1 m² ogłaszany przez wojewodę.",
+      "przepis": "art. 4 ust. 1 pkt 2a"
+    },
+    {
+      "co": "Kiedy ceny transakcyjne",
+      "tresc": "Podstawę z cen transakcyjnych można stosować od podatku za 2028 r.",
+      "przepis": "art. 7 projektu"
+    },
+    {
+      "co": "1. i 2. lokal lub dom",
+      "tresc": "0,02% wartości rocznie. Podatek nie może być wyższy niż według dotychczasowych przepisów.",
+      "przepis": "art. 5a ust. 1 pkt 1; art. 8 projektu"
+    },
+    {
+      "co": "3. i kolejne",
+      "tresc": "0,5% wartości w pierwszym roku, potem +0,2 pkt proc. rocznie, maksymalnie 1,5%.",
+      "przepis": "art. 5a ust. 1 pkt 2"
+    },
+    {
+      "co": "Kolejność lokali",
+      "tresc": "Według daty nabycia. Przy kilku nabytych tego samego dnia za pierwszy uznaje się najtańszy.",
+      "przepis": "art. 5a ust. 3–4"
+    },
+    {
+      "co": "Współwłasność i spadek",
+      "tresc": "Udziałów odziedziczonych i udziałów mniejszych niż 1/2 nie wlicza się do liczby lokali.",
+      "przepis": "art. 5a ust. 6"
+    },
+    {
+      "co": "Stała stawka 0,02% niezależnie od liczby",
+      "tresc": "Mieszkania spółdzielni mieszkaniowych, TBS, SIM, społecznych agencji najmu, państwowych osób prawnych; mieszkania treningowe i wspomagane.",
+      "przepis": "art. 5a ust. 8"
+    },
+    {
+      "co": "Rola gminy",
+      "tresc": "Rada gminy może ustalić współczynniki korygujące podstawę od 0,2 do 2 (np. rok budowy, lokalizacja, efektywność energetyczna).",
+      "przepis": "art. 5b"
+    },
+    {
+      "co": "Najem",
+      "tresc": "Wynajem mieszkań na cele mieszkaniowe nie jest traktowany jako działalność gospodarcza w podatku od nieruchomości.",
+      "przepis": "art. 1a ust. 2 pkt 4"
+    },
+    {
+      "co": "Skutki finansowe według wnioskodawców",
+      "tresc": "Brak bezpośrednich skutków dla budżetu państwa; możliwy wzrost dochodów gmin. Wnioskodawcy piszą, że precyzyjne oszacowanie nie jest możliwe z powodu braku danych o liczbie podatników z trzema i więcej mieszkaniami.",
+      "przepis": "uzasadnienie, część 6 OSR"
+    }
+  ],
+  "stawki_progresja": [
+    0.5,
+    0.7,
+    0.9,
+    1.1,
+    1.3,
+    1.5
+  ]
+}

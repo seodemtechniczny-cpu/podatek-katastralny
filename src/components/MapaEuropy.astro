@@ -1,0 +1,162 @@
+---
+import mapa from '../data/europe-map.json';
+import stats from '../data/stats.json';
+
+type Stat = { total_gdp?: { value: number; year: number }; total_tax?: { value: number; year: number } };
+const S = stats.countries as Record<string, Stat>;
+const PROGI = [0.25, 0.5, 1, 1.5, 2];
+const klasa = (v?: number) => (v === undefined ? 'none' : `m${PROGI.findIndex((p) => v < p) === -1 ? 5 : PROGI.findIndex((p) => v < p)}`);
+const pct = (v: number) => v.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
+
+const maKsztalt = new Set(mapa.countries.map((c) => c.iso));
+// Malta ginie przy uproszczeniu, więc istnieje tylko jako punkt; reszta punktów to pomoc dla myszy.
+const panstwa = [...mapa.countries.filter((c) => c.iso !== 'RUS'), ...mapa.dots.filter((d) => !maKsztalt.has(d.iso)).map((d) => ({ iso: d.iso, name: d.name, d: '' }))];
+const dane = Object.fromEntries(panstwa.map((c) => {
+  const s = S[c.iso];
+  return [c.iso, { n: c.name, g: s?.total_gdp?.value, t: s?.total_tax?.value, y: s?.total_gdp?.year }];
+}));
+const tabela = panstwa.map((c) => ({ ...c, ...dane[c.iso] }))
+  .sort((a, b) => (b.g ?? -1) - (a.g ?? -1));
+const pl = dane.POL;
+const legenda = [['m0', '< 0,25%'], ['m1', '0,25–0,5%'], ['m2', '0,5–1%'], ['m3', '1–1,5%'], ['m4', '1,5–2%'], ['m5', '≥ 2%'], ['none', 'brak danych']];
+const label = (c: { name: string; g?: number; y?: number }) => c.g === undefined ? `${c.name}: brak danych` : `${c.name}: ${pct(c.g)} PKB (${c.y})`;
+---
+<section class="section" id="europa" aria-labelledby="eu-h">
+  <div class="wrap">
+    <p class="eyebrow">Europa</p>
+    <h2 id="eu-h">Ile państwa Europy pobierają z podatków od nieruchomości?</h2>
+    <p class="lead">Wpływy z cyklicznych podatków od nieruchomości jako odsetek PKB (OECD, kategoria 4100). W Polsce to
+      {pct(pl.g!)} PKB ({pl.y}). Stawek wprost porównać się nie da: jedne państwa liczą podatek od wartości rynkowej,
+      inne od dawnej wartości katastralnej albo od powierzchni.</p>
+
+    <div class="map" data-dane={JSON.stringify(dane)}>
+      <svg class="map__svg" viewBox={mapa.viewBox} role="group" aria-label="Mapa Europy: wpływy z podatków od nieruchomości jako % PKB">
+        {mapa.countries.map((c) => c.iso === 'RUS'
+          ? <path class="c c--bg" d={c.d} aria-hidden="true" />
+          : <path class={`c c--${klasa(dane[c.iso].g)}`} d={c.d} data-iso={c.iso} tabindex="0" role="button" aria-label={label({ name: c.name, ...dane[c.iso] })} />)}
+        {mapa.dots.map((d) => maKsztalt.has(d.iso)
+          ? <circle class={`c dot c--${klasa(dane[d.iso].g)}`} cx={d.x} cy={d.y} r="6" data-iso={d.iso} aria-hidden="true" />
+          : <circle class={`c dot c--${klasa(dane[d.iso].g)}`} cx={d.x} cy={d.y} r="7" data-iso={d.iso} tabindex="0" role="button" aria-label={label({ name: d.name, ...dane[d.iso] })} />)}
+      </svg>
+      <div class="tip" role="presentation" hidden>
+        <svg class="tip__lead" width="40" height="24" aria-hidden="true"><path d="M0 24 L16 0 H40" /></svg>
+        <p class="tip__n"></p><p class="tip__v"></p>
+      </div>
+      <aside class="panel" aria-live="polite" tabindex="-1">
+        <p class="panel__hint">Najedź na państwo, aby zobaczyć skrót. Kliknij albo naciśnij Enter, aby zobaczyć szczegóły.</p>
+      </aside>
+    </div>
+
+    <ul class="legend" aria-label="Legenda">
+      {legenda.map(([k, t]) => <li><i class={`sw c--${k}`}></i>{t}</li>)}
+    </ul>
+
+    <details class="tbl">
+      <summary>Tabela danych ({tabela.length} państw)</summary>
+      <table>
+        <thead><tr><th scope="col">Państwo</th><th scope="col">% PKB</th><th scope="col">% wszystkich podatków</th><th scope="col">Rok</th></tr></thead>
+        <tbody>{tabela.map((c) => <tr><th scope="row">{c.name}</th><td>{c.g === undefined ? 'brak danych' : pct(c.g)}</td><td>{c.t === undefined ? '—' : pct(c.t)}</td><td>{c.y ?? '—'}</td></tr>)}</tbody>
+      </table>
+    </details>
+    <p class="src">Dane: <a href={stats.url}>{stats.source}</a>, pobrane {stats.fetched}. Granice: Natural Earth (domena publiczna).
+      Brak danych OECD dla części Bałkanów, Białorusi, Andory i Cypru.</p>
+  </div>
+</section>
+
+<script>
+  const map = document.querySelector<HTMLElement>('.map')!;
+  const dane: Record<string, { n: string; g?: number; t?: number; y?: number }> = JSON.parse(map.dataset.dane!);
+  const tip = map.querySelector<HTMLElement>('.tip')!;
+  const panel = map.querySelector<HTMLElement>('.panel')!;
+  const pct = (v: number) => v.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
+  let active: Element | null = null;
+
+  function show(el: Element, x?: number, y?: number) {
+    const d = dane[(el as HTMLElement).dataset.iso!];
+    tip.querySelector('.tip__n')!.textContent = d.n;
+    tip.querySelector('.tip__v')!.textContent = d.g === undefined ? 'brak danych OECD' : `${pct(d.g)} PKB · ${d.y}`;
+    const box = map.getBoundingClientRect();
+    if (x === undefined) { const r = el.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2; }
+    tip.style.transform = `translate(${Math.min(x - box.left + 8, box.width - 200)}px, ${y! - box.top - 64}px)`;
+    tip.hidden = false;
+  }
+  function select(el: Element) {
+    active?.classList.remove('is-on');
+    active = el; el.classList.add('is-on');
+    const d = dane[(el as HTMLElement).dataset.iso!];
+    const avg = dane.POL.g!;
+    panel.innerHTML = `
+      <p class="panel__k">Wybrane państwo</p>
+      <h3>${d.n}</h3>
+      ${d.g === undefined ? '<p>OECD nie publikuje danych o wpływach z podatków od nieruchomości dla tego państwa.</p>' : `
+      <dl>
+        <div><dt>Wpływy jako % PKB</dt><dd>${pct(d.g)}</dd></div>
+        <div><dt>Udział we wszystkich podatkach</dt><dd>${d.t === undefined ? '—' : pct(d.t)}</dd></div>
+        <div><dt>Rok danych</dt><dd>${d.y}</dd></div>
+      </dl>
+      <div class="cmpbar" aria-hidden="true">
+        <span style="--w:${Math.min(d.g / 3, 1)}"><i></i>${d.n}</span>
+        <span style="--w:${Math.min(avg / 3, 1)}" class="is-pl"><i></i>Polska</span>
+      </div>`}
+      ${(el as HTMLElement).dataset.iso === 'POL'
+        ? '<p class="panel__more">Dziś podatek od powierzchni. W Sejmie projekt podatku od wartości dla mieszkań (druk nr 2848). <a href="#projekt">Co zakłada projekt</a></p>'
+        : '<p class="panel__more">Opis systemu (podstawa, stawki, ostatnia reforma, skutki) w przygotowaniu — publikujemy go po sprawdzeniu źródeł.</p>'}`;
+  }
+
+  map.addEventListener('pointermove', (e) => {
+    const el = (e.target as Element).closest('[data-iso]');
+    if (el) show(el, e.clientX, e.clientY); else tip.hidden = true;
+  });
+  map.addEventListener('pointerleave', () => { tip.hidden = true; });
+  map.addEventListener('click', (e) => { const el = (e.target as Element).closest('[data-iso]'); if (el) select(el); });
+  map.addEventListener('focusin', (e) => { const el = (e.target as Element).closest('[data-iso]'); if (el) show(el); });
+  map.addEventListener('focusout', () => { tip.hidden = true; });
+  map.addEventListener('keydown', (e) => {
+    const el = (e.target as Element).closest('[data-iso]');
+    if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(el); }
+  });
+  select(map.querySelector('[data-iso="POL"]')!);
+</script>
+
+<style>
+  .map { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; margin-top: 36px; }
+  .map__svg { width: 100%; height: auto; display: block; background: var(--m-bg); border: 1px solid var(--line); border-radius: 4px; }
+  .c { stroke: var(--bg); stroke-width: 0.8; stroke-linejoin: round; transition: fill var(--t-1) var(--ease), stroke var(--t-1) var(--ease); }
+  .c[data-iso] { cursor: pointer; }
+  .c[data-iso]:hover, .c[data-iso]:focus-visible, .c.is-on { stroke: var(--ink); stroke-width: 1.6; outline: none; }
+  .c--bg { fill: var(--m-none); stroke: var(--m-bg); }
+  .c--m0 { fill: var(--m0); } .c--m1 { fill: var(--m1); } .c--m2 { fill: var(--m2); } .c--m3 { fill: var(--m3); } .c--m4 { fill: var(--m4); } .c--m5 { fill: var(--m5); }
+  .c--none { fill: var(--m-none); }
+  path.c--none { stroke: var(--line-2); }
+  .dot { stroke: var(--ink-2); stroke-width: 1; }
+  .tip { position: absolute; left: 0; top: 0; pointer-events: none; background: var(--surface); border: 1px solid var(--line-2); border-radius: 3px; padding: 8px 12px; min-width: 150px; transition: transform 90ms linear; z-index: 2; }
+  .tip__lead { position: absolute; left: -32px; bottom: -22px; overflow: visible; }
+  .tip__lead path { fill: none; stroke: var(--ink-3); stroke-width: 1; }
+  .tip p { margin: 0; }
+  .tip__n { font-weight: 650; }
+  .tip__v { font-size: 0.85rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 24px; align-self: start; position: sticky; top: 88px; }
+  .panel :global(h3) { font-size: 1.6rem; }
+  .panel :global(.panel__k), .panel__hint { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+  .panel :global(dl) { margin: 0 0 16px; display: grid; gap: 10px; }
+  .panel :global(dt) { font-size: 0.82rem; color: var(--ink-3); }
+  .panel :global(dd) { margin: 0; font: 560 1.35rem/1.2 var(--serif); font-variant-numeric: tabular-nums; }
+  .panel :global(.cmpbar) { display: grid; gap: 6px; margin-bottom: 16px; font-size: 0.8rem; color: var(--ink-2); }
+  .panel :global(.cmpbar span) { display: grid; gap: 3px; }
+  .panel :global(.cmpbar i) { height: 6px; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--w)); }
+  .panel :global(.cmpbar .is-pl i) { background: var(--line-2); }
+  .panel :global(.panel__more) { font-size: 0.85rem; color: var(--ink-3); margin: 0; }
+  .legend { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 0; margin: 18px 0; font-size: 0.85rem; color: var(--ink-2); }
+  .legend li { display: inline-flex; align-items: center; gap: 6px; }
+  .sw { width: 16px; height: 12px; display: inline-block; border: 1px solid var(--line-2); }
+  .tbl summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+  .tbl table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+  .tbl th, .tbl td { text-align: left; padding: 8px 12px 8px 0; border-top: 1px solid var(--line); }
+  .tbl thead th { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+  @media (max-width: 900px) {
+    .map { grid-template-columns: 1fr; }
+    .panel { position: static; }
+    .tip { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>

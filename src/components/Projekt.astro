@@ -1,0 +1,71 @@
+---
+import projekt from '../data/pl/projekt-2848.json';
+import obecny from '../data/pl/obecny-podatek.json';
+
+const s27 = obecny.stawki_maksymalne.find((s) => s.rok === 2027)!;
+const zl = (n: number) => n.toLocaleString('pl-PL', { minimumFractionDigits: 2 });
+const glowne = ['Podstawa opodatkowania', '1. i 2. lokal lub dom', '3. i kolejne', 'Rola gminy'];
+const reszta = projekt.parametry.filter((p) => !glowne.includes(p.co));
+---
+<section class="section" id="projekt" aria-labelledby="projekt-h">
+  <div class="wrap">
+    <p class="eyebrow">Projekt ustawy · druk nr {projekt.druk}</p>
+    <h2 id="projekt-h">Co zmienia projekt podatku od wartości?</h2>
+    <p class="lead">Projekt dotyczy tylko budynków i lokali mieszkalnych. Zestawienie obecnych zasad z zasadami z projektu
+      (wersja {projekt.wersja}). Przy każdym punkcie podajemy przepis projektu.</p>
+
+    <div class="cmp reveal">
+      <article class="cmp__col">
+        <h3>Dziś</h3>
+        <p class="cmp__big">do {zl(s27.budynki_mieszkalne)} zł <span>za m² rocznie</span></p>
+        <p>Podatek liczy się od powierzchni użytkowej. Stawkę maksymalną ogłasza minister finansów, gmina uchwala swoją,
+          nie wyższą. Wartość mieszkania i liczba mieszkań nie mają znaczenia.</p>
+        <p class="src">Stawka maksymalna na 2027 r.: <a href={s27.zrodlo.url}>{s27.zrodlo.nazwa}</a></p>
+      </article>
+      <article class="cmp__col cmp__col--new">
+        <h3>Według projektu</h3>
+        <p class="cmp__big">0,02% <span>wartości: 1. i 2. lokal</span></p>
+        <p class="cmp__big">0,5% → 1,5% <span>wartości: 3. i kolejne</span></p>
+        <p>Wartość = powierzchnia × średnia cena transakcyjna m² w gminie. Za 1. i 2. lokal podatek nie może być wyższy
+          niż według dotychczasowych zasad. Za 3. i kolejne stawka rośnie o 0,2 pkt proc. rocznie.</p>
+        <p class="src">Art. 4 ust. 1 pkt 2a, art. 5a oraz art. 8 projektu, <a href={projekt.zrodla[2].url}>autopoprawka</a></p>
+      </article>
+    </div>
+
+    <details class="params">
+      <summary>Wszystkie zasady z projektu ({projekt.parametry.length})</summary>
+      <table>
+        <thead><tr><th scope="col">Kwestia</th><th scope="col">Co mówi projekt</th><th scope="col">Przepis</th></tr></thead>
+        <tbody>
+          {projekt.parametry.map((p) => <tr><th scope="row">{p.co}</th><td>{p.tresc}</td><td class="params__art">{p.przepis}</td></tr>)}
+        </tbody>
+      </table>
+    </details>
+    <p class="src">Wnioskodawcy: {projekt.wnioskodawcy}. Źródła: {projekt.zrodla.map((z, i) => <>{i > 0 && ' · '}<a href={z.url}>{z.nazwa}</a></>)}.</p>
+  </div>
+</section>
+
+<style>
+  .cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 40px 0 28px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+  .cmp__col { padding: clamp(20px, 3vw, 36px); }
+  .cmp__col + .cmp__col { border-left: 1px solid var(--line); }
+  .cmp__col h3 { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+  .cmp__big { font: 560 clamp(1.5rem, 2.6vw, 2rem)/1.15 var(--serif); margin-bottom: 14px; }
+  .cmp__big span { display: block; font: 500 0.9rem/1.4 var(--sans); color: var(--ink-3); margin-top: 2px; }
+  .cmp__col--new .cmp__big { color: var(--accent); }
+  .params { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+  .params summary { cursor: pointer; padding: 16px 0; font-weight: 600; min-height: 44px; }
+  .params table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-bottom: 20px; }
+  .params th, .params td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-top: 1px solid var(--line); }
+  .params thead th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border-top: 0; }
+  .params tbody th { width: 22%; font-weight: 600; }
+  .params__art { white-space: nowrap; color: var(--ink-3); font-size: 0.85rem; }
+  @media (max-width: 760px) {
+    .cmp { grid-template-columns: 1fr; }
+    .cmp__col + .cmp__col { border-left: 0; border-top: 1px solid var(--line); }
+    .params thead { display: none; }
+    .params tr { display: block; border-top: 1px solid var(--line); padding: 12px 0; }
+    .params th, .params td { display: block; border: 0; padding: 2px 0; width: auto !important; }
+    .params__art { white-space: normal; }
+  }
+</style>

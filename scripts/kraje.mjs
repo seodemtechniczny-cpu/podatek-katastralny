@@ -1,0 +1,2 @@
+// ISO3 krajów Europy na mapie. Kraje bez serii OECD dostają „brak danych".
+export const ISO3 = 'ALB AND AUT BEL BGR BIH BLR CHE CYP CZE DEU DNK ESP EST FIN FRA GBR GRC HRV HUN IRL ISL ITA LIE LTU LUX LVA MDA MKD MLT MNE NLD NOR POL PRT ROU SRB SVK SVN SWE TUR UKR XKX'.split(' ');

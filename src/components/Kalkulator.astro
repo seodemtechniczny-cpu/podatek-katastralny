@@ -1,0 +1,148 @@
+---
+import projekt from '../data/pl/projekt-2848.json';
+import obecny from '../data/pl/obecny-podatek.json';
+
+const s27 = obecny.stawki_maksymalne.find((s) => s.rok === 2027)!;
+const lata = projekt.stawki_progresja.map((st, i) => ({ i, label: i === projekt.stawki_progresja.length - 1 ? `${i + 1}. rok i kolejne (${st.toLocaleString('pl-PL')}%)` : `${i + 1}. rok (${st.toLocaleString('pl-PL')}%)` }));
+---
+<section class="section calc-sec" id="kalkulator" aria-labelledby="calc-h">
+  <div class="wrap">
+    <p class="eyebrow">Kalkulator ilustracyjny</p>
+    <h2 id="calc-h">Ile wyniósłby podatek według projektu?</h2>
+    <p class="lead">Wpisz swoje lokale w kolejności nabycia. Kalkulator pokazuje, ile płacisz dziś przy podanej stawce gminy
+      i ile wyniósłby podatek według druku nr {projekt.druk}. Projekt nie obowiązuje, a wynik nie jest poradą podatkową.</p>
+
+    <form class="calc" data-prog={JSON.stringify(projekt.stawki_progresja)} novalidate>
+      <fieldset class="calc__opts">
+        <legend class="sr-only">Ustawienia</legend>
+        <label><span>Stawka Twojej gminy dziś <span class="unit">zł/m²</span></span>
+          <input name="stawka" type="number" inputmode="decimal" min="0" max={s27.budynki_mieszkalne} step="0.01" value={s27.budynki_mieszkalne} required />
+          <small>Domyślnie maksymalna na 2027 r. ({s27.budynki_mieszkalne.toLocaleString('pl-PL')} zł). Sprawdź uchwałę swojej gminy.</small>
+        </label>
+        <label><span>Który rok obowiązywania</span>
+          <select name="rok">{lata.map((l) => <option value={l.i}>{l.label}</option>)}</select>
+          <small>Dotyczy stawki za 3. i kolejne lokale.</small>
+        </label>
+      </fieldset>
+
+      <ol class="calc__rows" aria-label="Twoje lokale w kolejności nabycia"></ol>
+      <template id="calc-row">
+        <li class="row">
+          <span class="row__n" aria-hidden="true"></span>
+          <label><span>Powierzchnia <span class="unit">m²</span></span><input name="m2" type="number" inputmode="decimal" min="1" max="2000" step="0.1" value="55" required /></label>
+          <label><span>Średnia cena m² w gminie <span class="unit">zł</span></span><input name="cena" type="number" inputmode="numeric" min="0" max="100000" step="100" value="9000" required /></label>
+          <button type="button" class="row__del" aria-label="Usuń ten lokal">Usuń</button>
+          <div class="row__out" aria-live="polite">
+            <div class="bar"><span class="bar__k">Dziś</span><span class="bar__line"><i data-k="old"></i></span><b data-v="old"></b></div>
+            <div class="bar bar--new"><span class="bar__k">Projekt</span><span class="bar__line"><i data-k="new"></i></span><b data-v="new"></b></div>
+            <p class="row__note"></p>
+          </div>
+        </li>
+      </template>
+      <div class="calc__foot">
+        <button type="button" class="btn btn--ghost" data-add>+ Dodaj kolejny lokal</button>
+        <p class="calc__sum" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <details class="calc__how">
+      <summary>Jak liczymy</summary>
+      <ul>
+        <li>Dziś: powierzchnia × stawka gminy.</li>
+        <li>1. i 2. lokal: 0,02% × powierzchnia × cena m², ale nie więcej niż dziś (art. 8 projektu).</li>
+        <li>3. i kolejne: wartość × stawka z wybranego roku (0,5% w pierwszym roku, +0,2 pkt proc. rocznie, maks. 1,5%).</li>
+        <li>Pomijamy współczynniki gminy (0,2–2, art. 5b), zasady współwłasności i spadku (art. 5a ust. 5–6) oraz
+          wyjątki dla spółdzielni i TBS (art. 5a ust. 8). W pierwszym roku podstawą może być wskaźnik wojewody,
+          a nie cena transakcyjna (art. 7 projektu).</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('.calc')!;
+  const list = form.querySelector('.calc__rows')!;
+  const tpl = document.querySelector<HTMLTemplateElement>('#calc-row')!;
+  const prog: number[] = JSON.parse(form.dataset.prog!);
+  const zl = (n: number) => n.toLocaleString('pl-PL', { maximumFractionDigits: 0 }) + ' zł';
+  const num = (el: Element | null) => { const v = parseFloat((el as HTMLInputElement).value.replace(',', '.')); return Number.isFinite(v) && v >= 0 ? v : 0; };
+
+  function add() {
+    if (list.children.length >= 10) return;
+    list.append(tpl.content.cloneNode(true));
+    calc();
+  }
+
+  function calc() {
+    const stawka = num(form.elements.namedItem('stawka') as Element);
+    const rate = prog[+(form.elements.namedItem('rok') as HTMLSelectElement).value] / 100;
+    const rows = [...list.children] as HTMLElement[];
+    const res = rows.map((row, i) => {
+      const m2 = num(row.querySelector('[name=m2]')), cena = num(row.querySelector('[name=cena]'));
+      const old = m2 * stawka, wartosc = m2 * cena;
+      const raw = i < 2 ? wartosc * 0.0002 : wartosc * rate;
+      const capped = i < 2 && raw > old;
+      return { old, now: capped ? old : raw, capped, raw, i };
+    });
+    const max = Math.max(1, ...res.flatMap((r) => [r.old, r.now]));
+    rows.forEach((row, i) => {
+      const r = res[i];
+      row.querySelector('.row__n')!.textContent = `${i + 1}.`;
+      (row.querySelector('.row__del') as HTMLButtonElement).hidden = rows.length === 1;
+      row.querySelector('[data-v=old]')!.textContent = zl(r.old);
+      row.querySelector('[data-v=new]')!.textContent = zl(r.now);
+      (row.querySelector('[data-k=old]') as HTMLElement).style.transform = `scaleX(${r.old / max})`;
+      (row.querySelector('[data-k=new]') as HTMLElement).style.transform = `scaleX(${r.now / max})`;
+      row.querySelector('.row__note')!.textContent = i < 2
+        ? (r.capped ? `0,02% wartości dałoby ${zl(r.raw)}; limit z art. 8 obniża to do kwoty dzisiejszej.` : 'Stawka 0,02% wartości (1. lub 2. lokal).')
+        : `Stawka ${(rate * 100).toLocaleString('pl-PL')}% wartości (3. lub kolejny lokal).`;
+    });
+    const so = res.reduce((a, r) => a + r.old, 0), sn = res.reduce((a, r) => a + r.now, 0);
+    form.querySelector('.calc__sum')!.innerHTML = `Razem rocznie: dziś <b>${zl(so)}</b>, według projektu <b>${zl(sn)}</b>.`;
+  }
+
+  form.addEventListener('input', calc);
+  form.addEventListener('submit', (e) => e.preventDefault());
+  form.querySelector('[data-add]')!.addEventListener('click', add);
+  list.addEventListener('click', (e) => {
+    const del = (e.target as Element).closest('.row__del');
+    if (del) { del.closest('li')!.remove(); calc(); }
+  });
+  add();
+</script>
+
+<style>
+  .calc-sec { background: var(--bg-2); }
+  .calc { margin-top: 36px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: clamp(18px, 3vw, 32px); }
+  label { display: grid; gap: 6px; font-size: 0.9rem; font-weight: 600; color: var(--ink-2); }
+  label small { font-weight: 400; color: var(--ink-3); font-size: 0.8rem; }
+  .unit { font-weight: 400; color: var(--ink-3); }
+  input, select { font: 500 1rem/1.2 var(--sans); color: var(--ink); background: var(--bg); border: 1px solid var(--line-2); border-radius: 3px; padding: 10px 12px; min-height: 44px; width: 100%; }
+  input:focus-visible, select:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+  .calc__opts { border: 0; padding: 0; margin: 0 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .calc__rows { list-style: none; margin: 0; padding: 0; }
+  :global(.row) { display: grid; grid-template-columns: 32px minmax(0, 1fr) minmax(0, 1fr) auto; gap: 12px 16px; align-items: end; padding: 20px 0; border-top: 1px solid var(--line); }
+  :global(.row__n) { font: 600 1.4rem/1 var(--serif); color: var(--accent); align-self: center; }
+  :global(.row__del) { min-height: 44px; padding: 0 12px; background: none; border: 1px solid var(--line-2); border-radius: 3px; color: var(--ink-2); cursor: pointer; font: 500 0.85rem var(--sans); }
+  :global(.row__out) { grid-column: 2 / -1; display: grid; gap: 8px; }
+  :global(.bar) { display: grid; grid-template-columns: 64px 1fr 96px; align-items: center; gap: 12px; font-size: 0.9rem; }
+  :global(.bar__k) { color: var(--ink-3); }
+  :global(.bar__line) { height: 8px; background: var(--bg-2); position: relative; overflow: clip; }
+  :global(.bar__line i) { position: absolute; inset: 0; background: var(--line-2); transform-origin: 0 50%; transform: scaleX(0); transition: transform var(--t-3) var(--ease); }
+  :global(.bar--new .bar__line i) { background: var(--accent); }
+  :global(.bar b) { text-align: right; font-variant-numeric: tabular-nums; }
+  :global(.row__note) { margin: 2px 0 0; font-size: 0.82rem; color: var(--ink-3); }
+  .calc__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 20px; }
+  .calc__sum { margin: 0; font-size: 1.05rem; }
+  .calc__how { margin-top: 20px; }
+  .calc__how summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+  .calc__how ul { color: var(--ink-2); font-size: 0.95rem; }
+  @media (prefers-reduced-motion: reduce) { :global(.bar__line i) { transition: none; } }
+  @media (max-width: 640px) {
+    .calc__opts { grid-template-columns: 1fr; }
+    :global(.row) { grid-template-columns: 28px 1fr 1fr; }
+    :global(.row__del) { grid-column: 2 / -1; justify-self: start; }
+    :global(.row__out) { grid-column: 1 / -1; }
+    :global(.bar) { grid-template-columns: 56px 1fr 84px; }
+  }
+</style>

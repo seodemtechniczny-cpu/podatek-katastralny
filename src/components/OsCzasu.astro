@@ -1,0 +1,56 @@
+---
+import zdarzenia from '../data/pl/os-czasu.json';
+
+const TYP: Record<string, string> = { projekt: 'Projekt', etap: 'Sejm', wypowiedz: 'Wypowiedź', rekomendacja: 'Rekomendacja', stawki: 'Stawki' };
+const fmt = (e: { data: string; dokladnosc?: string }) => new Date(e.data).toLocaleDateString('pl-PL',
+  e.dokladnosc === 'miesiac' ? { month: 'long', year: 'numeric' } : { day: 'numeric', month: 'long', year: 'numeric' });
+const lista = [...zdarzenia].sort((a, b) => b.data.localeCompare(a.data));
+---
+<section class="section" id="os-czasu" aria-labelledby="os-h">
+  <div class="wrap os">
+    <div class="os__head">
+      <p class="eyebrow">Oś czasu</p>
+      <h2 id="os-h">Co się wydarzyło w sprawie podatku katastralnego?</h2>
+      <p class="lead">Zdarzenia od najnowszego. Każdy wpis ma źródło. Nowe etapy w Sejmie sprawdzamy automatycznie codziennie.</p>
+      <a class="os__rss" href={`${import.meta.env.BASE_URL}zmiany.xml`}>Kanał zmian (RSS/Atom)</a>
+    </div>
+    <ol class="tl">
+      {lista.map((e) => (
+        <li class="tl__item">
+          <time datetime={e.data}>{fmt(e)}</time>
+          <p class="tl__meta"><span class={`tag tag--${e.typ}`}>{TYP[e.typ]}</span> {e.kto}</p>
+          <h3>{e.tytul}</h3>
+          <p>{e.opis}</p>
+          <p class="src">Źródło: <a href={e.zrodlo.url}>{e.zrodlo.nazwa}</a></p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .os { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; }
+  .os__head { position: sticky; top: 96px; align-self: start; }
+  .os__rss { font-size: 0.92rem; }
+  .tl { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; view-timeline: --tl block; }
+  /* Linia pomiaru: tło + postęp rosnący z przewijaniem listy. */
+  .tl::before, .tl::after { content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: var(--line-2); }
+  .tl::after { width: 2px; left: 4.5px; background: var(--accent); transform-origin: top; transform: scaleY(1); }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .tl::after { animation-name: grow; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: --tl; animation-range: entry 20% exit 60%; }
+      @keyframes grow { from { transform: scaleY(0); } }
+    }
+  }
+  .tl__item { position: relative; padding-bottom: 36px; }
+  .tl__item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--accent); z-index: 1; }
+  .tl__item time { font-size: 0.85rem; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .tl__meta { margin: 4px 0 6px; font-size: 0.85rem; color: var(--ink-3); }
+  .tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--line-2); border-radius: 2px; color: var(--ink-2); margin-right: 6px; }
+  .tl__item h3 { font-size: 1.15rem; margin-bottom: 6px; }
+  .tl__item p { margin-bottom: 6px; }
+  @media (max-width: 860px) {
+    .os { grid-template-columns: 1fr; gap: 24px; }
+    .os__head { position: static; }
+  }
+</style>

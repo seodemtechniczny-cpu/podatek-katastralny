@@ -1,0 +1,10 @@
+{
+  "opis": "Podatek od nieruchomości w Polsce liczy się od powierzchni, nie od wartości. Minister finansów co roku ogłasza stawki maksymalne, a rada każdej gminy uchwala własne stawki nie wyższe od nich.",
+  "stawki_maksymalne": [
+    { "rok": 2026, "budynki_mieszkalne": 1.25, "budynki_dzialalnosc": 35.53, "grunty_dzialalnosc": 1.45, "grunty_pozostale": 0.77,
+      "zrodlo": { "nazwa": "Obwieszczenie MF z 1.08.2025, M.P. 2025 poz. 726", "url": "https://api.sejm.gov.pl/eli/acts/MP/2025/726/text.pdf", "zweryfikowano": "2026-10-03" } },
+    { "rok": 2027, "budynki_mieszkalne": 1.29, "budynki_dzialalnosc": 36.49, "grunty_dzialalnosc": 1.49, "grunty_pozostale": 0.80,
+      "zrodlo": { "nazwa": "Obwieszczenie MFiG z 23.07.2026, M.P. 2026 poz. 741", "url": "https://api.sejm.gov.pl/eli/acts/MP/2026/741/text.pdf", "zweryfikowano": "2026-10-03" } }
+  ],
+  "jednostka": "zł za m² rocznie"
+}

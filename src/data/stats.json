@@ -1,0 +1,347 @@
+{
+ "source": "OECD, Global Revenue Statistics — Comparative tax revenues (DF_RSGLOBAL), kategoria 4100",
+ "url": "https://data-explorer.oecd.org/",
+ "fetched": "2026-10-03",
+ "countries": {
+  "MLT": {
+   "total_gdp": {
+    "value": 0,
+    "year": 2024
+   },
+   "total_tax": {
+    "value": 0,
+    "year": 2024
+   }
+  },
+  "TUR": {
+   "total_tax": {
+    "value": 0.41,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.1,
+    "year": 2024
+   }
+  },
+  "HRV": {
+   "total_tax": {
+    "value": 1.84,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.71,
+    "year": 2024
+   }
+  },
+  "ROU": {
+   "total_tax": {
+    "value": 1.59,
+    "year": 2023
+   },
+   "total_gdp": {
+    "value": 0.43,
+    "year": 2023
+   }
+  },
+  "MDA": {
+   "total_tax": {
+    "value": 0.24,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.08,
+    "year": 2024
+   }
+  },
+  "BGR": {
+   "total_tax": {
+    "value": 0.68,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.21,
+    "year": 2024
+   }
+  },
+  "ESP": {
+   "total_tax": {
+    "value": 2.43,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.89,
+    "year": 2024
+   }
+  },
+  "CHE": {
+   "total_tax": {
+    "value": 0.66,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.18,
+    "year": 2024
+   }
+  },
+  "SWE": {
+   "total_tax": {
+    "value": 1.57,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.65,
+    "year": 2024
+   }
+  },
+  "LIE": {
+   "total_gdp": {
+    "value": 0,
+    "year": 2024
+   },
+   "total_tax": {
+    "value": 0,
+    "year": 2024
+   }
+  },
+  "SVK": {
+   "total_tax": {
+    "value": 1.36,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.48,
+    "year": 2024
+   }
+  },
+  "POL": {
+   "total_tax": {
+    "value": 2.82,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 1.03,
+    "year": 2024
+   }
+  },
+  "SVN": {
+   "total_tax": {
+    "value": 1.17,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.45,
+    "year": 2024
+   }
+  },
+  "PRT": {
+   "total_tax": {
+    "value": 1.62,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.57,
+    "year": 2024
+   }
+  },
+  "GBR": {
+   "total_tax": {
+    "value": 8.14,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 2.8,
+    "year": 2024
+   }
+  },
+  "UKR": {
+   "total_tax": {
+    "value": 1.82,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.65,
+    "year": 2024
+   }
+  },
+  "BEL": {
+   "total_tax": {
+    "value": 2.96,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 1.26,
+    "year": 2024
+   }
+  },
+  "FRA": {
+   "total_tax": {
+    "value": 4.48,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 1.95,
+    "year": 2024
+   }
+  },
+  "DEU": {
+   "total_tax": {
+    "value": 0.98,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.37,
+    "year": 2024
+   }
+  },
+  "FIN": {
+   "total_tax": {
+    "value": 1.92,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.81,
+    "year": 2024
+   }
+  },
+  "ITA": {
+   "total_tax": {
+    "value": 2.46,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 1.05,
+    "year": 2024
+   }
+  },
+  "NLD": {
+   "total_tax": {
+    "value": 1.48,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.57,
+    "year": 2024
+   }
+  },
+  "NOR": {
+   "total_tax": {
+    "value": 0.84,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.34,
+    "year": 2024
+   }
+  },
+  "LUX": {
+   "total_tax": {
+    "value": 0.13,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.05,
+    "year": 2024
+   }
+  },
+  "IRL": {
+   "total_tax": {
+    "value": 1.9,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.41,
+    "year": 2024
+   }
+  },
+  "DNK": {
+   "total_tax": {
+    "value": 2.02,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.91,
+    "year": 2024
+   }
+  },
+  "GRC": {
+   "total_tax": {
+    "value": 3.59,
+    "year": 2023
+   },
+   "total_gdp": {
+    "value": 1.4,
+    "year": 2023
+   }
+  },
+  "CZE": {
+   "total_tax": {
+    "value": 0.85,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.29,
+    "year": 2024
+   }
+  },
+  "HUN": {
+   "total_tax": {
+    "value": 0.96,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.33,
+    "year": 2024
+   }
+  },
+  "ISL": {
+   "total_tax": {
+    "value": 5.43,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 2.01,
+    "year": 2024
+   }
+  },
+  "LVA": {
+   "total_tax": {
+    "value": 1.68,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.59,
+    "year": 2024
+   }
+  },
+  "LTU": {
+   "total_tax": {
+    "value": 0.9,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.3,
+    "year": 2024
+   }
+  },
+  "AUT": {
+   "total_tax": {
+    "value": 0.45,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.19,
+    "year": 2024
+   }
+  },
+  "EST": {
+   "total_tax": {
+    "value": 0.41,
+    "year": 2024
+   },
+   "total_gdp": {
+    "value": 0.15,
+    "year": 2024
+   }
+  }
+ }
+}

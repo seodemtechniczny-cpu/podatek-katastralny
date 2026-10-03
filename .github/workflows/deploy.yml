@@ -22,11 +22,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      # Podgląd na github.io: podkatalog repo i noindex. Po przepięciu DNS: BASE='/', PUBLIC_NOINDEX='0'.
+      # Produkcja pod podatek-katastralny.pl (DNS przepięty 03.10.2026): ścieżki od korzenia, strona indeksowana.
       - run: npm run build
-        env:
-          BASE: /podatek-katastralny/
-          PUBLIC_NOINDEX: '1'
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist

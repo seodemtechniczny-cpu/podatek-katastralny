@@ -2,7 +2,7 @@
 // kategoria 4100, jako % PKB i % wszystkich podatków. Bez podziału 4110/4120: część krajów (np. Polska)
 // raportuje całość w 4120, więc „gospodarstwa domowe 0%" wprowadzałoby w błąd.
 // Wynik: src/data/stats.json. Uruchamiaj: node scripts/fetch-stats.mjs
-import { writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 import { ISO3 } from './kraje.mjs';
 
@@ -35,10 +35,18 @@ for (const r of rows) {
   if (!c[key] || year > c[key].year) c[key] = { value: Math.round(+v * 100) / 100, year };
 }
 
-writeFileSync('src/data/stats.json', JSON.stringify({
+// Zapis tylko przy zmianie liczb: codzienny workflow nie tworzy pustych commitów,
+// a data „pobrane” oznacza dzień, w którym OECD opublikowało nowe dane.
+const PLIK = 'src/data/stats.json';
+const stare = existsSync(PLIK) ? JSON.parse(readFileSync(PLIK, 'utf8')).countries : {};
+const zmiana = JSON.stringify(out, Object.keys(out).sort()) !== JSON.stringify(stare, Object.keys(stare).sort())
+  || Object.keys(out).some((k) => JSON.stringify(out[k]) !== JSON.stringify(stare[k]));
+if (zmiana) writeFileSync(PLIK, JSON.stringify({
   source: 'OECD, Global Revenue Statistics — Comparative tax revenues (DF_RSGLOBAL), kategoria 4100',
   url: 'https://data-explorer.oecd.org/',
   fetched: new Date().toISOString().slice(0, 10),
   countries: out,
 }, null, 1));
-console.log(`stats.json: ${Object.keys(out).length} krajów z danymi`);
+const lata = Object.values(out).map((c) => c.total_gdp?.year).filter(Boolean);
+console.log(`stats.json: ${Object.keys(out).length} krajów, najnowszy rok ${Math.max(...lata)}, ${zmiana ? 'ZMIANA' : 'bez zmian'}`);
+

@@ -15,9 +15,24 @@ Nic nie skacze, nie pulsuje, nie odbija się. Ruch ma pokazać, skąd jest liczb
 | przesunięcia | 8–14 px | wejścia treści |
 | paralaksa | 4–12% wysokości sekcji | warstwy siatki |
 
+## Wejście (hero = mapa Europy), ok. 4 s, każda interakcja przyspiesza ×5
+
+1. **Pytanie jako ekran ładowania (0–1 s).** „Czy będzie podatek katastralny w Polsce?” stoi na środku ekranu,
+   pod nim cienka linia pomiaru rośnie do pełnej szerokości tytułu. Nagłówek strony ukryty.
+2. **Zjazd pod mapę (1–1,8 s).** Tytuł płynie (FLIP, sama translacja, te same łamania wierszy) na swoje miejsce
+   w lewym dolnym rogu, nad Atlantykiem. Lead, przyciski i nagłówek strony wchodzą 8 px z dołu.
+3. **Składanie mapy (1,2–3,4 s).** Państwa wjeżdżają 24 px od strony swojego regionu, od krawędzi do środka:
+   zachód (od lewej) → wschód (od prawej) → północ (z góry) → południe (z dołu). Odstęp grup 420 ms, czas 620 ms.
+4. **Polska wyrasta (3,3–4,1 s).** Pojawia się ostatnia, w swoim kolorze z danych. Górna warstwa unosi się o 7 jednostek,
+   pod nią widać bok bryły (6 kopii konturu w ciemniejszym odcieniu). Wokół lekka biało-czerwona obwódka
+   (biała 4, czerwona 10 jednostek, czerwień 30% krycia). Bez filtrów i cienia rozmywanego. Potem etykieta
+   z linią odniesienia: „Polska · 1,03% PKB”.
+
+Odstępstwo od 8–14 px: składanie mapy jest sygnaturą zamówioną wprost, 24 px to minimum czytelne jako „wjazd”.
+
 ## Sygnatury
 
-1. **Siatka katastralna.** Pod hero leżą trzy warstwy podziału działek (SVG, cienkie linie). Przy przewijaniu przesuwają
+1. **Siatka katastralna.** Pod mapą w hero leżą trzy warstwy podziału działek (SVG, cienkie linie). Przy przewijaniu przesuwają
    się z różną prędkością (CSS scroll-driven `animation-timeline: scroll()`), a linie granic rysują się raz przy wejściu
    (`stroke-dashoffset`). Działka „Twojego” lokalu wypełnia się delikatnie przy kalkulatorze.
 2. **Linia pomiaru.** Liczby (stawki, % PKB) nie odliczają się od zera. Obok liczby przesuwa się kreska miary

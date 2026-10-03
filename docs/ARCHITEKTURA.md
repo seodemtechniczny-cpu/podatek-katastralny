@@ -7,7 +7,7 @@ Drugi filar: jak podatek od nieruchomości działa w państwach Europy.
 
 | URL | H1 | Intencja wyszukiwania |
 |---|---|---|
-| `/` | Podatek katastralny w Polsce — stan na {data} | „podatek katastralny”, „czy będzie podatek katastralny” |
+| `/` | Czy będzie podatek katastralny w Polsce? (hero = mapa Europy, wejście opisane w RUCH.md) | „podatek katastralny”, „czy będzie podatek katastralny” |
 | `/projekt-ustawy/` | Co zakłada projekt podatku katastralnego (druk 2848) | „projekt podatku katastralnego”, „stawki” |
 | `/kalkulator/` | Kalkulator: ile wyniósłby podatek według projektu | „ile zapłacę podatku katastralnego” |
 | `/os-czasu/` | Podatek katastralny — oś czasu | „podatek katastralny kiedy” |

@@ -1,0 +1,61 @@
+---
+import projekt from '../data/pl/projekt-2848.json';
+
+const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const kroki = ['Wpłynięcie do Sejmu', 'I czytanie', 'Komisja', 'II i III czytanie', 'Senat', 'Prezydent', 'Dziennik Ustaw'];
+---
+<section class="section stan" id="stan" aria-labelledby="stan-h">
+  <div class="wrap">
+    <p class="eyebrow">Stan sprawy</p>
+    <h2 id="stan-h">Na jakim etapie jest projekt?</h2>
+    <p class="lead">Podatek katastralny <strong>nie obowiązuje</strong>. Poselski projekt (druk nr {projekt.druk}) dla budynków
+      i lokali mieszkalnych zastępuje stawkę od metra stawką od wartości. Śledzimy każdy etap i podajemy źródło każdej
+      informacji, bez stanowiska za ani przeciw.</p>
+    <div class="status reveal">
+      <dl class="status__facts">
+        <div><dt>Obowiązuje</dt><dd>Nie</dd></div>
+        <div><dt>Projekt</dt><dd>Druk nr {projekt.druk}, poselski</dd></div>
+        <div><dt>Ostatni etap</dt><dd>{projekt.etap}</dd></div>
+        <div><dt>Proponowany start</dt><dd>{fmt(projekt.wejscie_w_zycie)}</dd></div>
+      </dl>
+      <ol class="steps" aria-label="Etapy procedury ustawodawczej">
+        {kroki.map((k, i) => (
+          <li class:list={['step', { 'is-done': i < projekt.krok_procedury, 'is-now': i === projekt.krok_procedury }]}
+              aria-current={i === projekt.krok_procedury ? 'step' : undefined}>
+            <span class="step__dot" aria-hidden="true"></span><span class="step__label">{k}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="src">Źródło: <a href={projekt.zrodla[0].url}>Sejm RP, przebieg procesu legislacyjnego</a>, sprawdzone {fmt(projekt.zrodla[0].zweryfikowano)}. Etap „I czytanie” oznacza, że projekt czeka na pierwsze czytanie na posiedzeniu Sejmu.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .status { margin-top: 32px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: clamp(18px, 3vw, 32px); max-width: 980px; }
+  .status__facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 28px; margin: 0 0 28px; }
+  .status__facts dt { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+  .status__facts dd { margin: 0; font-weight: 600; line-height: 1.35; }
+  .status__facts div:first-child dd { font-family: var(--display); font-size: 1.6rem; color: var(--accent); }
+
+  .steps { list-style: none; margin: 0 0 18px; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); position: relative; }
+  .step { position: relative; padding-top: 22px; font-size: 0.82rem; color: var(--ink-3); line-height: 1.3; }
+  .step::before { content: ''; position: absolute; top: 6px; left: 0; right: 0; height: 1px; background: var(--line-2); }
+  .step.is-done::before { background: var(--accent); height: 2px; top: 5.5px; }
+  .step__dot { position: absolute; top: 0; left: 0; width: 13px; height: 13px; border-radius: 50%; background: var(--surface); border: 1.5px solid var(--line-2); }
+  .step.is-done .step__dot { background: var(--accent); border-color: var(--accent); }
+  .step.is-now .step__dot { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent); }
+  .step.is-now { color: var(--ink); font-weight: 600; }
+  .step__label { display: block; padding-right: 8px; }
+
+  @media (max-width: 760px) {
+    .status__facts { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 0; }
+    .step { padding: 0 0 14px 26px; }
+    .step::before { top: 13px; bottom: 0; left: 6px; right: auto; width: 1px; height: auto; }
+    .step.is-done::before { width: 2px; left: 5.5px; top: 13px; height: auto; }
+    .step:last-child::before { display: none; }
+  }
+</style>

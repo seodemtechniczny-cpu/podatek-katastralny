@@ -1,5 +1,4 @@
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/source-serif-4';
+@import '@fontsource-variable/geist';
 
 :root {
   --bg: #f6f4ef;
@@ -18,8 +17,8 @@
   --m0: #e7e2d6; --m1: #cfdcdc; --m2: #9cbfc3; --m3: #5f97a0; --m4: #2f6c79; --m5: #163f4a;
   --m-none: #f1eee7; --m-bg: #e9e6de;
 
-  --serif: 'Source Serif 4 Variable', Georgia, serif;
-  --sans: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sans: 'Geist Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --display: var(--sans);
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
@@ -62,14 +61,14 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
-  font: 400 17px/1.6 var(--sans); font-optical-sizing: auto;
+  font: 400 17px/1.6 var(--sans); letter-spacing: -0.005em;
   transition: background-color var(--t-2) var(--ease), color var(--t-2) var(--ease);
   overflow-x: clip;
 }
-h1, h2, h3 { font-family: var(--serif); font-weight: 560; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 0.5em; text-wrap: balance; }
-h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
-h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
-h3 { font-size: 1.2rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 620; line-height: 1.08; letter-spacing: -0.035em; margin: 0 0 0.5em; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); }
+h2 { font-size: clamp(1.75rem, 3.2vw, 2.6rem); }
+h3 { font-size: 1.15rem; letter-spacing: -0.02em; }
 p { margin: 0 0 1em; text-wrap: pretty; }
 a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
@@ -109,3 +108,6 @@ img, svg { max-width: 100%; }
     @keyframes reveal { from { opacity: 0; transform: translateY(10px); } }
   }
 }
+
+/* Wejście strony głównej: nagłówek strony czeka, aż pytanie zjedzie pod mapę. */
+.intro .top { opacity: 0; }

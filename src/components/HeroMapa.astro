@@ -1,0 +1,327 @@
+---
+import projekt from '../data/pl/projekt-2848.json';
+import { mapa, dane, klasa, etykieta, pct, grupa, legenda } from '../lib/europa';
+
+const dzis = new Date().toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+const pol = mapa.countries.find((c) => c.iso === 'POL')!;
+const inne = mapa.countries.filter((c) => c.iso !== 'POL');
+const [x0, y0, x1, y1] = mapa.bbox;
+// Na telefonie kadr ciasno wokół Europy; na desktopie pełne 1600×1000 z miejscem na tytuł.
+const vbMobile = `${x0 - 20} ${y0} ${x1 - x0 + 40} ${y1 - y0 + 20}`;
+const daneJs = Object.fromEntries(Object.entries(dane).map(([k, v]) => [k, { ...v, s: v.g === undefined ? 'brak danych OECD' : `${pct(v.g)} PKB · ${v.y}` }]));
+
+// Siatka działek pod mapą: rekurencyjny podział z ziarnem, ten sam układ przy każdym buildzie.
+function parcels(seed: number, depth: number, w = 1600, h = 1000) {
+  let s = seed;
+  const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const lines: string[] = [];
+  const split = (x: number, y: number, cw: number, ch: number, d: number) => {
+    if (d === 0 || cw < 90 || ch < 90) return;
+    const vertical = cw > ch ? rnd() > 0.2 : rnd() > 0.8;
+    const t = 0.3 + rnd() * 0.4;
+    if (vertical) {
+      const cx = Math.round(x + cw * t);
+      lines.push(`M${cx} ${y}V${y + ch}`);
+      split(x, y, cx - x, ch, d - 1); split(cx, y, x + cw - cx, ch, d - 1);
+    } else {
+      const cy = Math.round(y + ch * t);
+      lines.push(`M${x} ${cy}H${x + cw}`);
+      split(x, y, cw, cy - y, d - 1); split(x, cy, cw, y + ch - cy, d - 1);
+    }
+  };
+  split(0, 0, w, h, depth);
+  return lines.join('');
+}
+const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
+---
+<section class="hero" id="mapa" aria-labelledby="h1" data-vb={mapa.viewBox} data-vb-mobile={vbMobile}>
+  <div class="hero__content">
+    <div class="hero__head">
+      <p class="eyebrow">Stan na {dzis}</p>
+      <h1 id="h1">Czy będzie podatek katastralny w&nbsp;Polsce?</h1>
+      <span class="hero__line" aria-hidden="true"></span>
+    </div>
+    <div class="hero__rest">
+      <p class="lead">Na dziś <strong>nie obowiązuje</strong>. W Sejmie czeka poselski projekt (druk nr {projekt.druk}).
+        Mapa pokazuje, ile państwa Europy pobierają z podatków od nieruchomości, jako % PKB.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#kalkulator">Policz, ile wyniósłby podatek</a>
+        <a class="btn btn--ghost" href="#stan">Na jakim etapie jest projekt</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__map">
+    <div class="hero__grid" aria-hidden="true">
+      {warstwy.map((d, i) => <svg class={`layer layer--${i}`} viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><path d={d} pathLength="1" /></svg>)}
+    </div>
+    <svg class="hm" viewBox={mapa.viewBox} preserveAspectRatio="xMaxYMid meet" role="group"
+         aria-label="Mapa Europy: wpływy z podatków od nieruchomości jako % PKB. Strzałki przechodzą między państwami, Enter pokazuje szczegóły.">
+      {inne.map((c) => c.iso === 'RUS'
+        ? <path class="c c--bg" d={c.d} data-gr="wschod" data-c={c.c.join(',')} aria-hidden="true" />
+        : <path class={`c c--${klasa(dane[c.iso].g)}`} d={c.d} data-iso={c.iso} data-gr={grupa(c.iso)} data-c={c.c.join(',')} tabindex="-1" role="button" aria-label={etykieta(c.iso)} />)}
+      {mapa.dots.map((d) => (
+        <circle class={`c dot c--${klasa(dane[d.iso].g)}`} cx={d.x} cy={d.y} r="7" data-iso={d.iso} data-gr={grupa(d.iso)} data-c={`${d.x},${d.y}`}
+          {...(d.iso === 'MLT' ? { tabindex: '-1', role: 'button', 'aria-label': etykieta(d.iso) } : { 'aria-hidden': 'true' })} />
+      ))}
+      <g class="pl">
+        <g class="pl__ext" aria-hidden="true">{[1, 2, 3, 4, 5, 6, 7].map((k) => <path d={pol.d} transform={`translate(0 ${k - 7})`} />)}</g>
+        <g class="pl__top">
+          <path class="pl__halo pl__halo--r" d={pol.d} aria-hidden="true" />
+          <path class="pl__halo pl__halo--w" d={pol.d} aria-hidden="true" />
+          <path class={`c c--${klasa(dane.POL.g)}`} d={pol.d} data-iso="POL" data-c={pol.c.join(',')} tabindex="0" role="button" aria-label={etykieta('POL')} />
+        </g>
+      </g>
+    </svg>
+    <div class="pl-label" aria-hidden="true" data-c={pol.c.join(',')}>
+      <svg width="56" height="40"><path d="M0 40 L24 6 H56" /></svg>
+      <p><b>Polska</b><span>{pct(dane.POL.g!)} PKB · podatek od m²</span></p>
+    </div>
+  </div>
+
+  <ul class="hero__legend" aria-label="Legenda: % PKB">
+    {legenda.map(([k, t]) => <li><i class={`sw c--${k}`}></i>{t}</li>)}
+  </ul>
+  <div class="tip" hidden><p class="tip__n"></p><p class="tip__v"></p></div>
+  <aside class="panel" hidden tabindex="-1" aria-live="polite">
+    <button class="panel__x" type="button" aria-label="Zamknij szczegóły">×</button>
+    <div class="panel__body"></div>
+  </aside>
+  <script is:inline type="application/json" class="hero__dane" set:html={JSON.stringify(daneJs)}></script>
+  <script is:inline>
+  (() => {
+    const hero = document.currentScript.closest('.hero');
+    const svg = hero.querySelector('.hm');
+    const box = hero.querySelector('.hero__map');
+    const label = hero.querySelector('.pl-label');
+    const tip = hero.querySelector('.tip');
+    const panel = hero.querySelector('.panel');
+    const dane = JSON.parse(hero.querySelector('.hero__dane').textContent);
+    const root = document.documentElement;
+    const mq = matchMedia('(max-width: 760px)');
+    const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
+    const xy = (el) => el.dataset.c.split(',').map(Number);
+
+    // Kadr przed pierwszym malowaniem (skrypt inline). Desktop: cała mapa przy prawej krawędzi, Atlantyk po lewej
+    // zostaje na tytuł. Telefon: ciasny kadr wokół Europy wypełniający pole.
+    function kadr() {
+      svg.setAttribute('viewBox', mq.matches ? hero.dataset.vbMobile : hero.dataset.vb);
+      svg.setAttribute('preserveAspectRatio', mq.matches ? 'xMidYMid slice' : 'xMaxYMid meet');
+      etykieta();
+    }
+    function etykieta() {
+      const [x, y] = xy(label), pt = svg.createSVGPoint();
+      pt.x = x; pt.y = y - 7;
+      const p = pt.matrixTransform(svg.getScreenCTM()), b = box.getBoundingClientRect();
+      label.style.left = `${p.x - b.left}px`; label.style.top = `${p.y - b.top}px`;
+      // Przy prawej krawędzi (telefon) etykieta odbija się na lewo od punktu.
+      label.classList.toggle('is-left', !mq.matches && p.x - b.left + 260 > b.width);
+    }
+    kadr();
+    mq.addEventListener('change', kadr);
+    addEventListener('resize', etykieta);
+
+    // Podpowiedź i panel szczegółów
+    const pct = (v) => v.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
+    function pokaz(el, x, y) {
+      const d = dane[el.dataset.iso], b = hero.getBoundingClientRect();
+      tip.querySelector('.tip__n').textContent = d.n;
+      tip.querySelector('.tip__v').textContent = d.s;
+      if (x === undefined) { const r = el.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2; }
+      tip.style.transform = `translate(${Math.min(x - b.left + 14, b.width - 210)}px, ${y - b.top - 70}px)`;
+      tip.hidden = false;
+    }
+    let aktywne = null;
+    function wybierz(el) {
+      aktywne?.classList.remove('is-on'); aktywne = el; el.classList.add('is-on');
+      const iso = el.dataset.iso, d = dane[iso], pl = dane.POL.g;
+      panel.querySelector('.panel__body').innerHTML = `
+        <p class="panel__k">Wybrane państwo</p><h2 class="panel__h">${d.n}</h2>
+        ${d.g === undefined ? '<p>OECD nie publikuje danych o wpływach z podatków od nieruchomości dla tego państwa.</p>' : `
+        <dl><div><dt>Wpływy jako % PKB</dt><dd>${pct(d.g)}</dd></div>
+        <div><dt>Udział we wszystkich podatkach</dt><dd>${d.t === undefined ? '—' : pct(d.t)}</dd></div>
+        <div><dt>Rok danych</dt><dd>${d.y}</dd></div></dl>
+        ${iso === 'POL' ? '' : `<div class="cmpbar" aria-hidden="true"><span style="--w:${Math.min(d.g / 3, 1)}"><i></i>${d.n}</span><span class="is-pl" style="--w:${Math.min(pl / 3, 1)}"><i></i>Polska</span></div>`}`}
+        <p class="panel__more">${iso === 'POL'
+          ? 'Dziś podatek od powierzchni. W Sejmie projekt podatku od wartości dla mieszkań (druk nr 2848). <a href="#projekt">Co zakłada projekt</a>'
+          : 'Opis systemu (podstawa, stawki, ostatnia reforma, skutki) w przygotowaniu. Publikujemy go po sprawdzeniu źródeł.'}</p>`;
+      panel.hidden = false;
+    }
+    function zamknij() { panel.hidden = true; aktywne?.classList.remove('is-on'); aktywne?.focus(); aktywne = null; }
+    const cel = (e) => e.target.closest?.('[data-iso]');
+    svg.addEventListener('pointermove', (e) => { const el = cel(e); if (el && e.pointerType === 'mouse') pokaz(el, e.clientX, e.clientY); else tip.hidden = true; });
+    svg.addEventListener('pointerleave', () => { tip.hidden = true; });
+    svg.addEventListener('click', (e) => { const el = cel(e); if (el) wybierz(el); });
+    panel.querySelector('.panel__x').addEventListener('click', zamknij);
+
+    // Klawiatura: jeden przystanek Tab (Polska), strzałki przechodzą po państwach z zachodu na wschód.
+    const kolejka = [...svg.querySelectorAll('[data-iso][role=button]')].sort((a, b) => xy(a)[0] - xy(b)[0]);
+    svg.addEventListener('focusin', (e) => { const el = cel(e); if (el) pokaz(el); });
+    svg.addEventListener('focusout', () => { tip.hidden = true; });
+    svg.addEventListener('keydown', (e) => {
+      const el = cel(e); if (!el) return;
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wybierz(el); return; }
+      const k = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!k) return;
+      e.preventDefault();
+      const n = kolejka[(kolejka.indexOf(el) + k + kolejka.length) % kolejka.length];
+      el.tabIndex = -1; n.tabIndex = 0; n.focus();
+    });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) zamknij(); });
+
+    if (!root.classList.contains('intro')) return;
+
+    // Wejście: pytanie jako ekran ładowania → zjazd pod mapę → zachód, wschód, północ, południe → Polska wyrasta.
+    const czekaj = (ms) => new Promise((r) => setTimeout(r, ms));
+    const t0 = performance.now();
+    (async () => {
+      await Promise.race([document.fonts.ready, czekaj(1500)]);
+      await czekaj(Math.max(0, 1000 - (performance.now() - t0)));
+      const head = hero.querySelector('.hero__head');
+      const first = head.getBoundingClientRect();
+      const anims = [];
+      const a = (el, kf, o) => anims.push(el.animate(kf, { easing: ease, fill: 'both', ...o }));
+
+      const KIER = { zachod: [-24, 0], wschod: [24, 0], polnoc: [0, -24], poludnie: [0, 24] };
+      const OD = { zachod: (c) => c[0], wschod: (c) => -c[0], polnoc: (c) => c[1], poludnie: (c) => -c[1] };
+      Object.keys(KIER).forEach((g, gi) => {
+        const els = [...svg.querySelectorAll(`[data-gr="${g}"]`)].sort((p, q) => OD[g](xy(p)) - OD[g](xy(q)));
+        const [dx, dy] = KIER[g];
+        els.forEach((el, i) => a(el, [{ opacity: 0, transform: `translate(${dx}px, ${dy}px)` }, { opacity: 1, transform: 'none' }],
+          { duration: 620, delay: 250 + gi * 420 + (i * 380) / Math.max(1, els.length - 1) }));
+      });
+      const T = 250 + 4 * 420 + 250;
+      const pl = svg.querySelector('.pl');
+      a(pl, [{ opacity: 0, transform: 'scale(0.9)' }, { opacity: 1, transform: 'none' }], { duration: 520, delay: T });
+      a(pl.querySelector('.pl__top'), [{ transform: 'translate(0px, 0px)' }, { transform: 'translate(0px, -7px)' }], { duration: 640, delay: T + 380 });
+      a(pl.querySelector('.pl__ext'), [{ opacity: 0 }, { opacity: 1 }], { duration: 280, delay: T + 380 });
+      pl.querySelectorAll('.pl__halo').forEach((h) => a(h, [{ opacity: 0 }, { opacity: 1 }], { duration: 700, delay: T + 480 }));
+      a(label, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 480, delay: T + 1000 });
+
+      root.classList.remove('intro'); // układ docelowy; wszystkie animacje już trzymają stan początkowy
+      etykieta();
+      const last = head.getBoundingClientRect();
+      a(head, [{ transform: `translate(${first.left - last.left}px, ${first.top - last.top}px)` }, { transform: 'none' }],
+        { duration: 850, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', fill: 'backwards' });
+      a(hero.querySelector('.hero__line'), [{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 500, fill: 'backwards' });
+      [hero.querySelector('.hero__rest'), hero.querySelector('.hero__legend'), document.querySelector('.top')].forEach((el) =>
+        el && a(el, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 520, delay: 520, fill: 'backwards' }));
+
+      // Każda interakcja przyspiesza całość pięciokrotnie, zamiast ją ucinać.
+      const szybciej = () => anims.forEach((x) => { x.playbackRate = 5; });
+      ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach((ev) => addEventListener(ev, szybciej, { once: true, passive: true }));
+    })();
+  })();
+  </script>
+</section>
+
+<style>
+  .hero { position: relative; height: calc(100svh - 64px); min-height: 640px; max-height: 1080px; overflow: clip; isolation: isolate; }
+  .hero__map { position: absolute; inset: 0; z-index: 0; }
+  .hm { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .hero__grid { position: absolute; inset: 0; pointer-events: none; }
+  .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .layer path { fill: none; stroke: var(--grid); stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .layer--0 path { stroke-width: 2.4; }
+  .layer--1 path { stroke-width: 1.4; }
+  .layer--2 path { stroke-width: 0.9; opacity: 0.7; }
+
+  .c { stroke: var(--bg); stroke-width: 0.9; stroke-linejoin: round; transition: stroke var(--t-1) var(--ease); }
+  .c[data-iso] { cursor: pointer; }
+  .c[data-iso]:hover, .c[data-iso]:focus-visible, .c.is-on { stroke: var(--ink); stroke-width: 1.8; outline: none; }
+  .c--bg { fill: var(--m-none); stroke: var(--bg); }
+  .c--m0 { fill: var(--m0); } .c--m1 { fill: var(--m1); } .c--m2 { fill: var(--m2); } .c--m3 { fill: var(--m3); } .c--m4 { fill: var(--m4); } .c--m5 { fill: var(--m5); }
+  .c--none { fill: var(--m-none); }
+  path.c--none { stroke: var(--line-2); }
+  .dot { stroke: var(--ink-2); stroke-width: 1; }
+
+  /* Polska: bryła (kopie konturu jako bok), uniesiona góra, biało-czerwona obwódka bez filtrów. */
+  .pl { transform-box: fill-box; transform-origin: center; }
+  .pl__ext path { fill: color-mix(in srgb, var(--m3) 55%, #0b1a1f); stroke: none; }
+  .pl__top { transform: translate(0px, -7px); }
+  .pl__halo { fill: none; stroke-linejoin: round; }
+  .pl__halo--r { stroke: #dc143c; stroke-width: 10; stroke-opacity: 0.3; }
+  .pl__halo--w { stroke: #ffffff; stroke-width: 4; }
+  .pl .c { stroke: #dc143c; stroke-width: 0.8; }
+
+  .pl-label { position: absolute; z-index: 2; pointer-events: none; }
+  .pl-label svg { position: absolute; left: 0; bottom: 0; overflow: visible; }
+  .pl-label path { fill: none; stroke: var(--ink); stroke-width: 1; }
+  .pl-label p { position: absolute; left: 60px; bottom: 28px; margin: 0; white-space: nowrap; background: var(--surface); border: 1px solid var(--line-2); padding: 6px 10px; border-radius: 3px; }
+  .pl-label.is-left svg { left: auto; right: 0; transform: scaleX(-1); }
+  .pl-label.is-left p { left: auto; right: 60px; }
+  .pl-label b { display: block; font-size: 1rem; font-weight: 650; letter-spacing: -0.01em; }
+  .pl-label span { font-size: 0.8rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+  /* Tekst nad Atlantykiem, lewy dół. Przepuszcza wskaźnik do mapy poza samym tekstem. */
+  .hero__content { position: absolute; left: 0; right: 0; bottom: clamp(28px, 6vh, 64px); z-index: 3; pointer-events: none; padding-inline: var(--gut); }
+  .hero__content :is(p, h1, a) { pointer-events: auto; }
+  .hero__head { position: relative; width: max-content; max-width: 100%; }
+  .hero h1 { font-size: clamp(2.4rem, 4.4vw, 4.2rem); line-height: 0.98; letter-spacing: -0.045em; font-weight: 650; max-width: 11ch; margin-bottom: 0.4em; }
+  .hero__line { display: block; height: 2px; background: var(--accent); transform-origin: 0 50%; opacity: 0; }
+  .hero__rest { max-width: 27rem; }
+  .hero__rest .lead { font-size: 1.05rem; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 10px 12px; }
+
+  .hero__legend { position: absolute; right: var(--gut); bottom: clamp(28px, 6vh, 64px); z-index: 2; list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 0.78rem; color: var(--ink-2); }
+  .hero__legend li { display: flex; align-items: center; gap: 8px; }
+  .sw { width: 14px; height: 10px; display: inline-block; border: 1px solid var(--line-2); }
+
+  .tip { position: absolute; left: 0; top: 0; z-index: 4; pointer-events: none; background: var(--surface); border: 1px solid var(--line-2); border-radius: 3px; padding: 8px 12px; min-width: 150px; transition: transform 90ms linear; }
+  .tip p { margin: 0; }
+  .tip__n { font-weight: 650; }
+  .tip__v { font-size: 0.85rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+  .panel { position: absolute; top: 24px; right: var(--gut); z-index: 4; width: 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 22px 24px; }
+  .panel__x { position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border: 0; background: none; color: var(--ink-2); font-size: 1.5rem; cursor: pointer; }
+  .panel :global(.panel__k) { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+  .panel :global(.panel__h) { font-size: 1.6rem; margin-bottom: 12px; }
+  .panel :global(dl) { margin: 0 0 14px; display: grid; gap: 8px; }
+  .panel :global(dt) { font-size: 0.8rem; color: var(--ink-3); }
+  .panel :global(dd) { margin: 0; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .panel :global(.cmpbar) { display: grid; gap: 6px; margin-bottom: 14px; font-size: 0.8rem; color: var(--ink-2); }
+  .panel :global(.cmpbar span) { display: grid; gap: 3px; }
+  .panel :global(.cmpbar i) { height: 6px; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--w)); }
+  .panel :global(.cmpbar .is-pl i) { background: #dc143c; opacity: 0.6; }
+  .panel :global(.panel__more) { font-size: 0.85rem; color: var(--ink-3); margin: 0; }
+
+  /* Stan wejścia (klasa ustawiana w <head>, tylko bez ograniczonego ruchu). */
+  :global(.intro) .hero__content { top: 0; bottom: 0; }
+  :global(.intro) .hero__head { position: absolute; left: 50%; top: 50%; translate: -50% -50%; }
+  :global(.intro) .hero__line { opacity: 1; animation: linia 950ms var(--ease-io) both; }
+  :global(.intro) .hero__rest, :global(.intro) .hero__legend, :global(.intro) .pl-label,
+  :global(.intro) .hm .c, :global(.intro) .pl { opacity: 0; }
+  @keyframes linia { from { transform: scaleX(0); } }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .layer path { animation: draw 1100ms var(--ease-io) both; }
+    .layer--1 path { animation-duration: 1500ms; animation-delay: 150ms; }
+    .layer--2 path { animation-duration: 1900ms; animation-delay: 300ms; }
+    @keyframes draw { from { stroke-dashoffset: 1; } }
+    @supports (animation-timeline: scroll()) {
+      .hero__map { animation: odjazd linear both; }
+      .layer { animation: drift linear both; }
+      /* Timeline w osobnej regule: minifikator skleja go ze skrótem `animation`, a Chrome odrzuca taki skrót w całości. */
+      .hero .hero__map, .hero__grid .layer { animation-timeline: scroll(root); animation-range: 0 100vh; }
+      .layer--0 { --d: 3%; } .layer--1 { --d: 6%; } .layer--2 { --d: 10%; }
+      @keyframes odjazd { to { transform: translateY(12%); } }
+      @keyframes drift { to { transform: translateY(var(--d)); } }
+    }
+  }
+
+  @media (max-width: 760px) {
+    .hero { height: auto; min-height: calc(100svh - 96px); max-height: none; display: flex; flex-direction: column; }
+    .hero__map { position: relative; order: -1; height: 92vw; flex: none; }
+    .hero__content { position: relative; bottom: auto; padding-block: 8px 28px; order: 1; }
+    .hero__legend { position: static; order: 2; grid-template-columns: repeat(4, auto); justify-content: start; gap: 4px 12px; padding: 0 var(--gut) 24px; }
+    .tip { display: none; }
+    .panel { position: relative; top: auto; right: auto; order: 0; width: auto; margin: 12px var(--gut) 8px; }
+    /* Telefon: etykieta wyśrodkowana nad Polską, pionowa kreska zamiast skośnej. */
+    .pl-label svg { display: none; }
+    .pl-label::before { content: ''; position: absolute; left: 0; bottom: 0; width: 1px; height: 22px; background: var(--ink); }
+    .pl-label p, .pl-label.is-left p { left: 0; right: auto; bottom: 22px; translate: -50% 0; padding: 4px 8px; text-align: center; }
+    .pl-label span { font-size: 0.72rem; }
+    :global(.intro) .hero__content { position: absolute; }
+  }
+</style>

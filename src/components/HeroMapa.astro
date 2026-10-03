@@ -150,9 +150,26 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
         <p class="panel__more">${iso === 'POL'
           ? 'Dziś podatek od powierzchni. W Sejmie projekt podatku od wartości dla mieszkań (druk nr 2848). <a href="#projekt">Co zakłada projekt</a>'
           : 'Opis systemu (podstawa, stawki, ostatnia reforma, skutki) w przygotowaniu. Publikujemy go po sprawdzeniu źródeł.'}</p>`;
+      const bylZamkniety = panel.hidden;
       panel.hidden = false;
+      rozwin(bylZamkniety);
     }
-    function zamknij() { panel.hidden = true; aktywne?.classList.remove('is-on'); aktywne?.focus(); aktywne = null; }
+    // Panel rozwija się z góry (clip-path), treść wpływa wiersz po wierszu, paski dociągają do wartości.
+    const ruch = () => !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function rozwin(odZera) {
+      if (!ruch()) return;
+      if (odZera) panel.animate([{ clipPath: 'inset(0 0 100% 0 round 4px)' }, { clipPath: 'inset(0 0 0% 0 round 4px)' }], { duration: 560, easing: ease });
+      const wiersze = panel.querySelectorAll('.panel__body > *:not(dl), .panel__body dl > div, .panel__body .cmpbar span');
+      wiersze.forEach((el, i) => el.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 440, delay: (odZera ? 140 : 0) + i * 60, easing: ease, fill: 'backwards' }));
+      panel.querySelectorAll('.cmpbar i').forEach((el, i) => el.animate([{ transform: 'scaleX(0)' }],
+        { duration: 700, delay: (odZera ? 380 : 200) + i * 90, easing: ease, fill: 'backwards' }));
+    }
+    function zamknij() {
+      const koniec = () => { panel.hidden = true; aktywne?.classList.remove('is-on'); aktywne?.focus(); aktywne = null; };
+      if (!ruch()) return koniec();
+      panel.animate([{ clipPath: 'inset(0 0 0% 0 round 4px)' }, { clipPath: 'inset(0 0 100% 0 round 4px)' }], { duration: 320, easing: 'cubic-bezier(0.65, 0, 0.35, 1)' }).finished.then(koniec);
+    }
     const cel = (e) => e.target.closest?.('[data-iso]');
     svg.addEventListener('pointermove', (e) => { const el = cel(e); if (el && e.pointerType === 'mouse') pokaz(el, e.clientX, e.clientY); else tip.hidden = true; });
     svg.addEventListener('pointerleave', () => { tip.hidden = true; });

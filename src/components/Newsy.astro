@@ -1,0 +1,85 @@
+---
+import newsy from '../data/newsy.json';
+
+const lista = newsy.pozycje;
+const rolka = lista.slice(0, 16);
+const glowne = lista.slice(0, 9);
+const starsze = lista.slice(9, 40);
+const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+const pobrano = new Date(newsy.pobrano).toLocaleString('pl-PL', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Warsaw' });
+const media = new Set(lista.map((n) => n.zrodlo)).size;
+---
+<section class="section newsy" id="newsy" aria-labelledby="newsy-h">
+  <div class="newsy__head">
+    <div>
+      <p class="eyebrow">Newsy</p>
+      <h2 id="newsy-h">Co piszą media o podatku katastralnym?</h2>
+    </div>
+    <p class="newsy__note">Nagłówki z mediów, nie stanowisko serwisu. {lista.length} tekstów z {media} redakcji, aktualizacja co
+      3 godziny (ostatnio {pobrano}). Pokazujemy tytuł i link do oryginału.</p>
+  </div>
+
+  <div class="rolka" aria-label="Najnowsze nagłówki">
+    {[0, 1].map((kopia) => (
+      <ul class="rolka__tor" aria-hidden={kopia ? 'true' : undefined}>
+        {rolka.map((n) => (
+          <li><a href={n.url} rel="noopener" target="_blank" tabindex={kopia ? -1 : undefined}><b>{n.zrodlo}</b>{n.tytul}</a></li>
+        ))}
+      </ul>
+    ))}
+  </div>
+
+  <div class="newsy__body">
+    <ol class="newsy__lista">
+      {glowne.map((n) => (
+        <li class="news">
+          <p class="news__meta"><time datetime={n.data}>{fmt(n.data)}</time> · {n.zrodlo}</p>
+          <h3><a href={n.url} rel="noopener" target="_blank">{n.tytul}</a></h3>
+        </li>
+      ))}
+    </ol>
+    {starsze.length > 0 && (
+      <details class="newsy__wiecej">
+        <summary>Starsze nagłówki ({starsze.length})</summary>
+        <ul>{starsze.map((n) => <li><time datetime={n.data}>{fmt(n.data)}</time> · {n.zrodlo}: <a href={n.url} rel="noopener" target="_blank">{n.tytul}</a></li>)}</ul>
+      </details>
+    )}
+  </div>
+</section>
+
+<style>
+  .newsy { padding-inline: 0; }
+  .newsy__head, .newsy__body { padding-inline: var(--gut); }
+  .newsy__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 40px; margin-bottom: 28px; }
+  .newsy__head h2 { margin: 0; max-width: 20ch; }
+  .newsy__note { max-width: 42ch; color: var(--ink-2); font-size: 0.95rem; margin: 0; }
+
+  /* Rolka: dwie identyczne taśmy jadą w lewo bez końca; najechanie albo fokus zatrzymuje. */
+  .rolka { display: flex; overflow: clip; border-block: 1px solid var(--line); background: var(--surface); margin-bottom: 40px; }
+  .rolka__tor { list-style: none; margin: 0; padding: 0; display: flex; flex: none; min-width: 100%; }
+  .rolka__tor li { flex: none; }
+  .rolka__tor a { display: flex; align-items: center; gap: 10px; padding: 16px 28px; color: var(--ink); text-decoration: none; font-weight: 520; white-space: nowrap; border-right: 1px solid var(--line); }
+  .rolka__tor a:hover { color: var(--accent-text); }
+  .rolka__tor b { font-size: 0.72rem; font-weight: 650; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-text); }
+  @media (prefers-reduced-motion: no-preference) {
+    .rolka__tor { animation: rolka 90s linear infinite; }
+    .rolka:hover .rolka__tor, .rolka:focus-within .rolka__tor { animation-play-state: paused; }
+    @keyframes rolka { to { transform: translateX(-100%); } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rolka { overflow-x: auto; }
+    .rolka__tor[aria-hidden] { display: none; }
+  }
+
+  .newsy__lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
+  .news { border-top: 1px solid var(--line); padding: 16px 0 20px; }
+  .news__meta { margin: 0 0 6px; font-size: 0.82rem; color: var(--ink-3); }
+  .news h3 { font-size: 1.05rem; line-height: 1.3; margin: 0; letter-spacing: -0.015em; }
+  .news h3 a { color: var(--ink); text-decoration: none; }
+  .news h3 a:hover { color: var(--accent-text); text-decoration: underline; }
+  .newsy__wiecej { margin-top: 12px; border-top: 1px solid var(--line); }
+  .newsy__wiecej summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+  .newsy__wiecej ul { margin: 0; padding-left: 18px; font-size: 0.92rem; color: var(--ink-2); }
+  .newsy__wiecej li { margin-bottom: 6px; }
+  @media (max-width: 900px) { .newsy__lista { grid-template-columns: 1fr; } }
+</style>

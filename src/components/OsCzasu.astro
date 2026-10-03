@@ -14,7 +14,7 @@ const od = lista[0].data.slice(0, 4);
 ---
 <section class="os" id="os-czasu" aria-labelledby="os-h">
   <div class="os__sticky">
-    <div class="wrap os__head">
+    <div class="os__head">
       <div>
         <p class="eyebrow">Oś czasu · {od}–dziś</p>
         <h2 id="os-h">Co się wydarzyło w sprawie podatku katastralnego?</h2>
@@ -38,7 +38,7 @@ const od = lista[0].data.slice(0, 4);
         ))}
       </ol>
     </div>
-    <div class="wrap os__progress" aria-hidden="true"><i></i></div>
+    <div class="os__progress" aria-hidden="true"><i></i></div>
   </div>
 </section>
 
@@ -73,9 +73,9 @@ const od = lista[0].data.slice(0, 4);
 <style>
   .os { position: relative; border-top: 1px solid var(--line); background: var(--bg); }
   .os__sticky { padding-block: clamp(56px, 8vw, 96px); }
-  .os__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 40px; margin-bottom: 28px; }
+  .os__head { padding-inline: var(--gut); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 40px; margin-bottom: 28px; }
   .os__head h2 { margin: 0; max-width: 20ch; }
-  .os__note { max-width: 34ch; color: var(--ink-2); font-size: 0.95rem; margin: 0; }
+  .os__note { max-width: 42ch; color: var(--ink-2); font-size: 0.95rem; margin: 0; }
 
   /* Domyślnie (bez scroll-timeline, ograniczony ruch): oś przewijana w poziomie, karty przyciągane. */
   .os__view { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; }

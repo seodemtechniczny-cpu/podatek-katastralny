@@ -8,9 +8,10 @@ const canonical = new URL(Astro.url.pathname.slice(base.length - 1), Astro.site)
 
 const nav = [
   ['#stan', 'Stan sprawy'],
+  ['#os-czasu', 'Oś czasu'],
+  ['#newsy', 'Newsy'],
   ['#projekt', 'Projekt'],
   ['#kalkulator', 'Kalkulator'],
-  ['#os-czasu', 'Oś czasu'],
   ['#europa', 'Europa'],
 ].map(([h, l]) => [base + h, l]);
 ---

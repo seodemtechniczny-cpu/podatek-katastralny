@@ -6,7 +6,7 @@ const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'n
 const kroki = ['Wpłynięcie do Sejmu', 'I czytanie', 'Komisja', 'II i III czytanie', 'Senat', 'Prezydent', 'Dziennik Ustaw'];
 ---
 <section class="section stan" id="stan" aria-labelledby="stan-h">
-  <div class="wrap">
+  <div class="stan__in">
     <p class="eyebrow">Stan sprawy</p>
     <h2 id="stan-h">Na jakim etapie jest projekt?</h2>
     <p class="lead">Podatek katastralny <strong>nie obowiązuje</strong>. Poselski projekt (druk nr {projekt.druk}) dla budynków
@@ -34,7 +34,9 @@ const kroki = ['Wpłynięcie do Sejmu', 'I czytanie', 'Komisja', 'II i III czyta
 </section>
 
 <style>
-  .status { margin-top: 32px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: clamp(18px, 3vw, 32px); max-width: 980px; }
+  .stan__in { padding-inline: var(--gut); }
+  .stan .lead { max-width: 70ch; }
+  .status { margin-top: 32px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: clamp(18px, 3vw, 32px);  }
   .status__facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 28px; margin: 0 0 28px; }
   .status__facts dt { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
   .status__facts dd { margin: 0; font-weight: 600; line-height: 1.35; }

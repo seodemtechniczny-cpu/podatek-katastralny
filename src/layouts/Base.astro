@@ -43,8 +43,35 @@ const nav = [
   <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e0e0f" media="(prefers-color-scheme: dark)" />
   <script is:inline>
-    // Motyw przed pierwszym malowaniem, żeby nie mignął jasny przy wybranym ciemnym.
-    try { const t = localStorage.getItem('motyw'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    // Motyw przed pierwszym malowaniem, według zegara odwiedzającego:
+    // 1) wybór z przycisku, ważny do najbliższej zmiany pory, 2) systemowy tryb ciemny = zawsze ciemny,
+    // 3) inaczej ciemny od 19:00 do 6:00, jasny od 6:00 do 19:00. Otwarta strona przełącza się sama o 6:00 i 19:00.
+    (() => {
+      const r = document.documentElement, sys = matchMedia('(prefers-color-scheme: dark)');
+      const noc = (d) => d.getHours() >= 19 || d.getHours() < 6;
+      const nastepna = () => {
+        const d = new Date(), n = new Date(d);
+        if (d.getHours() >= 19) { n.setDate(n.getDate() + 1); n.setHours(6, 0, 0, 0); }
+        else if (d.getHours() < 6) n.setHours(6, 0, 0, 0);
+        else n.setHours(19, 0, 0, 0);
+        return n.getTime();
+      };
+      const zastosuj = () => {
+        let reczny = null;
+        try {
+          localStorage.removeItem('motyw'); // dawny, bezterminowy wybór
+          const z = JSON.parse(localStorage.getItem('motyw-reczny') || 'null');
+          if (z && z.do > Date.now()) reczny = z.motyw;
+        } catch (e) {}
+        const motyw = reczny || (sys.matches || noc(new Date()) ? 'dark' : 'light');
+        r.dataset.theme = motyw;
+        document.querySelectorAll('meta[name="theme-color"]').forEach((m) => { m.content = motyw === 'dark' ? '#0e0e0f' : '#fbfaf8'; m.removeAttribute('media'); });
+      };
+      zastosuj();
+      sys.addEventListener('change', zastosuj);
+      (function tik() { setTimeout(() => { zastosuj(); tik(); }, Math.min(nastepna() - Date.now() + 1000, 2147483647)); })();
+      window.__motyw = { zastosuj, nastepna };
+    })();
   </script>
   {intro && <script is:inline>
     // Wejście strony głównej tylko bez ograniczonego ruchu. Bezpiecznik: po 6 s strona odsłania się sama,
@@ -81,14 +108,16 @@ const nav = [
   <script>
     const root = document.documentElement;
     const btn = document.querySelector<HTMLButtonElement>('.theme')!;
-    const dark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    const dark = () => root.dataset.theme === 'dark';
     const sync = () => btn.setAttribute('aria-pressed', String(dark()));
     sync();
+    // Automat (pora dnia, system) też zmienia motyw, więc stan przycisku śledzi atrybut.
+    new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
     btn.addEventListener('click', () => {
       const next = dark() ? 'light' : 'dark';
-      root.dataset.theme = next;
-      try { localStorage.setItem('motyw', next); } catch {}
-      sync();
+      const m = (window as any).__motyw;
+      try { localStorage.setItem('motyw-reczny', JSON.stringify({ motyw: next, do: m.nastepna() })); } catch {}
+      m.zastosuj();
     });
   </script>
 </body>

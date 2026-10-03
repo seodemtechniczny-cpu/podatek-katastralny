@@ -1,5 +1,5 @@
 {
- "pobrano": "2026-10-03T09:02:56.313Z",
+ "pobrano": "2026-10-03T14:21:19.986Z",
  "pozycje": [
   {
    "tytul": "9 tys. zł – taki podatek od mieszkania zapłacą Polacy którzy zdecydują się na zakup tych nieruchomości. Im większa wartość nieruchomości, tym wyższa danina",
@@ -98,10 +98,22 @@
    "data": "2026-03-17T07:24:00.000Z"
   },
   {
+   "tytul": "Projekt ustawy o podatku katastralnym gotowy. Lewica złoży go lada dzień",
+   "zrodlo": "Bankier.pl",
+   "url": "https://www.bankier.pl/wiadomosc/Projekt-ustawy-o-podatku-katastralnym-gotowy-Lewica-zlozy-go-lada-dzien-9098995.html",
+   "data": "2026-03-16T14:57:00.000Z"
+  },
+  {
    "tytul": "Podatek katastralny? Polski rynek mieszkaniowy czekają zmiany",
    "zrodlo": "Forsal.pl",
    "url": "https://forsal.pl/nieruchomosci/mieszkania/artykuly/11214872,podatek-katastralny-i-od-pustostanow-do-konca-roku-kilkanascie-ustaw-reformujacych-obszar-mieszkalnictwa.html",
    "data": "2026-03-16T11:12:23.000Z"
+  },
+  {
+   "tytul": "U sąsiada też mówi się o mieszkaniowym „katastrze”?",
+   "zrodlo": "Bankier.pl",
+   "url": "https://www.bankier.pl/wiadomosc/U-sasiada-tez-mowi-sie-o-mieszkaniowym-katastrze-9096385.html",
+   "data": "2026-03-14T17:00:00.000Z"
   },
   {
    "tytul": "Właściciele muszą pamiętać o podatku. Grzywna nawet 64 tys. zł",
@@ -120,6 +132,12 @@
    "zrodlo": "Forsal.pl",
    "url": "https://forsal.pl/gospodarka/artykuly/10630688,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-w-2026-r-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
    "data": "2026-02-17T12:06:14.000Z"
+  },
+  {
+   "tytul": "Kowalski sam wyceni sobie lokum do „katastru”?",
+   "zrodlo": "Bankier.pl",
+   "url": "https://www.bankier.pl/wiadomosc/Kowalski-sam-wyceni-sobie-lokum-do-katastru-9080926.html",
+   "data": "2026-02-15T06:00:00.000Z"
   },
   {
    "tytul": "Podatek katastralny. Ministerstwo Finansów przedstawiło swoje stanowisko",
@@ -146,10 +164,22 @@
    "data": "2026-01-14T09:53:40.000Z"
   },
   {
+   "tytul": "Czy selektywny podatek katastralny może poprawić sytuację mieszkaniową?",
+   "zrodlo": "Gazeta Prawna",
+   "url": "https://www.gazetaprawna.pl/biznes/nieruchomosci/artykuly/10946883,czy-selektywny-podatek-katastralny-moze-poprawic-sytuacje-mieszkaniowa.html",
+   "data": "2026-01-06T15:52:21.000Z"
+  },
+  {
    "tytul": "Podatek katastralny to biurokratyczny koszmar, którego nie udźwigniemy. A mamy już dobre rozwiązanie",
    "zrodlo": "Bezprawnik",
    "url": "https://bezprawnik.pl/obecny-podatek-od-nieruchomosci/",
    "data": "2025-12-29T12:14:00.000Z"
+  },
+  {
+   "tytul": "2500 zł zamiast 382 zł rocznie? To najniższe stawki podatku katastralnego",
+   "zrodlo": "Bankier.pl",
+   "url": "https://www.bankier.pl/wiadomosc/2500-zl-zamiast-382-zl-rocznie-To-najnizsze-stawki-podatku-katastralnego-9061357.html",
+   "data": "2025-12-29T08:30:00.000Z"
   },
   {
    "tytul": "Podatek katastralny już od pierwszego mieszkania. Chodzi o takie stawki",
@@ -272,10 +302,34 @@
    "data": "2025-09-30T05:27:00.000Z"
   },
   {
+   "tytul": "To wstęp do podatku katastralnego? Rząd decyduje o ważnej ustawie",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/rzad-chce-utworzyc-rejestr-cen-mieszkan-to-wstep-do-podatku-katastralnego/f3msz92",
+   "data": "2025-08-26T09:30:00.000Z"
+  },
+  {
    "tytul": "To pewne: będzie wyższa kwota wolna w PIT i niższy podatek od dochodów. Ceną podatek katastralny",
    "zrodlo": "Forsal.pl",
    "url": "https://forsal.pl/finanse/twoje-pieniadze/artykuly-infor-pl/9852899,beda-zmiany-w-podatkach-nowa-podwyzszona-kwota-wolna-w-pit-ale-i-nowy-podatek-od-nieruchomosci.html",
    "data": "2025-08-26T04:01:08.000Z"
+  },
+  {
+   "tytul": "Wraca dyskusja o podatku katastralnym. Ekspertka ujawnia, co czeka właścicieli mieszkań",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-w-polsce-moze-wywolac-bunt-ludzie-wyjda-na-ulice/3ft3pc7",
+   "data": "2025-06-26T14:30:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny w Polsce. Ekspert wskazuje, co się ukrywa",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-kontrowersje-i-konsekwencje-nowej-daniny/mg6c6qt",
+   "data": "2025-06-18T15:06:00.000Z"
+  },
+  {
+   "tytul": "Tak ma wyglądać podatek od mieszkań i domów. Wysoka stawka",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/projekt-ustawy-o-podatku-katastralnym-jest-juz-w-sejmie-poznalismy-szczegoly/3ngfkcv",
+   "data": "2025-06-12T08:00:00.000Z"
   },
   {
    "tytul": "Tyle co teraz za rok, zapłacisz co miesiąc gdy nowy podatek katastralny zastąpi obecny podatek od nieruchomości",
@@ -284,10 +338,40 @@
    "data": "2025-06-08T04:49:24.000Z"
   },
   {
+   "tytul": "Mają mieszkania warte miliony. Europosłów zabolałby podatek katastralny",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/biedron-i-smiszek-maja-miliony-w-nieruchomosciach-podatek-kastralny-mogbly-zabolec/5x7pgwq",
+   "data": "2025-06-05T11:57:00.000Z"
+  },
+  {
    "tytul": "Nawrocki i podatek katastralny: nie, tak, to zależy, zastanówmy się",
    "zrodlo": "OKO.press",
    "url": "https://oko.press/nawrocki-i-podatek-katastralny-nie-tak-to-zalezy-zastanowmy-sie",
    "data": "2025-05-26T12:35:45.000Z"
+  },
+  {
+   "tytul": "Nawrocki zaskakuje ws. podatku katastralnego. \"Dostrzegam pewien problem\"",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/nawrocki-zaskakuje-ws-podatku-katastralnego-dostrzegam-pewien-problem/bcc2exn",
+   "data": "2025-05-22T13:20:00.000Z"
+  },
+  {
+   "tytul": "Zadaliśmy kandydatom niewygodne pytania. Liderzy bali się na nie odpowiedzieć",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/zadalismy-kandydatom-na-prezydenta-niewygodne-pytania-dwoch-liderow-balo-sie/pp85ckq",
+   "data": "2025-05-16T04:00:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny czy tańsze kredyty? Oto co nas czeka po wyborach [TABELA]",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/wprowadza-podatek-katastralny-po-wyborach-przeswietlamy-propozycje-kandydatow/9gjrxtk",
+   "data": "2025-05-15T04:35:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny od trzeciego mieszkania. \"Dotknie to mniej niż 1 proc. obywateli\"",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-od-trzeciego-mieszkania-dotknie-to-mniej-niz-1-proc-obywateli/yyyc9f8",
+   "data": "2025-05-14T18:00:00.000Z"
   },
   {
    "tytul": "Jednak podatek katastralny? Ministra funduszy wskazała, kiedy powinien obowiązywać",
@@ -296,10 +380,40 @@
    "data": "2025-05-14T10:57:56.000Z"
   },
   {
+   "tytul": "Dopłaty do kredytów i podatek katastralny. Oto, co uważają kandydaci na prezydenta [ANKIETA DGP]",
+   "zrodlo": "Gazeta Prawna",
+   "url": "https://www.gazetaprawna.pl/biznes/nieruchomosci/artykuly/10941272,doplaty-do-kredytow-i-podatek-katastralny-oto-co-uwazaja-kandydaci-n.html",
+   "data": "2025-05-14T05:05:00.000Z"
+  },
+  {
    "tytul": "Nowy podatek od nieruchomości: podwyżka mocno uderzy w budżety domowe rodzin",
    "zrodlo": "Forsal.pl",
    "url": "https://forsal.pl/finanse/twoje-pieniadze/artykuly/9755518,zamiast-od-metra-kwadratowego-podatek-od-wartosci-mieszkania-lub-domu.html",
    "data": "2025-05-11T04:09:02.000Z"
+  },
+  {
+   "tytul": "Tego podatku i tak nie unikniemy. Eksperci mówią, jak zmienią się ceny",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/wprowadzenie-podatku-katastralnego-i-jego-wplyw-na-rynek-nieruchomosci/d0v9wkb",
+   "data": "2025-05-09T03:30:00.000Z"
+  },
+  {
+   "tytul": "To dlatego Nawrocki jest przeciw podatkowi katastralnemu? W tle dwa mieszkania",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/polityka/to-dlatego-nawrocki-nie-chce-wprowadzac-podatku-katastralnego-w-tle-dwa-mieszkania/2edf047",
+   "data": "2025-05-06T17:20:00.000Z"
+  },
+  {
+   "tytul": "Powrót podatku katastralnego. Temat, który może zmienić bieg kampanii",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/powrot-podatku-katastralnego-temat-ktory-moze-zmienic-bieg-kampanii/6zgd9zp",
+   "data": "2025-04-29T08:35:00.000Z"
+  },
+  {
+   "tytul": "Nawrocki: Jestem przeciwnikiem podatku katastralnego",
+   "zrodlo": "Gazeta Prawna",
+   "url": "https://www.gazetaprawna.pl/wiadomosci/kraj/artykuly/9787007,nawrocki-jestem-przeciwnikiem-podatku-katastralnego.html",
+   "data": "2025-04-28T20:06:48.000Z"
   },
   {
    "tytul": "Obłożą miliony Polaków nowym, ogromnym podatkiem? Minister finansów ujawnia plany rządu",
@@ -312,6 +426,24 @@
    "zrodlo": "Forsal.pl",
    "url": "https://forsal.pl/nieruchomosci/artykuly/9777553,nawet-10-tys-zl-rocznie-podatek-katastralny-polacy-boja-sie-go-jak.html",
    "data": "2025-04-15T04:09:05.000Z"
+  },
+  {
+   "tytul": "Ekspert: nowy podatek zaboli miliony Polaków, ale jest konieczny",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-czy-polska-go-potrzebuje-ekspert-wyjasnia/rv251g7",
+   "data": "2025-04-03T16:05:00.000Z"
+  },
+  {
+   "tytul": "Posłowie z pokaźnym majątkiem. Podatek katastralny ich nie ominie",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-tych-politykow-moglby-uderzyc-po-kieszeni/pw8mhym",
+   "data": "2025-04-01T14:47:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny od trzeciego mieszkania? Zobacz, co się marzy ministrze funduszy",
+   "zrodlo": "Gazeta Prawna",
+   "url": "https://www.gazetaprawna.pl/wiadomosci/kraj/artykuly/9768660,podatek-katastralny-od-trzeciego-mieszkania-zobacz-co-sie-marzy-mini.html",
+   "data": "2025-04-01T07:09:10.000Z"
   },
   {
    "tytul": "Cios w zwykłych Polaków? Polscy politycy bredzą o podatku katastralnym",
@@ -330,6 +462,18 @@
    "zrodlo": "OKO.press",
    "url": "https://oko.press/przeciw-rajowi-podatkowemu-w-mieszkaniowce-czyli-po-co-nam-podatek-katastralny",
    "data": "2025-03-02T06:01:26.000Z"
+  },
+  {
+   "tytul": "Zmiany w podatku od nieruchomości. Czy wróci podatek katastralny?",
+   "zrodlo": "Gazeta Prawna",
+   "url": "https://www.gazetaprawna.pl/podatki/artykuly/10772107,podatek-od-nieruchomosci-czy-wroci-podatek-katastralny-szykuja-sie-zmiany.html",
+   "data": "2024-04-03T04:00:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny",
+   "zrodlo": "Gazeta Prawna",
+   "url": "https://www.gazetaprawna.pl/podatki/artykuly/10785232,podatek-katastralny-czy-zostanie-wprowadzony.html",
+   "data": "2023-07-14T04:00:00.000Z"
   },
   {
    "tytul": "Jeśli nie kredyt 0%, to co? Naprawiamy mieszkaniówkę!",
@@ -472,6 +616,89 @@
   "https://www.fakt.pl/pieniadze/wyzszy-wiek-emerytalny-podatek-od-mieszkan-i-mniejszy-socjal-pismo-na-biurku-ministra/97mvyjz",
   "https://www.fakt.pl/pieniadze/progresywne-opodatkowanie-mieszkan-w-polsce-eksperci-ostrzegaja-przed-kosztami/ph1yyvg",
   "https://www.fakt.pl/pieniadze/powstanie-panstwowy-rejestr-cen-mieszkan-za-20-mln-zl-kiedy-wejdzie-w-zycie/42ff2vn",
-  "https://www.fakt.pl/pieniadze/sejmowa-komisja-rozwaza-podatek-katastralny-co-to-oznacza/j8ejl94"
+  "https://www.fakt.pl/pieniadze/sejmowa-komisja-rozwaza-podatek-katastralny-co-to-oznacza/j8ejl94",
+  "https://www.bankier.pl/forum/forum_gospodarka-i-polityka,5,1.html",
+  "https://www.bankier.pl/fundusze/notowania/wszystkie",
+  "https://www.bankier.pl/fundusze/srednie-stopy-zwrotu",
+  "https://www.bankier.pl/fundusze/struktura-aktywow",
+  "https://www.bankier.pl/gielda/wiadomosci/wywiady-ze-spolek",
+  "https://www.bankier.pl/domowe-finanse/wiadomosci",
+  "https://www.bankier.pl/placa-i-kariera/wiadomosci",
+  "https://www.bankier.pl/smart/refinansowanie-kredytu-co-to-jest-kredyt-refinansowy",
+  "https://www.bankier.pl/smart/konta-oszczednosciowe",
+  "https://www.bankier.pl/smart/ubezpieczenia-komunikacyjne",
+  "https://www.bankier.pl/smart/ubezpieczenia-turystyczne",
+  "https://www.bankier.pl/smart/kredyty-konsolidacyjne",
+  "https://www.bankier.pl/smart/ike-ikze-oszczednosciowe",
+  "https://www.bankier.pl/forum/forum_jak-grac-na-gieldzie,50,1.html",
+  "https://www.bankier.pl/forum/forum_dzienniki-gieldowe,51,1.html",
+  "https://www.bankier.pl/forum/forum_jak-ulokowac-pieniadze,8,1.html",
+  "https://www.bankier.pl/forum/forum_banki,9,1.html",
+  "https://www.bankier.pl/forum/forum_chwilowki,54,1.html",
+  "https://www.bankier.pl/wiadomosc/Koniec-z-tanim-podatkiem-od-nieruchomosci-Lewica-proponuje-stawki-do-8-tys-zl-9102681.html",
+  "https://www.bankier.pl/wiadomosc/Koniec-z-trzymaniem-gotowki-w-scianach-Lewica-chce-opodatkowac-trzecie-i-kolejne-mieszkanie-9101886.html",
+  "https://www.bankier.pl/wiadomosc/Projekt-ustawy-o-podatku-katastralnym-gotowy-Lewica-zlozy-go-lada-dzien-9098995.html",
+  "https://www.bankier.pl/wiadomosc/Rozwiazanie-dla-luki-czynszowej-Domanski-zapowiada-budowe-18-tys-mieszkan-9098844.html",
+  "https://www.bankier.pl/wiadomosc/U-sasiada-tez-mowi-sie-o-mieszkaniowym-katastrze-9096385.html",
+  "https://www.bankier.pl/wiadomosc/Kowalski-sam-wyceni-sobie-lokum-do-katastru-9080926.html",
+  "https://www.bankier.pl/wiadomosc/2500-zl-zamiast-382-zl-rocznie-To-najnizsze-stawki-podatku-katastralnego-9061357.html",
+  "https://forsal.pl/praca/aktualnosci/artykuly/11322544,pracownik-z-padaczka-sama-diagnoza-nie-wyklucza-ale-szkodliwe-stereo.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11323619,chcial-odejsc-od-operatora-wyliczenie-za-zerwanie-umowy-przekroczylo-8000-zl.html",
+  "https://forsal.pl/lifestyle/rozrywka/artykuly/11323155,wiedzmin-3-remaster-wyniki-zainteresowanie-liczba-graczy.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11323611,lista-lekow-refundowanych-24-nowe-terapie.html",
+  "https://forsal.pl/nieruchomosci/mieszkania/artykuly/11323224,tyle-warte-sa-mieszkania-i-domy-w-polsce-kwota-robi-wrazenie.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11289479,to-juz-koniec-zakazu-handlu-w-niedziele-zakupy-we-wszystkich-sklepach-takze-w-weekend-takiej-rewolucyjnej-zmiany-nikt-sie-nie-spodziewal.html",
+  "https://forsal.pl/biznes/aktualnosci/artykuly/11323462,brak-planow-ogolnych-doprowadzi-do-paralizu-cena-mieszkan-bedzie-ros.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11323585,pracownicy-zyskaja-dodatkowy-dzien-wolny-po-wszystkich-swietych-zapadla-decyzja-w-sejmie.html",
+  "https://forsal.pl/finanse/aktualnosci/artykuly/11322076,produkcja-rolna-jest-coraz-mniej-oplacalna-dane-za-2026-rok-nie-napaw.html",
+  "https://forsal.pl/nieruchomosci/aktualnosci/",
+  "https://forsal.pl/nieruchomosci/mieszkania/",
+  "https://forsal.pl/nieruchomosci/komercyjne/",
+  "https://forsal.pl/finanse/notowania/indeksy/",
+  "https://forsal.pl/finanse/notowania/gielda/",
+  "https://www.gazetaprawna.pl/autor/1925,Agnieszka-Pokojska-1925",
+  "https://www.gazetaprawna.pl/autor/113375,Roch-Zygmunt-113375",
+  "https://www.gazetaprawna.pl/biznes/nieruchomosci/artykuly/10946883,czy-selektywny-podatek-katastralny-moze-poprawic-sytuacje-mieszkaniowa.html",
+  "https://www.gazetaprawna.pl/autor/113307,dr-hab-Bartlomiej-Marona-113307",
+  "https://www.gazetaprawna.pl/autor/13245,Lukasz-Wilkowicz-13245",
+  "https://www.gazetaprawna.pl/autor/110215,Marek-Mikolajczyk-110215",
+  "https://www.gazetaprawna.pl/biznes/nieruchomosci/artykuly/10942205,coraz-blizej-do-zwiekszenia-kwoty-wolnej-nadciaga-jednak-dotkliwy-pod.html",
+  "https://www.gazetaprawna.pl/autor/112156,Kasper-Staruzyk-112156",
+  "https://www.gazetaprawna.pl/biznes/nieruchomosci/artykuly/10941272,doplaty-do-kredytow-i-podatek-katastralny-oto-co-uwazaja-kandydaci-n.html",
+  "https://www.gazetaprawna.pl/wiadomosci/kraj/artykuly/9787007,nawrocki-jestem-przeciwnikiem-podatku-katastralnego.html",
+  "https://www.gazetaprawna.pl/wiadomosci/kraj/artykuly/9768660,podatek-katastralny-od-trzeciego-mieszkania-zobacz-co-sie-marzy-mini.html",
+  "https://www.gazetaprawna.pl/podatki/artykuly/10772107,podatek-od-nieruchomosci-czy-wroci-podatek-katastralny-szykuja-sie-zmiany.html",
+  "https://www.gazetaprawna.pl/biznes/wideo/10708320,dr-adam-czerniak-silversi-konkuruja-z-zetkami-o-dobra-konfrontacja-p.html",
+  "https://www.gazetaprawna.pl/podatki/artykuly/10778926,czym-jest-podatek-majatkowy-i-jakie-korzysci-moze-przyniesc-wprowadzen.html",
+  "https://www.gazetaprawna.pl/podatki/artykuly/10785232,podatek-katastralny-czy-zostanie-wprowadzony.html",
+  "https://www.gazetaprawna.pl/autor/1488,Katarzyna-Czajkowska-Matosiuk-1488",
+  "https://www.gazetaprawna.pl/biznes/nieruchomosci/artykuly/10948407,podatek-od-nieruchomosci-reforma-podatek-katastralny.html",
+  "https://www.gazetaprawna.pl/autor/38955,Mariusz-Szulc-38955",
+  "https://www.gazetaprawna.pl/podatki/artykuly/10769723,uscinski-nie-bedzie-podatku-katastralnego-nieruchomosci.html",
+  "https://www.gazetaprawna.pl/podatki/artykuly/10799939,czy-bedzie-podatek-katastralny-mf-wyjasnia.html",
+  "https://www.gazetaprawna.pl/wiadomosci/swiat/artykuly/8279884,kataster-w-chinach.html",
+  "https://www.gazetaprawna.pl/autor/9575,Jakub-Kapiszewski-9575",
+  "https://www.gazetaprawna.pl/podatki/artykuly/10772855,skuza-podatek-katastralny-prace.html",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-co-oznacza-dla-wlascicieli-mieszkan/pwg3l88",
+  "https://www.fakt.pl/pieniadze/rzad-chce-utworzyc-rejestr-cen-mieszkan-to-wstep-do-podatku-katastralnego/f3msz92",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-w-polsce-moze-wywolac-bunt-ludzie-wyjda-na-ulice/3ft3pc7",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-kontrowersje-i-konsekwencje-nowej-daniny/mg6c6qt",
+  "https://www.fakt.pl/pieniadze/projekt-ustawy-o-podatku-katastralnym-jest-juz-w-sejmie-poznalismy-szczegoly/3ngfkcv",
+  "https://www.fakt.pl/pieniadze/biedron-i-smiszek-maja-miliony-w-nieruchomosciach-podatek-kastralny-mogbly-zabolec/5x7pgwq",
+  "https://www.fakt.pl/pieniadze/nawrocki-zaskakuje-ws-podatku-katastralnego-dostrzegam-pewien-problem/bcc2exn",
+  "https://www.fakt.pl/pieniadze/zadalismy-kandydatom-na-prezydenta-niewygodne-pytania-dwoch-liderow-balo-sie/pp85ckq",
+  "https://www.fakt.pl/pieniadze/wprowadza-podatek-katastralny-po-wyborach-przeswietlamy-propozycje-kandydatow/9gjrxtk",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-od-trzeciego-mieszkania-dotknie-to-mniej-niz-1-proc-obywateli/yyyc9f8",
+  "https://www.fakt.pl/pieniadze/wprowadzenie-podatku-katastralnego-i-jego-wplyw-na-rynek-nieruchomosci/d0v9wkb",
+  "https://www.fakt.pl/polityka/to-dlatego-nawrocki-nie-chce-wprowadzac-podatku-katastralnego-w-tle-dwa-mieszkania/2edf047",
+  "https://www.fakt.pl/pieniadze/powrot-podatku-katastralnego-temat-ktory-moze-zmienic-bieg-kampanii/6zgd9zp",
+  "https://www.fakt.pl/pieniadze/wraca-temat-podatku-katastralnego-ekspert-mowi-o-duzym-oporze-spolecznym/ff83ejc",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-czy-polska-go-potrzebuje-ekspert-wyjasnia/rv251g7",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-tych-politykow-moglby-uderzyc-po-kieszeni/pw8mhym",
+  "https://www.fakt.pl/temat/podatek-katastralny",
+  "https://www.fakt.pl/informacyjne/kontakt/ghzdbwk",
+  "https://www.fakt.pl/informacyjne/regulamin-korzystania-z-serwisu-fakt24pl/kfntqnx",
+  "https://www.fakt.pl/informacyjne/regulamin-newslettera-serwisu-wwwfaktpl/b312x6b",
+  "https://www.fakt.pl/wydarzenia/polska/polityka-redakcyjna-fakt-gazeta-codzienna/44djwhp"
  ]
 }

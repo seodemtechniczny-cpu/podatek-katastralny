@@ -1,42 +1,295 @@
 [
-  { "data": "2025-02-01", "dokladnosc": "miesiac", "typ": "rekomendacja", "kto": "OECD",
+  {
+    "data": "1994-03-05",
+    "typ": "plan",
+    "kto": "Sejm RP",
+    "tytul": "Sejm zobowiązuje rząd do przygotowania koncepcji podatku od wartości nieruchomości",
+    "opis": "W uchwale w sprawie zwiększenia dochodów budżetowych Sejm zobowiązał Radę Ministrów do przygotowania koncepcji nowego podatku od nieruchomości, którego podstawą byłaby wartość nieruchomości wynikająca z katastru.",
+    "zrodlo": {
+      "nazwa": "M. Kozłowska-Burdziak, „Opodatkowanie nieruchomości w Polsce i w Unii Europejskiej”, Repozytorium UwB",
+      "url": "https://repozytorium.uwb.edu.pl/jspui/bitstream/11320/14368/1/M_Kozlowska_Burdziak_Opodatkowanie_nieruchomosci_w_Polsce_i_w_Unii_Europejskiej.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "1994-06-07",
+    "typ": "plan",
+    "kto": "Rada Ministrów",
+    "tytul": "„Strategia dla Polski” zakłada reformę ewidencji nieruchomości dla celów podatkowych",
+    "opis": "Rząd zobowiązał resort finansów do całościowej reformy ewidencji nieruchomości dla celów fiskalnych, łącznie z określaniem wartości nieruchomości jako podstawy opodatkowania.",
+    "zrodlo": {
+      "nazwa": "B. Marona, „Podatek od nieruchomości w Polsce – przeszłość, teraźniejszość, przyszłość”, srmww.pl",
+      "url": "https://srmww.pl/wp-content/uploads/2024/05/57.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "1994-09-01",
+    "dokladnosc": "miesiac",
+    "typ": "projekt",
+    "kto": "Zespół ds. reformy systemu podatkowego, Ministerstwo Finansów",
+    "tytul": "Założenia ustawy o katastrze i opodatkowaniu nieruchomości",
+    "opis": "Zespół przedstawił „Szczegółowe założenia projektu ustawy o katastrze nieruchomości oraz o opodatkowaniu nieruchomości”. Reforma miała według założeń wejść w życie w styczniu 1999 r.",
+    "zrodlo": {
+      "nazwa": "M. Kozłowska-Burdziak, Repozytorium UwB; termin 1999 r. za: B. Marona, srmww.pl",
+      "url": "https://repozytorium.uwb.edu.pl/jspui/bitstream/11320/14368/1/M_Kozlowska_Burdziak_Opodatkowanie_nieruchomosci_w_Polsce_i_w_Unii_Europejskiej.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "1998-09-01",
+    "dokladnosc": "miesiac",
+    "typ": "etap",
+    "kto": "Ministerstwo Finansów",
+    "tytul": "Powstaje Departament Podatków Lokalnych i Katastru",
+    "opis": "Jednym z zadań nowego departamentu było przygotowanie i przeprowadzenie reformy opodatkowania nieruchomości.",
+    "zrodlo": {
+      "nazwa": "B. Marona, „Podatek od nieruchomości w Polsce – przeszłość, teraźniejszość, przyszłość”, srmww.pl",
+      "url": "https://srmww.pl/wp-content/uploads/2024/05/57.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "1999-03-01",
+    "dokladnosc": "miesiac",
+    "typ": "etap",
+    "kto": "Premier Jerzy Buzek",
+    "tytul": "Rządowy zespół ds. programu rozwoju systemu katastralnego",
+    "opis": "Premier powołał zespół, który opracował „Perspektywiczny program rozwoju systemu katastralnego” z trzema częściami: księgami wieczystymi, ewidencją gruntów i budynków oraz katastrem fiskalnym.",
+    "zrodlo": {
+      "nazwa": "Odpowiedź MF na interpelację nr 5232, Sejm III kadencji, 21.12.2000",
+      "url": "https://orka2.sejm.gov.pl/IZ3.nsf/main/4E84EEDA",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2000-12-15",
+    "typ": "etap",
+    "kto": "Komitet Ekonomiczny Rady Ministrów",
+    "tytul": "KERM akceptuje wyniki prac nad systemem katastralnym",
+    "opis": "Według MF przyjęcie programu przez rząd miało otworzyć prace nad ustawą o systemie katastralnym; program przygotowawczy zaplanowano na lata 2001–2003.",
+    "zrodlo": {
+      "nazwa": "Odpowiedź MF na interpelację nr 5232, Sejm III kadencji, 21.12.2000",
+      "url": "https://orka2.sejm.gov.pl/IZ3.nsf/main/4E84EEDA",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2000-12-21",
+    "typ": "wypowiedz",
+    "kto": "Jan Rudowski, sekretarz stanu w MF",
+    "tytul": "MF: prace studialne nad opodatkowaniem według wartości",
+    "opis": "„W Ministerstwie Finansów nie są prowadzone prace nad wprowadzeniem «podatku katastralnego»” — napisało MF, informując zarazem o pracach studialnych nad przyjęciem za podstawę „wartości nieruchomości, a nie jej powierzchni”, wprowadzanym „w okresie kilkunastu lat”.",
+    "zrodlo": {
+      "nazwa": "Odpowiedź MF na interpelację nr 5232, Sejm III kadencji, 21.12.2000",
+      "url": "https://orka2.sejm.gov.pl/IZ3.nsf/main/4E84EEDA",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2003-11-13",
+    "typ": "wypowiedz",
+    "kto": "Jan Czekaj, wiceminister finansów",
+    "tytul": "Wiceminister finansów: kataster może być gotowy w 2005 r.",
+    "opis": "Według opracowania powołującego się na serwis MF z 13.11.2003 wiceminister uznał, że kataster może być gotowy w 2005 r.; MF wstępnie szacowało stawki na 0,1–2%.",
+    "zrodlo": {
+      "nazwa": "M. Kozłowska-Burdziak, Repozytorium UwB (przypis: mf.gov.pl, 13.11.2003)",
+      "url": "https://repozytorium.uwb.edu.pl/jspui/bitstream/11320/14368/1/M_Kozlowska_Burdziak_Opodatkowanie_nieruchomosci_w_Polsce_i_w_Unii_Europejskiej.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2009-01-01",
+    "dokladnosc": "rok",
+    "typ": "etap",
+    "kto": "Główny Urząd Geodezji i Kartografii",
+    "tytul": "Zespół ds. Zintegrowanego Systemu Informacji o Nieruchomościach",
+    "opis": "W GUGiK działa zespół ds. rządowego programu ZSIN. Infor.pl opisuje ZSIN jako warunek konieczny, choć niewystarczający, do wprowadzenia podatku katastralnego.",
+    "zrodlo": {
+      "nazwa": "Infor.pl, „Podatek katastralny w Polsce – na razie nie jest planowany”, 30.01.2012",
+      "url": "https://ksiegowosc.infor.pl/podatki/podatki-osobiste/podatki-i-oplaty-lokalne/300289,Podatek-katastralny-w-Polsce-na-razie-nie-jest-planowany.html",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2011-11-18",
+    "typ": "wypowiedz",
+    "kto": "Donald Tusk, premier",
+    "tytul": "Wyjaśnienia do exposé: brak planów podatku od wartości",
+    "opis": "Według Infor.pl z wyjaśnień premiera do exposé z 18 listopada 2011 r. wynika, że „nie planuje się wprowadzenia podatku od wartości nieruchomości”.",
+    "zrodlo": {
+      "nazwa": "Infor.pl, 30.01.2012",
+      "url": "https://ksiegowosc.infor.pl/podatki/podatki-osobiste/podatki-i-oplaty-lokalne/300289,Podatek-katastralny-w-Polsce-na-razie-nie-jest-planowany.html",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2012-08-30",
+    "typ": "wypowiedz",
+    "kto": "Ministerstwo Finansów",
+    "tytul": "MF w odpowiedzi na interpelację: brak planów podatku od wartości",
+    "opis": "Według Bankier.pl przedstawiciel MF zaprzeczył prowadzeniu prac nad podatkiem katastralnym: „nie planuje się wprowadzenia podatku od wartości”.",
+    "zrodlo": {
+      "nazwa": "Bankier.pl, „Podatek katastralny - co to takiego?”, 05.10.2012",
+      "url": "https://www.bankier.pl/wiadomosc/Podatek-katastralny-co-to-takiego-2651371.html",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2015-06-16",
+    "typ": "wypowiedz",
+    "kto": "Ministerstwo Finansów",
+    "tytul": "MF: brak prac nad podatkiem katastralnym",
+    "opis": "„W Ministerstwie Finansów nie są prowadzone prace związane z tzw. podatkiem katastralnym i jego ewentualnym wprowadzeniem w przyszłości” — odpowiedź dla Infor.pl.",
+    "zrodlo": {
+      "nazwa": "Infor.pl, aktualizacja 16.06.2015",
+      "url": "https://ksiegowosc.infor.pl/podatki/podatki-osobiste/podatki-i-oplaty-lokalne/300289,Podatek-katastralny-w-Polsce-na-razie-nie-jest-planowany.html",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2019-06-10",
+    "typ": "wypowiedz",
+    "kto": "Jarosław Kaczyński, prezes PiS",
+    "tytul": "Prezes PiS: partia nie wprowadzi podatku katastralnego",
+    "opis": "„Prawo i Sprawiedliwość gwarantuje, że takiego podatku w Polsce nie będzie” — powiedział Jarosław Kaczyński.",
+    "zrodlo": {
+      "nazwa": "Prawo.pl, 10.06.2019",
+      "url": "https://www.prawo.pl/prawo/podatek-katastralny-prezes-pis-deklaruje-ze-nie-bedzie,429150.html",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2023-02-16",
+    "typ": "rekomendacja",
+    "kto": "Ekonomiści OECD (blog ECOSCOPE)",
+    "tytul": "Blog OECD: Polska wycenia nieruchomości według powierzchni",
+    "opis": "Autorzy piszą, że Polska, Czechy i Słowacja stosują wskaźniki oparte na powierzchni, a nie wartości, co według nich zaniża wartość nieruchomości w miastach i czyni podatek regresywnym.",
+    "zrodlo": {
+      "nazwa": "OECD ECOSCOPE, 16.02.2023",
+      "url": "https://oecdecoscope.blog/2023/02/16/property-taxes-in-central-and-eastern-europe-and-baltic-countries-why-and-how-to-increase-them/",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2025-02-01",
+    "dokladnosc": "miesiac",
+    "typ": "rekomendacja",
+    "kto": "OECD",
     "tytul": "OECD zaleca Polsce podatek od wartości nieruchomości",
     "opis": "W przeglądzie gospodarczym Polski OECD pisze, że więcej dochodów można uzyskać, zmieniając podstawę rocznego podatku od nieruchomości z powierzchni na wartość, jak w większości krajów OECD.",
-    "zrodlo": { "nazwa": "OECD Economic Surveys: Poland 2025", "url": "https://www.oecd.org/en/publications/oecd-economic-surveys-poland-2025_483d3bb9-en.html", "zweryfikowano": "2026-10-03" } },
-  { "data": "2025-08-06", "typ": "stawki", "kto": "Ministerstwo Finansów",
+    "zrodlo": {
+      "nazwa": "OECD Economic Surveys: Poland 2025",
+      "url": "https://www.oecd.org/en/publications/oecd-economic-surveys-poland-2025_483d3bb9-en.html",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2025-08-06",
+    "typ": "stawki",
+    "kto": "Ministerstwo Finansów",
     "tytul": "Stawki maksymalne na 2026 r.",
     "opis": "Budynki mieszkalne: do 1,25 zł/m², budynki związane z działalnością gospodarczą: do 35,53 zł/m².",
-    "zrodlo": { "nazwa": "M.P. 2025 poz. 726", "url": "https://api.sejm.gov.pl/eli/acts/MP/2025/726/text.pdf", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-03-20", "typ": "projekt", "kto": "Posłowie Lewicy",
+    "zrodlo": {
+      "nazwa": "M.P. 2025 poz. 726",
+      "url": "https://api.sejm.gov.pl/eli/acts/MP/2025/726/text.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-03-20",
+    "typ": "projekt",
+    "kto": "Posłowie Lewicy",
     "tytul": "Projekt ustawy wpływa do Sejmu (druk nr 2848)",
     "opis": "Podatek od wartości dla budynków i lokali mieszkalnych: 0,02% dla pierwszego i drugiego, od 0,5% do 1,5% dla trzeciego i kolejnych.",
-    "zrodlo": { "nazwa": "Sejm RP, proces 2848", "url": "https://api.sejm.gov.pl/sejm/term10/processes/2848", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-03-27", "typ": "etap", "kto": "Sejm",
+    "zrodlo": {
+      "nazwa": "Sejm RP, proces 2848",
+      "url": "https://api.sejm.gov.pl/sejm/term10/processes/2848",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-03-27",
+    "typ": "etap",
+    "kto": "Sejm",
     "tytul": "Opinia organizacji samorządowej",
     "opis": "Etap zapisany w przebiegu procesu legislacyjnego.",
-    "zrodlo": { "nazwa": "Sejm RP, proces 2848", "url": "https://api.sejm.gov.pl/sejm/term10/processes/2848", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-03-31", "typ": "wypowiedz", "kto": "Andrzej Domański, minister finansów",
+    "zrodlo": {
+      "nazwa": "Sejm RP, proces 2848",
+      "url": "https://api.sejm.gov.pl/sejm/term10/processes/2848",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-03-31",
+    "typ": "wypowiedz",
+    "kto": "Andrzej Domański, minister finansów",
     "tytul": "Minister finansów o projekcie",
     "opis": "„Nie jestem zwolennikiem” — powiedział minister, dodając, że rząd nie pracuje nad takim projektem i nie ma wycen wszystkich lokali.",
-    "zrodlo": { "nazwa": "Polsat News, 31.03.2026", "url": "https://www.polsatnews.pl/wydarzenia/2026-03-31/nie-jestem-zwolennikiem-domanski-o-inicjatywie-lewicy/", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-06-03", "typ": "rekomendacja", "kto": "Komisja Europejska",
+    "zrodlo": {
+      "nazwa": "Polsat News, 31.03.2026",
+      "url": "https://www.polsatnews.pl/wydarzenia/2026-03-31/nie-jestem-zwolennikiem-domanski-o-inicjatywie-lewicy/",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-06-03",
+    "typ": "rekomendacja",
+    "kto": "Komisja Europejska",
     "tytul": "Komisja Europejska proponuje zalecenie o opodatkowaniu nieruchomości",
     "opis": "W projekcie zaleceń dla Polski Komisja pisze, że podatek liczony od powierzchni jest regresywny, i wskazuje podatek od wartości gruntu albo podatek katastralny jako możliwą zmianę.",
-    "zrodlo": { "nazwa": "COM(2026) 221 final, motyw 33", "url": "https://reforms-investments.ec.europa.eu/document/download/80e08c5a-21f1-4b9d-84b3-287b7134ce82_en?filename=PL-COM_2026_221_1_EN_ACT_part1_v4.pdf", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-07-10", "typ": "rekomendacja", "kto": "Rada UE",
+    "zrodlo": {
+      "nazwa": "COM(2026) 221 final, motyw 33",
+      "url": "https://reforms-investments.ec.europa.eu/document/download/80e08c5a-21f1-4b9d-84b3-287b7134ce82_en?filename=PL-COM_2026_221_1_EN_ACT_part1_v4.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-07-10",
+    "typ": "rekomendacja",
+    "kto": "Rada UE",
     "tytul": "Rada UE przyjmuje zalecenia dla krajów na 2026 r.",
     "opis": "Rada przyjmuje zalecenia na podstawie propozycji Komisji. W propozycji dla Polski „zmienione opodatkowanie nieruchomości” jest elementem polityki mieszkaniowej (zalecenie 3).",
-    "zrodlo": { "nazwa": "Rada UE, komunikat z 10.07.2026", "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/07/10/european-semester-2026-council-adopts-country-specific-recommendations/", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-07-27", "typ": "etap", "kto": "Sejm",
+    "zrodlo": {
+      "nazwa": "Rada UE, komunikat z 10.07.2026",
+      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/07/10/european-semester-2026-council-adopts-country-specific-recommendations/",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-07-27",
+    "typ": "etap",
+    "kto": "Sejm",
     "tytul": "Projekt skierowany do I czytania na posiedzeniu Sejmu",
     "opis": "Ostatni etap zapisany w przebiegu procesu. Termin pierwszego czytania nie został wyznaczony.",
-    "zrodlo": { "nazwa": "Sejm RP, proces 2848", "url": "https://api.sejm.gov.pl/sejm/term10/processes/2848", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-07-28", "typ": "stawki", "kto": "Ministerstwo Finansów i Gospodarki",
+    "zrodlo": {
+      "nazwa": "Sejm RP, proces 2848",
+      "url": "https://api.sejm.gov.pl/sejm/term10/processes/2848",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-07-28",
+    "typ": "stawki",
+    "kto": "Ministerstwo Finansów i Gospodarki",
     "tytul": "Stawki maksymalne na 2027 r.",
     "opis": "Budynki mieszkalne: do 1,29 zł/m², budynki związane z działalnością gospodarczą: do 36,49 zł/m² (wzrost o 2,7%).",
-    "zrodlo": { "nazwa": "M.P. 2026 poz. 741", "url": "https://api.sejm.gov.pl/eli/acts/MP/2026/741/text.pdf", "zweryfikowano": "2026-10-03" } },
-  { "data": "2026-08-05", "typ": "etap", "kto": "Sejm",
+    "zrodlo": {
+      "nazwa": "M.P. 2026 poz. 741",
+      "url": "https://api.sejm.gov.pl/eli/acts/MP/2026/741/text.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  },
+  {
+    "data": "2026-08-05",
+    "typ": "etap",
+    "kto": "Sejm",
     "tytul": "Ocena skutków regulacji (druk 2848-001)",
     "opis": "Do projektu dołączono ocenę skutków regulacji.",
-    "zrodlo": { "nazwa": "Druk 2848-001", "url": "https://api.sejm.gov.pl/sejm/term10/prints/2848-001/2848-001.pdf", "zweryfikowano": "2026-10-03" } }
+    "zrodlo": {
+      "nazwa": "Druk 2848-001",
+      "url": "https://api.sejm.gov.pl/sejm/term10/prints/2848-001/2848-001.pdf",
+      "zweryfikowano": "2026-10-03"
+    }
+  }
 ]

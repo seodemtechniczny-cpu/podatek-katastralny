@@ -1,21 +1,23 @@
 @import '@fontsource-variable/geist';
 
 :root {
-  --bg: #f6f4ef;
-  --bg-2: #eceae3;
-  --surface: #fffefb;
-  --ink: #15181d;
-  --ink-2: #4a505a;
-  --ink-3: #737a85;
-  --line: #d9d5cb;
-  --line-2: #c4beb1;
-  --accent: #1f5a6b;          /* tusz katastralny */
+  /* Biel, czerwień i grafit. Czerwień tylko jako akcent i Polska; dane na mapie w skali grafitu. */
+  --bg: #fbfaf8;
+  --bg-2: #f2f0ec;
+  --surface: #ffffff;
+  --ink: #121212;
+  --ink-2: #303338;
+  --ink-3: #565a61;
+  --line: #e4e1db;
+  --line-2: #cbc7bf;
+  --accent: #c8102e;          /* czerwień flagi (tło przycisków, akcenty) */
+  --accent-text: #c8102e;     /* czerwień w tekście i linkach */
   --accent-ink: #ffffff;
-  --focus: #b5651d;
-  --grid: rgba(31, 90, 107, 0.16);
-  /* mapa: jedna barwa, rosnąca nasyconość; bez czerwieni i zieleni */
-  --m0: #e7e2d6; --m1: #cfdcdc; --m2: #9cbfc3; --m3: #5f97a0; --m4: #2f6c79; --m5: #163f4a;
-  --m-none: #f1eee7; --m-bg: #e9e6de;
+  --focus: #121212;
+  --grid: rgba(18, 18, 18, 0.07);
+  --pl-a: #ef3a55; --pl-b: #c8102e; --pl-side: #7a0a1c;
+  --m0: #ebe8e3; --m1: #d4d0c9; --m2: #b3aea6; --m3: #8b867d; --m4: #605c56; --m5: #34322f;
+  --m-none: #f4f2ee; --m-bg: #efede8;
 
   --sans: 'Geist Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --display: var(--sans);
@@ -36,24 +38,26 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #0f1215; --bg-2: #161a1f; --surface: #1a1f25;
-    --ink: #ece9e2; --ink-2: #b6b2a9; --ink-3: #8b8f96;
-    --line: #2a3038; --line-2: #3a414b;
-    --accent: #7fc0cc; --accent-ink: #0f1215; --focus: #f0a35e;
-    --grid: rgba(127, 192, 204, 0.13);
-    --m0: #263037; --m1: #24414a; --m2: #2c5b66; --m3: #3f7f8b; --m4: #69aab5; --m5: #a9d6dc;
-    --m-none: #171b20; --m-bg: #13171b;
+    --bg: #0e0e0f; --bg-2: #161617; --surface: #1c1c1e;
+    --ink: #f3f1ee; --ink-2: #d0cdc7; --ink-3: #a29e97;
+    --line: #2b2b2e; --line-2: #3d3d41;
+    --accent: #d1203a; --accent-text: #ff7a88; --accent-ink: #ffffff; --focus: #f3f1ee;
+    --grid: rgba(243, 241, 238, 0.06);
+    --pl-a: #ff4d66; --pl-b: #d1203a; --pl-side: #6b0817;
+    --m0: #2a2a2d; --m1: #3d3c40; --m2: #5a585d; --m3: #807c84; --m4: #aba7ab; --m5: #dedbd7;
+    --m-none: #19191b; --m-bg: #131314;
     color-scheme: dark;
   }
 }
 :root[data-theme='dark'] {
-  --bg: #0f1215; --bg-2: #161a1f; --surface: #1a1f25;
-  --ink: #ece9e2; --ink-2: #b6b2a9; --ink-3: #8b8f96;
-  --line: #2a3038; --line-2: #3a414b;
-  --accent: #7fc0cc; --accent-ink: #0f1215; --focus: #f0a35e;
-  --grid: rgba(127, 192, 204, 0.13);
-  --m0: #263037; --m1: #24414a; --m2: #2c5b66; --m3: #3f7f8b; --m4: #69aab5; --m5: #a9d6dc;
-  --m-none: #171b20; --m-bg: #13171b;
+  --bg: #0e0e0f; --bg-2: #161617; --surface: #1c1c1e;
+  --ink: #f3f1ee; --ink-2: #d0cdc7; --ink-3: #a29e97;
+  --line: #2b2b2e; --line-2: #3d3d41;
+  --accent: #d1203a; --accent-text: #ff7a88; --accent-ink: #ffffff; --focus: #f3f1ee;
+  --grid: rgba(243, 241, 238, 0.06);
+  --pl-a: #ff4d66; --pl-b: #d1203a; --pl-side: #6b0817;
+  --m0: #2a2a2d; --m1: #3d3c40; --m2: #5a585d; --m3: #807c84; --m4: #aba7ab; --m5: #dedbd7;
+  --m-none: #19191b; --m-bg: #131314;
   color-scheme: dark;
 }
 
@@ -70,7 +74,7 @@ h1 { font-size: clamp(2.2rem, 4.8vw, 3.8rem); }
 h2 { font-size: clamp(1.75rem, 3.2vw, 2.6rem); }
 h3 { font-size: 1.15rem; letter-spacing: -0.02em; }
 p { margin: 0 0 1em; text-wrap: pretty; }
-a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a { color: var(--accent-text); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
 img, svg { max-width: 100%; }
@@ -94,7 +98,7 @@ img, svg { max-width: 100%; }
   transition: transform var(--t-1) var(--ease), background-color var(--t-1) var(--ease);
 }
 .btn:hover { transform: translateY(-1px); }
-.btn--ghost { background: transparent; color: var(--accent); }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-2); }
 
 .src { font-size: 0.82rem; color: var(--ink-3); }
 .src a { color: inherit; }

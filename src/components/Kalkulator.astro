@@ -122,14 +122,14 @@ const lata = projekt.stawki_progresja.map((st, i) => ({ i, label: i === projekt.
   .calc__opts { border: 0; padding: 0; margin: 0 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .calc__rows { list-style: none; margin: 0; padding: 0; }
   :global(.row) { display: grid; grid-template-columns: 32px minmax(0, 1fr) minmax(0, 1fr) auto; gap: 12px 16px; align-items: end; padding: 20px 0; border-top: 1px solid var(--line); }
-  :global(.row__n) { font: 600 1.4rem/1 var(--display); color: var(--accent); align-self: center; }
+  :global(.row__n) { font: 600 1.4rem/1 var(--display); color: var(--accent-text); align-self: center; }
   :global(.row__del) { min-height: 44px; padding: 0 12px; background: none; border: 1px solid var(--line-2); border-radius: 3px; color: var(--ink-2); cursor: pointer; font: 500 0.85rem var(--sans); }
   :global(.row__out) { grid-column: 2 / -1; display: grid; gap: 8px; }
   :global(.bar) { display: grid; grid-template-columns: 64px 1fr 96px; align-items: center; gap: 12px; font-size: 0.9rem; }
   :global(.bar__k) { color: var(--ink-3); }
   :global(.bar__line) { height: 8px; background: var(--bg-2); position: relative; overflow: clip; }
   :global(.bar__line i) { position: absolute; inset: 0; background: var(--line-2); transform-origin: 0 50%; transform: scaleX(0); transition: transform var(--t-3) var(--ease); }
-  :global(.bar--new .bar__line i) { background: var(--accent); }
+  :global(.bar--new .bar__line i) { background: var(--ink); }
   :global(.bar b) { text-align: right; font-variant-numeric: tabular-nums; }
   :global(.row__note) { margin: 2px 0 0; font-size: 0.82rem; color: var(--ink-3); }
   .calc__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 20px; }

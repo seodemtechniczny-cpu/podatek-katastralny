@@ -64,12 +64,17 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
         <circle class={`c dot c--${klasa(dane[d.iso].g)}`} cx={d.x} cy={d.y} r="7" data-iso={d.iso} data-gr={grupa(d.iso)} data-c={`${d.x},${d.y}`}
           {...(d.iso === 'MLT' ? { tabindex: '-1', role: 'button', 'aria-label': etykieta(d.iso) } : { 'aria-hidden': 'true' })} />
       ))}
+      <defs>
+        <!-- Polska podświetlona w całości: jaśniejszy środek, czerwień flagi przy granicy. -->
+        <radialGradient id="pl-fill" cx="50%" cy="42%" r="62%">
+          <stop offset="0" style="stop-color: var(--pl-a)" />
+          <stop offset="1" style="stop-color: var(--pl-b)" />
+        </radialGradient>
+      </defs>
       <g class="pl">
         <g class="pl__ext" aria-hidden="true">{[1, 2, 3, 4, 5, 6, 7].map((k) => <path d={pol.d} transform={`translate(0 ${k - 7})`} />)}</g>
         <g class="pl__top">
-          <path class="pl__halo pl__halo--r" d={pol.d} aria-hidden="true" />
-          <path class="pl__halo pl__halo--w" d={pol.d} aria-hidden="true" />
-          <path class={`c c--${klasa(dane.POL.g)}`} d={pol.d} data-iso="POL" data-c={pol.c.join(',')} tabindex="0" role="button" aria-label={etykieta('POL')} />
+          <path class="c pl__land" d={pol.d} data-iso="POL" data-c={pol.c.join(',')} tabindex="0" role="button" aria-label={etykieta('POL')} />
         </g>
       </g>
     </svg>
@@ -195,7 +200,6 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       a(pl, [{ opacity: 0, transform: 'scale(0.9)' }, { opacity: 1, transform: 'none' }], { duration: 520, delay: T });
       a(pl.querySelector('.pl__top'), [{ transform: 'translate(0px, 0px)' }, { transform: 'translate(0px, -7px)' }], { duration: 640, delay: T + 380 });
       a(pl.querySelector('.pl__ext'), [{ opacity: 0 }, { opacity: 1 }], { duration: 280, delay: T + 380 });
-      pl.querySelectorAll('.pl__halo').forEach((h) => a(h, [{ opacity: 0 }, { opacity: 1 }], { duration: 700, delay: T + 480 }));
       a(label, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 480, delay: T + 1000 });
 
       root.classList.remove('intro'); // układ docelowy; wszystkie animacje już trzymają stan początkowy
@@ -210,6 +214,8 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       // Każda interakcja przyspiesza całość pięciokrotnie, zamiast ją ucinać.
       const szybciej = () => anims.forEach((x) => { x.playbackRate = 5; });
       ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach((ev) => addEventListener(ev, szybciej, { once: true, passive: true }));
+      // Po wejściu zdejmujemy animacje: stan końcowy = style z CSS, kształty mapy nie trzymają aktywnych transformacji.
+      Promise.all(anims.map((x) => x.finished)).then(() => anims.forEach((x) => x.cancel())).catch(() => {});
     })();
   })();
   </script>
@@ -227,7 +233,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .layer--1 path { stroke-width: 1.4; }
   .layer--2 path { stroke-width: 0.9; opacity: 0.7; }
 
-  .c { stroke: var(--bg); stroke-width: 0.9; stroke-linejoin: round; transition: stroke var(--t-1) var(--ease); }
+  .c { stroke: var(--bg); stroke-width: 1.1; stroke-linejoin: round; transition: stroke var(--t-1) var(--ease); }
   .c[data-iso] { cursor: pointer; }
   .c[data-iso]:hover, .c[data-iso]:focus-visible, .c.is-on { stroke: var(--ink); stroke-width: 1.8; outline: none; }
   .c--bg { fill: var(--m-none); stroke: var(--bg); }
@@ -236,14 +242,12 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   path.c--none { stroke: var(--line-2); }
   .dot { stroke: var(--ink-2); stroke-width: 1; }
 
-  /* Polska: bryła (kopie konturu jako bok), uniesiona góra, biało-czerwona obwódka bez filtrów. */
+  /* Polska: cała podświetlona (gradient czerwieni), bryła z boku w ciemnej czerwieni, bez filtrów i obwódki. */
   .pl { transform-box: fill-box; transform-origin: center; }
-  .pl__ext path { fill: color-mix(in srgb, var(--m3) 55%, #0b1a1f); stroke: none; }
+  .pl__ext path { fill: var(--pl-side); stroke: none; }
   .pl__top { transform: translate(0px, -7px); }
-  .pl__halo { fill: none; stroke-linejoin: round; }
-  .pl__halo--r { stroke: #dc143c; stroke-width: 10; stroke-opacity: 0.3; }
-  .pl__halo--w { stroke: #ffffff; stroke-width: 4; }
-  .pl .c { stroke: #dc143c; stroke-width: 0.8; }
+  .pl__land { fill: url(#pl-fill); stroke: var(--bg); stroke-width: 1.2; }
+  .pl__land:hover, .pl__land:focus-visible, .pl__land.is-on { stroke: var(--ink); stroke-width: 2; }
 
   .pl-label { position: absolute; z-index: 2; pointer-events: none; }
   .pl-label svg { position: absolute; left: 0; bottom: 0; overflow: visible; }
@@ -282,8 +286,8 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .panel :global(dd) { margin: 0; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
   .panel :global(.cmpbar) { display: grid; gap: 6px; margin-bottom: 14px; font-size: 0.8rem; color: var(--ink-2); }
   .panel :global(.cmpbar span) { display: grid; gap: 3px; }
-  .panel :global(.cmpbar i) { height: 6px; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--w)); }
-  .panel :global(.cmpbar .is-pl i) { background: #dc143c; opacity: 0.6; }
+  .panel :global(.cmpbar i) { height: 6px; background: var(--ink-2); transform-origin: 0 50%; transform: scaleX(var(--w)); }
+  .panel :global(.cmpbar .is-pl i) { background: var(--accent); }
   .panel :global(.panel__more) { font-size: 0.85rem; color: var(--ink-3); margin: 0; }
 
   /* Stan wejścia (klasa ustawiana w <head>, tylko bez ograniczonego ruchu). */
@@ -300,12 +304,11 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     .layer--2 path { animation-duration: 1900ms; animation-delay: 300ms; }
     @keyframes draw { from { stroke-dashoffset: 1; } }
     @supports (animation-timeline: scroll()) {
-      .hero__map { animation: odjazd linear both; }
+      /* Paralaksa tylko na liniach siatki. Mapa stoi: ułamkowe przesunięcie dużej warstwy rozmywało ją w Chrome bez GPU. */
       .layer { animation: drift linear both; }
       /* Timeline w osobnej regule: minifikator skleja go ze skrótem `animation`, a Chrome odrzuca taki skrót w całości. */
-      .hero .hero__map, .hero__grid .layer { animation-timeline: scroll(root); animation-range: 0 100vh; }
+      .hero__grid .layer { animation-timeline: scroll(root); animation-range: 0 100vh; }
       .layer--0 { --d: 3%; } .layer--1 { --d: 6%; } .layer--2 { --d: 10%; }
-      @keyframes odjazd { to { transform: translateY(12%); } }
       @keyframes drift { to { transform: translateY(var(--d)); } }
     }
   }

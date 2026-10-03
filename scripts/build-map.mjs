@@ -28,7 +28,7 @@ const feats = geo.features.filter((f) => want.has(iso(f.properties))).map((f) =>
 
 let topo = topology({ c: { type: 'FeatureCollection', features: feats } }, 1e5);
 topo = presimplify(topo);
-topo = simplify(topo, quantile(topo, 0.18)); // ponytail: 18% wierzchołków wystarcza przy ~900 px; Malta i Andora zostają
+topo = simplify(topo, quantile(topo, 0.55)); // 55% wierzchołków: ostre wybrzeża przy mapie na całe hero (Retina)
 const simplified = feature(topo, topo.objects.c);
 
 // Kadr na hero: 1600×1000. Europa przesunięta w prawo i w górne ~80%: lewy dół (Atlantyk) zostaje na tytuł.

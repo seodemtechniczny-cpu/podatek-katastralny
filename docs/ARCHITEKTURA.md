@@ -54,4 +54,4 @@ Zmiana → PR z szkicem wpisu do `os-czasu.json` (opis do neutralnej redakcji). 
 - Nagłówki jako pytania lub fakty, bez tez.
 - Bez słów wartościujących („haracz”, „sprawiedliwy”, „uderzy w”).
 - Argumenty za i przeciw w tej samej liczbie, w tym samym układzie, każdy przypisany do podmiotu.
-- Kolory mapy w jednej skali barwy, bez czerwieni i zieleni.
+- Kolory mapy w jednej skali grafitu (dane). Czerwień flagi tylko jako akcent serwisu i dla Polski, nie jako ocena.

@@ -89,6 +89,18 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
         </g>
       </g>
     </svg>
+    <div class="ster">
+      <label class="sr-only" for="wybor-panstwa">Wybierz państwo</label>
+      <select id="wybor-panstwa" class="ster__wybor">
+        <option value="">Wybierz państwo…</option>
+        {[...Object.entries(dane)].sort((a, b) => a[1].n.localeCompare(b[1].n, 'pl')).map(([iso, d]) => <option value={iso}>{d.n}</option>)}
+      </select>
+      <div class="ster__zoom" role="group" aria-label="Powiększenie mapy">
+        <button type="button" data-zoom="1.6" aria-label="Przybliż">+</button>
+        <button type="button" data-zoom="0.625" aria-label="Oddal">−</button>
+        <button type="button" data-zoom="0" aria-label="Pokaż całą mapę">⤢</button>
+      </div>
+    </div>
     <div class="pl-label" aria-hidden="true" data-c={pol.c.join(',')}>
       <svg width="56" height="40"><path d="M0 40 L24 6 H56" /></svg>
       <p><b>Polska</b><span>dziś podatek od m² · {pct(dane.POL.g!)} PKB</span></p>
@@ -130,11 +142,11 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
 
     // Kadr przed pierwszym malowaniem (skrypt inline). Desktop: cała mapa przy prawej krawędzi, Atlantyk po lewej
     // zostaje na tytuł. Telefon: ciasny kadr wokół Europy wypełniający pole.
-    function kadr() {
+    let kadr = function () {
       svg.setAttribute('viewBox', mq.matches ? hero.dataset.vbMobile : hero.dataset.vb);
       svg.setAttribute('preserveAspectRatio', mq.matches ? 'xMidYMid slice' : 'xMaxYMid meet');
       etykieta();
-    }
+    };
     function etykieta() {
       const [x, y] = xy(label), pt = svg.createSVGPoint();
       pt.x = x; pt.y = y - 7;
@@ -144,7 +156,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       label.classList.toggle('is-left', !mq.matches && p.x - b.left + 260 > b.width);
     }
     kadr();
-    mq.addEventListener('change', kadr);
+    mq.addEventListener('change', () => kadr());
     addEventListener('resize', etykieta);
 
     // Podpowiedź i panel szczegółów
@@ -187,16 +199,104 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       panel.querySelectorAll('.cmpbar i').forEach((el, i) => el.animate([{ transform: 'scaleX(0)' }],
         { duration: 700, delay: (odZera ? 380 : 200) + i * 90, easing: ease, fill: 'backwards' }));
     }
-    function zamknij() {
-      const koniec = () => { panel.hidden = true; aktywne?.classList.remove('is-on'); aktywne?.focus(); aktywne = null; };
+    // Fokus wraca na państwo tylko przy zamknięciu klawiszem (Esc); po kliknięciu „×” nie, bo przeglądarka rysuje wtedy ramkę.
+    function zamknij(zKlawiatury = false) {
+      const koniec = () => { panel.hidden = true; aktywne?.classList.remove('is-on'); if (zKlawiatury) aktywne?.focus({ preventScroll: true }); aktywne = null; };
       if (!ruch()) return koniec();
       panel.animate([{ clipPath: 'inset(0 0 0% 0 round 4px)' }, { clipPath: 'inset(0 0 100% 0 round 4px)' }], { duration: 320, easing: 'cubic-bezier(0.65, 0, 0.35, 1)' }).finished.then(koniec);
     }
     const cel = (e) => e.target.closest?.('[data-iso]');
+
+    // Przybliżanie i przesuwanie: zmiana viewBox. Kółko z ctrl/⌘ (i gest szczypania na gładziku), dwa palce
+    // na telefonie, przyciski +/−. Jednym palcem/myszą przesuwamy dopiero po przybliżeniu, żeby nie blokować
+    // przewijania strony.
+    const vb = () => svg.getAttribute('viewBox').split(' ').map(Number);
+    let baza = vb();
+    const zKadru = kadr;
+    kadr = function () { zKadru(); baza = vb(); svg.classList.remove('is-zoom'); };
+    const doSvg = (cx, cy) => { const pt = svg.createSVGPoint(); pt.x = cx; pt.y = cy; return pt.matrixTransform(svg.getScreenCTM().inverse()); };
+    function ustaw([x, y, w, h]) {
+      w = Math.min(baza[2], Math.max(baza[2] / 8, w)); h = w * baza[3] / baza[2];
+      x = Math.min(baza[0] + baza[2] - w, Math.max(baza[0], x));
+      y = Math.min(baza[1] + baza[3] - h, Math.max(baza[1], y));
+      svg.setAttribute('viewBox', `${x} ${y} ${w} ${h}`);
+      svg.classList.toggle('is-zoom', w < baza[2] * 0.98);
+      etykieta();
+    }
+    function zoomWokol(f, px, py) {
+      const [x, y, w, h] = vb(), nw = w / f, nh = h / f;
+      ustaw([px - (px - x) / f, py - (py - y) / f, nw, nh]);
+    }
+    let anim = 0;
+    function jedz(cel, ms = 450) {
+      cancelAnimationFrame(anim);
+      const start = vb(), t0 = performance.now();
+      if (!ruch()) return ustaw(cel);
+      const krok = (t) => {
+        const k = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - k, 4);
+        ustaw(start.map((v, i) => v + (cel[i] - v) * e));
+        if (k < 1) anim = requestAnimationFrame(krok);
+      };
+      anim = requestAnimationFrame(krok);
+    }
+    function przybliz(el) {
+      const b = el.getBBox(), w = Math.max(b.width * 2.6, b.height * 2.6 * baza[2] / baza[3], baza[2] / 6), h = w * baza[3] / baza[2];
+      jedz([b.x + b.width / 2 - w / 2, b.y + b.height / 2 - h / 2, w, h]);
+    }
+    hero.querySelectorAll('[data-zoom]').forEach((btn) => btn.addEventListener('click', () => {
+      const f = +btn.dataset.zoom, [x, y, w, h] = vb();
+      if (!f) return jedz(baza);
+      const nw = w / f, nh = h / f;
+      jedz([x + w / 2 - nw / 2, y + h / 2 - nh / 2, nw, nh], 300);
+    }));
+    svg.addEventListener('wheel', (e) => {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      const p = doSvg(e.clientX, e.clientY);
+      zoomWokol(Math.exp(-e.deltaY * 0.01), p.x, p.y);
+    }, { passive: false });
+    const palce = new Map();
+    let przesuniete = false, start = null, rozstaw = 0;
+    const odleglosc = () => { const [a, b] = [...palce.values()]; return Math.hypot(a.x - b.x, a.y - b.y); };
+    svg.addEventListener('pointerdown', (e) => {
+      palce.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      przesuniete = false;
+      start = { x: e.clientX, y: e.clientY };
+      rozstaw = palce.size === 2 ? odleglosc() : 0;
+    });
+    svg.addEventListener('pointermove', (e) => {
+      if (!palce.has(e.pointerId)) return;
+      const poprz = palce.get(e.pointerId);
+      palce.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (palce.size === 2) {
+        const [a, b] = [...palce.values()], d = odleglosc(), m = doSvg((a.x + b.x) / 2, (a.y + b.y) / 2);
+        if (rozstaw > 0) zoomWokol(d / rozstaw, m.x, m.y);
+        rozstaw = d; przesuniete = true;
+        return;
+      }
+      if (!svg.classList.contains('is-zoom')) return;
+      if (Math.hypot(e.clientX - start.x, e.clientY - start.y) > 6) przesuniete = true;
+      if (!przesuniete) return;
+      const p1 = doSvg(poprz.x, poprz.y), p2 = doSvg(e.clientX, e.clientY), [x, y, w, h] = vb();
+      ustaw([x - (p2.x - p1.x), y - (p2.y - p1.y), w, h]);
+      tip.hidden = true;
+    });
+    const puszczony = (e) => { palce.delete(e.pointerId); rozstaw = 0; };
+    svg.addEventListener('pointerup', puszczony);
+    svg.addEventListener('pointercancel', puszczony);
+    // Przeciągnięcie mapy nie otwiera panelu państwa, na którym się skończyło.
+    svg.addEventListener('click', (e) => { if (przesuniete) { e.stopImmediatePropagation(); przesuniete = false; } }, true);
+    hero.querySelector('.ster__wybor').addEventListener('change', (e) => {
+      const iso = e.target.value; if (!iso) return;
+      const el = svg.querySelector(`[data-iso="${iso}"][role=button]`) ?? svg.querySelector(`[data-iso="${iso}"]`);
+      if (!el) return;
+      przybliz(el); wybierz(el);
+      if (mq.matches) panel.scrollIntoView({ behavior: ruch() ? 'smooth' : 'auto', block: 'nearest' });
+    });
     svg.addEventListener('pointermove', (e) => { const el = cel(e); if (el && e.pointerType === 'mouse') pokaz(el, e.clientX, e.clientY); else tip.hidden = true; });
     svg.addEventListener('pointerleave', () => { tip.hidden = true; });
     svg.addEventListener('click', (e) => { const el = cel(e); if (el) wybierz(el); });
-    panel.querySelector('.panel__x').addEventListener('click', zamknij);
+    panel.querySelector('.panel__x').addEventListener('click', () => zamknij());
     hero.querySelectorAll('.tryb button').forEach((b) => b.addEventListener('click', () => {
       svg.dataset.tryb = b.dataset.tryb;
       hero.querySelectorAll('.tryb button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
@@ -217,7 +317,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       const n = kolejka[(kolejka.indexOf(el) + k + kolejka.length) % kolejka.length];
       el.tabIndex = -1; n.tabIndex = 0; n.focus();
     });
-    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) zamknij(); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) zamknij(true); });
 
     if (!root.classList.contains('intro')) return;
 
@@ -253,7 +353,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       a(head, [{ transform: `translate(${first.left - last.left}px, ${first.top - last.top}px)` }, { transform: 'none' }],
         { duration: 850, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', fill: 'backwards' });
       a(hero.querySelector('.hero__line'), [{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 500, fill: 'backwards' });
-      [hero.querySelector('.hero__rest'), hero.querySelector('.hero__legend'), document.querySelector('.top')].forEach((el) =>
+      [hero.querySelector('.hero__rest'), hero.querySelector('.hero__legend'), hero.querySelector('.ster'), document.querySelector('.top')].forEach((el) =>
         el && a(el, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 520, delay: 520, fill: 'backwards' }));
 
       // Każda interakcja przyspiesza całość pięciokrotnie, zamiast ją ucinać.
@@ -280,7 +380,10 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
 
   .c { stroke: var(--bg); stroke-width: 1.1; stroke-linejoin: round; transition: stroke var(--t-1) var(--ease); }
   .c[data-iso] { cursor: pointer; }
-  .c[data-iso]:hover, .c[data-iso]:focus-visible, .c.is-on { stroke: var(--ink); stroke-width: 1.8; outline: none; }
+  .c[data-iso]:hover, .c[data-iso]:focus-visible, .c.is-on { stroke: var(--ink); stroke-width: 1.8; }
+  /* Bez prostokątnej ramki fokusu przeglądarki na kształtach mapy (iOS i Chrome rysują ją wokół całego pudełka). */
+  .c:focus, .c:focus-visible { outline: none; }
+  .hm { -webkit-tap-highlight-color: transparent; }
   .c--bg { fill: var(--m-none); stroke: var(--bg); }
   .c--m0 { fill: var(--m0); } .c--m1 { fill: var(--m1); } .c--m2 { fill: var(--m2); } .c--m3 { fill: var(--m3); } .c--m4 { fill: var(--m4); } .c--m5 { fill: var(--m5); }
   .c--none { fill: var(--m-none); }
@@ -300,6 +403,16 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .pl__land { fill: url(#pl-fill); stroke: var(--bg); stroke-width: 1.2; }
   .pl__land:hover, .pl__land:focus-visible, .pl__land.is-on { stroke: var(--ink); stroke-width: 2; }
 
+  /* Telefon: jednym palcem przewijamy stronę, dopóki mapa nie jest przybliżona; dwa palce zawsze zoomują mapę. */
+  .hm { touch-action: pan-y; }
+  .hm.is-zoom { touch-action: none; cursor: grab; }
+  .hm.is-zoom:active { cursor: grabbing; }
+  .ster { position: absolute; z-index: 3; top: 16px; left: var(--gut); display: flex; gap: 8px; align-items: center; }
+  .ster__wybor { font: 500 0.9rem/1.2 var(--sans); color: var(--ink); background: var(--surface); border: 1px solid var(--line-2); border-radius: 3px; padding: 9px 30px 9px 12px; min-height: 44px; max-width: 220px; }
+  .ster__zoom { display: inline-flex; border: 1px solid var(--line-2); border-radius: 3px; overflow: clip; background: var(--surface); }
+  .ster__zoom button { width: 44px; height: 44px; border: 0; background: none; color: var(--ink); font: 500 1.25rem/1 var(--sans); cursor: pointer; }
+  .ster__zoom button + button { border-left: 1px solid var(--line); }
+  .ster__zoom button:hover { background: var(--bg-2); }
   .pl-label { position: absolute; z-index: 2; pointer-events: none; }
   .pl-label svg { position: absolute; left: 0; bottom: 0; overflow: visible; }
   .pl-label path { fill: none; stroke: var(--ink); stroke-width: 1; }
@@ -361,7 +474,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   :global(.intro) .hero__head { position: absolute; left: 50%; top: 50%; translate: -50% -50%; }
   :global(.intro) .hero__line { opacity: 1; animation: linia 950ms var(--ease-io) both; }
   :global(.intro) .hero__rest, :global(.intro) .hero__legend, :global(.intro) .pl-label,
-  :global(.intro) .hm .c, :global(.intro) .pl { opacity: 0; }
+  :global(.intro) .hm .c, :global(.intro) .pl, :global(.intro) .ster { opacity: 0; }
   @keyframes linia { from { transform: scaleX(0); } }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -387,6 +500,8 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     .tip { display: none; }
     .panel { position: relative; top: auto; right: auto; order: 0; width: auto; margin: 12px var(--gut) 8px; }
     /* Telefon: etykieta wyśrodkowana nad Polską, pionowa kreska zamiast skośnej. */
+    .ster { top: 10px; left: 10px; right: 10px; }
+    .ster__wybor { flex: 1; max-width: none; }
     .pl-label svg { display: none; }
     .pl-label::before { content: ''; position: absolute; left: 0; bottom: 0; width: 1px; height: 22px; background: var(--ink); }
     .pl-label p, .pl-label.is-left p { left: 0; right: auto; bottom: 22px; translate: -50% 0; padding: 4px 8px; text-align: center; }

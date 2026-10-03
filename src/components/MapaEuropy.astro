@@ -1,5 +1,5 @@
 ---
-import { panstwa, dane, pct, stats } from '../lib/europa';
+import { panstwa, dane, pct, stats, PODSTAWA, KROTKO } from '../lib/europa';
 
 const z = panstwa.map((c) => ({ iso: c.iso, ...dane[c.iso] }));
 const ranking = z.filter((c) => c.g !== undefined).sort((a, b) => b.g! - a.g!);
@@ -22,7 +22,7 @@ const pl = dane.POL;
       {ranking.map((c, i) => (
         <li class:list={['rank__row', { 'is-pl': c.iso === 'POL' }]} style={`--w:${c.g! / max}`}>
           <span class="rank__n">{i + 1}.</span>
-          <span class="rank__name">{c.n}</span>
+          <span class="rank__name">{c.n}{PODSTAWA[c.iso] && <small class={`rank__p rank__p--${PODSTAWA[c.iso].podstawa}`}>{KROTKO[PODSTAWA[c.iso].podstawa]}</small>}</span>
           <span class="rank__bar" aria-hidden="true"><i></i></span>
           <span class="rank__v">{pct(c.g!)}<small>{c.t === undefined ? '' : ` · ${pct(c.t)} podatków`}</small></span>
         </li>
@@ -35,8 +35,11 @@ const pl = dane.POL;
   .eu { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; }
   .eu__head { position: sticky; top: 96px; align-self: start; }
   .rank { list-style: none; margin: 0; padding: 0; font-variant-numeric: tabular-nums; }
-  .rank__row { display: grid; grid-template-columns: 30px minmax(0, 10rem) minmax(0, 1fr) 11rem; align-items: center; gap: 12px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 0.93rem; }
+  .rank__row { display: grid; grid-template-columns: 30px minmax(0, 11rem) minmax(0, 1fr) 11rem; align-items: center; gap: 12px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 0.93rem; }
   .rank__n { color: var(--ink-3); font-size: 0.8rem; }
+  .rank__name { display: flex; flex-direction: column; line-height: 1.25; }
+  .rank__p { font-size: 0.72rem; color: var(--ink-3); font-weight: 500; }
+  .rank__p--wartosc { color: var(--ink-2); }
   .rank__bar { height: 8px; background: var(--bg-2); overflow: clip; }
   .rank__bar i { display: block; height: 100%; background: var(--m3); transform-origin: 0 50%; transform: scaleX(var(--w)); }
   .rank__v small { color: var(--ink-3); font-size: 0.78rem; }

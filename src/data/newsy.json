@@ -1,485 +1,477 @@
 {
- "pobrano": "2026-10-03T08:49:25.305Z",
+ "pobrano": "2026-10-03T09:02:56.313Z",
  "pozycje": [
-  {
-   "tytul": "Rynek nieruchomości w Polsce: ceny, metraże i podatek katastralny",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPX2dBb3VuS1k1NlgwMjRIdkxBaHJyblU1WlhOaWFxMnNHS20yeXlkdmdJV1kyMzVCZHpURW5xU21wWlo5VUJLYXFURUtoN0NzTHFkX0ZfcW5ZRFhxVVRkLXRTc1JBazJFYmk5YVIyWnZzazJGSldGalFfWnZ0UmtJRVAxNDR3X0stR24ycDZrYnpSZ1Zub19Fb2NvbFEtcEx5YlduWUluQ3hvR2dyNDd1NXZ0VlJhRWt1RUFQUDk3SXVQYVFNM1dn?oc=5",
-   "data": "2026-10-02T06:33:05.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny wejdzie w 2027 r. i to bez katastru? Stawki: 0,02% od wartości 1. i 2. mieszkania, 0,5% - 1,5% wartości 3. i następnych mieszkań. Projekt skierowany do I. czytania na posiedzeniu Sejmu",
-   "zrodlo": "INFOR.PL",
-   "url": "https://news.google.com/rss/articles/CBMi4wJBVV95cUxNMFFDM255cGo5WEQ1UGhqdVpBV2FjdHAxRlFwdnBLOUxWSUR4OE9GbVIyUWpYMGlUSEI3djY1R2ctY3FodlZVNGF0ZHBJRlFaUWxNY25lUVliZkFyb1NoaWtIZlVEczAyZmxOM0wweGZSd0JhY0xFQldTbVFobm1EN3BoTVdDVDcyNmhWdXF3N0pDcG8xQ2lWd2FnQ3Jzc0I0RG9UcVBxSlVScHIzOTBOejhma3JtWkJQd0V1XzNDTVJNRmJJSFFDYjdIZnk4djF4QndEN3dXY3U1XzhRTzdQRGRiLTNJeXFUM1Vxbm9LSzR4QXVsdGdLSjRRTHZOb2NtNnlIT3ZXYWhXb3hycFhGZUtyUU05Qjlna1lfNFdueF9nU1c0V3dCaENhLTNmc0JHQWs1ZXVSaXpxTHlZSlZhUUdJdkprQW1zdHVreWVRbGZRSDJEWHVGLUczQjVhV0ZkQkpj0gHoAkFVX3lxTFBwV3BTZS1SUkwtN0xISC1jLVBXdFdxUGtMLXkzc1ZrMVQtUGFTOENSRW02Q1p6WmtqRUY0WXVpWTQ2ZXIzMUhQSk10WTl5cmdGalpPVXltRW82Q2pDQWxpU3hpZTI1WlVVWkNLMl81N00xbmNRZmxUZDBxU2czV1lpdHBlOG4zN25KWURoZXRUT1JOX2U1VE9vSWNveVM4UnRCTzFxdVZmVV9iNTBvZURvQVJpUmh1UGpoR05rOFZrRl8yRERFMUg3cTRiT1l2MTItQWdUWHBfbWk1Z0RTd1o5ZHNfMDkzRXhjaUdjdENZYWRVd1VPcGJuRnVOSDFMbnBhVWI1VkFVeVpzVmdyZzhjOXpUZ1JrUHQ0RnBRUkotalBCbS1TVWtqTHRubDdDYmNVQ1RYSTdOeWtTZTRUMnRaeVpfa1hjRTlURXFEbmV4dGZzakg1VzlYOFVXeXlTZ3VUV0l0T2NFLQ?oc=5",
-   "data": "2026-09-30T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatku katastralnego w Polsce nie uda się wprowadzić przez najbliższe kilka lat. Nie zaczęto nawet powszechnej taksacji nieruchomości a to konieczny warunek",
-   "zrodlo": "INFOR.PL",
-   "url": "https://news.google.com/rss/articles/CBMi5gJBVV95cUxPWGxNelBmR0d4MkJWNExRWWRfVFJUdWluenlhWGhyZ3BWSTBURWQ5cS1ZYVZXR2xyWFNLMXJHVmFjNlI4WnExNlVQVG4tYmVETmNJeDluTUVrU2F3UkhPdHFxR0VDRnMxS3lVdXl0cFl1QUwtTXlhMnNFWWllMlQyUFZLdk1ucUZVZGV2Z25McFRrQnd6bHhjLTFKa0p3VU93azZ0SXFOTHJNaDNqREx0bTlrbFkta2MyRUN3ZmxPVk1BVmxUREVwemhVTXE5azV6a2ZBR3VPOHVqSl92MFg1cU5PU05xSnpjWVp3aWM2bmNlNEVYdExCTFNkQVhYaEh6RFpaWWJNbjZiUGpOQV92aVZ1elpRdDVFMXpkY19RVVA5YVNaTmZYNk96Qk5zVUxmOTk1T3RUbzhWdURlX2pyRjNxdmJZaHFhdnBRRVBPWkcySUhIVU9QV2J5aFVCUU5NNXpKYmhR0gHrAkFVX3lxTE5DUVB4MThzVjZUMEItNHNFVXpWYnBZZ184ZUotNENUSkFyYUtyRzU0VGxLdXRJTzhHVkVmUmdqTGt6dkFHbnVhbjRTc1NnakprbExIZmp2aElzN0RrQkpUVFUxeHI4WE1DX19qREpkSGFBSE5HX2xWVXFlQ1ZGdE9zYTJUeE4tTVlDd1hKMEoycXo1aXgyUmRpRVBwSTNSNE1QSUFkY3BISjZtUEdSVmdZaGNUOHltRmNFMHpnd2MxeE52VGtRUWdicDBkeGFQQXRPYzRZX0Uya3ZIcjJ5WWE3SWNjMFd3RXU0eW1sdW9pd2JEbzBiWW85WVlia2pmRGZtaUZfdHRwaU5udGlselNrT21nV0RxYWlEY0pXMUhKRC0tX2VUSnlpckFUb3hhQUMtWjJrQ2c5UXhVOEV6TE1sODJkT1ZzVW9yVkdrS0d4M1Q3aGozZlRxMjZKUG1LYXVUQ1ZNODRDaDEzTQ?oc=5",
-   "data": "2026-09-30T07:00:00.000Z"
-  },
-  {
-   "tytul": "olejny podatek od mieszkania? Sprawdzamy, czym jest kataster",
-   "zrodlo": "Interia Biznes",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZFVqSkd6TmM5X1lrTlBSWEx1aHZrOHlfUFVqaTlRT0RnQ1g3ZUNlSUg4M0xpWk01M28xZ0VpanhnTFRIbGxWdXM1enJIVERQV3BTcmZMRS1TNGpoWlRrZzhONnlTN2t0ZUNjVDJadVh2OFdjOXFzLW91a0NzRDlZZnBna1ZSb2Iyc3hkSFJXUFNTeU5tSmE1X0NUenVWUmpCYm10dE9YU2ZlSld2eW92Vg?oc=5",
-   "data": "2026-09-27T08:15:03.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny wraca jak bumerang. Na czym dokładnie polega",
-   "zrodlo": "Interia Biznes",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPNU9QaVlNSTNJb0xjN29leU51bGRySEhvQ1Z0Y0R3YXJyWS10ODNXaTBMOGlOXzZwREVvVXN0dmNzbFJTdmhxUlZMSDducGRkU2xrVTFWYXpPVkRjVVl5VUdKVnlfemlGZHBRdkVXQ0dxemw1TlhOWmlKMDhPdVVIaE9ESWJOaFNPVDVzeWFiMDdOWFEyV0lIVmxSVGFOU25RN2swdjZWUzFCNnEzQlhQcnZn?oc=5",
-   "data": "2026-09-20T07:00:00.000Z"
-  },
   {
    "tytul": "9 tys. zł – taki podatek od mieszkania zapłacą Polacy którzy zdecydują się na zakup tych nieruchomości. Im większa wartość nieruchomości, tym wyższa danina",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMisgJBVV95cUxPdGNJVnFGT3ltOWV2ZFM2NS1POUJoTWdCVDVXVjNKcDNFdnMwVmNPVE9YSjFCeDF0aldzVzF2cDNHV1lpMHJkOHZTWFBVYjhXc0RsbnFhNFUtSzBOWDVWNUZtSGwwMlgzUVRYTER4OVBNeVhVeUVmRU5zOHhJYzhGUFVVWHM2Mk1OYUI5ZDhyNGxFT0VFdXB5MTYtUjQwZ3hzczgyUnJOVzZWRjJaVjBNa2o1eFFiZVJ6WThPQllscjZQWWFJc1hPV2FqU2dUZjdJb29xaGRJRjctWnJRazhmdEhfcnpDVW9yLWU3ZmdjbjVXWVowR0lHT0FHNE1lMHlnOTR0RUkwcThoMWR6b1Y3cTVWdGllSjBZZGJIUU1kajhLSXdtUHRQbE9YSEpFQk4zVVE?oc=5",
-   "data": "2026-09-18T07:00:00.000Z"
+   "url": "https://forsal.pl/kraj/aktualnosci/artykuly/11285594,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+   "data": "2026-09-18T09:30:44.000Z"
   },
   {
-   "tytul": "Podatek od mieszkań wraca po kilku miesiącach. Zmieniły się założenia",
-   "zrodlo": "Interia Biznes",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWVRrWlczT2tIVnpEaHJQeUYtOFh0bC1ldE5VWnRYZGNETjFEa2VxNEROUEhKQTNPd2VnNE9XYnFaWjVQanJUQm02R0wyZUs4R2N1Rk5Tdm12SEY5dGZzbEZMMnRqZ3lLc0x4R0pYWGdVWHFLOEpqNEFWYkUtZGVDeXhQYUVmX0hPU1dUUFVYaWlESFQyekhtM1IteVdkYVNtNlV5SUNUb21ET3h0YUF1WFRwWjV4X0FY?oc=5",
-   "data": "2026-09-14T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny w Polsce. Właściciele mogą zapłacić 25 razy więcej",
-   "zrodlo": "wnp.pl",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNd2xQam1Ha1JFMGxDNVRoVE4xVFhXeGs2NGpfRFBnQ3dhWjR0ajFPRGswSkMtdVJxUnM1dXBYd0tqMkdQbVdZZHFuVnI5c3Rua3VtaERaeWJCZ0d2b2R2ZDh1cURzV18zMDlDLWFzTzJTa1o1c291Z1A3SFVnSWdGa3hwcTZzSk1Ud3QzVmpSLTF0V2xVUzZDU3VvZHdoaXk4TkdtLVFVSFV1dm8?oc=5",
-   "data": "2026-08-26T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny będzie o wiele droższy od podatku od nieruchomości. Sprzeciw społeczny",
-   "zrodlo": "Biznes Wprost",
-   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNRUV5and6SEZpWWwtOXl1Y3dtZ1ctNUpTTnZINUhYUjVXRTZ0TkZ6My1iNFE1UWt4YTRiS3JKQUFEeGREaWdnNXUxWnQ1M0lDRXBWVk9HVGlOQlQ5WnhCbUt6T1ZUX2xWX1hKVGRxeF9Hdmxfc19INWowYnRHNDRJdWhRWG4yVzRVZkxhNmc1OWFKREtRWkNZeXdhS2hMendIWndRTEMtenJCSndkcmpQZ1lDemM1NXRQdHhNUzVnQU45eWZiTnBsYlZEaXZyTjAyWVZXbzI0aEJpaUhBREVlemsxZ9IBzAFBVV95cUxORGtwU1hYS3hGeHl0UGEyc19oWnEtZTA4UUdaaV9naGZScG1IWGxUNVpkRTlnWmcyMlNqVVVadnE1bi1kVnBDektmTGc4d3Raa2huQWtPOHhhd19nRGI5eDVzbmxoelNxN3EyYjc2ZWQ5RGx3UXVXVTh1NUtnUnI0NW9UVjY3ZmJBcGlYN21Nby11OVEtWU1JbXNVMHN3UG9lUnQ3b3FLUGc1SEFtQjlnZ2ZfLTZ6dnlUQjJ6XzlZV21RcmNPUzRnUEhiNG4?oc=5",
-   "data": "2026-08-05T07:00:00.000Z"
-  },
-  {
-   "tytul": "Zmiany w podatkach? Domański potwierdza, że rząd pracuje",
-   "zrodlo": "Do Rzeczy",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTDg2bG5zdVVLMUFzWlVwM3NTLVQ1RV9jREx2M1J5bzJ0ejB0SGUtMS05ZlhYTEtoYjZWUmh6Wk1hTjktTEo5akhrU3RZWGZWMVFHZEdYMlRvYVRFdkdSNEZNM0FMdk9BM3ZVV3NaVWgyNWYxM1F1T1JWT0VZRmRIVEF3ejNZY09hMDFuV2plY1lWSnFQYnQ5VV9ic9IBlAFBVV95cUxQNXBvU1JGSzdnVkY2WFhLd0Q3a3pMN25WX3VmWmhFYzVOdnBVd295blNVTkVqTEROOHY2bEx4SUdzLVo0VXA0QlFBTTRMNlhfS3JOU25RLWxUY095Z0Vrcm1LRGxRZ0I2LU9PMTZpUnQwM1ZCblBPZ0lkMFdyVjB4RnlENk9FXzY5d3RqeVQyUTRqcWdr?oc=5",
-   "data": "2026-08-04T07:00:00.000Z"
-  },
-  {
-   "tytul": "Opłata wzrośnie do 3340 zł. Nowy podatek od mieszkań i domów",
-   "zrodlo": "wnp.pl",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxObnBpZmNxcFZjWkxUTWVhMDN0UHhHalE1XzhGM1dpdUlzMDR3WDAzcm5jVnRUUTJqZHdIaDYxazV3RkZlaXpjZEZxZ0ZtbjVEYUtoX1AtTVgzbU5qYm9uR0g0SHVOSFo1Q3RDSVRxOWhmSTRHOXNrcEpXYTNSZklrcHctSnNVRjk0NjRZV21uREFrMEVWOUJJTnNOa0F4QQ?oc=5",
-   "data": "2026-08-03T07:00:00.000Z"
+   "tytul": "Podatek od mieszkań z radykalną zmianą. Jest już nowa wersja przepisów",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/gospodarka/aktualnosci/artykuly/11277586,podatek-od-mieszkan-z-radykalna-zmiana-jest-juz-nowa-wersja-przepisow.html",
+   "data": "2026-08-16T16:55:27.000Z"
   },
   {
    "tytul": "Jak podatek katastralny od nieruchomości zmieni rynek mieszkań",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPR2gtcnprRkJteXU3eGI3NDVuMHdCVVJYQ1FETkFRZ0VmVldFRExQOEJpQVI1TTA3S3piQWd6X3I1dEp5ZFhNNnEza19XdzJJNFNSZUlwTzFicHI3dDU1OU9CNmdOaElEVkRpUWtqeThPSlJOTW5sekNiX2dkVUtFVDJQSmZpYkNULW5maERCOUdpYjdhVlM4ZEZZNVNzUGhPYzlsYXdKQ0cyWWlIYVcwQmM0Wi1rNlJMc3c2WDRlSFNfMlFQakFZ?oc=5",
-   "data": "2026-07-31T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek od nieruchomości. Lewica chce rewolucji. Taki byłby efekt",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNR2FDNGxOOEVqZXRkVk9SNV84WHZMSzBIejZ4YURkVTRzY2ZSVHNSa3RVX1h1M0RheFRpVTJkc1lHczUtTmJTdThFdm05Nlk3SEVKc1lQU1ZuRXhGT0IwdVZEZHdQTDRPMVdpdWctLVFZeHdhVkItM3FVY0l1cHVtWU5QbUtKb0g3QkJ5UTNMWDMwbVNKeUdZSnFtVVUtVmx5N3dhUDB5M3FoZmZ3SHg1a3V6Z3RJT3g0eTN1dm4xamxGeFk?oc=5",
-   "data": "2026-07-30T07:00:00.000Z"
-  },
-  {
-   "tytul": "Ceny najmu wystrzelą? Ta podatkowa bomba ma zmienić rynek mieszkań, tylko kto na tym zyska",
-   "zrodlo": "wnp.pl",
-   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPa3BPcXFGRzJEbHo5VUlSNkp5Y183MXg0YUtsaTZGSHNhRExRM1pxUE1YaVVEczI0Yi1KYndnekUwRDNXYkRLOWlVS1ZGT2JmUWlzaVItSFBtZWFlTi1WZUU2eGJtRUhOdm5iWDRxRWVUbk5hLXEzaENUdExqVVVMOGNtTjg2MlRMc294a1MyQkh4U0ZqQ0xpS2I0WWNjSHFXV1d3SWhJTEFtNFlsaGN1TEpwZHNRdjJoMVc3LTBkU2Rqamc2N0E?oc=5",
-   "data": "2026-07-29T07:00:00.000Z"
+   "url": "https://forsal.pl/nieruchomosci/mieszkania/artykuly/11283243,jak-podatek-katastralny-od-nieruchomosci-zmieni-rynek-mieszkan.html",
+   "data": "2026-07-31T09:28:12.000Z"
   },
   {
    "tytul": "Podatek od mieszkań wzrośnie nawet 75 razy. Tych nieruchomości dotkną nowe zasady od 2027 r.",
    "zrodlo": "Gazeta Prawna",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOXzhkQXJzSjJ1QzlrUDhTNmtYWEFIVG40MF9iQW9GYUJyOVlOenZ4MUJvcUpYQ0NGa3BQZ2V2OEN3YkR3enR6dy1KVXBPcG81b2FQZm5XVHNuT2ZiZC1rYVpUaWtHa0pHQ0R2WWxkZnFCMUVacGg3SXhYak84bW5TT0o0eHZ3LU9iQXlEQjRqb3JQUnViWG5aN0k5NGRWektKME5JQ2FhNEhQeFliamFGS0ZEUU50RVlFWV91cVFvSjBLdFBxaHp5Wl8tbUhqUQ?oc=5",
-   "data": "2026-07-20T07:00:00.000Z"
-  },
-  {
-   "tytul": "Włodarze krytykują nowy podatek od mieszkań. Chcą ponownych konsultacji",
-   "zrodlo": "Portal Samorządowy",
-   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOUjFnX0tsUkNyeGNNWUtTWnlUR2dNOVRhYTc0emRhWTF3bHYxNXV1U0p5cUJadmxiYTZGZUpBUzFaVU42Nk5YS0ZmdVRVZmtQenlNU2x1NEY4M3g3N1JpSUpqQkFHUlR0N1k4VUhLUmRVNHQwa3llbHByT01KbWREQ0xwdWVHWU1HRDdtczVGVWR4anBHczFXMXhXczBodS15ejQzX1lsQm1EWlhzYW91RjdIRERYelltSUwwMVZ6ZGg4RXNOcE5UUS1id1FFVnZySWc?oc=5",
-   "data": "2026-07-10T07:00:00.000Z"
-  },
-  {
-   "tytul": "Koniec podatku od metrażu? Nowy dokument rozpalił dyskusję o katastrze",
-   "zrodlo": "Super Biznes",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSXJHLWF3UDhxSGNyLUpIVzdFTmtobnh5WVBySkc0dXp4alowMktibERDOHhwaHZhOVlzWjdvVWJjVHh5N20tcEhmRDNrY0lwVWlpbjFuTUY3UzBQUk1FNFdaTnpZYmI3ZVNsUjNLQnNJaW93TjJnNXRoRzMzeWJkZ0VKN1JJTDdKRURoNHdHREV6YlluRVVnNDZ2Q1BFVXlZaHFqbzFRSnFnLWRmYkxEdEJJMjFIWk9QYTRqY01sYzFGbGVhZE9meXZn?oc=5",
-   "data": "2026-06-22T07:00:00.000Z"
-  },
-  {
-   "tytul": "Będzie zmiana w podatku od mieszkań? Jest już nowa wersja projektu",
-   "zrodlo": "Interia Biznes",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPUWd4RnROR2VwaG1EXzg0LVV3Q0JBYjhEbG1MdGVlSkdlODNKWThUcEF1VXM1S3FGQy1fYTE3U2h6MnNrbFotUU9Ka3FWZXBhQm9xaHlUNEpQdGdVejZtMllFWDBydmxLZ3VfQTF1RmppTE9BQWJ6S19zSEFhZVR0aWludllNOFdETy1laE5UcUtvcFBqUjhYbnBET05Ya0xrSzNqSnpfb2tJM011Qm5xcUVSYw?oc=5",
-   "data": "2026-06-17T07:00:00.000Z"
-  },
-  {
-   "tytul": "Wraca temat podatku katastralnego. Jest rekomendacja Komisji Europejskiej",
-   "zrodlo": "Wyborcza.biz",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQXzF5UVEwOTdZQ3o5enlhZEtwWXZJNnJkenRyWEYyZm1uYUVqdGtUMFFxREZyYzVCaWN1VHpOWDdBbklUOVd6RUMtaHgxN2tWMEplX2N3YlNubjVZZEJQaU5TbFItTTVidjBablBFUGdsUGMyMnRYanRYMndJSXdual80WnRNT2ZiR05adDluejlYM01ySm90OV9jeTBGUm81UDF6R0k0NkN1Rm1NVWR4SXZhSnM2VW8?oc=5",
-   "data": "2026-06-17T07:00:00.000Z"
-  },
-  {
-   "tytul": "UE zmusi Polskę do wprowadzenia podatku katastralnego? Nie, to media straszą",
-   "zrodlo": "Murator.pl",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNV0QzYnFJd09iVkI5M2ItUS00cTJVMW9waExGcG8tTGRMakdzc3E3MV9IcExUN21Qc0VpaGRiZVRzVkNaNVV3SEFadU5kTWN6SzdTaF9ydVdfNmhiT3FqN0hfLW0xOVJyLWpGcE5FeURDdGVldTkxYnpmTTA2eDJVcjFIT1B6VHVHekRQZ08wNWRsbEJ0TllZMjRfQ3E5NklJanBaQ2FRam10QWhMYmlMY0JZdG9sMWUxbkh0Zk5yd0JsOXJpQ2syVE9lWjlWdw?oc=5",
-   "data": "2026-06-16T07:00:00.000Z"
+   "url": "https://www.gazetaprawna.pl/podatki/inne-podatki/artykuly/11277868,nowy-podatek-od-mieszkan-zamiast-120-zl-nawet-7500-zl-rocznie.html",
+   "data": "2026-07-20T08:14:30.000Z"
   },
   {
    "tytul": "Lewica chce wprowadzić podatek katastralny dla wszystkich. I to bez realnej wyceny nieruchomości",
    "zrodlo": "Bezprawnik",
-   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9RSkZnRzMxLUktM0Nfa1Q0VmoyTHE2bVJ4YjZjbU9EaGFwVkJZdXdPSVMwajVmT2ZmY0VQZjU0YzY3c3M0aHowQ24xMDN5ejljcW9reWdpN1Vqb1BNSHc?oc=5",
-   "data": "2026-06-16T07:00:00.000Z"
+   "url": "https://bezprawnik.pl/podatek-katastralny-lewicy/",
+   "data": "2026-06-16T04:57:54.000Z"
   },
   {
    "tytul": "Zmiany w podatku od mieszkań? Bruksela wspomina o katastrze",
    "zrodlo": "Fakt",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxORUpoQlpFRHNXNEJXeTExdktLN3YyZlJfeWZYRWZvYU0wd29qTDBTR2NRZ2s2Uk90azloTmFFcEtBWlBOeDR6T1lOZmpPNThmak5IVkJyWE1IU3h0NmM3d1c3ZkdpSWo4cTQ5S2FiUmdvRVRKWUpzbUIyUGRySVBLZVFYMDBJNlBfOWItR3NxWXowdUw3SjBObFhLclFqcG9vT2xwTTRER3VCcTJ0TWw4Zg?oc=5",
-   "data": "2026-06-15T07:00:00.000Z"
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-w-polsce-bruksela-wydala-oficjalne-zalecenia-dokument/wgjpl4m",
+   "data": "2026-06-15T03:30:00.000Z"
   },
   {
-   "tytul": "Nowe propozycje podatku od mieszkań. To nie koniec sporów właścicieli",
-   "zrodlo": "Business Insider Polska",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUzVaX2FLbzJFUXdaRlgwUThwWUJlS2JSakdVM096REhab09OTDRwdktqZUw3TV92ZG51VTFORVlreTJSMnByT1FoN0RTNS1DaHBsV296YW1pMFEzYnJpRTU3YkxZSGVSNWVwTWxJN2ZHYnlER1h2a3F0MlQ1M19hQW1KbW9KZHFXMmE3NHVERWp6LUNXWjJNcTlHcWhzZzZjUUM3QVM5THpvSGppTTJKeDFOR2RJbmxLMEIxQ1R2ZDk?oc=5",
-   "data": "2026-05-23T07:00:00.000Z"
-  },
-  {
-   "tytul": "Kataster od trzeciego mieszkania? Polacy wskazali granicę, która zmienia wszystko",
-   "zrodlo": "INFOR.PL",
-   "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQTDhUcEJfcUloTGxFS0dYUjViYmJzWnVTeVVBZElXcmxKT0t4TUpTbEN4TTE0QU92STJPOWRwd1JjWUZWaEkyTHdhS1JsdE9EUGkzZDZwYXk0QzBUS2FyZ0wzNnoxU050cDlqeWFGSUF1UWxzTXdCYVNaTTRGbFpYZllsdDE2aHBJOUJRTDlKbUI1aXFXS0JWZkFyVWk3QkRkTFBkV09oUlFPZlV1ZThqVURYSC02QmdVbUJvT1cyNXNWLTRKem5hSUJMVkxVbFhqRGY1aGVwdDFQVy01Y1BSb21UZ0ZpU0tOMUd6cjJ5QkFBcldGTTAtZENqc3dQWTjSAYQCQVVfeXFMUFJteGtwUXdEOTFSUVdLaEtaTjhzeUx5U3JwRXVSUW44LVpkY3NKbmtqejNCNXhvcWtvRDRsRlVicTdaS3pTdjc4YzdCa0hSUENpTGRuTXd0MkkwZGs4SWNsVHp3SlpBSElaZjVBQ0tfQW1FYklWbnBsZjQyMkQ1T1RCVUZucWZfbW5mQXRvd1ZHaktxM2h2MWoxX0dQQWtza2hQc3F3UHJZMnVYd0kxcXdtSUFMT2NtM01uN0dfcTg5X3pTZk9PcVJ3eUF4cE80elF5RG9PcGRTc1VyN2wxcGdjc2hTdzFrNm5Ob01ORnJYSFFZSFczSDBuTUtjMFFSRkd5TWc?oc=5",
-   "data": "2026-05-18T07:00:00.000Z"
-  },
-  {
-   "tytul": "Większość Polaków nie chce podatku katastralnego, a jego zwolennicy akceptują tę daninę dopiero od 3 mieszkania",
-   "zrodlo": "INFOR.PL",
-   "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOOXdjWDVRYVhtbi03eDl0eGVSbkNaOGJRdGFoVjFNYzhYd0NPcmFIVGVPLTRIYWpnT2lZRWdqUnBJeVg1aFBmV1oteWx4UGRyVUVRLWFzbG5DZGxmcUdwT2k3dVZpSGV6MURHeUZRZUhNOVhZRGk0SkcwWF93ZjF6bGZHaWxYOTZzbGQzU2xXOS1wRk9rVFp3cGdlYV9zck5DeW13VnpFd1dCbDRwMUY1N2IwMGp5T1pJS1RHc3dKX1I3YnhLQVRQbXVycUxCbkFydGYzdUpqYUU3SXlTSlg4QUZqQ0haaVd4bU50bUpDRThCTEhjaGh3NdIB_gFBVV95cUxOZF8zazdVdTU2R2VfdXdqSEd6RHJHdmtFTkU3ZEpVcGZSMUU2UVA1STlYckN0SW51QXhnWFZxUVJQOEhGRk80QVFmVUUzeTdLQmNFUWkzbUx0aFo4eG1VbExNSXJERzduOHY4aUI4eFMzNG01bDJGN2RKYWdKSEdYZDZYSDlxbUktR2ZONDhZS25yQUo4bk83ZDRYQ1p2aER0TTlaOUc4eFg4RllIQ2cxWTRwaG1mM2tLS3FPZlBtV1REeFdtN0hiUzE0ajhESkFzcWFUVkJ4dGV0SVZsS1RFbFJIdllURXBqTEViWEIweEk3QXA4YU9peFB0U1FzUQ?oc=5",
-   "data": "2026-05-16T07:00:00.000Z"
-  },
-  {
-   "tytul": "Większość przeciw projektowi Lewicy w sprawie podatku katastralnego. „To droga do biedy i kryzysu”",
-   "zrodlo": "Business Insider Polska",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNZHhYUnlKTGlWd1RjY3lmU21EbWRwOW5BSlR3a3UtLWtDb3VmTC1wdDNvWXpwSXUwLU1NU2VVY1IzbHV5eHMwVkZMV2VuYnhkNnAxTTM4MXRtcVpTUVdmOGJGbVZSc2ZUalBmY3BUZTBPb2pjZ2Q0WWNwb3NpcVRBMlNKU0hfWGtJQ0ppWEV5YjJNLXdvS3RGbG9LTTlmSHY3NWlJeUYxNS1jVnh1VmxjSUJHelBwcWpNR0M5eVJBc185VTdhVEhuTTlBUkpBRVhs?oc=5",
-   "data": "2026-04-26T07:00:00.000Z"
-  },
-  {
-   "tytul": "Kataster w Polsce? Już po konsultacjach. Polacy wydali wyrok",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQUXl0MzVmVDdQdWNOSDA1S1RnYXc1LS02M2FJcnBLUEJ1blIyZ0J5N29YNU9RRTVNV2dyUXM1SVpFZWZqMlFMRFB4ZU92Njk0b2luQkNaQjBzczFVc0ZmQ3l3WDd3LTB1Z2dfTUJlZHBXMVZKZS1RdTRYN1VRWUg3SGRCMnZfeWVRQ3A5RDRnUEVad1FvWTh0c28teldFTXV5cEUwdmRlSVptUQ?oc=5",
-   "data": "2026-04-26T07:00:00.000Z"
-  },
-  {
-   "tytul": "Już wkrótce właściciele mieszkań lub domów będą musieli pogodzić się z dodatkowym obciążeniem finansowym. Trwają prace w Sejmie",
-   "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxNQ245OFJTYWV2c0htZV9GMldUTktiYmFKSjBxOXp4ekdGZGFDS2xOa2F3aGU5dHZxVi1vQUhjS0w0MUhDeVNORGp2VllaUFp2d2Q2ZWNIcEtzWGFrX1JpaGRFY2xPN29ELVJtbXVwZ0QySEhJdWpyUGVBS1JmR3VaMnJBRGlSejR4TTd4YUZUV1RMc0w0cE1SYTNENV9CTmdsQnRlSnNoLV9jOWZsdV9ZWVV5NVhnM1YtcE5SUEVxTFJ2SWhDV3AtYVRicm54Z1ZLYVh2ZmRmS1NPYktPNVN0SzhIVWJabUlodE1EdGl6NVJxMzlBVHJhM2VveFVSQzZhLWZEd1MwQVJid09ud2tJUFlWMjB6eVQzZXc?oc=5",
-   "data": "2026-04-18T07:00:00.000Z"
+   "tytul": "Strych, kawalerka, kamienica – te trzy „mieszkania” mogą cię słono kosztować przy katastrze",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/podatek-katastralny-a-lokale-ktore-w-swietle-prawa-nie-sa-mieszkaniami/",
+   "data": "2026-06-04T05:53:00.000Z"
   },
   {
    "tytul": "Lewica chce podatku katastralnego w Polsce. Ekspertka wskazuje wzór",
    "zrodlo": "Fakt",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOMXdjdmF4TGhEdVJCcXZrVlBaV0VDZEFwaUh4MEtpLXktcF9Pd1BnLVE1b3VZbWJ1eUh6YjBaN3JwUUgycU5OdjY3NHRzWFllNmd6SG9mLWRRa1BibEVYaW5HeUxUT240dHVZM052ZFBic2pWNFBleFJpeWZQc28tbUhMbkVUZmpEOWNlMWJKTDNXUm1JM05FZURCT25vMXlKZUxKUTBFOGgtcWEwSUVF?oc=5",
-   "data": "2026-04-14T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny. Nie odpuszczają. \"Trafił do konsultacji\"",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRF9JRDc3TFVjaE5lTmtYZHFtNVliUXB3bFNiamQzYVgyM2p1d0VadTZ3NFp1ZlFoN0lIYUdsLWUySHhrVWp0TzhXOEQ0ZzNyZGpSem1Jd1RsWUVoZVVOOF93VTZ0NnozenZFTDFQbV9BcHhpUjJ5XzFMRTlILWtLT1RJT0JXZVdONGkxeHh3cWt5d3pob3Z1ckcxWlFaMzNKVE1WUlZkalhPbWxveU1TU3h3?oc=5",
-   "data": "2026-04-01T07:00:00.000Z"
-  },
-  {
-   "tytul": "\"Nie jestem zwolennikiem\". Domański o inicjatywie podatkowej Lewicy",
-   "zrodlo": "PolsatNews.pl",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPRHg4Z1U3QVMzSlBzVG9ScEFsRW1fZ21WRjJVRXJXT1Q1T2NnVXIwbklJMy14eWVZOVB0bmRNNTRqcjllR1hQWllmb2stb2J5UTJsVm9DZnBWWDJIcl8xMEVHSkdqUnRzOUJrdDc1clNfQ2dpWG9RMWQ4RFVIdVRGUnhYbk12c0JsS0QtZzc0T0JZV2pLSXc4c0ZGdU8xazVvU25Iaw?oc=5",
-   "data": "2026-03-31T07:00:00.000Z"
+   "url": "https://www.fakt.pl/pieniadze/hiszpania-kusi-polakow-nieruchomosciami-ekspertka-o-podatku-katastralnym/nyybkr3",
+   "data": "2026-04-14T07:30:00.000Z"
   },
   {
    "tytul": "Podatek katastralny od trzeciego mieszkania. Dlaczego liberałowie bronią spekulantów",
    "zrodlo": "Bezprawnik",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9udzExb2RUQ21mdkFKblo3NDBLdGpORWRBdTFBaU1ORXh6RnFPc2hjVFc3UnM5WE1YcEdkX1FKNWlCM1RuVV9SNnBjYVBHMmpNa3g4UEF4cnVJYjl1N1FQQW5taTB3OXdvQ254enpaZmM5NFFC?oc=5",
-   "data": "2026-03-28T07:00:00.000Z"
+   "url": "https://bezprawnik.pl/podatek-katastralny-od-trzeciego-mieszkania/",
+   "data": "2026-03-28T13:29:00.000Z"
   },
   {
-   "tytul": "Podatek katastralny. Petru: Uderzy w osoby, które mają trzy mieszkania",
-   "zrodlo": "Do Rzeczy",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQc3JjbVJYa0hVYkFiZ3JtUXg0d3VFQXJMSHVEUU1mZTBqam5UTmljZjhCUUhQTF9xdGF3dFRIb2RyWTRJZHdiNUFoR1FOTkRlSUpoWkR1cXYydzctRVJDLXVQOXZnX3EzRy1rT0Q5WVp4eTI3dWNXMlRBdjFiZnV0VjJuYnhhTjlvZ0RfWk53ZWJDLTJhREd4RU9kVl9wbml1M1pLLTBqbmJVQ01f0gGmAUFVX3lxTE02TWZ5aHpMZmlFSWdvWU51QUdEakVCWU5PVmt5MVBRdU9BcG9CVm1PMk1uT3pBczNNRTZDWU54OC14YjcwMHQxc3pndmZNejU1eXphcmtFSE1XQk5HdEJwWEVIc2RXUngwUGxrZllKRUhwTi1nQlJzSVItbk12UXdUdm5iVENhdjRFMmo1X1VMUXJXLVBYQ2c2UmpyZnJpV2l2U0dybVE?oc=5",
-   "data": "2026-03-26T07:00:00.000Z"
-  },
-  {
-   "tytul": "Nowe podatki mile widziane w rządzie. \"Podatek katastralny nie jest niczym nadzwyczajnym na świecie\"",
-   "zrodlo": "wnp.pl",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPUFZKX2V1eUVMUVJKODJTY0M1RkxWUzAycFF4TURxNnJkU3V0SWV4RE5Tc2EzUlB3eC05b1lHWlZYWlZTWkEyVFFxSkhKMER5MVJKVGt6ZkVka3lHakotc290bFRMRzI4STF0bUxjV1c4UUhfbFg2TnB5Tm9CcmZOMHFpbHoxTkthNTFwbzNXMHh1cE5tTXJ2eGJFT2VrY1puY0ZMNk1RaUVwTG5RZ2hiajBORWJaMHdXOVhWMld3SQ?oc=5",
-   "data": "2026-03-25T07:00:00.000Z"
-  },
-  {
-   "tytul": "geodezja, GIS, kataster, teledetekcja, kartografia",
-   "zrodlo": "GEOFORUM",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPY3NEODhDT253Wm1YS0otamhrV2tBZ0RCdEVGdW1kQnRONVgwUXRQSXJNa29aNXhuU3dBUkRQQng2bmhjTWdKejRGY3hCSWVUdkhFT2xkZ2drRTlLYzI1aFB0aEhZV0RZcjBVNnJBQXZsX0Vyb1R1QVF3VTBiRnBqUF9IcVEzVTFpelhwTk1iZ0ZST1BPcDZPYjRLbjQ?oc=5",
-   "data": "2026-03-23T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek dla posiadaczy kilku mieszkań. Analitycy punktują furtki, wyjątki i ryzyko",
-   "zrodlo": "Interia Biznes",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNOXUway11YXc1TnpXWUh6ajhGTFA0MmpiVnhqZ2pGU0NqMFpjMGdDUmVaU1JOS2gwbEc3Z3M4RkI3bmd2X0dVWUd6OENrNDdob2pLZGV0anZzQXVvbTBzUUc5NnNqMEsyUVZjY0NhR1d0OFI4dGpPcm5neWZ4NWxuVzZVV05QU2U4cWRlYkJDYnRoSmtwa0hZWEctUmQ1VE1tYnBBeE10cS1Lal9XQ3lxaXIwVQ?oc=5",
-   "data": "2026-03-23T07:00:00.000Z"
-  },
-  {
-   "tytul": "Lewica uderza w \"biznes mieszkaniowy\". Czy jej projekt podzieli koalicję?",
-   "zrodlo": "Interia Wydarzenia",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOaEVnR0N6Xzg5eWNEWEZkZ00wMUlPTXJYaVZENEpSeVNDZGdHSzI0VnZSTm1IWW5PbGYtb0lPY3hfeU52TU8wVG5NZjNTR0FKdzhuUmFGaWVqdENadGZlcUN3UlNwUTB4eFBHR1lnR053N1FUSThoZGlsVXQ1b1RycjNPR2pjOG5pNVhNSDJYLUpZUUVVQWpDazhfSG1HTXZtTnFqRnk0V2dtQndVVHBNMF9lTQ?oc=5",
-   "data": "2026-03-21T07:00:00.000Z"
+   "tytul": "Nowy podatek od mieszkań już w Sejmie. Policzyliśmy, ile zapłacimy",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/jest-projekt-nowego-podatku-od-mieszkan-wyzsze-stawki-juz-od-pierwszego-mieszkania/ez94f7l",
+   "data": "2026-03-23T04:30:00.000Z"
   },
   {
    "tytul": "Podatek katastralny bez katastra? Lewica ma nowy pomysł na opodatkowanie nieruchomości",
    "zrodlo": "OKO.press",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQWUZkY19nX3BJWkdQeE13anpwNUd3c01jVEowT1hlZDRuWk1VdHdGRUowU29ZcmpmT0wyY2JneUYzS18wdEZfQi1id0NHalMyaVp4bEdNYVhKbGt6Q1N2VlN3WE5kMEtQWFdIVDhKeVlVUFc2eWdkSHBPOXFHQVlkNkVjWjZBczMzQjRyNVNrbDdZZGhQQ0FqTnBFUDlaY1NSMmo4b0p3?oc=5",
-   "data": "2026-03-20T07:00:00.000Z"
+   "url": "https://oko.press/podatek-katastralny-bez-katastra-lewica-ma-nowy-pomysl-na-opodatkowanie-nieruchomosci",
+   "data": "2026-03-20T14:14:41.000Z"
   },
   {
-   "tytul": "Lewica chce podatku katastralnego. Tusk: to nie projekt rządowy",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbjF3bE8zQi1faGNsbXVacktXTFVZenBJa05LQW9BQzF5Z2hnR3pJUzZfWi1YQ18yT09sLV9vSEU5M3R2Nk9SUTFINFRBRnpwbWxVbDJqYnNzb19nZTBfTFdKMFlyUXBGWUdjMXlTVzJuWm9iLW9laERVTHBqRkxXcGNkX2dQNzZXQlhZX1RRNnVIY2w5Tk9IUTEwWklETWk2cTB2cjFVaUs2WXBRckRzTENNNWpnNE0?oc=5",
-   "data": "2026-03-20T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny w Polsce? Projekt Lewicy złożony w Sejmie",
-   "zrodlo": "Murator.pl",
-   "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPSkxDY1NKTGxmeUFFMk9SZDluRU1zeWxRak1ITHc0T2NlbDVrTUdsTE9wUm1jVTRWY05LeVI1WGZCS0ZyR1Q4VlJmbU1rSmVra2VVYkFNcFJkY0daak5kTGp6VXhIbF9HZ214OGhEX2FBeWFKQ2VjaEVBTG0yMldGekhpbWZxaDRiYjNneFF5UDlRb25hUGJDQ3cyMC01UnBhN0tnMFdlaXloek43N3BCRVNJbUlnN2UzTTB4STVZanRuclMxZk1ldzNCM0x6VlFyLXcwZWgxbk5fMUZXUDJiNzQ0SXdUUQ?oc=5",
-   "data": "2026-03-20T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek od nieruchomości do likwidacji. Lewica złożyła projekt w sprawie nowej daniny",
-   "zrodlo": "PolsatNews.pl",
-   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQaWdjOWUwSTV5U2NoRkd1eVRnWDJFaEVNeXZta19nNE5aMFVzd3Rjd3A1bEthZm1YZXc5eUVkQk14dFZzODNHcGlSWk1NTmVRdHBnUmE5YWI2YWNveHBMVVJNM0hQTVl3X0ozSExSQXQxRzBaQVpxeGxkSm1Dbm9xV3hXWWJFRDZSdHJCMlNSOEpzRkpBeFJENmlaQ2dmcFFiaWtITWdtY1VQd0s4NVdwbHVIRlpiNWNuR3Bta0h4eWxkUjZKdnBGekVFUEg?oc=5",
-   "data": "2026-03-20T07:00:00.000Z"
-  },
-  {
-   "tytul": "Nowy podatek od mieszkań. Lewica chce pieniędzy od inwestorów i właścicieli wielu lokali",
-   "zrodlo": "Polskie Radio 24",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQWEpTNllOOW10VFBVYXhXNm1iQXpfNFp1MWh2LUl2LXhoS0ktVFYxODhUbjlmUi1IZ2pLVHlqcnFBSnpIc2RzLTE2NUdzY0JBZ0xMS1dZOUZ5SHBmSDFnYkl0NmVUSFNsQ09NSmtBdXQyVlA3NVhLeW1XNlpZdTFJYWlSSlE4dGZfcklkd2RvQzd3b1ZXSE5VQVRBb0FTb1FXOG1MeTZCOGVSZnhCdmJxdUR0eU5ZN3J4aXlMaWNzNW5sYmRLX3prWg?oc=5",
-   "data": "2026-03-20T07:00:00.000Z"
-  },
-  {
-   "tytul": "Jest projekt podatku dla posiadaczy wielu mieszkań. Lewica złożyła propozycję",
-   "zrodlo": "Interia Biznes",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOQU5kTDlWVWpMUmJ3RmduR1ZqVkNaVmJQLUhVdGRQUnhSc1lab2dBcnN2N0ZUcGFMY3JYLWxZSFFaWXBQWmc1Zmo5bXI5a205Q211M25BLWJQOFpzaXBwVWVGZmtxNHhSTnc4aTJ4X3YzN3dkNm5fam91UDV3WHQ4eUdBNGZ6M3gzM0tLRnVSZjBzOW4tZUJITG1Rc3diTG9XVk1uRGs2Zm94UVJlU3FKTU9YbFQ?oc=5",
-   "data": "2026-03-20T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny w Polsce. MRiT odpowiedziało",
-   "zrodlo": "Murator.pl",
-   "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxOcGNpUWhhbjItc0FvUUpTSk1XYVRGVkZONkVWRDd6akhUUms2RGh6dVRzeWxucXdWTVp2bXNaWm9meWpWOEZUX0xZeW1pRUl4ZWpHQzVNQW9kQVpLX2dydDZyQnF4Um1uMFczMzdRVndFcThuX3NnTzBKLV9kbUlTbFFsLXNsNjU2cXVMSjcyei1tNzYtT1k2WmVTTFRVSlhqY0tza3RsdVdETm94TkZwQ252aW5zSVZJMklDN2M2clZkOHFmdWZHZjNoVmZnRXJobEVkME5MQktMMUFEY1BReXpCakxMNTBHbHhlb3FoQk16cHVsa0lOMWJtT016QQ?oc=5",
-   "data": "2026-03-19T07:00:00.000Z"
+   "tytul": "Koniec składki zdrowotnej? Lewica ma plan zmian",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/lewica-chce-nowych-podatkow-uderza-w-mieszkania-i-pensje/0s50jvx",
+   "data": "2026-03-20T10:30:00.000Z"
   },
   {
    "tytul": "Podatek katastralny wraca na stół. Nowa Lewica wraca do walki o opodatkowanie wartości nieruchomości",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPVFVCdUVQUVdJbF9pV2NwOTFJcGM3VUZuRjEtWEJvODh1aFdlVnlRM3ZobXc5ZDdVNE9BTXNhVURPZ3BqOWRSNkxGUGNDUEl6Tk1fVWRweThUazBaYmplTXRkYVVFSzN4b2c2OUQ2MzMyLVRsODZucXBlQ1NId3RYbXB1MzQ4cFZCWkdfX0pNTm1lNHNLZGhNSll0ZXRvMVpOcWZiUDZYWG1LSmlMdGxFYUxxWVJURTZDbC1BeUZVbWFUSXhnYzQ4V0tkNE96YlJubzJ6OHdfeHVyZ2VheHAzMFFmcW5uUWZvZHAxS1FVSzVQYnhfeWc?oc=5",
-   "data": "2026-03-18T07:00:00.000Z"
+   "url": "https://forsal.pl/gospodarka/aktualnosci/artykuly/11216050,podatek-katastralny-wraca-na-stol-nowa-lewica-wraca-do-walki-o-opodatkowanie-wartosci-nieruchomosci.html",
+   "data": "2026-03-18T09:45:00.000Z"
   },
   {
    "tytul": "Posłowie chcą nowego podatku. \"Mieszkania będą bardziej dostępne i tańsze”",
    "zrodlo": "Fakt",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOTDJrNWVUdkZJRHZ3WnhTYUQtUTNjaTJxRUpqaHVDd09ZSC15RzlEaVVmN1JwaDFaNXA2STZUR3RNTG9QaWRlUkV0SmlBTkdxZXdhelJSZFFnczNiYXRqU3RIWi1ITjNYR2tFaTNzOW9pakdqZF9fNEp5QURqWTN6b3Q5Yk1oRUs1SjNONVNZM3ZCSEVTOWdNZ0N0ZTF1YzZyX1k3ZWI0WFNOU0VkcXc?oc=5",
-   "data": "2026-03-18T07:00:00.000Z"
-  },
-  {
-   "tytul": "Posłowie chcą nowego podatku. \"Mieszkania byłyby tańsze i bardziej dostępne\"",
-   "zrodlo": "Fakt",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOTDJrNWVUdkZJRHZ3WnhTYUQtUTNjaTJxRUpqaHVDd09ZSC15RzlEaVVmN1JwaDFaNXA2STZUR3RNTG9QaWRlUkV0SmlBTkdxZXdhelJSZFFnczNiYXRqU3RIWi1ITjNYR2tFaTNzOW9pakdqZF9fNEp5QURqWTN6b3Q5Yk1oRUs1SjNONVNZM3ZCSEVTOWdNZ0N0ZTF1YzZyX1k3ZWI0WFNOU0VkcXc?oc=5",
-   "data": "2026-03-18T07:00:00.000Z"
-  },
-  {
-   "tytul": "Nowa opłata może uderzyć we właścicieli mieszkań. Wraca sprawa podatku katastralnego",
-   "zrodlo": "Portal Samorządowy",
-   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQMEJMbGtrRGJ1TDB0ZHhzZHdiUlRDNHIyT0l4dFR3OW41eDMzNnByTDlqTVZXZHBtZWctOHpnZ21rc2pVZ1ZJcTM4aEUyWFRvemcyNE5SQUlqNElKTkZBRXY1MGZxMF95OG8tdld2a0N5S1QyM19MTEZjMHhTNzU3LVpuRkN1Y1VGOGN0THJqc2ZVV25HcFF5aFNVWGdwSGNCV1dWb3hnRXJWWEhEUGNqZ1NTbUN2Z1FmWDJGQ0RVNXQxN0h1RFpQRXdfYjlIVlJaR3lVaTJCbzlkaTZSSzVRR0JGdw?oc=5",
-   "data": "2026-03-18T07:00:00.000Z"
-  },
-  {
-   "tytul": "Lewica wraca do podatku katastralnego. Wyższa danina od wartości nieruchomości",
-   "zrodlo": "Biznes Wprost",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNTm95NWxGM0VPcThaZjR4d2Q3dEhLbmVWcDdpb05HZVFyMU9EbG5yanhzUkc4WFU1V3FsV3VzTGtlSF9HRldMVFRaWTF5RnE3QWExM1hhUkc3QjE4SUVPTThGUENHT1hWb3ZfbEtMSUhaSVZCS2l2dVpOSHZLXzI5dG1sMWJyMHoyZFdQWXFta0xWVlR3cE1NQm1mQXBKZEFzdWltQlZlbmRnMmRldW9MT2hSSGZYajM2cklUWWpWMkc3c3NKVUlzetIBvAFBVV95cUxPaHBCdnpIVV9scmlySXowa2xrWURYZlo0US1nRjNacFJaaGhYd1YwMVJnZzQtRUk3SDBiMndoZWpCaEk4NXZmWjJGbEpRcFZBbjlXVTI3RkhILThUa2k4X09IMkNLTGVBSU9jN28tMTlhQTZaX2VtWmRLWFFzN2U4Y1hKdzVUaUtoTUdWQ1R6bkdOeTh5NGFIdjBhcVZaMUpSUlJ2RlpKSHR1QmVaMXplbUJ0VC13b1FEaGZnQw?oc=5",
-   "data": "2026-03-17T07:00:00.000Z"
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-lewica-zapowiada-projekt-razem-ma-wlasna-propozycje/33el032",
+   "data": "2026-03-18T04:30:00.000Z"
   },
   {
    "tytul": "Nowy podatek od mieszkań? Lewica zapowiada projekt, koalicja podzielona",
    "zrodlo": "Fakt",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOUzVYbXpSdzN2TEc4MmtNaG5VMjVrVkEwWWNrWFNHSkNBeVZlNjI3SFhFLXYxUl94dUZtZThzbTVNYzBoUXdhcUdJYjVYUk9Fc2wyaEFqaVJNTFZ6aDlmUmdpaU1BNmE2UzNqbmR1QmgtYWFKZ1NZM1NITFF5U1BEQjI2aEFqRGt0TU5TREJZYUNnaU4wM3BOR1lFMWQ0OTVzZkVtelA3cEY?oc=5",
-   "data": "2026-03-17T07:00:00.000Z"
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-coraz-blizej-lewica-tlumaczy-dlaczego-tak-pozno/lcx576k",
+   "data": "2026-03-17T10:25:00.000Z"
   },
   {
    "tytul": "Podatek katastralny wraca do gry. Właściciele nieruchomości zapłacą więcej",
    "zrodlo": "Fakt",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZGh0NWdWcnhTdlJhY2xRYlNsU3BnVGUxVXNHa3Y1LUZJUmlYdkNfd1BmS0tGbldHTTV3YjhKcE1rUjQzdElXZVl0WXVHTHRvWWwzWlJsa0dEcTczam5XeUFMamM5OTBITDR1akJLRzNyRl9WOFJyMGlqM1o3UUVadHphZ0xNUVZXX281VE5Za2VqbU1WbGt2cGpFNW14eXpuZEJwR0hKWTVsQQ?oc=5",
-   "data": "2026-03-17T07:00:00.000Z"
-  },
-  {
-   "tytul": "Rząd wprowadzi podatek katastralny? Jest deklaracja ministra Domańskiego",
-   "zrodlo": "wnp.pl",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSkFEZXp0bVJzcU5TZTFRZDBCZzZLVFA5NVFEblJ1eW9meUVYMVFxdWExMDU4b3lJdGF4b2JLblpJUV91aHpTSmNSUHl5bHI2Y3JvTTdQNUE4NGpUR2xYS3l3NVFjaUFhQmNKUGpBeER6RkptOWJGeHN4WW5aZml5MjUxRU5CSVZMOGZ3ZURMS1hqb05FRnVkbVZTbTNGZmQtZXJVanhPYl9wMEUzNHc?oc=5",
-   "data": "2026-03-16T07:00:00.000Z"
+   "url": "https://www.fakt.pl/pieniadze/lewica-wraca-do-pomyslu-podatku-katastralnego-projekt-trafi-do-sejmu/ctnmx0r",
+   "data": "2026-03-17T07:24:00.000Z"
   },
   {
    "tytul": "Podatek katastralny? Polski rynek mieszkaniowy czekają zmiany",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNQ1R6enQyY19OenZGY1dlUGgzalZvcEtEMEdaakRnaG5hZ3RZMnotRXBmWTZ0SGlTZE5iUXpkYkVOLU93Qmh0ejdZTDlqTkVhQzMzQTdVOUVObHBwamFXT25fcG1wRlRNUUhZTHM5QkVFX2lsbmg2bkZPODBmT183alUyYjVlbUI0b2tuTHc5bTZoRmVXZHp6aUtUVERKWXJQUW5kdU9mc2hCYVpmV0lVRE9CXzBCYzh2SEIwWjNhaTBPZGF5bjd1cHloRVB5NWNwdTF0TFNMSW8yQ1BjZlFhczRpd1VjQnNuSVRzRUJuRmR0VWozMFlEMlpQWHNFYUU?oc=5",
-   "data": "2026-03-16T07:00:00.000Z"
+   "url": "https://forsal.pl/nieruchomosci/mieszkania/artykuly/11214872,podatek-katastralny-i-od-pustostanow-do-konca-roku-kilkanascie-ustaw-reformujacych-obszar-mieszkalnictwa.html",
+   "data": "2026-03-16T11:12:23.000Z"
   },
   {
-   "tytul": "Podatek katastralny i od pustostanów? Rząd odpowiada i zdradza plany reform mieszkalnictwa",
-   "zrodlo": "INFOR.PL",
-   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQWDQ3d3RTZS0zcWVTRlFCTTRNeklUallUbmJTZmhSbVI3dHROSy16dGI2SmQ1d0VzOGdFVGlRU0FzQWM1VzR0WGw1TF85akIzN1pBMEx0WUY4eVpfaUQ3ZUFrd1ZXWmJjS1JmaTVxTWZhNU5WYVRlbnhzZjBqdnNwZ25SYzlCYmhIQVh5dWpHazh1c3RLcEtrbW5JRElNZjl4emtpVXNOMXdFVTVSLVBTWlE4R3FudkJadUtleE5zYTRuckRTSmhHeHltbDhYck14bmpBb0llSUzSAd4BQVVfeXFMTXktR3MwR3lnVi00eVRXQTZTLVR5XzBQNktRME81WDlFT2NRMWhvR0hSeXFHYXRHdEdYNU9PVmZ4OHVNUG0tNVJ3QjU0bWhvdDI4b3VlVHFObnlNNnNfMkVWVUpjbzBHMU05eUp5NE05RWNCZ2ZBOXBoZzQ3X3gtX3BKQVVhcEE2MFpOM2p3dC1SWmtvbGhXQjJhQTc4MF96SGJXLVdjUmM4QTQ3TWE3TnhHT2JPX3RIM3JGcDBtcnVfY2MyVk5XMjM5cUVfMnktX29meDQ2VFc4NDBVM2x3?oc=5",
-   "data": "2026-03-16T07:00:00.000Z"
-  },
-  {
-   "tytul": "Nowe podatki od mieszkań w Polsce? Tak odpowiedział minister",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPU0t0eUdrWXFjZ1djYkNJY2NMSmstSjdrYzNJYlprQ0lGWXZfUTVGaFpGbm9fT1U4LWpVOW5MNmR0SGEyMjQxMGVZTExHQUxwanhVMlpUcVJZcmhqS2EtWHo2a1ZkM1lPUkRGb1ZaTm1wWmFxQVBqbnZ2b1pZUmNXcXdyRWRCYTFTbkc3bE42ODdqS0w0SHVLVFFZbi1XUEk4dU10ZnZVS2lKRmQwSGc?oc=5",
-   "data": "2026-03-16T07:00:00.000Z"
-  },
-  {
-   "tytul": "Lewica: projekt podatku katastralnego to kwestia dni",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPemlaMnQxSUNDRjhacThGeEc3M1JNOXBMa3ZTVmYtR0lfaGpWbGxjMGFMaW1ycVVPYm4yUFpqSlZKNXZCRC1ZMWtheC12X1Q3b05xaXRyX18zRTJqaWlUTXpFZnFEYnNrWElfYXJEQ3phVTAyNTJOTGtwdDBJdUtXT2F2NjlFSUgxSHM1UEd3ck9RQzBxeEZmQ0dRY0taXy1YYVp5eVF3?oc=5",
-   "data": "2026-03-16T07:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek od pustostanów wykluczony. Rząd daje jasny sygnał",
-   "zrodlo": "Business Insider Polska",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUHpzbDBYWlVaOVBCMDg3MVhFc1lRWWlYTGFBU3RSNi1jMk82R1VHZGpSU3g2ZjFUbWJ6eGlrNG1YTS01SzdxcE5obW9jRlFNOGo1TGcycUpWeWVmTXgzdDh2S2ZHSkpVd0dCbW5kbW9lY2JFOTZxVWxhdXhzMUVMTkVNNV9jMHFxNlF1Y1piM1VSS2lscmdLeHpJcFdiRTAxX2tWYm1wclZxSjFPVWlKMHBsQkV6Zw?oc=5",
-   "data": "2026-03-16T07:00:00.000Z"
-  },
-  {
-   "tytul": "Wraca temat podatku katastralnego. Taki projekt trafi do Sejmu",
-   "zrodlo": "Business Insider Polska",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOYk9KR2JOSXI4VEtCbU1tdzluMjk3VzAzazJGV05NUjh6aFRjcnZmMkdqak9mXzVIVjdNcU0zVEozWUluSE9qdHhNelVQOTE5Q1BYc2F2TUN5VHh6WWhBNkJRX0FmVEt3N1kwdDlwaWRCOHRlZGpUME9NMXVoczJiSVBzbTI5NzRMal9GSkQ1bWJiX3FsSlVRdkl1UG0zZ0FlRk04OXBaY0w4dlp0aF9N?oc=5",
-   "data": "2026-03-16T07:00:00.000Z"
-  },
-  {
-   "tytul": "Nowy podatek uderzy we właścicieli. Od 0,1 do 0,3 proc. wartości mieszkania",
-   "zrodlo": "Portal Samorządowy",
-   "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQOXcyY0gzYTQ5YnZYeUpKUkl6eEduazVEOXlJRGxxZ0M2bjZQdldzRl92MjI4M2ZScVhNdnUzNXEyQmV3ZlZISGRVTEd0NHJHeE5OVW1kdkhXeU1vTkZKbWZSeXlrYnFmWHNCTUxfdjlocHBtTTAwSWhEemJCYl9PSnBlTE9ONllLRVVxWWVMd3ItZDlEX1VTcVZHNHhZUS1ZejlIQTJOejlmaDZzelk2ZHVXX2FCUlIzelU2UW9Ea3plSjA3cV9hOExOYUxIVWg4SFgwUXdB?oc=5",
-   "data": "2026-03-13T07:00:00.000Z"
+   "tytul": "Właściciele muszą pamiętać o podatku. Grzywna nawet 64 tys. zł",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-od-nieruchomosci-2026-termin-platnosci-i-kary-za-opoznienie/cjpqf5b",
+   "data": "2026-03-09T12:55:00.000Z"
   },
   {
    "tytul": "Kataster bez straszenia. Reforma, która uporządkuje rynek nieruchomości w Polsce",
    "zrodlo": "OKO.press",
-   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1xNHAyV1Vxd2hQN0VuQkZVNHNPY0Y2cU5HWHlzOGM3RG4wQ1lWOThJdTRtVlgyOWs4dTRnczBnLTN1aUFOVmtsZVhJbWpQS2Y1aDZPTzRhZ2FfaGtMSVBPTzdMQkVXaGppSzVEWU9DYXlReGhaWTVHR24xcUFuUQ?oc=5",
-   "data": "2026-03-04T08:00:00.000Z"
+   "url": "https://oko.press/kataster-bez-straszenia-uporzadkuje-rynek-nieruchomosci",
+   "data": "2026-03-04T13:38:04.000Z"
   },
   {
    "tytul": "Podatek katastralny a podatek od nieruchomości. Czym się od siebie różnią?",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxQeXY0OWpBWlVRNi0wWXBrS2Y3aldzOWxLelByLU9xZkRzVmR2WjNoQkxYaUFkUlk5d3J0N2lUV0dqemxWX3hhbkU1aWlqWWt3MmpRSWNlQ1I4VUNjclhSaVdjQlVLYzlxeUVGbXl0amtSUXlfdktxdVhMSDYyZzdDcmVxeWpxa21WZWdLVWlydTcwM1Zmb1NVZTNETGdLWVN6M0c0UVF3bVpRdlVyME9aVzFPQmhhMzZJQmpTTmlLNDN3ZkNjWXdVTC1jemU1N3o3b2c4WkJfa0w4SUV1VTJ2aVZTQXpWbE5VTkdlMi0wRC14TVpSMkxieUtWUzZnYTNfanNwY0V1dXVqR3kydlZfdTM5RTNtWUplRm1BcVZVd0dvak01ODloMkhzd0lVeTVDS19FRmN3?oc=5",
-   "data": "2026-02-17T08:00:00.000Z"
+   "url": "https://forsal.pl/gospodarka/artykuly/10630688,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-w-2026-r-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+   "data": "2026-02-17T12:06:14.000Z"
   },
   {
    "tytul": "Podatek katastralny. Ministerstwo Finansów przedstawiło swoje stanowisko",
    "zrodlo": "Gazeta Prawna",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNUlhHV3JDZkhtQ2tlYWRnUzVOMVhKU3oxalR6WkswVjJFSk45UER2Wi1nRjJQc3IwT20tRU9qMFcyRHo3QnpEVGhCYWVRSURiZUV4cUgyaUtuU2oyTTFsRS1pOVluTTZkU0Z3RDE4UzVQeENnSU1Odkh5dWh6WG9NbE1tYU1KR013RU9IY2VQd2pQbE5LemZhbmk4a2xXTV9IVmRsTjdXbERQVFE5SnBxQmRMVGhiekZRcnZYU3BCQVhoV2tCdWVR?oc=5",
-   "data": "2026-02-10T08:00:00.000Z"
+   "url": "https://www.gazetaprawna.pl/podatki/artykuly/10797296,podatek-katastralny-ministerstwo-finansow-przedstawilo-swoje-stanowis.html",
+   "data": "2026-02-10T11:20:35.000Z"
   },
   {
-   "tytul": "Podatek katastralny w Polsce: potrzebny, ale przeceniany",
-   "zrodlo": "edgp.gazetaprawna.pl",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQNjJXXzJyMld3TEJhb1NZbkEzQWc0dnd0Y3AxTHpyZENxUzI1ZmhfVEg4WlhKU3JOR3RYZnItdlNySFFIT0RGWC13Y0pVcWNObHdqV1NfTW9taUtvSEdpVHViclYteUlxeFU2WWx3TTFSX3phUDV3Q3pCTy0tellHT24wejhmZGZ2TVhlRlcwSE4ta0tuZXc1N2E5SDFTS1RwTEgyRGsxTVFWSHlSSk1ZMnVsR18?oc=5",
-   "data": "2026-02-07T08:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny. Co może zmienić na rynku mieszkaniowym? - Czwórka",
-   "zrodlo": "polskieradio.pl",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPaXJ2UDBtcExVY3FNMnBmY2ZnQ250THJYV2lEb1ozMVRWQnhzcHFsQXBYbEVVYjhFNTJ2blBGRjZBaUdPMFEtRXNVQ242UjJmOVMtLXNqUXZHdmQ5ZnZQZllfSFhVREZNTXdVZ2RGOUJ1Y2xKR1B6OGZuYnZLZ0o5SGViMndBMEpMemFKWjRicmdURmFHdElvTllRLXV3M2Q1UVpLYUQtWTduUmZJdWtFUw?oc=5",
-   "data": "2026-01-27T08:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny pod lupą. Kto zapłaci za mieszkanie w Polsce? O tym mówił Bonawentura Lach",
-   "zrodlo": "polskieradio.pl",
-   "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxQdi1xUW9DZ05NM2FNZzdqbWFKT2wtUUZRaS1Cd3ZObkFnbm9wYXV5ZWUybklaZ1RmanBFS0FYM0ZhZ090eThITU9OZ1oxaHEwX2NuLXB6VlN1QWxyMFNJd0sxdkU4czhQa2FyYnFJc3M4Yjg2MDZkUTZyMklPc3RaY1JhX0o2ZW5iZms3eGZIOElmdk1uMjJjQmhPSFhyMVJTMmM0NnZZbmExSDVHLU4xRWhkM05XdE1fYk9PYWk0SlQycGxXTERDa29PMGhRVHNCMTFwYkRJRHRrUkh5UlJxaFQ3Mm5YLXJHUEhpQlpBek9xeHMxZ2p3NjBqVHVWa004RXlHdnhQVWdmaVdFVjFlZ3B0cHNiVEQySVlnRXM0RTZpQmM?oc=5",
-   "data": "2026-01-26T08:00:00.000Z"
+   "tytul": "Mam złe przeczucie. Centralna ewidencja mieszkań to krok do wprowadzenia podatku katastralnego",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/centralna-ewidencja-mieszkan/",
+   "data": "2026-01-25T11:13:00.000Z"
   },
   {
    "tytul": "Zakup wymarzonego mieszkania lub domu poza krajem może wiązać się z dodatkowym obciążeniem – podatkiem katastralnym",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxONkNDTUJ2c0VmUnVTdXFxLTdaTmVRNllGak5CekVCdGpuTTBOZlpvdXpTbnZiVzRVd0JDb0ZTZERNUUM2blQ3VmppUzZIV1pDLW8xTVRJcnZDSE9fZjhmSFpCVjBOWk83SU5kQWRVSkIwTUFBbW9sTC1LanZqcmFoMEVGZ3FmdF84QkJhWHZSOEFzaEt6ZUhOdUF6ck1uajIycnBFVHlRZEQ2YnlycTJCd0pWdWxPeXBtQjY2Zkxaa0EwMzMxZEtmUVBRTGstUDl5WHBxM1MtbVM0bWZlT1gtY3BSOEhVdEpWXzJ2cTFYMzVSMkhOanNOeU1rRm5jY1JHUmpsV01YcEgtdmxhc09IWVRiTW9QUnVXaTRma28zdi1CUHpGWlctaDNLcFRISUl5SjZRbUVZY1paUQ?oc=5",
-   "data": "2026-01-24T08:00:00.000Z"
+   "url": "https://forsal.pl/gospodarka/aktualnosci/artykuly/10593231,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+   "data": "2026-01-24T06:26:25.000Z"
   },
   {
-   "tytul": "Podatek katastralny pod lupą. Co może oznaczać dla młodych dorosłych?",
-   "zrodlo": "polskieradio.pl",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPNEhOX0RnVi10LVlCM2E0c19lOUxOcXRZSDV4eVpkLUFJdjBuVE0wSU9BVmhxSGdYdk40SzNheURkUUJkeTFodTFZLWVjNDB3SUpPTG41b2kxdGpqZTQ4NkU5b19FVFZrSTExaDRKUWFpQmtCV2xmMFlxTUVTSDNhWHZJSDZVeFJxOTBlYks5N2hQdEdhM3VRZTh0cHVETm1rd0taRDRrWFlWaTZQQWNXVDhaWGZaRVVsRWs5Tw?oc=5",
-   "data": "2026-01-23T08:00:00.000Z"
+   "tytul": "Bał się podatku katastralnego. Przez kłamstwo sprzed lat dziś nie może sprzedać mieszkania",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/zanizanie-metrazu-nieruchomosci-a-podatek-katastralny/",
+   "data": "2026-01-14T09:53:40.000Z"
   },
   {
-   "tytul": "Czy selektywny podatek katastralny może poprawić sytuację mieszkaniową? [OPINIA]",
-   "zrodlo": "Gazeta Prawna",
-   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNcUNiRThHREFfY2UtaHQxTGpLVWpoUUx2X3JGMXBpRU1oR0dPWFZkNkhuLXhwYWNqM2I5S1AxRm1CYV83WGt4VWh5RlFjMjZ1TnNIb1dTTFhPenk4N0FfTkpJZUZMUUc2bHZuYWE5VGhsYjd4MFdiZnQ0UF83TWMxcFJEaGRQR0EtNVNmUkVha1JnMV9YWDEzQzkxVzJxbUtqOFdReXN2QTRjUjd3SnI4WkhsU2VxbTg2c01qS0lob3oxTDdkd21QajhaU29obVZGQXBneHJrcVZIZw?oc=5",
-   "data": "2026-01-06T08:00:00.000Z"
-  },
-  {
-   "tytul": "2500 zł zamiast 382 zł rocznie? To najniższe stawki podatku katastralnego",
-   "zrodlo": "Bankier.pl",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOU3llQ1FLWm0xT3pDdm5WMnRDWDV2d1RGRmVDSlB1M29SRnA4MXVmSV9RaERvSTJveGgxVnplS0NkS2twX2U3RjZ2RzZrcGpOM3lYYzdYUXcyeU9NNkZFdFhVRzZFdmR1Y2l4bldIZDYzU1NBSDdxd1dCaUM2aURQVzlZM0hGVU53S1JMaDVIcXVHVEdINnl5cnZHRG0waWdBUEp5SFBsaUxsTk52RzlMc3NSVmtNcWNKMWc?oc=5",
-   "data": "2025-12-29T08:00:00.000Z"
+   "tytul": "Podatek katastralny to biurokratyczny koszmar, którego nie udźwigniemy. A mamy już dobre rozwiązanie",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/obecny-podatek-od-nieruchomosci/",
+   "data": "2025-12-29T12:14:00.000Z"
   },
   {
    "tytul": "Podatek katastralny już od pierwszego mieszkania. Chodzi o takie stawki",
    "zrodlo": "Fakt",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOWHJmdFQydGlDZ2JLMjZ4aXpfMDFLU2IwTzVCUWlrWkZ2WG15RExqYjJVRm1aX2EwaG1QemRER0tBTXdOb19kcS1wa3NPSWI1S0daZklYaTEwSHNkMXdaX09QQjBQMGwwa0prOEljX2hDSEpzUmNGOWlheWhhNTdGU2lvTk5fam05cnhiNE9pMVJMQmVuRzF4VlpnWmc3bEh1NVpSVVhaQlVpd2c5SURNZXhJT0FidUZXV0d2Rw?oc=5",
-   "data": "2025-12-28T08:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny 2025: Lewica sięga po rynek wart miliardy, emocje rosną",
-   "zrodlo": "wnp.pl",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxON29pNW1ZamxXU3RKTnFUOV92c2lJd2hNU0FGZlpnclhHOVkzQVFYX3hneV9mcmJUWE0wVk1lZERacmRVRWlFY0Z6UGVnUWpVeDEydmVPbG1ULVhJUE9wYjRQVnVYWjByUGxRRXlxOUJxTnZLZXRFbUVpSWtndEszU1dKQmZwaHJ5OXd6QkNuamJEZHlxeWF4UVN4LWFycWJ0RVBWLTNxT0tfNFBFa05uU3ZyVQ?oc=5",
-   "data": "2025-12-19T08:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny w Polsce? Budżet państwa zyskałby mniej niż na \"Belce\"",
-   "zrodlo": "Bankier.pl",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNmFTbUI5dHFhWjRWeFpBb3RJOE43NGNmeXl0bVNHWFhkN0tETUoxajRzQ1A5UHFCOVVSSl94Z1YzZHJSZHh6eWI5OXZHRUcwMWpzV1dIN0cwUkxsOXNZNGZTYlRDTHFyTkc1Vm1FV1BQZE15SnliNlZ6RlNKTVhndHB1S3VCN294YUtaYWhHR1kxay1iMkdpVGpsV2ZrNWpWV2h1MVZzN3M2dTNVTTV1M3I0bGFpRmQ0NW0zRlUtVktrcHM?oc=5",
-   "data": "2025-12-17T08:00:00.000Z"
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-nawet-od-pierwszego-mieszkania-ekspert-wylicza-ile-moga-placic/qjwmd6m",
+   "data": "2025-12-28T09:00:00.000Z"
   },
   {
    "tytul": "Podatek katastralny - czy zostanie wprowadzony w Polsce? Czym jest? Kiedy wejdzie w życie?",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQZG1vUmh4OG9NSjBTOTh6VTU5VDU2N1RvRGVnYnVJNktGRmdjT3FGTHNGaURiVVloQnFzajV1cVotUHBJNWhKMFZFTDdXUXFUd3JKZVp6N0RXeUNlVzdhVERpazFCMFJuMUFldjFkb0ZFSlpxZy1SNl9ncmpqaG1RU2dSS1RjYjNSS0JMaWNlU1pDV2laa2h1UlZDQUZDaDVpRWVRcTltY1UxaXpQMDBUcTRlUDNycHoyVFp4Wl9HVXNPYmt0UTdUcm5WM1hlWm4xYUZkcVVrVXlwZkNwNXJFV0YzQ18wdw?oc=5",
-   "data": "2025-12-17T08:00:00.000Z"
-  },
-  {
-   "tytul": "Lewica uchyla rąbka tajemnicy projektu o podatku katastralnym. Wskazano nawet datę",
-   "zrodlo": "Business Insider Polska",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOS0lqZ0hsTTFKUjhfUkJiV0lFNFFyTVBOemd4S0dWSW11SWJ1bUxIYmJya0N6NEZGNzc0QzAtLUhYRGFpNjRmLWhPd0lyeWRITmstTlV3cDBLWkgwcXlwWVN3Y0ZCM1lVbGp4Zk5rS0xLWmE1SG5wck1sT0YwMEZJenNzd2tqQ2dxOElWR0dtVGFweUViNnVudmVQeUh4eWFVRF94bWFfSGR1X2RkLURtQXJFX0dhVmExeV9QZkFEaF9oSW4tbVVtTA?oc=5",
-   "data": "2025-12-16T08:00:00.000Z"
-  },
-  {
-   "tytul": "Opłata wymierzona we właścicieli mieszkań. Podatek katastralny do 21 grudnia",
-   "zrodlo": "Portal Samorządowy",
-   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPYlczWGVCZ0ZRVmZwdTgtVkh2b1BmaWdkRDBSemdodTV3RE1YNkgzRkZpME9QYU5zamVPRUdXelAyUjZMQWllVW1nOExKcGZ1MVFtMlA5OERYMkVNQTROTnp6aEdhNFBDTFBiV0l0RmtCVHl5MmY1alhXYTZQbFRrVXp4SFlKVlpnQ0xlVXo2M2NOU0hVOS1XUUwxMERaUjVuZEtZRmpqeEZ5RzEwdXAzTnpsa3dXY001U0N5aHk3cGYyUTVyTGtIZWg4b2xwXzFBeUtodnBURDQ?oc=5",
-   "data": "2025-12-15T08:00:00.000Z"
+   "url": "https://forsal.pl/gospodarka/aktualnosci/artykuly/10595782,podatek-katastralny---czy-zostanie-wprowadzony-w-polsce-czym-jest-kiedy-wejdzie-w-zycie.html",
+   "data": "2025-12-17T09:13:16.000Z"
   },
   {
    "tytul": "Prezent tuż przed świętami: nowa podatek dla właścicieli nieruchomości",
    "zrodlo": "Forsal.pl",
-   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOWU9WVjdDWE1QNXZFSTBmUllZcVRwVDlYWnpoNE1Edl9VWmxUWU9yblV3ZF9aNnRCZkl5ZFJGWmRKQTRqZVYtM1ZKNmN6TjVpRHY4NlN2bGdxa18yeVhNRFRUUjBBMlhqamhGOGx1bVJQNGxSY1Z1RkQ4dC1xWWFrUDg1OVFrVWkxS1VhTHlWdlViT3NvM3IwMmRWczhqc0FoUEstTjE3eGlpbklFamw1TURacXQwbGJkUEp2SThZMnhycEJwUVBrbWxRdmc1eXlyWEJ6cjVsZ2hFdG8?oc=5",
-   "data": "2025-12-13T08:00:00.000Z"
+   "url": "https://forsal.pl/finanse/twoje-pieniadze/artykuly-infor-pl/10600546,prezent-tuz-przed-swietami-nowa-podatek-dla-wlascicieli-nieruchomosci.html",
+   "data": "2025-12-13T06:14:10.000Z"
   },
   {
-   "tytul": "Spór o podatek katastralny. Lewica wycofuje się z pomysłu?",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSGg1SVBoMGlJMF91eFVTV0k4SFJ6MnNnaTR0UWczYnBld29kdjlkUTZJdmdCZEdVLVNKVVZnY1kzTUFtRGowd3J3dTI4TGVGVVpMLTJxZWREc2xZcFRxLTBEWmFOdlhHNlZHUDZMYXZiYWhkd2Y0ZWdpci1iME1POWt2eF92TVNmWjFIZmtERlV4eEwwN1JVdWxWdExVZmRESzlvUlNkTDlnVy1Z?oc=5",
-   "data": "2025-12-10T08:00:00.000Z"
+   "tytul": "Na drugie mieszkanie trzeba będzie mieć pozwolenie. Władze tego miasta chcą rewolucji",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/na-drugie-mieszkanie-trzeba-bedzie-miec-pozwolenie/",
+   "data": "2025-12-10T06:43:06.000Z"
   },
   {
-   "tytul": "Podatek katastralny w Polsce? Głos zabrał marszałek Sejmu",
-   "zrodlo": "Money.pl",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNcG9KZl9tZ1MwS0p0ei1JeWs1eTdYbjRYOGxQbi03dWNKTTQxbkRWdWp2QU5kNEFYcW5HTTJ6VnZXb21tVG4yajBpR3J3VjlFSnZYVFcyZmxDVHdCaEdVbzZpYVFuSWJBTkd3R0Z1Q2Z3VGp1Y2d6VXllVzZMQ3lzcmlOaERHQ1M5eUloRk5hb09ZV2thWUhBVDlQdldkZHhaVUR3Y2NyYUxxVHhiWlFrcA?oc=5",
-   "data": "2025-12-02T08:00:00.000Z"
+   "tytul": "Rewolucja w opodatkowaniu mieszkań. Projekt Lewicy już przed Bożym Narodzeniem",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/lewica-szykuje-projekt-podatku-katastralnego-co-zmieni-dla-wlascicieli-mieszkan/p7e8mwn",
+   "data": "2025-12-09T07:31:00.000Z"
   },
   {
-   "tytul": "Nowy podatek w Polsce? \"Taki system funkcjonuje w najlepszych krajach europejskich\"",
-   "zrodlo": "Business Insider Polska",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaTFFbU5ac1BLWnNxOUNFcXdVSTRRcWNXTlMzd05LOEhTOXlnc05wU09Sa094QWIwR1RwQVB0NUpPOXk2YUJxbDQwdm1BeU9FYzR6ZUJmc2FnRDBpNzJJNGdfRjQyZ09Gd1Y2NEh0QkVPMFNlZzFFOThiS2xfNWxMNHRrVFpXeEdpSHFPUXdyVk5IcU9UcWZzWFpzNXZiVHh1Y1BsZ0F3d2ZHT0FGMkE?oc=5",
-   "data": "2025-12-02T08:00:00.000Z"
+   "tytul": "Nagły zwrot w sprawie podatku katastralnego. Projekt trafi do Sejmu jeszcze przed świętami",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/nagly-zwrot-w-sprawie-podatku-katastralnego/",
+   "data": "2025-12-08T10:40:39.000Z"
   },
   {
-   "tytul": "Jest już projekt nowego podatku. Spór w koalicji. \"Zagłosuję przeciwko\"",
-   "zrodlo": "Interia Biznes",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOTk13M1k0Yzd3dFhYTXR5dWQ2M1pvODlONE5kdGJ4V0dJUjhMVmR2QnNhZlhWMzFUZFNseDJPMDZPTHhnaDB1eDBlVV9RWGY3TUZXOEFsTWZJMXBkWDctd1ZrUjJSLVlGazdLQ2VibTBWM2NuVXRaTm5HVFpuNl9NM2VHWjNJOTY0MGdFdmdhamVGNEtFNXBaaTBLbzdsV1FtNV9NN3NOV3F4VUJQN2FFOUpZTQ?oc=5",
-   "data": "2025-11-30T08:00:00.000Z"
+   "tytul": "Podatek katastralny coraz bliżej? Wiadomo, kiedy poznamy szczegóły projektu",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/nieruchomosci/aktualnosci/artykuly/10600383,podatek-katastralny-coraz-blizej-wiadomo-kiedy-poznamy-szczegoly-pro.html",
+   "data": "2025-12-08T09:38:35.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny już od pierwszego mieszkania. Pojawiła się radykalna propozycja",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/podatek-katastralny-juz-od-pierwszego-mieszkania/",
+   "data": "2025-12-03T08:42:47.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny coraz bliżej. Ekspert ujawnia, kto zapłaci najwięcej",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-i-to-od-pierwszego-mieszkania-dotarlismy-do-nowych-wyliczen/170ldwj",
+   "data": "2025-12-02T14:17:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny coraz bliżej. Znamy kluczowe założenia projektu Lewicy",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/podatek-katastralny-w-drodze-anna-maria-zukowska-zdradzila-szczegoly-projektu/ghjtfpe",
+   "data": "2025-12-01T20:00:00.000Z"
+  },
+  {
+   "tytul": "Jest pomysł dodatkowego opodatkowania mieszkań. Eksperci są jednak krytyczni",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/podatek-od-trzeciego-lub-czwartego-mieszkania/",
+   "data": "2025-11-28T09:35:24.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny od trzeciego mieszkania? Projekt Lewicy budzi kontrowersje",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/posel-mowil-o-nowym-podatku-sprawdzilismy-jego-majatek-co-za-przypadek/pd7jwnc",
+   "data": "2025-11-26T16:20:00.000Z"
+  },
+  {
+   "tytul": "Nowe podatki od mieszkań i banków. Eksperci MFW ujawniają szczegóły raportu",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/wyzszy-wiek-emerytalny-podatek-od-mieszkan-i-mniejszy-socjal-pismo-na-biurku-ministra/97mvyjz",
+   "data": "2025-11-25T12:47:00.000Z"
+  },
+  {
+   "tytul": "Jest nowy projekt zmian w podatku od nieruchomości. Przeciętny obywatel miałby na tym zyskać",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/jest-projekt-zmian-w-podatku-od-nieruchomosci/",
+   "data": "2025-11-19T11:46:51.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny coraz bliżej. Koszty i konsekwencje mogą zaskoczyć właścicieli",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/progresywne-opodatkowanie-mieszkan-w-polsce-eksperci-ostrzegaja-przed-kosztami/ph1yyvg",
+   "data": "2025-11-16T13:07:00.000Z"
+  },
+  {
+   "tytul": "Podatek antyspelulacyjny Partii Razem to pierwszy od dawna projekt ustawy o podatku katastralnym",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/podatek-antyspelulacyjny/",
+   "data": "2025-11-11T18:52:34.000Z"
+  },
+  {
+   "tytul": "Nowy podatek uderzy w miliony Polaków? Sejm nad nim pracuje",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/pieniadze/sejmowa-komisja-rozwaza-podatek-katastralny-co-to-oznacza/j8ejl94",
+   "data": "2025-10-09T15:00:00.000Z"
+  },
+  {
+   "tytul": "Wykończą nas nowym dużym podatkiem? Mają sposób jak się dobrać do naszych majątków",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/gospodarka/aktualnosci/artykuly/9869517,zaplacimy-nowy-upiorny-podatek-znalezli-sposob-jak-sie-dobrac-do-nasz.html",
+   "data": "2025-10-07T17:18:44.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny w Hiszpanii - wysokie opłaty za posiadanie nieruchomości",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/gospodarka/aktualnosci/artykuly/9865588,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+   "data": "2025-10-06T06:48:55.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny? Drodzy rządzący, nawet nie próbujcie",
+   "zrodlo": "Bezprawnik",
+   "url": "https://bezprawnik.pl/podatek-katastralny-za-wyzsza-kwote-wolna/",
+   "data": "2025-09-30T05:27:00.000Z"
+  },
+  {
+   "tytul": "To pewne: będzie wyższa kwota wolna w PIT i niższy podatek od dochodów. Ceną podatek katastralny",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/finanse/twoje-pieniadze/artykuly-infor-pl/9852899,beda-zmiany-w-podatkach-nowa-podwyzszona-kwota-wolna-w-pit-ale-i-nowy-podatek-od-nieruchomosci.html",
+   "data": "2025-08-26T04:01:08.000Z"
+  },
+  {
+   "tytul": "Tyle co teraz za rok, zapłacisz co miesiąc gdy nowy podatek katastralny zastąpi obecny podatek od nieruchomości",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/finanse/twoje-pieniadze/artykuly/9816244,tyle-co-teraz-za-rok-zaplacisz-co-miesiac-gdy-nowy-podatek-katastraln.html",
+   "data": "2025-06-08T04:49:24.000Z"
+  },
+  {
+   "tytul": "Nawrocki i podatek katastralny: nie, tak, to zależy, zastanówmy się",
+   "zrodlo": "OKO.press",
+   "url": "https://oko.press/nawrocki-i-podatek-katastralny-nie-tak-to-zalezy-zastanowmy-sie",
+   "data": "2025-05-26T12:35:45.000Z"
+  },
+  {
+   "tytul": "Jednak podatek katastralny? Ministra funduszy wskazała, kiedy powinien obowiązywać",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/nieruchomosci/mieszkania/artykuly/9798580,podatek-katastralny-ministra-funduszy-wskazala-kiedy-powinien-obowia.html",
+   "data": "2025-05-14T10:57:56.000Z"
+  },
+  {
+   "tytul": "Nowy podatek od nieruchomości: podwyżka mocno uderzy w budżety domowe rodzin",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/finanse/twoje-pieniadze/artykuly/9755518,zamiast-od-metra-kwadratowego-podatek-od-wartosci-mieszkania-lub-domu.html",
+   "data": "2025-05-11T04:09:02.000Z"
+  },
+  {
+   "tytul": "Obłożą miliony Polaków nowym, ogromnym podatkiem? Minister finansów ujawnia plany rządu",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/gospodarka/aktualnosci/artykuly/9759910,obloza-miliony-polakow-nowym-ogromnym-podatkiem-minister-finansow-uj.html",
+   "data": "2025-04-19T16:35:56.000Z"
+  },
+  {
+   "tytul": "Nawet 10 tys. zł rocznie? Polacy boją się tego podatku jak ognia",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/nieruchomosci/artykuly/9777553,nawet-10-tys-zl-rocznie-podatek-katastralny-polacy-boja-sie-go-jak.html",
+   "data": "2025-04-15T04:09:05.000Z"
+  },
+  {
+   "tytul": "Cios w zwykłych Polaków? Polscy politycy bredzą o podatku katastralnym",
+   "zrodlo": "OKO.press",
+   "url": "https://oko.press/cios-w-zwyklych-polakow-politycy-bredza-o-podatku-katastralnym",
+   "data": "2025-03-19T17:13:32.000Z"
+  },
+  {
+   "tytul": "Podatek Belki. Minister finansów zapowiada zmiany",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/kraj/aktualnosci/artykuly/9759363,podatek-belki-minister-finansow-zapowiada-zmiany.html",
+   "data": "2025-03-17T09:05:17.000Z"
+  },
+  {
+   "tytul": "Przeciw rajowi podatkowemu w mieszkaniówce, czyli po co nam podatek katastralny?",
+   "zrodlo": "OKO.press",
+   "url": "https://oko.press/przeciw-rajowi-podatkowemu-w-mieszkaniowce-czyli-po-co-nam-podatek-katastralny",
+   "data": "2025-03-02T06:01:26.000Z"
+  },
+  {
+   "tytul": "Jeśli nie kredyt 0%, to co? Naprawiamy mieszkaniówkę!",
+   "zrodlo": "OKO.press",
+   "url": "https://oko.press/jesli-nie-kredyt-0-to-co-naprawiamy-mieszkaniowke",
+   "data": "2023-03-23T20:15:49.000Z"
   }
+ ],
+ "sprawdzone": [
+  "https://www.bankier.pl/kryptowaluty/krotkoterminowe-stopy-zwrotu",
+  "https://www.bankier.pl/kryptowaluty/rekordy-roczne",
+  "https://www.bankier.pl/forum/forum_kryptowaluty,55,1.html",
+  "https://www.bankier.pl/etf/krotkoterminowe-stopy-zwrotu",
+  "https://www.bankier.pl/etf/dlugoterminowe-stopy-zwrotu",
+  "https://www.bankier.pl/gielda/wiadomosci/komunikaty-spolek",
+  "https://www.bankier.pl/gielda/gieldy-swiatowe/indeksy",
+  "https://www.bankier.pl/gielda/notowania/obserwowane-spolki",
+  "https://www.bankier.pl/forum/forum_gielda,6,1.html",
+  "https://www.bankier.pl/gielda/wyniki-finansowe-spolek",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=GIK",
+  "https://www.bankier.pl/gielda/kapitalizacja-spolek",
+  "https://www.bankier.pl/gielda/krotkoterminowe-stopy-zwrotu",
+  "https://www.bankier.pl/gielda/wskazniki-finansowe-spolek",
+  "https://www.bankier.pl/gielda/wskazniki-rynkowe-spolek",
+  "https://www.bankier.pl/gielda/statystyka-sesji/gpw",
+  "https://www.bankier.pl/gielda/ranking-sily-relatywnej",
+  "https://www.bankier.pl/gielda/transakcje-insiderow",
+  "https://www.bankier.pl/waluty/krotkoterminowe-stopy-zwrotu",
+  "https://www.bankier.pl/forum/forum_forex,7,1.html",
+  "https://www.bankier.pl/smart/porownywarka-kantorow-internetowych",
+  "https://www.bankier.pl/narzedzia/archiwum-kursow-walutowych",
+  "https://www.bankier.pl/surowce/krotkoterminowe-stopy-zwrotu",
+  "https://www.bankier.pl/forum/forum_zloto,52,1.html",
+  "https://www.bankier.pl/gospodarka/wskazniki-makroekonomiczne/polska",
+  "https://forsal.pl/gospodarka/finanse-publiczne",
+  "https://forsal.pl/gospodarka/stopy-procentowe",
+  "https://forsal.pl/nieruchomosci/aktualnosci",
+  "https://forsal.pl/finanse/notowania/indeksy",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11285594,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11277586,podatek-od-mieszkan-z-radykalna-zmiana-jest-juz-nowa-wersja-przepisow.html",
+  "https://forsal.pl/nieruchomosci/mieszkania/artykuly/11283243,jak-podatek-katastralny-od-nieruchomosci-zmieni-rynek-mieszkan.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11232075,juz-wkrotce-wlasciciele-mieszkan-lub-domow-beda-musieli-pogodzic-sie-z-dodatkowym-obciazeniem-finansowym-trwaja-prace-w-sejmie.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11216050,podatek-katastralny-wraca-na-stol-nowa-lewica-wraca-do-walki-o-opodatkowanie-wartosci-nieruchomosci.html",
+  "https://forsal.pl/nieruchomosci/mieszkania/artykuly/11214872,podatek-katastralny-i-od-pustostanow-do-konca-roku-kilkanascie-ustaw-reformujacych-obszar-mieszkalnictwa.html",
+  "https://forsal.pl/gospodarka/artykuly/10630688,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-w-2026-r-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/10593231,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/10595782,podatek-katastralny---czy-zostanie-wprowadzony-w-polsce-czym-jest-kiedy-wejdzie-w-zycie.html",
+  "https://forsal.pl/finanse/twoje-pieniadze/artykuly-infor-pl/10600546,prezent-tuz-przed-swietami-nowa-podatek-dla-wlascicieli-nieruchomosci.html",
+  "https://forsal.pl/nieruchomosci/aktualnosci/artykuly/10600383,podatek-katastralny-coraz-blizej-wiadomo-kiedy-poznamy-szczegoly-pro.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/9869517,zaplacimy-nowy-upiorny-podatek-znalezli-sposob-jak-sie-dobrac-do-nasz.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/9865588,9-tys-zl-taki-podatek-od-mieszkania-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-tych-nieruchomosci-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+  "https://forsal.pl/finanse/twoje-pieniadze/artykuly-infor-pl/9852899,beda-zmiany-w-podatkach-nowa-podwyzszona-kwota-wolna-w-pit-ale-i-nowy-podatek-od-nieruchomosci.html",
+  "https://forsal.pl/finanse/twoje-pieniadze/artykuly/9816244,tyle-co-teraz-za-rok-zaplacisz-co-miesiac-gdy-nowy-podatek-katastraln.html",
+  "https://forsal.pl/nieruchomosci/mieszkania/artykuly/9798580,podatek-katastralny-ministra-funduszy-wskazala-kiedy-powinien-obowia.html",
+  "https://forsal.pl/finanse/twoje-pieniadze/artykuly/9755518,zamiast-od-metra-kwadratowego-podatek-od-wartosci-mieszkania-lub-domu.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/9759910,obloza-miliony-polakow-nowym-ogromnym-podatkiem-minister-finansow-uj.html",
+  "https://forsal.pl/nieruchomosci/artykuly/9777553,nawet-10-tys-zl-rocznie-podatek-katastralny-polacy-boja-sie-go-jak.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/9759363,podatek-belki-minister-finansow-zapowiada-zmiany.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11322829,kara-umowna-w-b2b-ile-mozna-wpisac.html",
+  "https://www.gazetaprawna.pl/prawnik/prawo-gospodarcze",
+  "https://www.gazetaprawna.pl/biznes/finanse-i-gospodarka",
+  "https://www.gazetaprawna.pl/biznes/cyfrowa-gospodarka",
+  "https://www.gazetaprawna.pl/urzad/samorzad-terytorialny",
+  "https://www.gazetaprawna.pl/urzad/zamowienia-publiczne",
+  "https://www.gazetaprawna.pl/urzad/ksiegowosc-budzetowa",
+  "https://www.gazetaprawna.pl/firma/podatki-i-rozliczenia",
+  "https://www.gazetaprawna.pl/firma/prawo-przedsiebiorcow",
+  "https://www.gazetaprawna.pl/nowe-technologie/cyberbezpieczenstwo",
+  "https://www.gazetaprawna.pl/nowe-technologie/uslugi-cyfrowe",
+  "https://www.gazetaprawna.pl/twoje-prawo/prawo-konsumenta",
+  "https://www.gazetaprawna.pl/twoje-prawo/spadki-i-darowizny",
+  "https://www.gazetaprawna.pl/twoje-prawo/prawo-rodzinne",
+  "https://www.gazetaprawna.pl/twoje-prawo/prawo-mieszkaniowe",
+  "https://www.gazetaprawna.pl/twoje-prawo/prawo-drogowe",
+  "https://www.gazetaprawna.pl/twoje-prawo/sprawy-urzedowe",
+  "https://www.gazetaprawna.pl/twoje-prawo/finanse-osobiste",
+  "https://www.gazetaprawna.pl/wideo/polska-europa-swiat",
+  "https://www.gazetaprawna.pl/wideo/klotnie-markiewiczow",
+  "https://www.gazetaprawna.pl/wideo/holownia-w-klimacie",
+  "https://www.gazetaprawna.pl/wideo/eureka-odkrycie-tygodnia",
+  "https://www.gazetaprawna.pl/wideo/praworzadni-niepraworzadni",
+  "https://www.gazetaprawna.pl/podatki/inne-podatki/artykuly/11277868,nowy-podatek-od-mieszkan-zamiast-120-zl-nawet-7500-zl-rocznie.html",
+  "https://www.gazetaprawna.pl/autor/110314,Izolda-Hukalowicz-110314",
+  "https://www.gazetaprawna.pl/podatki/artykuly/10797296,podatek-katastralny-ministerstwo-finansow-przedstawilo-swoje-stanowis.html",
+  "https://oko.press/podatek-katastralny-bez-katastra-lewica-ma-nowy-pomysl-na-opodatkowanie-nieruchomosci",
+  "https://oko.press/kataster-bez-straszenia-uporzadkuje-rynek-nieruchomosci",
+  "https://oko.press/nawrocki-i-podatek-katastralny-nie-tak-to-zalezy-zastanowmy-sie",
+  "https://oko.press/cios-w-zwyklych-polakow-politycy-bredza-o-podatku-katastralnym",
+  "https://oko.press/przeciw-rajowi-podatkowemu-w-mieszkaniowce-czyli-po-co-nam-podatek-katastralny",
+  "https://oko.press/na-posla-przypada-srednio-17-mieszkania-ale-sa-i-tacy-co-deklaruja-brak-wlasnego-lokum",
+  "https://oko.press/kukucki-5-mld-zl-rocznie-na-budowe-mieszkan-wywiad",
+  "https://oko.press/zwiekszymy-dostepnosc-mieszkan-czy-to-koniec-dotowania-kredytow",
+  "https://oko.press/mieszkania-na-wynajem-lewica",
+  "https://oko.press/jesli-nie-kredyt-0-to-co-naprawiamy-mieszkaniowke",
+  "https://oko.press/zasady-etyki-dziennikarskiej",
+  "https://bezprawnik.pl/kontakt-z-redakcja-serwisu/",
+  "https://bezprawnik.pl/kategorie/zakupy-firmowe/",
+  "https://bezprawnik.pl/kategorie/firmowy-lifestyle/",
+  "https://bezprawnik.pl/kategorie/prywatnosc-i-bezpieczenstwo/",
+  "https://bezprawnik.pl/podatek-katastralny-lewicy/",
+  "https://bezprawnik.pl/podatek-katastralny-a-lokale-ktore-w-swietle-prawa-nie-sa-mieszkaniami/",
+  "https://bezprawnik.pl/ulatwienie-eksmisji-nieplacacych-najemcow/",
+  "https://bezprawnik.pl/podatek-katastralny-od-trzeciego-mieszkania/",
+  "https://bezprawnik.pl/centralna-ewidencja-mieszkan/",
+  "https://bezprawnik.pl/zanizanie-metrazu-nieruchomosci-a-podatek-katastralny/",
+  "https://bezprawnik.pl/panstwo-przestalo-rozdawac-pieniadze-tylko-2870-zl-na-polaka-w-minionym-roku/",
+  "https://bezprawnik.pl/obecny-podatek-od-nieruchomosci/",
+  "https://bezprawnik.pl/na-drugie-mieszkanie-trzeba-bedzie-miec-pozwolenie/",
+  "https://bezprawnik.pl/nagly-zwrot-w-sprawie-podatku-katastralnego/",
+  "https://bezprawnik.pl/podatek-katastralny-juz-od-pierwszego-mieszkania/",
+  "https://bezprawnik.pl/podatek-od-trzeciego-lub-czwartego-mieszkania/",
+  "https://bezprawnik.pl/jest-projekt-zmian-w-podatku-od-nieruchomosci/",
+  "https://bezprawnik.pl/podatek-antyspelulacyjny/",
+  "https://bezprawnik.pl/podatek-katastralny-za-wyzsza-kwote-wolna/",
+  "https://bezprawnik.pl/opodatkowanie-firmowych-nieruchomosci/",
+  "https://bezprawnik.pl/polityka-prywatnosci-bezprawnik-pl/",
+  "https://bezprawnik.pl/kategorie/akcja-komercyjna/",
+  "https://bezprawnik.pl/kategorie/dobre-wiadomosci/",
+  "https://www.fakt.pl/wydarzenia/polska/bialystok",
+  "https://www.fakt.pl/wydarzenia/polska/rzeszow",
+  "https://www.fakt.pl/wydarzenia/polska/trojmiasto",
+  "https://www.fakt.pl/wydarzenia/polska/szczecin",
+  "https://www.fakt.pl/wydarzenia/polska/wroclaw",
+  "https://www.fakt.pl/wydarzenia/polska/warszawa",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-w-polsce-bruksela-wydala-oficjalne-zalecenia-dokument/wgjpl4m",
+  "https://www.fakt.pl/pieniadze/hiszpania-kusi-polakow-nieruchomosciami-ekspertka-o-podatku-katastralnym/nyybkr3",
+  "https://www.fakt.pl/pieniadze/jest-projekt-nowego-podatku-od-mieszkan-wyzsze-stawki-juz-od-pierwszego-mieszkania/ez94f7l",
+  "https://www.fakt.pl/pieniadze/lewica-chce-nowych-podatkow-uderza-w-mieszkania-i-pensje/0s50jvx",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-lewica-zapowiada-projekt-razem-ma-wlasna-propozycje/33el032",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-coraz-blizej-lewica-tlumaczy-dlaczego-tak-pozno/lcx576k",
+  "https://www.fakt.pl/pieniadze/lewica-wraca-do-pomyslu-podatku-katastralnego-projekt-trafi-do-sejmu/ctnmx0r",
+  "https://www.fakt.pl/pieniadze/podatek-od-nieruchomosci-2026-termin-platnosci-i-kary-za-opoznienie/cjpqf5b",
+  "https://www.fakt.pl/pieniadze/wyzsza-kwota-wolna-od-podatku-ale-i-podatek-katastralny-w-rzadzie-maja-o-tym/cm9c9wq",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-nawet-od-pierwszego-mieszkania-ekspert-wylicza-ile-moga-placic/qjwmd6m",
+  "https://www.fakt.pl/pieniadze/lewica-szykuje-projekt-podatku-katastralnego-co-zmieni-dla-wlascicieli-mieszkan/p7e8mwn",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-i-to-od-pierwszego-mieszkania-dotarlismy-do-nowych-wyliczen/170ldwj",
+  "https://www.fakt.pl/pieniadze/podatek-katastralny-w-drodze-anna-maria-zukowska-zdradzila-szczegoly-projektu/ghjtfpe",
+  "https://www.fakt.pl/pieniadze/mfw-mowi-o-nowym-podatku-od-mieszkan-tak-moze-wygladac-kataster-w-polsce/zl1cex3",
+  "https://www.fakt.pl/pieniadze/posel-mowil-o-nowym-podatku-sprawdzilismy-jego-majatek-co-za-przypadek/pd7jwnc",
+  "https://www.fakt.pl/pieniadze/wyzszy-wiek-emerytalny-podatek-od-mieszkan-i-mniejszy-socjal-pismo-na-biurku-ministra/97mvyjz",
+  "https://www.fakt.pl/pieniadze/progresywne-opodatkowanie-mieszkan-w-polsce-eksperci-ostrzegaja-przed-kosztami/ph1yyvg",
+  "https://www.fakt.pl/pieniadze/powstanie-panstwowy-rejestr-cen-mieszkan-za-20-mln-zl-kiedy-wejdzie-w-zycie/42ff2vn",
+  "https://www.fakt.pl/pieniadze/sejmowa-komisja-rozwaza-podatek-katastralny-co-to-oznacza/j8ejl94"
  ]
 }

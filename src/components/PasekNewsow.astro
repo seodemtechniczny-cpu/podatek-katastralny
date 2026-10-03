@@ -1,0 +1,42 @@
+---
+import newsy from '../data/newsy.json';
+
+const rolka = newsy.pozycje.slice(0, 16);
+const krotko = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'numeric', month: 'short' });
+---
+<aside class="pasek" aria-label="Najnowsze nagłówki mediów o podatku katastralnym">
+  <a class="pasek__etykieta" href="#newsy">Media <span aria-hidden="true">→</span></a>
+  <div class="rolka">
+    {[0, 1].map((kopia) => (
+      <ul class="rolka__tor" aria-hidden={kopia ? 'true' : undefined}>
+        {rolka.map((n) => (
+          <li><a href={n.url} rel="noopener" target="_blank" tabindex={kopia ? -1 : undefined}>
+            <b>{n.zrodlo}</b><time datetime={n.data}>{krotko(n.data)}</time>{n.tytul}</a></li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</aside>
+
+<style>
+  /* Pasek medialny pod mapą: dwie identyczne taśmy jadą w lewo bez końca; najechanie albo fokus zatrzymuje. */
+  .pasek { display: flex; align-items: stretch; border-block: 1px solid var(--line); background: var(--surface); position: relative; z-index: 1; }
+  .pasek__etykieta { flex: none; display: flex; align-items: center; gap: 6px; padding: 0 18px 0 var(--gut); background: var(--accent); color: var(--accent-ink); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+  .rolka { display: flex; overflow: clip; min-width: 0; flex: 1; }
+  .rolka__tor { list-style: none; margin: 0; padding: 0; display: flex; flex: none; min-width: 100%; }
+  .rolka__tor li { flex: none; }
+  .rolka__tor a { display: flex; align-items: center; gap: 10px; padding: 14px 26px; color: var(--ink); text-decoration: none; font-size: 0.95rem; font-weight: 520; white-space: nowrap; border-right: 1px solid var(--line); }
+  .rolka__tor a:hover { color: var(--accent-text); }
+  .rolka__tor b { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-text); }
+  .rolka__tor time { font-size: 0.8rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  @media (prefers-reduced-motion: no-preference) {
+    .rolka__tor { animation: rolka 110s linear infinite; }
+    .rolka:hover .rolka__tor, .rolka:focus-within .rolka__tor { animation-play-state: paused; }
+    @keyframes rolka { to { transform: translateX(-100%); } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rolka { overflow-x: auto; }
+    .rolka__tor[aria-hidden] { display: none; }
+  }
+  @media (max-width: 760px) { .pasek__etykieta { padding-inline: 12px; } }
+</style>

@@ -18,6 +18,7 @@
   --pl-a: #ef3a55; --pl-b: #c8102e; --pl-side: #7a0a1c;
   --m0: #ebe8e3; --m1: #d4d0c9; --m2: #b3aea6; --m3: #8b867d; --m4: #605c56; --m5: #34322f;
   --m-none: #f4f2ee; --m-bg: #efede8;
+  --k-wart: #3a3834; --k-pow: #d6d2ca; --k-brak: #fbfaf8;
 
   --sans: 'Geist Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --display: var(--sans);
@@ -46,6 +47,7 @@
     --pl-a: #ff4d66; --pl-b: #d1203a; --pl-side: #6b0817;
     --m0: #2a2a2d; --m1: #3d3c40; --m2: #5a585d; --m3: #807c84; --m4: #aba7ab; --m5: #dedbd7;
     --m-none: #19191b; --m-bg: #131314;
+    --k-wart: #e2dfda; --k-pow: #45444a; --k-brak: #121213;
     color-scheme: dark;
   }
 }
@@ -58,6 +60,7 @@
   --pl-a: #ff4d66; --pl-b: #d1203a; --pl-side: #6b0817;
   --m0: #2a2a2d; --m1: #3d3c40; --m2: #5a585d; --m3: #807c84; --m4: #aba7ab; --m5: #dedbd7;
   --m-none: #19191b; --m-bg: #131314;
+  --k-wart: #e2dfda; --k-pow: #45444a; --k-brak: #121213;
   color-scheme: dark;
 }
 

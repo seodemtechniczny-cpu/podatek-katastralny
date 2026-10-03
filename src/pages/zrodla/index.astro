@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import cfg from '../../data/zrodla-newsow.json';
+import stats from '../../data/stats.json';
+import { podstawaZrodlo } from '../../lib/europa';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Źródła i zasady — podatek-katastralny.pl" description="Skąd pochodzą dane i nagłówki w serwisie podatek-katastralny.pl, na jakiej podstawie je pokazujemy i jak zgłosić usunięcie.">
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / Źródła i zasady</p>
+      <h1>Źródła i zasady</h1>
+      <p class="lead">Serwis nie zajmuje stanowiska w sprawie podatku katastralnego. Każda liczba i każde zdarzenie ma źródło
+        z datą sprawdzenia. Poniżej opisujemy, skąd bierzemy dane i na jakiej podstawie pokazujemy nagłówki mediów.</p>
+
+      <h2>Dane urzędowe i statystyczne</h2>
+      <ul>
+        <li>Przebieg prac w Sejmie i treść projektów: <a href="https://api.sejm.gov.pl/">API Sejmu RP</a>, sprawdzane codziennie.</li>
+        <li>Stawki maksymalne podatku od nieruchomości: Monitor Polski przez <a href="https://api.sejm.gov.pl/eli/openapi/">ELI API</a>.</li>
+        <li>Wpływy z podatków od nieruchomości w Europie: {stats.source}, pobrane {stats.fetched}.</li>
+        <li>Podstawa podatku w państwach Europy (od wartości czy od powierzchni): {podstawaZrodlo.nazwa}; przy każdym państwie podajemy stronę źródłową, sprawdzone {podstawaZrodlo.zweryfikowano}.</li>
+        <li>Granice państw na mapie: Natural Earth (domena publiczna).</li>
+      </ul>
+
+      <h2>Nagłówki mediów</h2>
+      <p>Sekcja „Newsy” i pasek pod mapą pokazują wyłącznie <strong>tytuł tekstu, nazwę redakcji, datę i link do oryginału</strong>.
+        Nie kopiujemy leadów, treści ani zdjęć. Tytuł to „bardzo krótki fragment”, a link to „publiczne udostępnianie
+        hiperłącza”: oba wyłączenia przewiduje art. 99<sup>7</sup> ust. 3 pkt 2 i 3 ustawy o prawie autorskim i prawach pokrewnych
+        (w brzmieniu z <a href="https://api.sejm.gov.pl/eli/acts/DU/2024/1254/text.pdf">Dz.U. 2024 poz. 1254</a>).</p>
+      <p>Nagłówki pobiera automat {cfg.co_ile}. Przed każdym pobraniem sprawdza plik robots.txt serwisu i zastrzeżenia
+        eksploracji tekstów i danych w formacie maszynowym (TDMRep: plik <code>/.well-known/tdmrep.json</code>, nagłówek i znacznik
+        <code>tdm-reservation</code>). Gdy wydawca zastrzegł inaczej, nie pobieramy (art. 26<sup>3</sup> ust. 1 i 2 tej ustawy).
+        Automat przedstawia się jako <code>{cfg.bot}</code> i zachowuje odstęp 1,5 s między żądaniami.</p>
+
+      <h3>Strony tematyczne redakcji</h3>
+      <ul>{cfg.tagi.map((z) => <li>{z.nazwa}: <a href={z.url}>{z.url.replace(/^https:\/\//, '')}</a></li>)}</ul>
+      <h3>Kanały RSS redakcji (filtrowane po temacie)</h3>
+      <ul>{cfg.rss.map((z) => <li>{z.nazwa}: <a href={z.url}>{z.url.replace(/^https:\/\//, '')}</a></li>)}</ul>
+      <h3>Źródła, z których świadomie nie korzystamy</h3>
+      <ul>{cfg.odrzucone.map((z) => <li>{z.nazwa}: {z.powod}.</li>)}</ul>
+
+      <h2>Usunięcie albo korekta</h2>
+      <p>Jeśli jesteś wydawcą i nie chcesz, żeby Twoje nagłówki pojawiały się w serwisie, albo znalazłeś błąd w danych,
+        <a href="https://github.com/seodemtechniczny-cpu/podatek-katastralny/issues/new">zgłoś to</a>. Źródło usuwamy
+        z listy przy najbliższej aktualizacji. Możesz też zablokować automat w robots.txt (<code>User-agent: PodatekKatastralnyBot</code>).</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 820px; }
+  .prose h2 { margin-top: 1.6em; font-size: 1.6rem; }
+  .prose h3 { margin-top: 1.2em; }
+  .prose li { margin-bottom: 6px; }
+  .prose code { font-size: 0.88em; background: var(--bg-2); padding: 1px 5px; border-radius: 2px; overflow-wrap: anywhere; }
+  .prose a { overflow-wrap: anywhere; }
+</style>

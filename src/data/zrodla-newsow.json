@@ -1,0 +1,26 @@
+{
+  "bot": "PodatekKatastralnyBot/1.0 (+https://podatek-katastralny.pl/zrodla/)",
+  "co_ile": "co 3 godziny",
+  "tagi": [
+    { "nazwa": "Bankier.pl", "url": "https://www.bankier.pl/tag/podatek-katastralny" },
+    { "nazwa": "Forsal.pl", "url": "https://forsal.pl/tagi/podatek-katastralny" },
+    { "nazwa": "Gazeta Prawna", "url": "https://www.gazetaprawna.pl/tagi/podatek-katastralny" },
+    { "nazwa": "OKO.press", "url": "https://oko.press/tag/podatek-katastralny" },
+    { "nazwa": "Bezprawnik", "url": "https://bezprawnik.pl/tag/podatek-katastralny/" },
+    { "nazwa": "Fakt", "url": "https://www.fakt.pl/tag/podatek-katastralny" }
+  ],
+  "rss": [
+    { "nazwa": "Bankier.pl", "url": "https://www.bankier.pl/rss/wiadomosci.xml" },
+    { "nazwa": "Money.pl", "url": "https://www.money.pl/rss/rss.xml" },
+    { "nazwa": "Business Insider Polska", "url": "https://businessinsider.com.pl/.feed" },
+    { "nazwa": "Rzeczpospolita", "url": "https://www.rp.pl/rss_main" },
+    { "nazwa": "Interia Biznes", "url": "https://biznes.interia.pl/feed" },
+    { "nazwa": "Polsat News", "url": "https://www.polsatnews.pl/rss/wszystkie.xml" },
+    { "nazwa": "Prawo.pl", "url": "https://www.prawo.pl/rss/podatki.xml" }
+  ],
+  "odrzucone": [
+    { "nazwa": "Google News RSS", "powod": "robots.txt news.google.com blokuje automatyczny dostęp do /rss (Disallow: /)" },
+    { "nazwa": "wPolityce.pl", "powod": "serwer odmawia dostępu automatycznym klientom (HTTP 403)" },
+    { "nazwa": "GDELT", "powod": "brak polskich tekstów na ten temat w bazie (sprawdzone 03.10.2026)" }
+  ]
+}

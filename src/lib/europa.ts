@@ -1,5 +1,6 @@
 import mapa from '../data/europe-map.json';
 import stats from '../data/stats.json';
+import podstawaJson from '../data/podstawa.json';
 
 type Stat = { total_gdp?: { value: number; year: number }; total_tax?: { value: number; year: number } };
 export type Dane = { n: string; g?: number; t?: number; y?: number };
@@ -38,5 +39,17 @@ export const GRUPY: Record<string, string[]> = {
   poludnie: ['ITA', 'MLT', 'SVN', 'HRV', 'BIH', 'SRB', 'MNE', 'XKX', 'ALB', 'MKD', 'GRC', 'BGR', 'TUR', 'CYP'],
 };
 export const grupa = (iso: string) => Object.keys(GRUPY).find((g) => GRUPY[g].includes(iso)) ?? 'poludnie';
+
+// Czy w państwie jest podatek od wartości (katastralny)?
+export type Podstawa = 'wartosc' | 'powierzchnia' | 'mieszany' | 'brak';
+export const PODSTAWA: Record<string, { podstawa: Podstawa; opis: string; url: string; pewnosc: string }> = podstawaJson.kraje as any;
+export const NAZWA_PODSTAWY: Record<Podstawa, string> = {
+  wartosc: 'Podatek od wartości (katastralny)',
+  mieszany: 'Mieszany: zależnie od regionu lub gminy',
+  powierzchnia: 'Podatek od powierzchni (jak w Polsce)',
+  brak: 'Brak cyklicznego podatku od nieruchomości',
+};
+export const KROTKO: Record<Podstawa, string> = { wartosc: 'od wartości', mieszany: 'mieszany', powierzchnia: 'od powierzchni', brak: 'brak podatku' };
+export const podstawaZrodlo = { nazwa: podstawaJson.zrodlo_glowne, zweryfikowano: podstawaJson.zweryfikowano };
 
 export { mapa, stats };

@@ -1,6 +1,6 @@
 ---
 import projekt from '../data/pl/projekt-2848.json';
-import { mapa, dane, klasa, etykieta, pct, grupa, legenda } from '../lib/europa';
+import { mapa, dane, klasa, etykieta, pct, grupa, legenda, PODSTAWA, NAZWA_PODSTAWY, KROTKO } from '../lib/europa';
 
 const dzis = new Date().toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
 const pol = mapa.countries.find((c) => c.iso === 'POL')!;
@@ -8,7 +8,13 @@ const inne = mapa.countries.filter((c) => c.iso !== 'POL');
 const [x0, y0, x1, y1] = mapa.bbox;
 // Na telefonie kadr ciasno wokół Europy; na desktopie pełne 1600×1000 z miejscem na tytuł.
 const vbMobile = `${x0 - 20} ${y0} ${x1 - x0 + 40} ${y1 - y0 + 20}`;
-const daneJs = Object.fromEntries(Object.entries(dane).map(([k, v]) => [k, { ...v, s: v.g === undefined ? 'brak danych OECD' : `${pct(v.g)} PKB · ${v.y}` }]));
+const daneJs = Object.fromEntries(Object.entries(dane).map(([k, v]) => {
+  const p = PODSTAWA[k];
+  return [k, { ...v, s: v.g === undefined ? 'brak danych OECD' : `${pct(v.g)} PKB · ${v.y}`, p: p?.podstawa, pn: p ? NAZWA_PODSTAWY[p.podstawa] : '', pk: p ? KROTKO[p.podstawa] : '', po: p?.opis ?? '', pu: p?.url ?? '', pw: p?.pewnosc ?? '' }];
+}));
+const ile = (k: string) => Object.values(PODSTAWA).filter((p) => p.podstawa === k).length;
+const legendaPodstawy = (['wartosc', 'mieszany', 'powierzchnia', 'brak'] as const).map((k) => [k, NAZWA_PODSTAWY[k], ile(k)] as const);
+const p = (iso: string) => PODSTAWA[iso]?.podstawa ?? 'brak_danych';
 
 // Siatka działek pod mapą: rekurencyjny podział z ziarnem, ten sam układ przy każdym buildzie.
 function parcels(seed: number, depth: number, w = 1600, h = 1000) {
@@ -43,7 +49,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     </div>
     <div class="hero__rest">
       <p class="lead">Na dziś <strong>nie obowiązuje</strong>. W Sejmie czeka poselski projekt (druk nr {projekt.druk}).
-        Mapa pokazuje, ile państwa Europy pobierają z podatków od nieruchomości, jako % PKB.</p>
+        Mapa pokazuje, gdzie w Europie podatek od nieruchomości liczy się od wartości, a gdzie od powierzchni, jak dziś w Polsce.</p>
       <div class="hero__cta">
         <a class="btn" href="#kalkulator">Policz, ile wyniósłby podatek</a>
         <a class="btn btn--ghost" href="#stan">Na jakim etapie jest projekt</a>
@@ -55,16 +61,21 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     <div class="hero__grid" aria-hidden="true">
       {warstwy.map((d, i) => <svg class={`layer layer--${i}`} viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"><path d={d} pathLength="1" /></svg>)}
     </div>
-    <svg class="hm" viewBox={mapa.viewBox} preserveAspectRatio="xMaxYMid meet" role="group"
+    <svg class="hm" data-tryb="podstawa" viewBox={mapa.viewBox} preserveAspectRatio="xMaxYMid meet" role="group"
          aria-label="Mapa Europy: wpływy z podatków od nieruchomości jako % PKB. Strzałki przechodzą między państwami, Enter pokazuje szczegóły.">
       {inne.map((c) => c.iso === 'RUS'
         ? <path class="c c--bg" d={c.d} data-gr="wschod" data-c={c.c.join(',')} aria-hidden="true" />
-        : <path class={`c c--${klasa(dane[c.iso].g)}`} d={c.d} data-iso={c.iso} data-gr={grupa(c.iso)} data-c={c.c.join(',')} tabindex="-1" role="button" aria-label={etykieta(c.iso)} />)}
+        : <path class={`c c--${klasa(dane[c.iso].g)}`} d={c.d} data-iso={c.iso} data-p={p(c.iso)} data-gr={grupa(c.iso)} data-c={c.c.join(',')} tabindex="-1" role="button" aria-label={etykieta(c.iso)} />)}
       {mapa.dots.map((d) => (
-        <circle class={`c dot c--${klasa(dane[d.iso].g)}`} cx={d.x} cy={d.y} r="7" data-iso={d.iso} data-gr={grupa(d.iso)} data-c={`${d.x},${d.y}`}
+        <circle class={`c dot c--${klasa(dane[d.iso].g)}`} cx={d.x} cy={d.y} r="7" data-iso={d.iso} data-p={p(d.iso)} data-gr={grupa(d.iso)} data-c={`${d.x},${d.y}`}
           {...(d.iso === 'MLT' ? { tabindex: '-1', role: 'button', 'aria-label': etykieta(d.iso) } : { 'aria-hidden': 'true' })} />
       ))}
       <defs>
+        <!-- Mieszany system: paski „od wartości” na tle „od powierzchni”. -->
+        <pattern id="mieszany" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="9" height="9" style="fill: var(--k-pow)" />
+          <rect width="4" height="9" style="fill: var(--k-wart)" />
+        </pattern>
         <!-- Polska podświetlona w całości: jaśniejszy środek, czerwień flagi przy granicy. -->
         <radialGradient id="pl-fill" cx="50%" cy="42%" r="62%">
           <stop offset="0" style="stop-color: var(--pl-a)" />
@@ -80,13 +91,23 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     </svg>
     <div class="pl-label" aria-hidden="true" data-c={pol.c.join(',')}>
       <svg width="56" height="40"><path d="M0 40 L24 6 H56" /></svg>
-      <p><b>Polska</b><span>{pct(dane.POL.g!)} PKB · podatek od m²</span></p>
+      <p><b>Polska</b><span>dziś podatek od m² · {pct(dane.POL.g!)} PKB</span></p>
     </div>
   </div>
 
-  <ul class="hero__legend" aria-label="Legenda: % PKB">
-    {legenda.map(([k, t]) => <li><i class={`sw c--${k}`}></i>{t}</li>)}
-  </ul>
+  <div class="hero__legend">
+    <div class="tryb" role="group" aria-label="Co pokazuje mapa">
+      <button type="button" data-tryb="podstawa" aria-pressed="true">Podatek od wartości</button>
+      <button type="button" data-tryb="pkb" aria-pressed="false">Wpływy (% PKB)</button>
+    </div>
+    <ul class="lg lg--podstawa" aria-label="Legenda: podstawa podatku">
+      {legendaPodstawy.map(([k, t, n]) => <li><i class={`sw sw--${k}`}></i>{t}<span class="lg__n">{n}</span></li>)}
+      <li><i class="sw sw--pl"></i>Polska: dziś od powierzchni, projekt od wartości</li>
+    </ul>
+    <ul class="lg lg--pkb" aria-label="Legenda: % PKB" hidden>
+      {legenda.map(([k, t]) => <li><i class={`sw c--${k}`}></i>{t}</li>)}
+    </ul>
+  </div>
   <div class="tip" hidden><p class="tip__n"></p><p class="tip__v"></p></div>
   <aside class="panel" hidden tabindex="-1" aria-live="polite">
     <button class="panel__x" type="button" aria-label="Zamknij szczegóły">×</button>
@@ -131,7 +152,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     function pokaz(el, x, y) {
       const d = dane[el.dataset.iso], b = hero.getBoundingClientRect();
       tip.querySelector('.tip__n').textContent = d.n;
-      tip.querySelector('.tip__v').textContent = d.s;
+      tip.querySelector('.tip__v').textContent = d.pk ? `${d.pk} · ${d.s}` : d.s;
       if (x === undefined) { const r = el.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2; }
       tip.style.transform = `translate(${Math.min(x - b.left + 14, b.width - 210)}px, ${y - b.top - 70}px)`;
       tip.hidden = false;
@@ -142,6 +163,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       const iso = el.dataset.iso, d = dane[iso], pl = dane.POL.g;
       panel.querySelector('.panel__body').innerHTML = `
         <p class="panel__k">Wybrane państwo</p><h2 class="panel__h">${d.n}</h2>
+        ${d.p ? `<p class="panel__p panel__p--${d.p}">${d.pn}</p><p class="panel__opis">${d.po}${d.pw === 'niska' ? ' <em>(klasyfikacja umowna)</em>' : ''} <a href="${d.pu}" rel="noopener" target="_blank">Źródło</a></p>` : ''}
         ${d.g === undefined ? '<p>OECD nie publikuje danych o wpływach z podatków od nieruchomości dla tego państwa.</p>' : `
         <dl><div><dt>Wpływy jako % PKB</dt><dd>${pct(d.g)}</dd></div>
         <div><dt>Udział we wszystkich podatkach</dt><dd>${d.t === undefined ? '—' : pct(d.t)}</dd></div>
@@ -149,7 +171,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
         ${iso === 'POL' ? '' : `<div class="cmpbar" aria-hidden="true"><span style="--w:${Math.min(d.g / 3, 1)}"><i></i>${d.n}</span><span class="is-pl" style="--w:${Math.min(pl / 3, 1)}"><i></i>Polska</span></div>`}`}
         <p class="panel__more">${iso === 'POL'
           ? 'Dziś podatek od powierzchni. W Sejmie projekt podatku od wartości dla mieszkań (druk nr 2848). <a href="#projekt">Co zakłada projekt</a>'
-          : 'Opis systemu (podstawa, stawki, ostatnia reforma, skutki) w przygotowaniu. Publikujemy go po sprawdzeniu źródeł.'}</p>`;
+          : 'Szczegółowy opis (stawki, ostatnia reforma, skutki) w przygotowaniu.'}</p>`;
       const bylZamkniety = panel.hidden;
       panel.hidden = false;
       rozwin(bylZamkniety);
@@ -175,6 +197,12 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     svg.addEventListener('pointerleave', () => { tip.hidden = true; });
     svg.addEventListener('click', (e) => { const el = cel(e); if (el) wybierz(el); });
     panel.querySelector('.panel__x').addEventListener('click', zamknij);
+    hero.querySelectorAll('.tryb button').forEach((b) => b.addEventListener('click', () => {
+      svg.dataset.tryb = b.dataset.tryb;
+      hero.querySelectorAll('.tryb button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      hero.querySelector('.lg--podstawa').hidden = b.dataset.tryb !== 'podstawa';
+      hero.querySelector('.lg--pkb').hidden = b.dataset.tryb !== 'pkb';
+    }));
 
     // Klawiatura: jeden przystanek Tab (Polska), strzałki przechodzą po państwach z zachodu na wschód.
     const kolejka = [...svg.querySelectorAll('[data-iso][role=button]')].sort((a, b) => xy(a)[0] - xy(b)[0]);
@@ -257,6 +285,12 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .c--m0 { fill: var(--m0); } .c--m1 { fill: var(--m1); } .c--m2 { fill: var(--m2); } .c--m3 { fill: var(--m3); } .c--m4 { fill: var(--m4); } .c--m5 { fill: var(--m5); }
   .c--none { fill: var(--m-none); }
   path.c--none { stroke: var(--line-2); }
+  /* Tryb „podatek od wartości” (domyślny): kolor = podstawa podatku, niezależnie od % PKB. */
+  .hm[data-tryb='podstawa'] [data-p='wartosc'] { fill: var(--k-wart); }
+  .hm[data-tryb='podstawa'] [data-p='powierzchnia'] { fill: var(--k-pow); }
+  .hm[data-tryb='podstawa'] [data-p='mieszany'] { fill: url(#mieszany); }
+  .hm[data-tryb='podstawa'] [data-p='brak'] { fill: var(--k-brak); stroke: var(--line-2); }
+  .c { transition: fill var(--t-2) var(--ease), stroke var(--t-1) var(--ease); }
   .dot { stroke: var(--ink-2); stroke-width: 1; }
 
   /* Polska: cała podświetlona (gradient czerwieni), bryła z boku w ciemnej czerwieni, bez filtrów i obwódki. */
@@ -285,9 +319,20 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .hero__rest .lead { font-size: 1.05rem; }
   .hero__cta { display: flex; flex-wrap: wrap; gap: 10px 12px; }
 
-  .hero__legend { position: absolute; right: var(--gut); bottom: clamp(28px, 6vh, 64px); z-index: 2; list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 0.78rem; color: var(--ink-2); }
-  .hero__legend li { display: flex; align-items: center; gap: 8px; }
-  .sw { width: 14px; height: 10px; display: inline-block; border: 1px solid var(--line-2); }
+  .hero__legend { position: absolute; right: var(--gut); bottom: clamp(28px, 6vh, 64px); z-index: 2; display: grid; gap: 12px; justify-items: start; background: color-mix(in srgb, var(--bg) 88%, transparent); padding: 12px 14px; border: 1px solid var(--line); border-radius: 4px; max-width: 300px; }
+  .tryb { display: inline-flex; border: 1px solid var(--line-2); border-radius: 3px; overflow: clip; }
+  .tryb button { font: 600 0.78rem/1 var(--sans); padding: 9px 11px; min-height: 36px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; }
+  .tryb button[aria-pressed='true'] { background: var(--ink); color: var(--bg); }
+  .lg { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 0.8rem; color: var(--ink-2); }
+  .lg li { display: flex; align-items: center; gap: 8px; }
+  .lg[hidden] { display: none; }
+  .lg__n { margin-left: auto; padding-left: 10px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .sw { width: 16px; height: 11px; flex: none; display: inline-block; border: 1px solid var(--line-2); }
+  .sw--wartosc { background: var(--k-wart); }
+  .sw--powierzchnia { background: var(--k-pow); }
+  .sw--mieszany { background: repeating-linear-gradient(45deg, var(--k-wart) 0 3px, var(--k-pow) 3px 6px); }
+  .sw--brak { background: var(--k-brak); }
+  .sw--pl { background: var(--pl-b); }
 
   .tip { position: absolute; left: 0; top: 0; z-index: 4; pointer-events: none; background: var(--surface); border: 1px solid var(--line-2); border-radius: 3px; padding: 8px 12px; min-width: 150px; transition: transform 90ms linear; }
   .tip p { margin: 0; }
@@ -305,6 +350,10 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .panel :global(.cmpbar span) { display: grid; gap: 3px; }
   .panel :global(.cmpbar i) { height: 6px; background: var(--ink-2); transform-origin: 0 50%; transform: scaleX(var(--w)); }
   .panel :global(.cmpbar .is-pl i) { background: var(--accent); }
+  .panel :global(.panel__p) { display: inline-block; margin: 0 0 8px; padding: 4px 8px; font-size: 0.8rem; font-weight: 650; border-radius: 2px; background: var(--k-pow); color: var(--ink); }
+  .panel :global(.panel__p--wartosc) { background: var(--k-wart); color: var(--bg); }
+  .panel :global(.panel__p--brak) { background: var(--k-brak); border: 1px solid var(--line-2); }
+  .panel :global(.panel__opis) { font-size: 0.88rem; color: var(--ink-2); margin: 0 0 14px; }
   .panel :global(.panel__more) { font-size: 0.85rem; color: var(--ink-3); margin: 0; }
 
   /* Stan wejścia (klasa ustawiana w <head>, tylko bez ograniczonego ruchu). */
@@ -334,7 +383,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     .hero { height: auto; min-height: calc(100svh - 96px); max-height: none; display: flex; flex-direction: column; }
     .hero__map { position: relative; order: -1; height: 92vw; flex: none; }
     .hero__content { position: relative; bottom: auto; padding-block: 8px 28px; order: 1; }
-    .hero__legend { position: static; order: 2; grid-template-columns: repeat(4, auto); justify-content: start; gap: 4px 12px; padding: 0 var(--gut) 24px; }
+    .hero__legend { position: static; order: 2; margin: 0 var(--gut) 24px; max-width: none; background: none; }
     .tip { display: none; }
     .panel { position: relative; top: auto; right: auto; order: 0; width: auto; margin: 12px var(--gut) 8px; }
     /* Telefon: etykieta wyśrodkowana nad Polską, pionowa kreska zamiast skośnej. */

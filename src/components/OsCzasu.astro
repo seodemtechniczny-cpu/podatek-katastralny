@@ -38,7 +38,8 @@ const lista = [...zdarzenia].sort((a, b) => b.data.localeCompare(a.data));
   .tl::after { width: 2px; left: 4.5px; background: var(--accent); transform-origin: top; transform: scaleY(1); }
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-      .tl::after { animation-name: grow; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: --tl; animation-range: entry 20% exit 60%; }
+      .tl::after { animation-name: grow; animation-timing-function: linear; animation-fill-mode: both; }
+      .os .tl::after { animation-timeline: --tl; animation-range: entry 20% exit 60%; }
       @keyframes grow { from { transform: scaleY(0); } }
     }
   }

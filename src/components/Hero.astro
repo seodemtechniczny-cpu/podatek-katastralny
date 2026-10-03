@@ -86,8 +86,10 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     .layer--2 path { animation-duration: 1500ms; animation-delay: 300ms; }
     @keyframes draw { from { stroke-dashoffset: 1; } }
     @supports (animation-timeline: scroll()) {
-      .layer { animation: drift linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
-      .layer--0 { --d: 4%; } .layer--1 { --d: 9%; } .layer--2 { --d: 15%; }
+      .layer { animation: drift linear both; }
+      /* Timeline w osobnej regule: minifikator skleja go ze skrótem `animation`, a Chrome odrzuca taki skrót w całości. */
+      .hero__grid .layer { animation-timeline: scroll(root); animation-range: 0 100vh; }
+      .layer--0 { --d: 4%; } .layer--1 { --d: 9%; } .layer--2 { --d: 12%; }
       @keyframes drift { to { transform: translateY(var(--d)); } }
     }
   }

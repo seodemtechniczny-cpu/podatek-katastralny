@@ -1,5 +1,5 @@
 {
- "pobrano": "2026-10-03T08:46:38.730Z",
+ "pobrano": "2026-10-03T08:49:25.305Z",
  "pozycje": [
   {
    "tytul": "Rynek nieruchomości w Polsce: ceny, metraże i podatek katastralny",
@@ -278,6 +278,18 @@
    "data": "2026-03-18T07:00:00.000Z"
   },
   {
+   "tytul": "Posłowie chcą nowego podatku. \"Mieszkania byłyby tańsze i bardziej dostępne\"",
+   "zrodlo": "Fakt",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOTDJrNWVUdkZJRHZ3WnhTYUQtUTNjaTJxRUpqaHVDd09ZSC15RzlEaVVmN1JwaDFaNXA2STZUR3RNTG9QaWRlUkV0SmlBTkdxZXdhelJSZFFnczNiYXRqU3RIWi1ITjNYR2tFaTNzOW9pakdqZF9fNEp5QURqWTN6b3Q5Yk1oRUs1SjNONVNZM3ZCSEVTOWdNZ0N0ZTF1YzZyX1k3ZWI0WFNOU0VkcXc?oc=5",
+   "data": "2026-03-18T07:00:00.000Z"
+  },
+  {
+   "tytul": "Nowa opłata może uderzyć we właścicieli mieszkań. Wraca sprawa podatku katastralnego",
+   "zrodlo": "Portal Samorządowy",
+   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQMEJMbGtrRGJ1TDB0ZHhzZHdiUlRDNHIyT0l4dFR3OW41eDMzNnByTDlqTVZXZHBtZWctOHpnZ21rc2pVZ1ZJcTM4aEUyWFRvemcyNE5SQUlqNElKTkZBRXY1MGZxMF95OG8tdld2a0N5S1QyM19MTEZjMHhTNzU3LVpuRkN1Y1VGOGN0THJqc2ZVV25HcFF5aFNVWGdwSGNCV1dWb3hnRXJWWEhEUGNqZ1NTbUN2Z1FmWDJGQ0RVNXQxN0h1RFpQRXdfYjlIVlJaR3lVaTJCbzlkaTZSSzVRR0JGdw?oc=5",
+   "data": "2026-03-18T07:00:00.000Z"
+  },
+  {
    "tytul": "Lewica wraca do podatku katastralnego. Wyższa danina od wartości nieruchomości",
    "zrodlo": "Biznes Wprost",
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNTm95NWxGM0VPcThaZjR4d2Q3dEhLbmVWcDdpb05HZVFyMU9EbG5yanhzUkc4WFU1V3FsV3VzTGtlSF9HRldMVFRaWTF5RnE3QWExM1hhUkc3QjE4SUVPTThGUENHT1hWb3ZfbEtMSUhaSVZCS2l2dVpOSHZLXzI5dG1sMWJyMHoyZFdQWXFta0xWVlR3cE1NQm1mQXBKZEFzdWltQlZlbmRnMmRldW9MT2hSSGZYajM2cklUWWpWMkc3c3NKVUlzetIBvAFBVV95cUxPaHBCdnpIVV9scmlySXowa2xrWURYZlo0US1nRjNacFJaaGhYd1YwMVJnZzQtRUk3SDBiMndoZWpCaEk4NXZmWjJGbEpRcFZBbjlXVTI3RkhILThUa2k4X09IMkNLTGVBSU9jN28tMTlhQTZaX2VtWmRLWFFzN2U4Y1hKdzVUaUtoTUdWQ1R6bkdOeTh5NGFIdjBhcVZaMUpSUlJ2RlpKSHR1QmVaMXplbUJ0VC13b1FEaGZnQw?oc=5",
@@ -468,18 +480,6 @@
    "zrodlo": "Interia Biznes",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOTk13M1k0Yzd3dFhYTXR5dWQ2M1pvODlONE5kdGJ4V0dJUjhMVmR2QnNhZlhWMzFUZFNseDJPMDZPTHhnaDB1eDBlVV9RWGY3TUZXOEFsTWZJMXBkWDctd1ZrUjJSLVlGazdLQ2VibTBWM2NuVXRaTm5HVFpuNl9NM2VHWjNJOTY0MGdFdmdhamVGNEtFNXBaaTBLbzdsV1FtNV9NN3NOV3F4VUJQN2FFOUpZTQ?oc=5",
    "data": "2025-11-30T08:00:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny – kogo obejmie, ile wyniesie? Nowe ustalenia z Sejmu",
-   "zrodlo": "INFOR.PL",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQblJwMnkwUU1JQWRkeXBqenJtS2RkX3JGOTRBbTR2SDQ2OVdySFVIQnNnOGdpY2VjakRnLUJzSmxqTHQ0SlRBQnF6ek1RTUFvUzdTWnc2akd1cW1MUi1oQ3lpRThoVU5nQThOMm00NE14UTU1NEt6MkJKZnJIVWpSaC00eWNlWTlNVFhFajc4c0NCSlZQUTVTX0V4bWs5bVBta2x0bmtLRkIyVVJ2Q2fSAbMBQVVfeXFMTzJ2S3FEbVFjQVk2dzk5N2g5NU9RaHZPSnpNd0E5WHpDLWNoLWczZ0l5SjJWOTlQMGlHaDlwMEFsYXExMEg2SVdwd3UtTWlkUFFGZ3pINHVhSWlFV1BJdk5xVWVqaFdybXRCQ045Wk1UNmNsTzlNWFc3WTQ4Vk1qYWRHZkFTQXJpQ3lfZk5JcWNTQ05kMzBJVnFzX2dsODZva0JFWkFkQzdpZ29mVXdJQnVIclE?oc=5",
-   "data": "2025-11-28T08:00:00.000Z"
-  },
-  {
-   "tytul": "Wraca pomysł wprowadzenia podatku katastralnego. Wkrótce projekt ma trafić do Sejmu",
-   "zrodlo": "Rzeczpospolita",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPcU5wU3o4a05SZkdLWXM5cnNxdHphNks4TG9RMi1vb2d5emFQUVB1Qy1nRFZ5dVBKaGpXbmQ3RjVPNkdVLVRxd1B2YlFjY2E5UThLNGlLZlJWdURiUlJCSEhFRHZ4WkRpTDdfSkF4bGNCR1RBRnhnVS0ya29vR3lhU2lIZE9LRW5zVURCOURPYVVkWXZWLUdxRWhlTlN3Uk5OTjd2NExNRzR0NXJfUHNFX1lWbTkybXQ2V0FuNA?oc=5",
-   "data": "2025-11-26T08:00:00.000Z"
   }
  ]
 }

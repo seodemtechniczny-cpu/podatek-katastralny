@@ -1,6 +1,12 @@
 {
- "pobrano": "2026-10-03T18:42:24.165Z",
+ "pobrano": "2026-10-05T14:38:42.890Z",
  "pozycje": [
+  {
+   "tytul": "PiS ostrzega: Polska zmierza ku katastrofie. W tle strefa euro",
+   "zrodlo": "Interia Biznes",
+   "url": "https://biznes.interia.pl/polityka/news-pis-ostrzega-przed-scenariuszem-dla-polski-w-tle-wejscie-do,nId,23553504",
+   "data": "2026-10-05T07:51:49.000Z"
+  },
   {
    "tytul": "9 tys. zł – taki podatek od mieszkania zapłacą Polacy którzy zdecydują się na zakup tych nieruchomości. Im większa wartość nieruchomości, tym wyższa danina",
    "zrodlo": "Forsal.pl",
@@ -474,12 +480,6 @@
    "zrodlo": "Fakt",
    "url": "https://www.fakt.pl/pieniadze/powrot-podatku-katastralnego-temat-ktory-moze-zmienic-bieg-kampanii/6zgd9zp",
    "data": "2025-04-29T08:35:00.000Z"
-  },
-  {
-   "tytul": "Nawrocki: Jestem przeciwnikiem podatku katastralnego",
-   "zrodlo": "Gazeta Prawna",
-   "url": "https://www.gazetaprawna.pl/wiadomosci/kraj/artykuly/9787007,nawrocki-jestem-przeciwnikiem-podatku-katastralnego.html",
-   "data": "2025-04-28T20:06:48.000Z"
   }
  ],
  "sprawdzone": [
@@ -727,6 +727,41 @@
   "https://www.bankier.pl/gielda/gieldy-swiatowe/akcje",
   "https://forsal.pl/kraj/aktualnosci/artykuly/11323627,wazny-obowiazek-dla-wlascicieli-nieruchomosci-maja-tylko-14-dni-na-zgloszenie-do-gminy.html",
   "https://forsal.pl/praca/artykuly/11323367,polacy-ocenili-swoje-miejsca-pracy-wiekszosc-nie-ma-zludzen.html",
-  "https://forsal.pl/kraj/aktualnosci/artykuly/11283807,masowa-ucieczka-od-jednego-operatora-740-tys-numerow-w-pol-roku-do-miliona-brakuje-juz-mniej-niz-260-tys.html"
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11283807,masowa-ucieczka-od-jednego-operatora-740-tys-numerow-w-pol-roku-do-miliona-brakuje-juz-mniej-niz-260-tys.html",
+  "https://www.bankier.pl/wiadomosc/Konie-Nawrockiego-na-panstwowym-garnuszku-Zaplacilismy-za-stajnie-54-tys-zl-od-lipca-9207221.html",
+  "https://www.bankier.pl/wiadomosc/Kanada-zbuduje-rurociag-ktorym-poplynie-1-mln-barylek-kanadyjskiej-ropy-dziennie-9206345.html",
+  "https://www.bankier.pl/wiadomosc/Norwegia-uspokaja-Europe-przed-zima-Gazociagi-sa-gotowe-na-wysokie-dostawy-9206372.html",
+  "https://www.bankier.pl/wiadomosc/Gniew-przerodzil-sie-w-nawyk-Tak-Kanadyjczycy-mszcza-sie-za-amerykanskie-cla-9207069.html",
+  "https://www.bankier.pl/wiadomosc/Zaufali-trenerowi-personalnemu-zostali-z-poteznymi-dlugami-Bezczelny-przekret-na-2-5-mln-zl-9203592.html",
+  "https://www.bankier.pl/waluty/kursy-walut/forex/EURPLN",
+  "https://www.bankier.pl/waluty/kursy-walut/forex/USDPLN",
+  "https://www.bankier.pl/waluty/kursy-walut/forex/CHFPLN",
+  "https://www.bankier.pl/waluty/kursy-walut/nbp/USD",
+  "https://www.bankier.pl/waluty/kursy-walut/nbp/EUR",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=ZLOTO",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=MIEDZ",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=ROPA",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=SREBRO",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=PLATYNA",
+  "https://www.bankier.pl/gospodarka/wskazniki-makroekonomiczne/inflacja-rdr-pol",
+  "https://www.bankier.pl/gospodarka/wskazniki-makroekonomiczne/wynagrodzenie-przecietne-rocznie-pol",
+  "https://www.bankier.pl/gospodarka/wskazniki-makroekonomiczne/produkcja-przemyslowa-rdr-pol",
+  "https://www.bankier.pl/gospodarka/wskazniki-makroekonomiczne/pkb-rdr-pol",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=KGHM",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=BIOTON",
+  "https://www.bankier.pl/inwestowanie/profile/quote.html?symbol=JSW",
+  "https://www.bankier.pl/wiadomosc/Jak-kupowac-akcje-Gielda-dla-poczatkujacych-7509041.html",
+  "https://www.bankier.pl/waluty/kursy-walut/nbp/CHF",
+  "https://www.bankier.pl/waluty/kursy-walut/nbp/GBP",
+  "https://forsal.pl/nieruchomosci/komercyjne/artykuly/11324336,wiezowiec-z-apartamentami-urosnie-do-170-metrow-nazywa-sie-roma-tower.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11324316,minimalna-oplata-za-ogrzewanie-2027-zakrecone-grzejniki.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11324347,nowe-uprawnienia-strazy-miejskiej-2026-kierowcy.html",
+  "https://forsal.pl/swiat/ukraina/artykuly/11324363,rosja-zmienia-strategie-wojny-konsekwencje-dzialan-moskwy-moga-byc-globalne.html",
+  "https://forsal.pl/lifestyle/rozrywka/artykuly/11324464,ubisoft-technologia-motherbrain-produkcja-gier.html",
+  "https://forsal.pl/finanse/aktualnosci/artykuly/11324305,nest-bank-agenta-ai-pomoc-klientowi-oplata.html",
+  "https://forsal.pl/biznes/energetyka/artykuly/11324232,walka-o-polski-przemysl-jadrowy-kto-bedzie-budowal-elektrownie.html",
+  "https://forsal.pl/biznes/przemysl/artykuly/11324279,automatyzacja-nie-rozwiazuje-problemu-brakow-kadrowych-polskie-firmy.html",
+  "https://forsal.pl/lifestyle/technologie/artykuly/11324271,sam-altman-apel-mniejsze-regulacje-ai.html",
+  "https://forsal.pl/swiat/niemcy/artykuly/11324312,wizyta-merza-w-kijowie-afd-rozdaje-pieniadze-niemieckich-podatnikow.html"
  ]
 }

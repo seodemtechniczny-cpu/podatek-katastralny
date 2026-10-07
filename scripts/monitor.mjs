@@ -6,6 +6,7 @@
 // Wynik: monitor/stan.json (zapamiętany stan) i monitor/nowe.md (szkice wpisów do os-czasu.json,
 // do neutralnej redakcji). Pusty nowe.md = brak zmian. Wpisy na stronę trafiają dopiero po przeglądzie.
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { artykuly, porownaj, tekstPdf } from './radar.mjs';
 
 const SEJM = 'https://api.sejm.gov.pl/sejm/term10';
 const ELI = 'https://api.sejm.gov.pl/eli';
@@ -86,10 +87,10 @@ const nowe = [];
 // 1. Etapy śledzonych procesów
 for (const [nr, znane] of Object.entries(stan.sledzone)) {
   const p = await get(`${SEJM}/processes/${nr}`);
-  const etapy = plaskie(p.stages).map(klucz);
-  for (const e of etapy.filter((e) => !znane.includes(e))) {
-    const [data, nazwa] = e.split('|');
-    nowe.push({ data, typ: 'etap', kto: 'Sejm', tytul: `Druk nr ${nr}: ${nazwa}`, url: `${SEJM}/processes/${nr}` });
+  const wszystkie = plaskie(p.stages);
+  const etapy = wszystkie.map(klucz);
+  for (const s of wszystkie.filter((s) => !znane.includes(klucz(s)))) {
+    nowe.push({ data: s.date, typ: 'etap', kto: 'Sejm', tytul: `Druk nr ${nr}: ${s.stageName}`, url: `${SEJM}/processes/${nr}`, etap: s });
   }
   if (p.passed) nowe.push({ data: p.changeDate.slice(0, 10), typ: 'etap', kto: 'Sejm', tytul: `Druk nr ${nr}: proces zakończony uchwaleniem`, url: `${SEJM}/processes/${nr}` });
   stan.sledzone[nr] = etapy;
@@ -159,6 +160,30 @@ const etapy2848 = nowe.filter((n) => n.typ === 'etap' && n.tytul.startsWith('Dru
   .sort((a, b) => a.data.localeCompare(b.data));
 let tytulPR = 'Monitoring: nowe zdarzenia do sprawdzenia';
 const sekcje = [];
+// Szczegóły z API: wynik, głosowanie, stanowisko Senatu, druki. Radar porównuje nowy tekst z bazowym po artykułach.
+const szczegoly = async (s) => {
+  const w = [];
+  if (s.decision) w.push(`Decyzja: ${s.decision}`);
+  if (s.position) w.push(`Stanowisko: ${s.position}`);
+  if (s.voting) w.push(`Głosowanie (${s.voting.description ?? ''}): za ${s.voting.yes}, przeciw ${s.voting.no}, wstrzymało się ${s.voting.abstain}`);
+  if (s.printNumber) w.push(`Druk nr ${s.printNumber}: https://www.sejm.gov.pl/Sejm10.nsf/druk.xsp?nr=${s.printNumber}`);
+  const pdf = s.textAfter3 ?? s.reportFile;
+  if (pdf) {
+    w.push(`Dokument: ${pdf}`);
+    try {
+      const tekst = await tekstPdf(pdf), baza = 'monitor/teksty/2848.txt';
+      const stary = readFileSync(baza, 'utf8'), r = porownaj(stary, tekst);
+      // Sprawozdanie z samymi poprawkami (np. druk „-A”) nie jest pełnym tekstem: nie zastępuje tekstu bazowego.
+      if (artykuly(tekst).size < artykuly(stary).size / 2) {
+        w.push('Radar: dokument nie wygląda na pełny tekst projektu (np. lista poprawek). Przeczytaj go w całości; tekst bazowy bez zmian.');
+      } else {
+        w.push(`Radar (porównanie z poprzednią wersją, do sprawdzenia): zmienione art. ${r.zmienione.join(', ') || 'brak'}; nowe: ${r.nowe.join(', ') || 'brak'}; usunięte: ${r.usuniete.join(', ') || 'brak'}.`);
+        writeFileSync(baza, `# Tekst bazowy druku 2848 dla radaru: ${pdf}\n${tekst}`);
+      }
+    } catch (e) { w.push(`Radar: nie udało się pobrać albo odczytać dokumentu (${e.message}).`); }
+  }
+  return w.length ? `\n**Z API Sejmu:**\n${w.map((x) => `- ${x}`).join('\n')}\n` : '';
+};
 if (etapy2848.length) {
   const projekt = JSON.parse(readFileSync(PROJEKT, 'utf8'));
   const os = JSON.parse(readFileSync(OS, 'utf8'));
@@ -169,7 +194,7 @@ if (etapy2848.length) {
     sekcje.push(`## ${e.etap} (${pl(n.data)})\n\n` +
       `**Co się stało:** ${e.etap}, ${pl(n.data)}. Źródło: ${n.url}\n\n` +
       `**Co się NIE zmieniło:** podatek katastralny nie obowiązuje; stawki i zasady z projektu bez zmian, chyba że niżej zaznaczono inaczej.\n\n` +
-      `**Co dalej:** ${e.dalej}\n` + (e.sprawdz ? `\n**Sprawdź przed scaleniem:** ${e.sprawdz}\n` : ''));
+      `**Co dalej:** ${e.dalej}\n` + (e.sprawdz ? `\n**Sprawdź przed scaleniem:** ${e.sprawdz}\n` : '') + await szczegoly(n.etap));
   }
   const ost = etapy2848.at(-1), e = ETAPY[ost.tytul.slice(14)];
   Object.assign(projekt, { etap: `${e.etap} (${pl(ost.data)})`, etap_krotko: e.krotko, krok_procedury: e.krok, ostatnia_zmiana: ost.data, przeglad: dzis });
@@ -180,8 +205,13 @@ if (etapy2848.length) {
   tytulPR = `Druk 2848: ${e.etap} (${pl(ost.data)})`;
 }
 
+for (const n of nowe.filter((n) => n.etap && !etapy2848.includes(n) && (n.etap.reportFile || n.etap.textAfter3 || n.etap.voting || n.etap.decision))) {
+  sekcje.push(`## ${n.tytul.replace('Druk nr 2848: ', '')} (${pl(n.data)})\n${await szczegoly(n.etap)}`);
+  if (tytulPR.startsWith('Monitoring')) tytulPR = `Druk 2848: ${n.etap.stageName} (${pl(n.data)})`;
+}
+
 const md = nowe.map((n) => `- **${n.data}** · ${n.typ} · ${n.kto}\n  ${n.tytul}${n.opis ? `\n  ${n.opis}` : ''}\n  ${n.url}`).join('\n');
 writeFileSync('monitor/nowe.md', md ? `# ${tytulPR}\n\n` +
-  (sekcje.length ? `Ten PR zmienia stan sprawy i oś czasu na stronie. Scalenie = publikacja.\n\n${sekcje.join('\n')}\n## Wszystkie wykryte zdarzenia\n\n` : '') +
+  (sekcje.length ? `${etapy2848.length ? 'Ten PR zmienia stan sprawy i oś czasu na stronie. Scalenie = publikacja.' : 'Ten PR nie zmienia danych na stronie: tylko informacja do sprawdzenia.'}\n\n${sekcje.join('\n')}\n## Wszystkie wykryte zdarzenia\n\n` : '') +
   `${md}\n` : '');
 console.log(bazowy ? 'Zapisano stan bazowy.' : nowe.length ? `Nowe: ${nowe.length}\n${md}` : 'Brak zmian.');

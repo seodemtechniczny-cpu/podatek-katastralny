@@ -1,0 +1,74 @@
+---
+import Base from '../../../layouts/Base.astro';
+import opisy from '../../../data/europa-kraje.json';
+import { dane, pct, stats, NAZWA_PODSTAWY } from '../../../lib/europa';
+
+export function getStaticPaths() {
+  return Object.entries(opisy.kraje).map(([iso, k]) => ({ params: { kraj: k.slug }, props: { iso } }));
+}
+const { iso } = Astro.props as { iso: keyof typeof opisy.kraje };
+const k = opisy.kraje[iso] as (typeof opisy.kraje)[keyof typeof opisy.kraje];
+const d = dane[iso], pl = dane.POL;
+const base = import.meta.env.BASE_URL;
+const w = (n: string) => ({ wartosc: 'od wartości', powierzchnia: 'od powierzchni', mieszany: 'system mieszany' } as Record<string, string>)[n] ?? n;
+const pola: [string, string][] = [
+  ['Podatek', k.nazwa_podatku],
+  ['Podstawa', k.podstawa_opis],
+  ['Wycena', k.wycena],
+  ['Z jakiego roku są wartości', k.rok_wyceny],
+  ['Stawki', k.stawki],
+  ['Kto ustala', k.kto_ustala],
+  ['Ostatnia reforma', k.reforma],
+  ['Różnica wobec Polski', k.roznica_pl],
+];
+const zweryf = opisy.zweryfikowano.split('-').reverse().join('.');
+---
+<Base okruszek={`Europa: ${k.nazwa_kraju}`} title={`Podatek od nieruchomości: ${k.nazwa_kraju} (${w(k.podstawa)}) — jak działa i ile wynosi`}
+  description={`${k.nazwa_kraju}: jak liczy się podatek od nieruchomości (${w(k.podstawa)}), wycena, stawki, ulgi i ostatnia reforma. Porównanie z Polską, ze źródłami.`}>
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / <a href={`${base}europa/`}>Europa</a> / {k.nazwa_kraju}</p>
+      <h1>Podatek od nieruchomości: {k.nazwa_kraju}</h1>
+      <p class="lead">{k.nazwa_kraju} liczy podatek od domów i mieszkań <strong>{w(k.podstawa)}</strong>. Poniżej: podstawa, wycena, stawki, ulgi i ostatnia reforma, każda informacja ze źródłem.</p>
+
+      <div class="kpi">
+        <p><b>{d?.g === undefined ? '—' : pct(d.g)}</b><span>PKB z podatków od nieruchomości ({d?.y ?? 'brak danych'}, OECD)</span></p>
+        <p><b>{pct(pl.g!)}</b><span>Polska ({pl.y})</span></p>
+        <p><b>{NAZWA_PODSTAWY[k.podstawa as keyof typeof NAZWA_PODSTAWY] ?? w(k.podstawa)}</b><span>podstawa podatku</span></p>
+      </div>
+
+      <dl class="fakty">
+        {pola.map(([t, v]) => <div><dt>{t}</dt><dd>{v}</dd></div>)}
+        <div><dt>Ulgi i zwolnienia</dt><dd><ul>{k.ulgi.map((u) => <li>{u}</li>)}</ul></dd></div>
+      </dl>
+
+      {k.niepotwierdzone.length > 0 && <>
+        <h2>Czego nie potwierdziliśmy</h2>
+        <p>Tych informacji nie udało się potwierdzić w otwartym źródle albo źródła się różnią:</p>
+        <ul class="np">{k.niepotwierdzone.map((n) => <li>{n}</li>)}</ul>
+      </>}
+
+      <h2>Źródła</h2>
+      <ul>{k.zrodla.map((z) => <li><a href={z.url}>{z.nazwa}</a></li>)}</ul>
+      <p class="src">Stan na rok podatkowy 2026, sprawdzone {zweryf}. Wpływy: <a href={stats.url}>{stats.source}</a>.</p>
+      <p class="more"><a class="btn btn--ghost" href={`${base}europa/`}>Wszystkie państwa Europy</a> <a class="btn btn--ghost" href={`${base}projekt-ustawy/`}>Projekt podatku od wartości w Polsce</a></p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 860px; }
+  .prose h2 { margin-top: 1.6em; font-size: 1.5rem; }
+  .kpi { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 28px 0; }
+  .kpi p { margin: 0; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; display: grid; gap: 4px; }
+  .kpi b { font: 600 1.5rem/1.15 var(--display); font-variant-numeric: tabular-nums; }
+  .kpi span { font-size: 0.86rem; color: var(--ink-3); }
+  .fakty { margin: 0; }
+  .fakty > div { display: grid; grid-template-columns: 13rem 1fr; gap: 6px 24px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .fakty dt { font-weight: 650; }
+  .fakty dd { margin: 0; color: var(--ink-2); }
+  .fakty ul { margin: 0; padding-left: 1.1em; }
+  .np { color: var(--ink-3); font-size: 0.92rem; }
+  .more { display: flex; flex-wrap: wrap; gap: 10px 12px; margin: 28px 0; }
+  @media (max-width: 700px) { .fakty > div { grid-template-columns: 1fr; } }
+</style>

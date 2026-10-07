@@ -1,0 +1,156 @@
+{
+  "zweryfikowano": "2026-10-07",
+  "kraje": {
+    "DEU": {
+      "nazwa_kraju": "Niemcy",
+      "slug": "niemcy",
+      "nazwa_podatku": "Grundsteuer (podatek gruntowy, w praktyce od nieruchomości); dla gruntów zabudowanych i budowlanych pobierana jako Grundsteuer B.",
+      "podstawa": "wartosc",
+      "podstawa_opis": "W modelu federalnym podatek liczy się według wzoru: wartość podatkowa nieruchomości (Grundsteuerwert) × wskaźnik (Steuermesszahl) × gminna stawka mnożnikowa (Hebesatz). Wskaźnik dla budynków mieszkalnych wynosi 0,31 promila. Pięć krajów związkowych (Badenia-Wirtembergia, Bawaria, Hamburg, Hesja, Dolna Saksonia) stosuje własne modele, częściowo oparte na powierzchni (np. w Bawarii czysty model powierzchniowy).",
+      "wycena": "Wartość ustala urząd skarbowy na podstawie deklaracji właściciela; domy jedno- i dwurodzinne, budynki czynszowe i mieszkania wycenia się metodą dochodową (Ertragswertverfahren). Ustawa przewiduje powszechną wycenę co 7 lat.",
+      "rok_wyceny": "Stan na 1 stycznia 2022 r. (pierwsza Hauptfeststellung), stosowany do podatku od 2025 r.",
+      "stawki": "Hebesatz ustala każda gmina. Średni Hebesatz dla Grundsteuer B w 2024 r. wyniósł 506% (Destatis). Przykład rachunkowy dla modelu federalnego: 0,31‰ × 500% daje ok. 0,155% wartości podatkowej rocznie.",
+      "kto_ustala": "Gmina ustala Hebesatz i wydaje decyzję podatkową; reguły wyceny i wskaźniki określa ustawa federalna albo ustawa kraju związkowego.",
+      "ulgi": [
+        "Obniżenie wskaźnika (Steuermesszahl) o 25% dla mieszkań objętych wsparciem budownictwa socjalnego, mieszkań spółdzielni i podmiotów pożytku publicznego.",
+        "Obniżenie wskaźnika o 10% dla nieruchomości z budynkami wpisanymi do rejestru zabytków.",
+        "Brak ogólnego zwolnienia dla mieszkania zajmowanego przez właściciela (w źródłach nie znaleziono takiej ulgi)."
+      ],
+      "reforma": "Od 1 stycznia 2025 r. obowiązuje Grundsteuerreform: wartości jednostkowe (Einheitswerte) z 1964 r. (zachód) zastąpiono wartościami według stanu na 1.01.2022, po wyroku Federalnego Trybunału Konstytucyjnego z 10.04.2018, który uznał stare zasady za niezgodne z konstytucją. Według PwC skarga konstytucyjna na nowe zasady pozostaje nierozstrzygnięta.",
+      "roznica_pl": "W modelu federalnym podstawą jest wartość nieruchomości ustalona przez urząd skarbowy, a gmina ustala mnożnik bez krajowego limitu; w Polsce podstawą jest powierzchnia użytkowa, a gmina ustala stawkę za m² do ustawowego maksimum.",
+      "zrodla": [
+        {"nazwa": "GrStG § 15 – Steuermesszahlen (gesetze-im-internet.de)", "url": "https://www.gesetze-im-internet.de/grstg_1973/__15.html"},
+        {"nazwa": "BewG § 221 – Hauptfeststellung co 7 lat", "url": "https://www.gesetze-im-internet.de/bewg/__221.html"},
+        {"nazwa": "BewG § 266 – pierwsza Hauptfeststellung 1.01.2022", "url": "https://www.gesetze-im-internet.de/bewg/__266.html"},
+        {"nazwa": "BewG § 250 – metoda dochodowa dla nieruchomości mieszkalnych", "url": "https://www.gesetze-im-internet.de/bewg/__250.html"},
+        {"nazwa": "Destatis – komunikat 309/2025 (średni Hebesatz 2024)", "url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/08/PD25_309_713.html"},
+        {"nazwa": "Bundesverfassungsgericht – komunikat 21/2018", "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/DE/2018/bvg18-021.html"},
+        {"nazwa": "PwC Worldwide Tax Summaries – Germany, Other taxes", "url": "https://taxsummaries.pwc.com/germany/individual/other-taxes"},
+        {"nazwa": "Deubner Steuern – modele krajów związkowych", "url": "https://www.deubner-steuern.de/themen/grundsteuerreform/laender.html"}
+      ],
+      "niepotwierdzone": [
+        "Średni Hebesatz za 2025 i 2026 r. (dostępne dane Destatis kończą się na 2024 r.).",
+        "Uchwalone zmiany na 2027 r. – nie znaleziono."
+      ]
+    },
+    "CZE": {
+      "nazwa_kraju": "Czechy",
+      "slug": "czechy",
+      "nazwa_podatku": "Daň z nemovitých věcí (podatek od nieruchomości), składa się z podatku od gruntów oraz podatku od budynków i lokali (daň ze staveb a jednotek).",
+      "podstawa": "powierzchnia",
+      "podstawa_opis": "Dla budynku podstawą jest powierzchnia zabudowy w m², a dla lokalu (mieszkania) jego powierzchnia podłogowa pomnożona przez 1,22 (lokal z udziałem w gruncie) lub 1,20. Stawka podstawowa dla budynków mieszkalnych wynosi 3,50 Kč za m²; mnoży się ją przez współczynnik wielkości gminy, współczynnik lokalny i współczynnik inflacyjny.",
+      "wycena": "Nie ma wyceny wartości; podatek wynika z powierzchni z katastru nieruchomości i ustawowych współczynników. Od 2024 r. ustawa przewiduje coroczny współczynnik inflacyjny ogłaszany przez Ministerstwo Finansów.",
+      "rok_wyceny": "Nie dotyczy (podatek powierzchniowy); stan na 1 stycznia roku podatkowego. Współczynnik inflacyjny na 2026 r. wynosi 1,0.",
+      "stawki": "Stawkę ustawową 3,50 Kč/m² mnoży się przez współczynnik wielkości gminy od 1,0 (do 1000 mieszkańców) do 4,5 (Praga) oraz przez współczynnik lokalny od 0,5 do 5,0. Przykład Finanční správa: mieszkanie 70 m² na praskim Žižkovie – ok. 3 010 Kč rocznie od 2024 r. (wcześniej 1 720 Kč).",
+      "kto_ustala": "Stawki podstawowe i współczynniki wielkości gminy określa ustawa krajowa; gmina może uchwałą (obecně závazná vyhláška) wprowadzić współczynnik lokalny 0,5–5,0. Podatek wymierza urząd skarbowy.",
+      "ulgi": [
+        "Gmina może obniżyć podatek współczynnikiem lokalnym poniżej 1 (od 0,5) lub zwolnić określone nieruchomości uchwałą.",
+        "Zwolnienie na 5 lat dla budynku po zmianie ogrzewania z paliw stałych na źródło odnawialne.",
+        "Zwolnienie budynków i lokali mieszkalnych osób pobierających świadczenie pomocy społecznej z komponentem na utrzymanie (od 2026 r. powiązane z nową „dávka státní sociální pomoci”)."
+      ],
+      "reforma": "Od 1 stycznia 2024 r. pakiet konsolidacyjny podniósł stawki średnio 1,8-krotnie, wprowadził współczynnik inflacyjny i nowy zakres współczynnika lokalnego (0,5–5,0). Od 2025 r. zniesiono m.in. współczynnik 1,5 dla części budynków.",
+      "roznica_pl": "Podobnie jak w Polsce podstawą jest powierzchnia, ale stawkę ustala ustawa, a gmina wpływa na podatek mnożnikiem 0,5–5,0; dla budynków podstawą jest powierzchnia zabudowy, nie powierzchnia użytkowa.",
+      "zrodla": [
+        {"nazwa": "Zákon č. 338/1992 Sb., o dani z nemovitých věcí (zakonyprolidi.cz)", "url": "https://www.zakonyprolidi.cz/cs/1992-338"},
+        {"nazwa": "Generální finanční ředitelství – komunikat z 19.12.2023 o zmianach od 2024 r.", "url": "https://financnisprava.gov.cz/assets/PAW/Document/BoardFiles/258351_9497156_20231219160345.pdf"},
+        {"nazwa": "Finanční správa – daň z nemovitých věcí", "url": "https://financnisprava.gov.cz/cs/dane/dane/dan-z-nemovitych-veci"},
+        {"nazwa": "Pohoda – przyznanie do podatku od nieruchomości 2026 (współczynnik inflacyjny 1,0)", "url": "https://portal.pohoda.cz/dane-ucetnictvi-mzdy/ostatni-dane/danove-priznani-k-dani-z-nemovitych-veci-terminy-a-povinnosti-v-roce-2026/"},
+        {"nazwa": "Finance.cz – zmiany od 2025 r.", "url": "https://www.finance.cz/clanky/552484-dan-z-nemovitosti-od-dalsiho-roku/"},
+        {"nazwa": "PwC Worldwide Tax Summaries – Czech Republic, Other taxes", "url": "https://taxsummaries.pwc.com/czech-republic/individual/other-taxes"}
+      ],
+      "niepotwierdzone": [
+        "Współczynnik inflacyjny 2026 = 1,0 potwierdzony w źródle branżowym (Pohoda), nie w otwartym tekście sdělení Ministerstwa Finansów.",
+        "Dopłata za każdą kolejną kondygnację budynku – wysokość po 2024 r. niesprawdzona.",
+        "Uchwalone zmiany na 2027 r. – nie znaleziono."
+      ]
+    },
+    "FRA": {
+      "nazwa_kraju": "Francja",
+      "slug": "francja",
+      "nazwa_podatku": "Taxe foncière sur les propriétés bâties, TFPB (podatek od nieruchomości zabudowanych); taxe d'habitation od głównego miejsca zamieszkania zniesiono od 2023 r.",
+      "podstawa": "wartosc",
+      "podstawa_opis": "Podstawą jest połowa katastralnej wartości czynszowej (valeur locative cadastrale), czyli teoretycznego rocznego czynszu, jaki lokal mógłby przynieść. Podatek = podstawa × stawki uchwalone przez samorządy.",
+      "wycena": "Wartości czynszowe ustala administracja skarbowa (DGFiP). Ostatnia powszechna rewizja dla lokali mieszkalnych odbyła się w 1970 r.; od tego czasu wartości są corocznie indeksowane współczynnikiem uchwalanym ustawowo, obecnie powiązanym z inflacją HICP z listopada poprzedniego roku.",
+      "rok_wyceny": "Wartości według stanu z 1970 r., indeksowane co roku; w 2026 r. współczynnik rewaloryzacji wynosi 1,008 (+0,8%).",
+      "stawki": "Stawki ustalają co roku gminy i związki gmin (EPCI); mogą je obniżyć, utrzymać lub podnieść.",
+      "kto_ustala": "Samorządy lokalne (gminy, związki międzygminne); współczynnik indeksacji wartości – ustawa krajowa.",
+      "ulgi": [
+        "Zwolnienie nowych budynków na 2 lata od 1 stycznia po zakończeniu budowy.",
+        "Zwolnienie osób w wieku 75+ o dochodach poniżej progu (we Francji metropolitalnej 12 793 € dla 1 części) oraz beneficjentów ASPA/ASI; warunkowo beneficjentów AAH.",
+        "Ograniczenie podatku od mieszkania głównego do 50% dochodów dla osób o dochodach poniżej 30 083 € (1 część), niepłacących IFI."
+      ],
+      "reforma": "Od 1 stycznia 2023 r. zniesiono taxe d'habitation od głównego miejsca zamieszkania (pozostaje dla drugich domów). Ustawa budżetowa na 2026 r. przesunęła rewizję wartości czynszowych lokali mieszkalnych na 1 stycznia 2031 r.",
+      "roznica_pl": "Podstawą jest administracyjnie ustalona wartość czynszowa (połowa jej kwoty), a stawkę procentową ustala samorząd; w Polsce podstawą jest powierzchnia użytkowa i stawka kwotowa za m² z krajowym limitem.",
+      "zrodla": [
+        {"nazwa": "Service-public.gouv.fr – Taxe foncière sur les propriétés bâties (F59)", "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F59"},
+        {"nazwa": "impots.gouv.fr – Comment est calculée ma taxe foncière (współczynnik 2026)", "url": "https://www.impots.gouv.fr/particulier/questions/comment-est-calculee-ma-taxe-fonciere-pourquoi-t-elle-augmente-en-2025"},
+        {"nazwa": "collectivites-locales.gouv.fr – Réforme des valeurs locatives", "url": "https://www.collectivites-locales.gouv.fr/index.php/gerer-les-finances-publiques-locales/fiscalite-locale/fiscalite-directe-locale/reforme-des-valeurs-locatives"},
+        {"nazwa": "PwC Worldwide Tax Summaries – France, Other taxes", "url": "https://taxsummaries.pwc.com/france/individual/other-taxes"}
+      ],
+      "niepotwierdzone": [
+        "Typowy zakres łącznych stawek TFPB w gminach – nie potwierdzono w otwartym źródle.",
+        "Progi dochodowe ulg podane według strony service-public.gouv.fr (weryfikacja 25.09.2026); nie sprawdzono, którego roku podatkowego dotyczą."
+      ]
+    },
+    "ESP": {
+      "nazwa_kraju": "Hiszpania",
+      "slug": "hiszpania",
+      "nazwa_podatku": "Impuesto sobre Bienes Inmuebles, IBI (podatek od nieruchomości), podatek gminny.",
+      "podstawa": "wartosc",
+      "podstawa_opis": "Podstawą jest wartość katastralna (valor catastral) nieruchomości, pomniejszona o ewentualne ustawowe obniżki (base liquidable). Wartość katastralna nie może przekraczać wartości rynkowej.",
+      "wycena": "Wartość katastralną ustala Dirección General del Catastro w procedurach wyceny zbiorowej (ponencias de valores) dla całej gminy. Nową wycenę ogólną można przeprowadzić najwcześniej po 5 latach, a obowiązkowo po 10 latach od poprzedniej; w międzyczasie wartości mogą być aktualizowane współczynnikami z ustawy budżetowej.",
+      "rok_wyceny": "Różny w każdej gminie – zależy od roku ostatniej ponencia de valores, z późniejszymi współczynnikami aktualizacji.",
+      "stawki": "Gmina ustala stawkę dla nieruchomości miejskich w przedziale 0,4%–1,10% wartości katastralnej (wiejskie 0,3%–0,90%); w określonych warunkach maksimum może być wyższe.",
+      "kto_ustala": "Gmina (ayuntamiento) w uchwale podatkowej (ordenanza fiscal) w granicach ustawy krajowej; wartość katastralna – organ państwowy (Catastro).",
+      "ulgi": [
+        "Fakultatywna ulga gminna do 90% podatku dla rodzin wielodzietnych (familia numerosa).",
+        "Fakultatywna ulga do 50% dla budynków z instalacją do pozyskiwania energii słonecznej.",
+        "Obowiązkowa ulga 50% przez 3 lata dla mieszkań chronionych (VPO) oraz ulga 50–90% dla nowych budynków firm budowlanych."
+      ],
+      "reforma": "Ustawa 12/2023 o prawie do mieszkania rozszerzyła możliwość nakładania przez gminy dopłaty do IBI od trwale pustych mieszkań (do 50%, a w określonych warunkach więcej, do 150%).",
+      "roznica_pl": "Podstawą jest wartość katastralna ustalana przez państwowy kataster, a gmina wybiera stawkę procentową z ustawowego przedziału; w Polsce podstawą jest powierzchnia, a stawka jest kwotą za m².",
+      "zrodla": [
+        {"nazwa": "BOE – Real Decreto Legislativo 2/2004, Ley Reguladora de las Haciendas Locales (art. 65, 72–74)", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-4214"},
+        {"nazwa": "BOE – Real Decreto Legislativo 1/2004, Ley del Catastro Inmobiliario (art. 23, 28, 32)", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-4163"},
+        {"nazwa": "Dirección General del Catastro – valoraciones colectivas", "url": "https://www.catastro.hacienda.gob.es/es-ES/procedimientos_valoracion_colectiva.html"},
+        {"nazwa": "PwC Worldwide Tax Summaries – Spain, Other taxes", "url": "https://taxsummaries.pwc.com/spain/individual/other-taxes"}
+      ],
+      "niepotwierdzone": [
+        "Współczynniki aktualizacji wartości katastralnych na 2026 r. i lista gmin – nie znaleziono aktu na 2026 r.",
+        "Szczegółowe progi dopłaty za puste mieszkania (50/100/150%) – odczytane ze streszczenia art. 72.4, wymagają sprawdzenia w tekście ustawy.",
+        "Przeciętna efektywna stawka IBI w Hiszpanii – brak źródła.",
+        "Uchwalone zmiany na 2027 r. – nie znaleziono."
+      ]
+    },
+    "DNK": {
+      "nazwa_kraju": "Dania",
+      "slug": "dania",
+      "nazwa_podatku": "Boligskat (podatek mieszkaniowy) składający się z dwóch części: ejendomsværdiskat (państwowy podatek od wartości nieruchomości) i grundskyld (gminny podatek od wartości gruntu).",
+      "podstawa": "wartosc",
+      "podstawa_opis": "Ejendomsværdiskat liczy się od wartości nieruchomości (dom: grunt i budynki; mieszkanie własnościowe: lokal i lokalizacja), a grundskyld od wartości gruntu. W obu przypadkach od wartości z urzędowej wyceny odejmuje się 20% (zasada ostrożności).",
+      "wycena": "Urzędowe wyceny sporządza Vurderingsstyrelsen (agencja wyceny w ramach administracji skarbowej) w nowym systemie wycen; co do zasady co dwa lata. Wycena służy do naliczenia podatku za dwa kolejne lata.",
+      "rok_wyceny": "Podatek za 2025 i 2026 r. liczy się z wyceny 2024, która jest indeksacją wyceny 2022 (najpierw tymczasowej, potem rozliczanej po wydaniu wyceny ostatecznej).",
+      "stawki": "Ejendomsværdiskat: 0,51% podstawy do 9 007 000 DKK i 1,4% powyżej (2026). Grundskyld: stawka gminna, maks. 30 promili; w 2026 r. od 3,1‰ (Frederiksberg) do 17,7‰ (Varde). Przykład urzędowy: dom wyceniony na 2 000 000 DKK → podstawa 1 600 000 DKK → ejendomsværdiskat 8 160 DKK.",
+      "kto_ustala": "Stawki ejendomsværdiskat ustala państwo (ustawa); stawkę grundskyld ustala rada gminy, w latach 2024–2028 nie wyżej niż limit wskazany dla danej gminy w załączniku do ustawy.",
+      "ulgi": [
+        "Odliczenie 20% od wyceny przed naliczeniem obu podatków.",
+        "Skatterabat (rabat podatkowy) dla właścicieli, którzy posiadali nieruchomość przed 1 stycznia 2024 r.",
+        "Obniżka ejendomsværdiskat dla emerytów: 6 000 DKK dla mieszkania głównego (2 000 DKK dla domu letniskowego), zmniejszana o 5% dochodu powyżej 239 800 DKK (2026)."
+      ],
+      "reforma": "Od 2024 r. obowiązują nowe zasady opodatkowania mieszkań: podatki liczone są z wycen nowego systemu (wycena 2022 dla 2024 r.), z 20% odliczeniem, stawką ejendomsværdiskat 0,51%/1,4%, rabatem dla dotychczasowych właścicieli i limitem stawek grundskyld na lata 2024–2028.",
+      "roznica_pl": "Podatek składa się z części państwowej od wartości całej nieruchomości i części gminnej od wartości gruntu, ustalanych z urzędowej wyceny rynkowej; w Polsce jest jeden gminny podatek liczony od powierzchni.",
+      "zrodla": [
+        {"nazwa": "Vurderingsportalen (Vurderingsstyrelsen) – Ejendomsværdiskat af din ejerbolig", "url": "https://www.vurderingsportalen.dk/ejerbolig/boligskat/forstaa-din-boligskat/ejendomsvaerdiskat/"},
+        {"nazwa": "Vurderingsportalen – Kommunale grundskyldspromiller for ejerboliger", "url": "https://www.vurderingsportalen.dk/ejerbolig/boligskat/forstaa-din-boligskat/grundskyld/kommunale-grundskyldspromiller-for-ejerboliger/"},
+        {"nazwa": "Vurderingsportalen – Flere ejendomsvurderinger, forstå forskellen", "url": "https://www.vurderingsportalen.dk/ejerbolig/vurdering/flere-vurderinger-forstaa-forskellen"},
+        {"nazwa": "Den juridiske vejledning (info.skat.dk) – C.H.4.3.4.4 Satser (grundskyld)", "url": "https://info.skat.dk/data.aspx?oid=2395772"},
+        {"nazwa": "Den juridiske vejledning (info.skat.dk) – C.H.4.2.5.1 ejendomsværdiskat", "url": "https://info.skat.dk/data.aspx?oid=1948982"},
+        {"nazwa": "PwC Worldwide Tax Summaries – Denmark, Other taxes", "url": "https://taxsummaries.pwc.com/denmark/individual/other-taxes"}
+      ],
+      "niepotwierdzone": [
+        "Wysokość stawki ejendomsværdiskat i średniej stawki grundskyld przed 2024 r. (do porównania) – nie potwierdzono w otwartym źródle oficjalnym.",
+        "Próg progresji 2026: Vurderingsportalen i PwC podają 9 007 000 DKK, a otwarta strona info.skat.dk 9 706 000 DKK; przyjęto 9 007 000 DKK."
+      ]
+    }
+  }
+}

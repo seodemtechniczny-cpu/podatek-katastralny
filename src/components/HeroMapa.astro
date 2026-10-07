@@ -2,6 +2,7 @@
 import projekt from '../data/pl/projekt-2848.json';
 import { mapa, dane, klasa, etykieta, pct, grupa, legenda, PODSTAWA, NAZWA_PODSTAWY, KROTKO } from '../lib/europa';
 import { status } from '../lib/status';
+import opisy from '../data/europa-kraje.json';
 const pol = mapa.countries.find((c) => c.iso === 'POL')!;
 const inne = mapa.countries.filter((c) => c.iso !== 'POL');
 const [x0, y0, x1, y1] = mapa.bbox;
@@ -9,7 +10,7 @@ const [x0, y0, x1, y1] = mapa.bbox;
 const vbMobile = `${x0 - 20} ${y0} ${x1 - x0 + 40} ${y1 - y0 + 20}`;
 const daneJs = Object.fromEntries(Object.entries(dane).map(([k, v]) => {
   const p = PODSTAWA[k];
-  return [k, { ...v, s: v.g === undefined ? 'brak danych OECD' : `${pct(v.g)} PKB · ${v.y}`, p: p?.podstawa, pn: p ? NAZWA_PODSTAWY[p.podstawa] : '', pk: p ? KROTKO[p.podstawa] : '', po: p?.opis ?? '', pu: p?.url ?? '', pw: p?.pewnosc ?? '' }];
+  return [k, { ...v, s: v.g === undefined ? 'brak danych OECD' : `${pct(v.g)} PKB · ${v.y}`, p: p?.podstawa, pn: p ? NAZWA_PODSTAWY[p.podstawa] : '', pk: p ? KROTKO[p.podstawa] : '', po: p?.opis ?? '', pu: p?.url ?? '', pw: p?.pewnosc ?? '', sl: (opisy.kraje as Record<string, { slug: string }>)[k]?.slug ?? '' }];
 }));
 const ile = (k: string) => Object.values(PODSTAWA).filter((p) => p.podstawa === k).length;
 const legendaPodstawy = (['wartosc', 'mieszany', 'powierzchnia', 'brak'] as const).map((k) => [k, NAZWA_PODSTAWY[k], ile(k)] as const);
@@ -192,7 +193,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
         ${iso === 'POL' ? '' : `<div class="cmpbar" aria-hidden="true"><span style="--w:${Math.min(d.g / 3, 1)}"><i></i>${d.n}</span><span class="is-pl" style="--w:${Math.min(pl / 3, 1)}"><i></i>Polska</span></div>`}`}
         <p class="panel__more">${iso === 'POL'
           ? `Dziś podatek od powierzchni. W Sejmie projekt podatku od wartości dla mieszkań (druk nr 2848). <a href="${hero.dataset.base}projekt-ustawy/">Co zakłada projekt</a>`
-          : `<a href="${hero.dataset.base}europa/">Porównanie państw Europy</a>`}</p>`;
+          : d.sl ? `<a href="${hero.dataset.base}europa/${d.sl}/">Jak działa podatek: ${d.n}</a>` : `<a href="${hero.dataset.base}europa/">Porównanie państw Europy</a>`}</p>`;
       const bylZamkniety = panel.hidden;
       panel.hidden = false;
       rozwin(bylZamkniety);

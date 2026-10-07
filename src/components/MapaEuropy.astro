@@ -1,5 +1,7 @@
 ---
 import { panstwa, dane, pct, stats, PODSTAWA, KROTKO } from '../lib/europa';
+import opisy from '../data/europa-kraje.json';
+const strona = (iso: string) => (opisy.kraje as Record<string, { slug: string }>)[iso]?.slug;
 
 const z = panstwa.map((c) => ({ iso: c.iso, ...dane[c.iso] }));
 const ranking = z.filter((c) => c.g !== undefined).sort((a, b) => b.g! - a.g!);
@@ -16,13 +18,14 @@ const pl = dane.POL;
         to {pct(pl.g!)} PKB ({pl.y}), {ranking.findIndex((c) => c.iso === 'POL') + 1}. miejsce na {ranking.length} państw z danymi.</p>
       <p>Stawek wprost porównać się nie da. Jedne państwa liczą podatek od wartości rynkowej, inne od dawnej wartości
         katastralnej albo od powierzchni, a stawki często ustalają gminy. Udział w PKB liczy wszystkie państwa tą samą metodą.</p>
+      <p>Opisy systemów krok po kroku: {Object.values(opisy.kraje).map((k, i) => <>{i > 0 && ' · '}<a href={`${import.meta.env.BASE_URL}europa/${k.slug}/`}>{k.nazwa_kraju}</a></>)}.</p>
       <p class="src">Dane: <a href={stats.url}>{stats.source}</a>, pobrane {stats.fetched}. Brak danych OECD: {brak.join(', ')}.</p>
     </div>
     <ol class="rank" aria-label="Państwa od najwyższego udziału w PKB">
       {ranking.map((c, i) => (
         <li class:list={['rank__row', { 'is-pl': c.iso === 'POL' }]} style={`--w:${c.g! / max}`}>
           <span class="rank__n">{i + 1}.</span>
-          <span class="rank__name">{c.n}{PODSTAWA[c.iso] && <small class={`rank__p rank__p--${PODSTAWA[c.iso].podstawa}`}>{KROTKO[PODSTAWA[c.iso].podstawa]}</small>}</span>
+          <span class="rank__name">{strona(c.iso) ? <a href={`${import.meta.env.BASE_URL}europa/${strona(c.iso)}/`}>{c.n}</a> : c.n}{PODSTAWA[c.iso] && <small class={`rank__p rank__p--${PODSTAWA[c.iso].podstawa}`}>{KROTKO[PODSTAWA[c.iso].podstawa]}</small>}</span>
           <span class="rank__bar" aria-hidden="true"><i></i></span>
           <span class="rank__v">{pct(c.g!)}<small>{c.t === undefined ? '' : ` · ${pct(c.t)} podatków`}</small></span>
         </li>

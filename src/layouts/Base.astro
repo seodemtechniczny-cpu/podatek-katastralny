@@ -85,11 +85,17 @@ const ld = [
     })();
   </script>
   {intro && <script is:inline>
-    // Wejście strony głównej tylko przy pierwszej wizycie i bez ograniczonego ruchu: kto wraca po zmianę statusu,
-    // nie ogląda intro drugi raz. Bezpiecznik: po 6 s strona odsłania się sama, nawet gdyby skrypt hero się nie wykonał.
-    let byl = false;
-    try { byl = localStorage.getItem('intro-widziane') === '1'; localStorage.setItem('intro-widziane', '1'); } catch (e) {}
-    if (!byl && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Wejście strony głównej: przy pierwszej wizycie i po co najmniej 3 dniach przerwy, bez ograniczonego ruchu.
+    // Kto wraca częściej (np. sprawdzić zmianę statusu), nie ogląda intro za każdym razem.
+    // Bezpiecznik: po 6 s strona odsłania się sama, nawet gdyby skrypt hero się nie wykonał.
+    const PRZERWA = 3 * 864e5;
+    let pokaz = true;
+    try {
+      localStorage.removeItem('intro-widziane'); // dawny znacznik bez daty
+      pokaz = Date.now() - (+localStorage.getItem('ostatnia-wizyta') || 0) > PRZERWA;
+      localStorage.setItem('ostatnia-wizyta', String(Date.now()));
+    } catch (e) {}
+    if (pokaz && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('intro');
       setTimeout(() => document.documentElement.classList.remove('intro'), 6000);
     }

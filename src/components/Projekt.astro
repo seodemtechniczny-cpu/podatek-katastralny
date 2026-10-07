@@ -55,6 +55,15 @@ const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'n
         </tbody>
       </table>
     </section>}
+    {strona && projekt.zmiany.length > 0 && <section class="zm" aria-labelledby="zm-h">
+      <h2 id="zm-h">Co się zmieniło między wersjami projektu</h2>
+      <p>{projekt.wersje.map((w, i) => <>{i > 0 && ' → '}<a href={w.dokument.url}>{w.nazwa}</a></>)}. Zestawienie z porównania tekstów,
+        sprawdzone {projekt.zmiany[0].zweryfikowano.split('-').reverse().join('.')}. Przepisy z ustawy o podatkach i opłatach lokalnych w brzmieniu z projektu albo z samego projektu.</p>
+      <div class="tw"><table>
+        <thead><tr><th scope="col">Kwestia</th><th scope="col">Było</th><th scope="col">Jest</th><th scope="col">Przepis</th></tr></thead>
+        <tbody>{projekt.zmiany.map((z) => <tr><th scope="row">{z.co}</th><td>{z.bylo}</td><td class="zm__jest">{z.jest}</td><td class="params__art">{z.przepis}</td></tr>)}</tbody>
+      </table></div>
+    </section>}
     {strona && <p class="more"><a class="btn" href={`${base}kalkulator/`}>Policz, ile wyniósłby Twój podatek</a></p>}
     <p class="src">Wnioskodawcy: {projekt.wnioskodawcy}. Źródła: {projekt.zrodla.map((z, i) => <>{i > 0 && ' · '}<a href={z.url}>{z.nazwa}</a></>)}.</p>
   </div>
@@ -69,7 +78,15 @@ const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'n
   .cmp__big span { display: block; font: 500 0.9rem/1.4 var(--sans); color: var(--ink-3); margin-top: 2px; }
   .cmp__col--new .cmp__big { color: var(--accent-text); }
   .params { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 18px; }
-  .params h2 { font-size: 1.5rem; margin: 24px 0 8px; }
+  .params h2, .zm h2 { font-size: 1.5rem; margin: 24px 0 8px; }
+  .zm { margin-bottom: 24px; }
+  .zm .tw { overflow-x: auto; }
+  .zm table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  .zm th, .zm td { text-align: left; vertical-align: top; padding: 11px 16px 11px 0; border-top: 1px solid var(--line); }
+  .zm thead th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border-top: 0; }
+  .zm tbody th { width: 18%; font-weight: 600; }
+  .zm td { color: var(--ink-2); }
+  .zm .zm__jest { color: var(--ink); font-weight: 550; }
   .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 28px; margin: 0 0 8px; }
   .meta dt { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
   .meta dd { margin: 0; font-weight: 550; line-height: 1.4; }
@@ -86,5 +103,10 @@ const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'n
     .params tr { display: block; border-top: 1px solid var(--line); padding: 12px 0; }
     .params th, .params td { display: block; border: 0; padding: 2px 0; width: auto !important; }
     .params__art { white-space: normal; }
+    .zm thead { display: none; }
+    .zm tr { display: block; border-top: 1px solid var(--line); padding: 12px 0; }
+    .zm th, .zm td { display: block; border: 0; padding: 2px 0; width: auto !important; }
+    .zm td:nth-of-type(1)::before { content: 'Było: '; color: var(--ink-3); }
+    .zm td:nth-of-type(2)::before { content: 'Jest: '; color: var(--ink-3); }
   }
 </style>

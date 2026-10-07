@@ -32,7 +32,7 @@ const ETAPY = {
     dalej: 'Sprawozdanie komisji, potem II czytanie na posiedzeniu Sejmu.' },
   'Sprawozdanie komisji': { krok: 3, krotko: 'po sprawozdaniu komisji', etap: 'Komisja przedstawiła sprawozdanie',
     dalej: 'II czytanie na posiedzeniu Sejmu.',
-    sprawdz: 'Sprawozdanie może zmieniać tekst projektu. Porównaj stawki, progi i daty z parametrami w projekt-2848.json i zaktualizuj je.' },
+    sprawdz: 'Sprawozdanie może zmieniać tekst projektu. Porównaj je z poprzednią wersją: dopisz wersję do „wersje”, każdą różnicę do „zmiany” (co, było, jest, przepis) i zaktualizuj „parametry” w projekt-2848.json. Strona /projekt-ustawy/ pokaże BYŁO → JEST sama.' },
   'II czytanie na posiedzeniu Sejmu': { krok: 3, krotko: 'po II czytaniu', etap: 'Po II czytaniu na posiedzeniu Sejmu',
     dalej: 'III czytanie, czyli głosowanie nad całym projektem.', sprawdz: 'Czy zgłoszono poprawki zmieniające parametry.' },
   'Praca w komisjach po II czytaniu': { krok: 3, krotko: 'w komisji po II czytaniu', etap: 'Komisja rozpatruje poprawki z II czytania',

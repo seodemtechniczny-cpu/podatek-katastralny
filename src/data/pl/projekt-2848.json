@@ -67,7 +67,7 @@
     {
       "co": "Współwłasność i spadek",
       "tresc": "Udziałów odziedziczonych i udziałów mniejszych niż 1/2 nie wlicza się do liczby lokali.",
-      "przepis": "art. 5a ust. 6"
+      "przepis": "art. 5a ust. 6 ustawy"
     },
     {
       "co": "Stała stawka 0,02% niezależnie od liczby",
@@ -97,5 +97,90 @@
     1.1,
     1.3,
     1.5
+  ],
+  "wersje": [
+    {
+      "id": "druk",
+      "nazwa": "Projekt pierwotny (druk nr 2848)",
+      "data": "2026-03-20",
+      "dokument": {
+        "nazwa": "Druk nr 2848 (PDF)",
+        "url": "https://api.sejm.gov.pl/sejm/term10/prints/2848/2848.pdf"
+      }
+    },
+    {
+      "id": "autopoprawka",
+      "nazwa": "Projekt z autopoprawką wnioskodawców (RPW/9790/2026)",
+      "data": null,
+      "dokument": {
+        "nazwa": "Autopoprawka do druku nr 2848",
+        "url": "https://api.sejm.gov.pl/sejm/term10/prints/2848/2848-autopoprawka.docx"
+      }
+    }
+  ],
+  "zmiany": [
+    {
+      "z": "druk",
+      "na": "autopoprawka",
+      "zweryfikowano": "2026-10-07",
+      "co": "Wzrost stawki za 3. i kolejny lokal",
+      "bylo": "+0,1 pkt proc. rocznie, do 1,5% (1,5% w 11. roku)",
+      "jest": "+0,2 pkt proc. rocznie, do 1,5% (1,5% w 6. roku)",
+      "przepis": "art. 5a ust. 1 pkt 2 lit. b ustawy"
+    },
+    {
+      "z": "druk",
+      "na": "autopoprawka",
+      "zweryfikowano": "2026-10-07",
+      "co": "Kogo dotyczy",
+      "bylo": "budynki mieszkalne jednorodzinne i lokale mieszkalne",
+      "jest": "także budynki mieszkalne wielorodzinne",
+      "przepis": "art. 1a ust. 1 pkt 1a–1c, art. 5a ust. 1 ustawy"
+    },
+    {
+      "z": "druk",
+      "na": "autopoprawka",
+      "zweryfikowano": "2026-10-07",
+      "co": "Udziały we współwłasności",
+      "bylo": "każdy udział wlicza się do liczby posiadanych nieruchomości",
+      "jest": "nie wlicza się udziału odziedziczonego ani udziału mniejszego niż 1/2",
+      "przepis": "art. 5a ust. 6 ustawy"
+    },
+    {
+      "z": "druk",
+      "na": "autopoprawka",
+      "zweryfikowano": "2026-10-07",
+      "co": "Wyłączenia z wyższej stawki",
+      "bylo": "także mieszkania w budynkach z budowlami ochronnymi (schronami) i budynki o niskim zapotrzebowaniu na energię (EP do 70 dla domów, do 65 dla mieszkań)",
+      "jest": "te dwa wyłączenia usunięte; efektywność energetyczna i obiekty zbiorowej ochrony mogą być podstawą współczynnika gminy",
+      "przepis": "art. 5a ust. 8, art. 5b pkt 5 ustawy"
+    },
+    {
+      "z": "druk",
+      "na": "autopoprawka",
+      "zweryfikowano": "2026-10-07",
+      "co": "Limit podatku za 1. i 2. lokal",
+      "bylo": "przez 5 lat nie więcej niż przy maksymalnej stawce od m²",
+      "jest": "bez limitu czasu: nie więcej niż podatek według dotychczasowych przepisów",
+      "przepis": "art. 8 projektu"
+    },
+    {
+      "z": "druk",
+      "na": "autopoprawka",
+      "zweryfikowano": "2026-10-07",
+      "co": "Wejście w życie",
+      "bylo": "1 stycznia 2027 r.",
+      "jest": "1 czerwca 2027 r.",
+      "przepis": "art. 9 projektu"
+    },
+    {
+      "z": "druk",
+      "na": "autopoprawka",
+      "zweryfikowano": "2026-10-07",
+      "co": "Deklaracje firm na 2027 r.",
+      "bylo": "przepis przejściowy: termin do 31 marca 2027 r.",
+      "jest": "przepis skreślony",
+      "przepis": "art. 6 projektu"
+    }
   ]
 }

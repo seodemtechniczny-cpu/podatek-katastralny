@@ -52,6 +52,13 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
 </div>
 <section class="hero" id="mapa" data-base={import.meta.env.BASE_URL} aria-labelledby="h1" data-vb={mapa.viewBox} data-vb-mobile={vbMobile}>
   <div class="hero__content">
+    <!-- Tytuł ekranu ładowania: osobna warstwa nad stroną, przelatuje transformacją na miejsce nagłówka.
+         Układ strony od pierwszej klatki stoi w docelowym miejscu, więc intro nie przesuwa treści (CLS). -->
+    <div class="hero__intro" aria-hidden="true">
+      <p class="eyebrow">Monitor projektu ustawy</p>
+      <p class="hero__t">Czy będzie podatek katastralny w&nbsp;Polsce?</p>
+      <span class="hero__line"></span>
+    </div>
     <div class="hero__head">
       <p class="eyebrow">Monitor projektu ustawy</p>
       <h1 id="h1">Czy będzie podatek katastralny w&nbsp;Polsce?</h1>
@@ -337,8 +344,8 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     (async () => {
       await Promise.race([document.fonts.ready, czekaj(1500)]);
       await czekaj(Math.max(0, 1000 - (performance.now() - t0)));
-      const head = hero.querySelector('.hero__head');
-      const first = head.getBoundingClientRect();
+      const head = hero.querySelector('.hero__head'), klon = hero.querySelector('.hero__intro');
+      const first = klon.getBoundingClientRect();
       const anims = [];
       const a = (el, kf, o) => anims.push(el.animate(kf, { easing: ease, fill: 'both', ...o }));
 
@@ -357,12 +364,17 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       a(pl.querySelector('.pl__ext'), [{ opacity: 0 }, { opacity: 1 }], { duration: 280, delay: T + 380 });
       a(label, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 480, delay: T + 1000 });
 
-      root.classList.remove('intro'); // układ docelowy; wszystkie animacje już trzymają stan początkowy
+      // Nagłówek zostaje ukryty (visibility nie zmienia układu), warstwa z tytułem leci na jego miejsce i się z nim zamienia.
+      head.style.visibility = 'hidden';
+      klon.classList.add('leci');
+      root.classList.remove('intro'); // reszta strony wchodzi; animacje już trzymają stan początkowy
       etykieta();
       const last = head.getBoundingClientRect();
-      a(head, [{ transform: `translate(${first.left - last.left}px, ${first.top - last.top}px)` }, { transform: 'none' }],
-        { duration: 850, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', fill: 'backwards' });
-      a(hero.querySelector('.hero__line'), [{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 500, fill: 'backwards' });
+      const lot = klon.animate([{ transform: 'none' }, { transform: `translate(${last.left - first.left}px, ${last.top - first.top}px)` }],
+        { duration: 850, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', fill: 'forwards' });
+      anims.push(lot);
+      lot.finished.then(() => { head.style.visibility = ''; klon.classList.remove('leci'); }).catch(() => { head.style.visibility = ''; klon.classList.remove('leci'); });
+      a(klon.querySelector('.hero__line'), [{ opacity: 1 }, { opacity: 0 }], { duration: 400, delay: 500, fill: 'forwards' });
       [hero.querySelector('.hero__rest'), hero.querySelector('.hero__legend'), hero.querySelector('.ster'), document.querySelector('.top')].forEach((el) =>
         el && a(el, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 520, delay: 520, fill: 'backwards' }));
 
@@ -442,7 +454,8 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .hero__content { position: absolute; left: 0; right: 0; bottom: clamp(28px, 6vh, 64px); z-index: 3; pointer-events: none; padding-inline: var(--gut); }
   .hero__content :is(p, h1, a) { pointer-events: auto; }
   .hero__head { position: relative; width: max-content; max-width: 100%; }
-  .hero h1 { font-size: clamp(2.4rem, 4.4vw, 4.2rem); line-height: 0.98; letter-spacing: -0.045em; font-weight: 650; max-width: 11ch; margin-bottom: 0.4em; }
+  .hero h1, .hero__t { font-size: clamp(2.4rem, 4.4vw, 4.2rem); line-height: 0.98; letter-spacing: -0.045em; font-weight: 650; max-width: 11ch; margin: 0 0 0.4em; font-family: var(--display); color: var(--ink); text-wrap: balance; }
+  .hero__intro { display: none; }
   .hero__line { display: block; height: 2px; background: var(--accent); transform-origin: 0 50%; opacity: 0; }
   .hero__rest { max-width: 27rem; }
   .hero__rest .lead { font-size: 1.05rem; }
@@ -486,9 +499,9 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .panel :global(.panel__more) { font-size: 0.85rem; color: var(--ink-3); margin: 0; }
 
   /* Stan wejścia (klasa ustawiana w <head>, tylko bez ograniczonego ruchu). */
-  :global(.intro) .hero__content { top: 0; bottom: 0; }
-  :global(.intro) .hero__head { position: absolute; left: 50%; top: 50%; translate: -50% -50%; }
-  :global(.intro) .hero__line { opacity: 1; animation: linia 950ms var(--ease-io) both; }
+  :global(.intro) .hero__intro, .hero__intro.leci { display: block; position: fixed; left: 50%; top: 50%; translate: -50% -50%; z-index: 6; width: max-content; max-width: calc(100vw - 2 * var(--gut)); pointer-events: none; }
+  :global(.intro) .hero__head { visibility: hidden; }
+  :global(.intro) .hero__intro .hero__line { opacity: 1; animation: linia 950ms var(--ease-io) both; }
   :global(.intro) .hero__rest, :global(.intro) .hero__legend, :global(.intro) .pl-label,
   :global(.intro) .hm .c, :global(.intro) .pl, :global(.intro) .ster { opacity: 0; }
   @keyframes linia { from { transform: scaleX(0); } }
@@ -527,6 +540,5 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     .pl-label::before { content: ''; position: absolute; left: 0; bottom: 0; width: 1px; height: 22px; background: var(--ink); }
     .pl-label p, .pl-label.is-left p { left: 0; right: auto; bottom: 22px; translate: -50% 0; padding: 4px 8px; text-align: center; }
     .pl-label span { font-size: 0.72rem; }
-    :global(.intro) .hero__content { position: absolute; }
   }
 </style>

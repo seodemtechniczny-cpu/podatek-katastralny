@@ -20,7 +20,11 @@ for (let i = 0; i < 3; i++) {
   if (res.ok) break;
   await new Promise((r) => setTimeout(r, 5000));
 }
-if (!res.ok) throw new Error(`OECD ${res.status}`);
+if (!res.ok) {
+  // Awaria OECD = ostrzeżenie, nie błąd: dane na stronie zostają, jutrzejsze uruchomienie spróbuje ponownie.
+  console.log(`::warning title=OECD niedostępne::HTTP ${res.status}, dane bez zmian.`);
+  process.exit(0);
+}
 const [head, ...rows] = (await res.text()).trim().split('\n').map((l) => l.split(','));
 const col = Object.fromEntries(head.map((h, i) => [h, i]));
 

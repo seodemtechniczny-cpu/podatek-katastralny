@@ -14,13 +14,30 @@ const PODATKOWY = /podat/i;
 const TEMAT = /podat\w* od nieruchomo|katastraln|warto\w* (nieruchomo|lokal|budynk)|opodatkowani\w* (nieruchomo|lokal|budynk)/i;
 const PLIK = 'monitor/stan.json';
 
+// API Sejmu bywa chwilowo niedostępne (502/503, np. 06.10.2026): 4 próby z rosnącym odstępem.
+const czekaj = (ms) => new Promise((r) => setTimeout(r, ms));
 const get = async (url) => {
-  const r = await fetch(url, { headers: { 'accept-language': 'pl' } });
-  if (!r.ok) throw new Error(`${r.status} ${url}`);
-  return r.json();
+  let blad;
+  for (const przerwa of [0, 15000, 30000, 60000]) {
+    await czekaj(przerwa);
+    try {
+      const r = await fetch(url, { headers: { 'accept-language': 'pl' } });
+      if (r.ok) return r.json();
+      blad = new Error(`${r.status} ${url}`);
+      if (r.status < 500 && r.status !== 429) break; // błąd zapytania, ponawianie nic nie da
+    } catch (e) { blad = e; }
+  }
+  throw blad;
 };
 const plaskie = (stages = []) => stages.flatMap((s) => [s, ...plaskie(s.children)]).filter((s) => s.date);
 const klucz = (s) => `${s.date}|${s.stageName}`;
+
+// Dłuższa awaria API = ostrzeżenie, nie błąd: stan zostaje nietknięty, więc następne udane uruchomienie
+// wychwyci wszystko, co się zmieniło w międzyczasie (porównanie z zapisanym stanem, nie z wczoraj).
+process.on('uncaughtException', (e) => {
+  console.log(`::warning title=API Sejmu/ELI niedostępne::${e.message}. Stan bez zmian, ponowna próba przy następnym uruchomieniu.`);
+  process.exit(0);
+});
 
 mkdirSync('monitor', { recursive: true });
 // Pierwsze uruchomienie zapisuje stan bazowy bez zgłaszania (historia jest już w os-czasu.json).

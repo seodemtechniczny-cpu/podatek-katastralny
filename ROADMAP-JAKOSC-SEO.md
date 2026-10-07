@@ -15,7 +15,7 @@ Statusy: ✅ zrobione · 🟡 częściowo · ⏳ po akceptacji prototypu · 👤
 | 9 | Analityka | ⏳ 👤 | GA4 + Consent Mode v2, nowa usługa |
 | 10 | Meta title | ✅ | strona główna |
 | 11 | Meta description | ✅ | strona główna |
-| 12 | Open Graph | 🟡 | tagi są, brak og:image |
+| 12 | Open Graph | ✅ | tagi + og.png 1200×630 (scripts/og.mjs) |
 | 13 | Favicon | ✅ | SVG + ICO |
 | 14 | Canonical | ✅ | na domenę docelową |
 | 15 | Cookie consent | ⏳ | baner dopiero z GA4; dziś zero obcych hostów (zmierzone) |
@@ -24,7 +24,7 @@ Statusy: ✅ zrobione · 🟡 częściowo · ⏳ po akceptacji prototypu · 👤
 | 18 | Test formularzy | 🟡 | kalkulator sprawdzony (3 lokale = 2617 zł) |
 | 19 | Broken links | ⏳ | skrypt sprawdzający źródła w CI |
 | 20 | Szybkość | 🟡 | 0 JS frameworka, fonty lokalne; pomiar po wdrożeniu |
-| 21 | Google Search Console | 👤 | TXT w DNS GoDaddy |
+| 21 | Google Search Console | ✅ | domena zweryfikowana, konto usługi z pełnym dostępem, sitemap wysłana |
 | 22 | index / noindex | ✅ | podgląd github.io = noindex; produkcja = index |
 | 23 | Statusy HTTP | ⏳ | po DNS |
 | 24 | Przekierowania 301 | — | domena bez historii (archiwum: tylko strona główna 2025) |
@@ -51,6 +51,6 @@ Statusy: ✅ zrobione · 🟡 częściowo · ⏳ po akceptacji prototypu · 👤
 | 45 | Mobile | ✅ | zrzuty 390 |
 | 46 | Przeglądarki | ⏳ | Chrome ✅; WebKit, Firefox przy pełnej wersji |
 | 47 | Test szybkości po publikacji | ⏳ | |
-| 48 | Indeksacja po wdrożeniu | ⏳ 👤 | po DNS + GSC |
+| 48 | Indeksacja po wdrożeniu | ⏳ 👤 | Google ma jeszcze stronę GoDaddy z 03.10; prośba o zindeksowanie w GSC |
 | 49 | Monitoring GSC | ⏳ 👤 | |
 | 50 | Linki i przekierowania po publikacji | ⏳ | |

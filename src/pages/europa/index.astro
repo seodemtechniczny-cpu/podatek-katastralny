@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import MapaEuropy from '../../components/MapaEuropy.astro';
+import { stats } from '../../lib/europa';
+---
+<Base okruszek="Europa" title="Podatek katastralny w Europie: porównanie państw (OECD)"
+  description="Ile państwa Europy pobierają z podatków od nieruchomości i czy liczą je od wartości, czy od powierzchni. Ranking według OECD z podstawą podatku w każdym państwie."
+  schema={[{ '@context': 'https://schema.org', '@type': 'Dataset', name: 'Wpływy z podatków od nieruchomości w Europie (% PKB) i podstawa podatku',
+    description: 'Wpływy z cyklicznych podatków od nieruchomości jako odsetek PKB (OECD, kategoria 4100) oraz podstawa podatku (wartość albo powierzchnia) w państwach Europy.',
+    creator: { '@type': 'Organization', name: 'podatek-katastralny.pl' }, isBasedOn: stats.url, dateModified: stats.fetched, inLanguage: 'pl' }]}>
+  <MapaEuropy />
+</Base>

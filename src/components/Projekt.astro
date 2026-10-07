@@ -6,11 +6,16 @@ const s27 = obecny.stawki_maksymalne.find((s) => s.rok === 2027)!;
 const zl = (n: number) => n.toLocaleString('pl-PL', { minimumFractionDigits: 2 });
 const glowne = ['Podstawa opodatkowania', '1. i 2. lokal lub dom', '3. i kolejne', 'Rola gminy'];
 const reszta = projekt.parametry.filter((p) => !glowne.includes(p.co));
+// Na głównej skrót z linkiem, na /projekt-ustawy/ pełna treść z nagłówkiem h1.
+const { strona = false } = Astro.props as { strona?: boolean };
+const H = strona ? 'h1' : 'h2';
+const base = import.meta.env.BASE_URL;
+const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <section class="section" id="projekt" aria-labelledby="projekt-h">
   <div class="wrap">
-    <p class="eyebrow">Projekt ustawy · druk nr {projekt.druk}</p>
-    <h2 id="projekt-h">Co zmienia projekt podatku od wartości?</h2>
+    {strona ? <p class="eyebrow"><a href={base}>Strona główna</a> / Projekt ustawy</p> : <p class="eyebrow">Projekt ustawy · druk nr {projekt.druk}</p>}
+    <H id="projekt-h">{strona ? `Projekt podatku od wartości mieszkań (druk nr ${projekt.druk}): co zmienia` : 'Co zmienia projekt podatku od wartości?'}</H>
     <p class="lead">Projekt dotyczy tylko budynków i lokali mieszkalnych. Zestawienie obecnych zasad z zasadami z projektu
       (wersja {projekt.wersja}). Przy każdym punkcie podajemy przepis projektu.</p>
 
@@ -32,15 +37,25 @@ const reszta = projekt.parametry.filter((p) => !glowne.includes(p.co));
       </article>
     </div>
 
-    <details class="params">
-      <summary>Wszystkie zasady z projektu ({projekt.parametry.length})</summary>
+    {strona && <dl class="meta">
+      <div><dt>Wnioskodawcy</dt><dd>{projekt.wnioskodawcy}</dd></div>
+      <div><dt>Wpłynął do Sejmu</dt><dd>{fmt(projekt.wplynal)}</dd></div>
+      <div><dt>Wersja</dt><dd>{projekt.wersja}</dd></div>
+      <div><dt>Etap</dt><dd>{projekt.etap} · <a href={`${base}#stan`}>stan sprawy</a></dd></div>
+      <div><dt>Proponowane wejście w życie</dt><dd>{fmt(projekt.wejscie_w_zycie)}</dd></div>
+    </dl>}
+    {!strona && <p class="more"><a class="btn btn--ghost" href={`${base}projekt-ustawy/`}>Wszystkie zasady projektu ({projekt.parametry.length}) z przepisami</a>
+      <a class="btn btn--ghost" href={`${base}kalkulator/`}>Policz swój podatek</a></p>}
+    {strona && <section class="params" aria-labelledby="params-h">
+      <h2 id="params-h">Wszystkie zasady z projektu ({projekt.parametry.length})</h2>
       <table>
         <thead><tr><th scope="col">Kwestia</th><th scope="col">Co mówi projekt</th><th scope="col">Przepis</th></tr></thead>
         <tbody>
           {projekt.parametry.map((p) => <tr><th scope="row">{p.co}</th><td>{p.tresc}</td><td class="params__art">{p.przepis}</td></tr>)}
         </tbody>
       </table>
-    </details>
+    </section>}
+    {strona && <p class="more"><a class="btn" href={`${base}kalkulator/`}>Policz, ile wyniósłby Twój podatek</a></p>}
     <p class="src">Wnioskodawcy: {projekt.wnioskodawcy}. Źródła: {projekt.zrodla.map((z, i) => <>{i > 0 && ' · '}<a href={z.url}>{z.nazwa}</a></>)}.</p>
   </div>
 </section>
@@ -54,7 +69,11 @@ const reszta = projekt.parametry.filter((p) => !glowne.includes(p.co));
   .cmp__big span { display: block; font: 500 0.9rem/1.4 var(--sans); color: var(--ink-3); margin-top: 2px; }
   .cmp__col--new .cmp__big { color: var(--accent-text); }
   .params { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 18px; }
-  .params summary { cursor: pointer; padding: 16px 0; font-weight: 600; min-height: 44px; }
+  .params h2 { font-size: 1.5rem; margin: 24px 0 8px; }
+  .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 28px; margin: 0 0 8px; }
+  .meta dt { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+  .meta dd { margin: 0; font-weight: 550; line-height: 1.4; }
+  .more { display: flex; flex-wrap: wrap; gap: 10px 12px; margin: 0 0 24px; }
   .params table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-bottom: 20px; }
   .params th, .params td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-top: 1px solid var(--line); }
   .params thead th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border-top: 0; }

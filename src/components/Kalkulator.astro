@@ -7,8 +7,8 @@ const lata = projekt.stawki_progresja.map((st, i) => ({ i, label: i === projekt.
 ---
 <section class="section calc-sec" id="kalkulator" aria-labelledby="calc-h">
   <div class="wrap">
-    <p class="eyebrow">Kalkulator ilustracyjny</p>
-    <h2 id="calc-h">Ile wyniósłby podatek według projektu?</h2>
+    <p class="eyebrow"><a href={import.meta.env.BASE_URL}>Strona główna</a> / Kalkulator</p>
+    <h1 id="calc-h">Kalkulator podatku katastralnego: ile wyniósłby podatek według projektu?</h1>
     <p class="lead">Wpisz swoje lokale w kolejności nabycia. Kalkulator pokazuje, ile płacisz dziś przy podanej stawce gminy
       i ile wyniósłby podatek według druku nr {projekt.druk}. Projekt nie obowiązuje, a wynik nie jest poradą podatkową.</p>
 
@@ -43,6 +43,8 @@ const lata = projekt.stawki_progresja.map((st, i) => ({ i, label: i === projekt.
         <button type="button" class="btn btn--ghost" data-add>+ Dodaj kolejny lokal</button>
         <p class="calc__sum" aria-live="polite"></p>
       </div>
+      <p class="calc__priv">Dane zapisują się tylko w tej przeglądarce i nie są nigdzie wysyłane. Gdy zmieni się projekt,
+        kalkulator przeliczy je według nowych zasad. <button type="button" class="calc__clear" data-clear>Wyczyść zapisane dane</button></p>
     </form>
 
     <details class="calc__how">
@@ -101,14 +103,42 @@ const lata = projekt.stawki_progresja.map((st, i) => ({ i, label: i === projekt.
     form.querySelector('.calc__sum')!.innerHTML = `Razem rocznie: dziś <b>${zl(so)}</b>, według projektu <b>${zl(sn)}</b>.`;
   }
 
-  form.addEventListener('input', calc);
+  // Zapis tylko lokalnie: wartości mieszkań nie opuszczają urządzenia. Po zmianie projektu ta sama strona
+  // liczy zapisane lokale według nowych parametrów (link „przelicz” z alertu prowadzi tutaj).
+  const KLUCZ = 'kalkulator-v1';
+  const pole = (n: string) => form.elements.namedItem(n) as HTMLInputElement;
+  function zapisz() {
+    const rows = [...list.children].map((r) => [(r.querySelector('[name=m2]') as HTMLInputElement).value, (r.querySelector('[name=cena]') as HTMLInputElement).value]);
+    try { localStorage.setItem(KLUCZ, JSON.stringify({ stawka: pole('stawka').value, rok: pole('rok').value, rows })); } catch {}
+  }
+  function wczytaj() {
+    try {
+      const z = JSON.parse(localStorage.getItem(KLUCZ) || 'null');
+      if (!z?.rows?.length) return false;
+      pole('stawka').value = z.stawka;
+      pole('rok').value = String(Math.min(+z.rok || 0, prog.length - 1));
+      for (const [m2, cena] of z.rows.slice(0, 10)) {
+        list.append(tpl.content.cloneNode(true));
+        const r = list.lastElementChild!;
+        (r.querySelector('[name=m2]') as HTMLInputElement).value = m2;
+        (r.querySelector('[name=cena]') as HTMLInputElement).value = cena;
+      }
+      return true;
+    } catch { return false; }
+  }
+
+  form.addEventListener('input', () => { calc(); zapisz(); });
   form.addEventListener('submit', (e) => e.preventDefault());
-  form.querySelector('[data-add]')!.addEventListener('click', add);
+  form.querySelector('[data-add]')!.addEventListener('click', () => { add(); zapisz(); });
+  form.querySelector('[data-clear]')!.addEventListener('click', () => {
+    try { localStorage.removeItem(KLUCZ); } catch {}
+    list.replaceChildren(); form.reset(); add();
+  });
   list.addEventListener('click', (e) => {
     const del = (e.target as Element).closest('.row__del');
-    if (del) { del.closest('li')!.remove(); calc(); }
+    if (del) { del.closest('li')!.remove(); calc(); zapisz(); }
   });
-  add();
+  if (wczytaj()) calc(); else add();
 </script>
 
 <style>
@@ -134,6 +164,8 @@ const lata = projekt.stawki_progresja.map((st, i) => ({ i, label: i === projekt.
   :global(.row__note) { margin: 2px 0 0; font-size: 0.82rem; color: var(--ink-3); }
   .calc__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 20px; }
   .calc__sum { margin: 0; font-size: 1.05rem; }
+  .calc__priv { margin: 16px 0 0; font-size: 0.85rem; color: var(--ink-3); }
+  .calc__clear { background: none; border: 0; padding: 0; color: var(--ink-2); text-decoration: underline; cursor: pointer; font: inherit; min-height: 24px; }
   .calc__how { margin-top: 20px; }
   .calc__how summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
   .calc__how ul { color: var(--ink-2); font-size: 0.95rem; }

@@ -49,7 +49,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     <span class="sb__d">Przegląd redakcji: {status.przeglad}</span>
   </p>
 </div>
-<section class="hero" id="mapa" aria-labelledby="h1" data-vb={mapa.viewBox} data-vb-mobile={vbMobile}>
+<section class="hero" id="mapa" data-base={import.meta.env.BASE_URL} aria-labelledby="h1" data-vb={mapa.viewBox} data-vb-mobile={vbMobile}>
   <div class="hero__content">
     <div class="hero__head">
       <p class="eyebrow">Monitor projektu ustawy</p>
@@ -60,7 +60,7 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
       <p class="lead">Na dziś <strong>nie obowiązuje</strong>. W Sejmie czeka poselski projekt (druk nr {projekt.druk}).
         Mapa pokazuje, gdzie w Europie podatek od nieruchomości liczy się od wartości, a gdzie od powierzchni, jak dziś w Polsce.</p>
       <div class="hero__cta">
-        <a class="btn" href="#kalkulator">Policz, ile wyniósłby podatek</a>
+        <a class="btn" href={`${import.meta.env.BASE_URL}kalkulator/`}>Policz, ile wyniósłby podatek</a>
         <a class="btn btn--ghost" href="#stan">Na jakim etapie jest projekt</a>
       </div>
     </div>
@@ -191,8 +191,8 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
         <div><dt>Rok danych</dt><dd>${d.y}</dd></div></dl>
         ${iso === 'POL' ? '' : `<div class="cmpbar" aria-hidden="true"><span style="--w:${Math.min(d.g / 3, 1)}"><i></i>${d.n}</span><span class="is-pl" style="--w:${Math.min(pl / 3, 1)}"><i></i>Polska</span></div>`}`}
         <p class="panel__more">${iso === 'POL'
-          ? 'Dziś podatek od powierzchni. W Sejmie projekt podatku od wartości dla mieszkań (druk nr 2848). <a href="#projekt">Co zakłada projekt</a>'
-          : 'Szczegółowy opis (stawki, ostatnia reforma, skutki) w przygotowaniu.'}</p>`;
+          ? `Dziś podatek od powierzchni. W Sejmie projekt podatku od wartości dla mieszkań (druk nr 2848). <a href="${hero.dataset.base}projekt-ustawy/">Co zakłada projekt</a>`
+          : `<a href="${hero.dataset.base}europa/">Porównanie państw Europy</a>`}</p>`;
       const bylZamkniety = panel.hidden;
       panel.hidden = false;
       rozwin(bylZamkniety);

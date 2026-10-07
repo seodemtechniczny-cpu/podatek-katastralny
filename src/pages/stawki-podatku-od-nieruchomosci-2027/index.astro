@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+import obecny from '../../data/pl/obecny-podatek.json';
+const base = import.meta.env.BASE_URL;
+const s26 = obecny.stawki_maksymalne.find((s) => s.rok === 2026)!;
+const s27 = obecny.stawki_maksymalne.find((s) => s.rok === 2027)!;
+const zl = (n: number) => n.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const zmiana = (a: number, b: number) => ((b / a - 1) * 100).toLocaleString('pl-PL', { maximumFractionDigits: 1 });
+// Kolejność i nazwy jak w art. 5 ust. 1 ustawy.
+const wiersze: [keyof typeof s27, string, string, string][] = [
+  ['budynki_mieszkalne', 'Budynki mieszkalne i ich części (mieszkania)', 'zł/m² pow. użytkowej', 'pkt 2 lit. a'],
+  ['budynki_dzialalnosc', 'Budynki związane z działalnością gospodarczą', 'zł/m² pow. użytkowej', 'pkt 2 lit. b'],
+  ['budynki_material_siewny', 'Budynki: obrót kwalifikowanym materiałem siewnym', 'zł/m² pow. użytkowej', 'pkt 2 lit. c'],
+  ['budynki_zdrowie', 'Budynki: świadczenia zdrowotne', 'zł/m² pow. użytkowej', 'pkt 2 lit. d'],
+  ['budynki_pozostale', 'Budynki pozostałe (m.in. działalność pożytku publicznego)', 'zł/m² pow. użytkowej', 'pkt 2 lit. e'],
+  ['grunty_dzialalnosc', 'Grunty związane z działalnością gospodarczą', 'zł/m²', 'pkt 1 lit. a'],
+  ['grunty_wody', 'Grunty pod wodami powierzchniowymi', 'zł/ha', 'pkt 1 lit. b'],
+  ['grunty_pozostale', 'Grunty pozostałe (np. pod domem)', 'zł/m²', 'pkt 1 lit. c'],
+  ['grunty_rewitalizacja', 'Grunty niezabudowane na obszarze rewitalizacji', 'zł/m²', 'pkt 1 lit. d'],
+];
+const m = s27.budynki_mieszkalne;
+---
+<Base okruszek="Stawki 2027" title="Stawki podatku od nieruchomości 2027: maksymalne stawki i tabela zmian"
+  description={`Maksymalne stawki podatku od nieruchomości na 2027 r.: mieszkania ${zl(m)} zł/m², budynki firm ${zl(s27.budynki_dzialalnosc)} zł/m². Tabela 2026 vs 2027, terminy płatności, jak sprawdzić stawkę gminy.`}>
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / Stawki 2027</p>
+      <h1>Stawki podatku od nieruchomości na 2027 r.</h1>
+      <p class="lead">Maksymalna stawka za mieszkanie w 2027 r. to <strong>{zl(m)} zł za m²</strong> rocznie, o {zmiana(s26.budynki_mieszkalne, m)}% więcej
+        niż w 2026 r. To górna granica: stawkę dla swoich mieszkańców uchwala rada gminy i może ona być niższa.</p>
+
+      <div class="kpi">
+        <p><b>{zl(m)} zł</b><span>za m² mieszkania, maks. w 2027 r.</span></p>
+        <p><b>{zl(m * 50)} zł</b><span>rocznie za mieszkanie 50 m² przy stawce maksymalnej</span></p>
+        <p><b>{zl(s27.budynki_dzialalnosc)} zł</b><span>za m² budynku firmy, maks. w 2027 r.</span></p>
+      </div>
+
+      <h2>Tabela stawek maksymalnych 2026 i 2027</h2>
+      <div class="tw"><table>
+        <thead><tr><th scope="col">Przedmiot opodatkowania</th><th scope="col">2026</th><th scope="col">2027</th><th scope="col">Zmiana</th></tr></thead>
+        <tbody>
+          {wiersze.map(([k, n, j, art]) => <tr><th scope="row">{n}<small>{j} · art. 5 ust. 1 {art}</small></th>
+            <td>{zl(s26[k] as number)}</td><td><b>{zl(s27[k] as number)}</b></td><td>+{zmiana(s26[k] as number, s27[k] as number)}%</td></tr>)}
+        </tbody>
+      </table></div>
+      <p class="src">Źródła: <a href={s27.zrodlo.url}>{s27.zrodlo.nazwa}</a> · <a href={s26.zrodlo.url}>{s26.zrodlo.nazwa}</a>. Budowle: 2% wartości, bez zmian.</p>
+
+      <h2>Skąd się biorą te stawki</h2>
+      <p>Ustawa o podatkach i opłatach lokalnych wpisuje górne granice stawek w art. 5 ust. 1. Co roku zmieniają się one
+        o wskaźnik cen towarów i usług konsumpcyjnych z pierwszego półrocza, a minister finansów ogłasza nowe kwoty w Monitorze
+        Polskim (art. 20). Na 2027 r. zrobił to obwieszczeniem z 23 lipca 2026 r.</p>
+      <p>Rada gminy w uchwale ustala stawki obowiązujące na jej terenie, nie wyższe od maksymalnych (art. 5 ust. 1). Może je
+        różnicować, np. według lokalizacji, rodzaju zabudowy, stanu technicznego albo wieku budynków (art. 5 ust. 3). Jeśli rada
+        nie uchwali stawek na nowy rok, obowiązują stawki z roku poprzedniego (art. 20a).</p>
+
+      <h2>Ile zapłacisz za mieszkanie</h2>
+      <p>Podatek od mieszkania to powierzchnia użytkowa × stawka gminy. Do tego dochodzi podatek od udziału w gruncie
+        (stawka „grunty pozostałe”). Wartość mieszkania nie ma znaczenia.</p>
+      <ul>
+        {[35, 50, 70, 100].map((a) => <li>{a} m² × {zl(m)} zł = <b>{zl(a * m)} zł</b> rocznie przy stawce maksymalnej</li>)}
+      </ul>
+      <p>Jak zmieniłby się podatek według projektu podatku od wartości, policzysz w <a href={`${base}kalkulator/`}>kalkulatorze</a>.</p>
+
+      <h2>Kiedy i jak się płaci</h2>
+      <ul>
+        <li>Osobom fizycznym podatek ustala w decyzji wójt, burmistrz albo prezydent miasta (art. 6 ust. 7).</li>
+        <li>Raty: do 15 marca, 15 maja, 15 września i 15 listopada (art. 6 ust. 7). Gdy podatek nie przekracza 100 zł,
+          płaci się go jednorazowo do 15 marca (art. 6 ust. 11a).</li>
+        <li>Kupno, sprzedaż albo odbiór nowego mieszkania trzeba zgłosić w gminie w ciągu 14 dni, na formularzu informacji
+          o nieruchomościach (art. 6 ust. 6).</li>
+        <li>Firmy (osoby prawne i spółki) składają deklarację do 31 stycznia i płacą co miesiąc do 15. dnia (art. 6 ust. 9).</li>
+      </ul>
+
+      <h2>Jak sprawdzić stawkę swojej gminy</h2>
+      <p>Szukaj uchwały rady gminy „w sprawie określenia wysokości stawek podatku od nieruchomości” na 2027 r. Uchwałę
+        publikuje Biuletyn Informacji Publicznej gminy i wojewódzki dziennik urzędowy. Stawkę znajdziesz też w decyzji
+        podatkowej, którą gmina wysyła na początku roku.</p>
+
+      <h2>A podatek katastralny?</h2>
+      <p>Stawki od m² obowiązują w 2027 r. niezależnie od prac nad podatkiem od wartości. Poselski projekt (druk nr 2848)
+        zastąpiłby je dla mieszkań stawkami od wartości, gdyby został uchwalony. <a href={`${base}#stan`}>Na jakim etapie jest projekt</a>.</p>
+
+      <p class="src">Przepisy: <a href={obecny.ustawa.url}>{obecny.ustawa.nazwa}</a>, sprawdzone {obecny.ustawa.zweryfikowano.split('-').reverse().join('.')}.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 860px; }
+  .prose h2 { margin-top: 1.6em; font-size: 1.6rem; }
+  .prose li { margin-bottom: 6px; }
+  .kpi { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 28px 0 8px; }
+  .kpi p { margin: 0; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; display: grid; gap: 4px; }
+  .kpi b { font: 600 1.8rem/1.1 var(--display); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+  .kpi span { font-size: 0.88rem; color: var(--ink-3); }
+  .tw { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; vertical-align: top; padding: 11px 14px 11px 0; border-top: 1px solid var(--line); }
+  thead th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border-top: 0; }
+  tbody th { font-weight: 550; }
+  tbody th small { display: block; font-weight: 400; color: var(--ink-3); font-size: 0.78rem; margin-top: 2px; }
+  td { white-space: nowrap; }
+</style>

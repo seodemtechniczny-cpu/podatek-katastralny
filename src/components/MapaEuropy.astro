@@ -10,8 +10,8 @@ const pl = dane.POL;
 <section class="section" id="europa" aria-labelledby="eu-h">
   <div class="wrap eu">
     <div class="eu__head">
-      <p class="eyebrow">Europa</p>
-      <h2 id="eu-h">Ile państwa Europy pobierają z podatków od nieruchomości?</h2>
+      <p class="eyebrow"><a href={import.meta.env.BASE_URL}>Strona główna</a> / Europa</p>
+      <h1 id="eu-h">Podatek od nieruchomości w Europie: ile pobierają państwa i od czego go liczą</h1>
       <p class="lead">Wpływy z cyklicznych podatków od nieruchomości jako odsetek PKB (OECD, kategoria 4100). W Polsce
         to {pct(pl.g!)} PKB ({pl.y}), {ranking.findIndex((c) => c.iso === 'POL') + 1}. miejsce na {ranking.length} państw z danymi.</p>
       <p>Stawek wprost porównać się nie da. Jedne państwa liczą podatek od wartości rynkowej, inne od dawnej wartości

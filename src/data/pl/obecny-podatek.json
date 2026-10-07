@@ -2,9 +2,12 @@
   "opis": "Podatek od nieruchomości w Polsce liczy się od powierzchni, nie od wartości. Minister finansów co roku ogłasza stawki maksymalne, a rada każdej gminy uchwala własne stawki nie wyższe od nich.",
   "stawki_maksymalne": [
     { "rok": 2026, "budynki_mieszkalne": 1.25, "budynki_dzialalnosc": 35.53, "grunty_dzialalnosc": 1.45, "grunty_pozostale": 0.77,
+      "grunty_wody": 7.15, "grunty_rewitalizacja": 4.72, "budynki_material_siewny": 16.64, "budynki_zdrowie": 7.27, "budynki_pozostale": 12.00,
       "zrodlo": { "nazwa": "Obwieszczenie MF z 1.08.2025, M.P. 2025 poz. 726", "url": "https://api.sejm.gov.pl/eli/acts/MP/2025/726/text.pdf", "zweryfikowano": "2026-10-03" } },
     { "rok": 2027, "budynki_mieszkalne": 1.29, "budynki_dzialalnosc": 36.49, "grunty_dzialalnosc": 1.49, "grunty_pozostale": 0.80,
+      "grunty_wody": 7.35, "grunty_rewitalizacja": 4.85, "budynki_material_siewny": 17.09, "budynki_zdrowie": 7.47, "budynki_pozostale": 12.33,
       "zrodlo": { "nazwa": "Obwieszczenie MFiG z 23.07.2026, M.P. 2026 poz. 741", "url": "https://api.sejm.gov.pl/eli/acts/MP/2026/741/text.pdf", "zweryfikowano": "2026-10-03" } }
   ],
-  "jednostka": "zł za m² rocznie"
+  "jednostka": "zł za m² rocznie (grunty pod wodami: zł za ha)",
+  "ustawa": { "nazwa": "Ustawa o podatkach i opłatach lokalnych, tekst jednolity Dz.U. 2025 poz. 707", "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/707/text.pdf", "zweryfikowano": "2026-10-07" }
 }

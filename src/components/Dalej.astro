@@ -1,0 +1,27 @@
+---
+import obecny from '../data/pl/obecny-podatek.json';
+const base = import.meta.env.BASE_URL;
+const s27 = obecny.stawki_maksymalne.find((s) => s.rok === 2027)!;
+const karty = [
+  ['kalkulator/', 'Kalkulator', 'Ile wyniósłby podatek od Twoich mieszkań według projektu, w porównaniu z dzisiejszym.'],
+  ['stawki-podatku-od-nieruchomosci-2027/', 'Stawki na 2027 r.', `Obecny podatek od m²: maksymalnie ${s27.budynki_mieszkalne.toLocaleString('pl-PL')} zł za m² mieszkania w 2027 r.`],
+  ['europa/', 'Europa', 'Ile pobierają państwa Europy i czy liczą podatek od wartości, czy od powierzchni.'],
+  ['faq/', 'Pytania i odpowiedzi', 'Kogo dotyczy projekt, od kiedy, co z drugim mieszkaniem i współwłasnością.'],
+];
+---
+<nav class="section dalej" aria-labelledby="dalej-h">
+  <div class="wrap">
+    <h2 id="dalej-h">Więcej w serwisie</h2>
+    <ul class="dalej__l">
+      {karty.map(([h, t, o]) => <li><a href={base + h}><b>{t} <span aria-hidden="true">→</span></b><span>{o}</span></a></li>)}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .dalej__l { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .dalej__l a { display: grid; gap: 8px; height: 100%; padding: 20px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; color: var(--ink-2); text-decoration: none; transition: border-color var(--t-2) var(--ease); }
+  .dalej__l a:hover { border-color: var(--ink-3); }
+  .dalej__l b { color: var(--ink); font-size: 1.1rem; }
+  .dalej__l span { font-size: 0.92rem; }
+</style>

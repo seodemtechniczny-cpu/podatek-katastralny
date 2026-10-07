@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import Projekt from '../../components/Projekt.astro';
+import projekt from '../../data/pl/projekt-2848.json';
+---
+<Base okruszek="Projekt ustawy" title={`Projekt podatku katastralnego (druk ${projekt.druk}): stawki, zasady, przepisy`}
+  description={`Co zakłada poselski projekt podatku od wartości mieszkań (druk nr ${projekt.druk}): stawki 0,02% i od 0,5% do 1,5%, podstawa z cen transakcyjnych, terminy. Każda zasada z numerem przepisu.`}>
+  <Projekt strona />
+</Base>

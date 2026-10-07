@@ -1,20 +1,30 @@
 ---
 import '../styles/global.css';
 
-interface Props { title: string; description: string; noindex?: boolean; intro?: boolean }
-const { title, description, noindex = import.meta.env.PUBLIC_NOINDEX === '1', intro = false } = Astro.props;
+interface Props { title: string; description: string; noindex?: boolean; intro?: boolean; okruszek?: string; schema?: object[] }
+const { title, description, noindex = import.meta.env.PUBLIC_NOINDEX === '1', intro = false, okruszek, schema = [] } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname.slice(base.length - 1), Astro.site).href;
 const ogImage = new URL('og.png', Astro.site).href;
 
 const nav = [
   ['#stan', 'Stan sprawy'],
-  ['#os-czasu', 'Oś czasu'],
+  ['projekt-ustawy/', 'Projekt'],
+  ['kalkulator/', 'Kalkulator'],
+  ['stawki-podatku-od-nieruchomosci-2027/', 'Stawki 2027'],
+  ['europa/', 'Europa'],
+  ['faq/', 'FAQ'],
   ['#newsy', 'Newsy'],
-  ['#projekt', 'Projekt'],
-  ['#kalkulator', 'Kalkulator'],
-  ['#europa', 'Europa'],
 ].map(([h, l]) => [base + h, l]);
+const sciezka = Astro.url.pathname;
+// Dane strukturalne: WebSite na głównej, okruszki na podstronach, plus to, co poda strona.
+const ld = [
+  ...(okruszek ? [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Strona główna', item: new URL(base, Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: okruszek, item: canonical },
+  ] }] : [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'podatek-katastralny.pl', url: new URL(base, Astro.site).href, inLanguage: 'pl' }]),
+  ...schema,
+];
 ---
 <!doctype html>
 <html lang="pl">
@@ -37,6 +47,7 @@ const nav = [
   <meta property="og:image:alt" content="Mapa Europy: gdzie podatek od nieruchomości liczy się od wartości, a gdzie od powierzchni. Polska wyróżniona na czerwono." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content={ogImage} />
+  {ld.map((x) => <script type="application/ld+json" set:html={JSON.stringify(x)} />)}
   <meta name="google-site-verification" content="FHP719cmpRDEfHHw5xMMchDTVXEIcQx77cVOg3_KyBE" />
   <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
   <link rel="alternate" type="application/atom+xml" title="Zmiany w sprawie podatku katastralnego" href={`${base}zmiany.xml`} />
@@ -93,7 +104,7 @@ const nav = [
         <span>podatek&#8209;katastralny<span class="logo__tld">.pl</span></span>
       </a>
       <nav aria-label="Główna">
-        <ul class="nav">{nav.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ul>
+        <ul class="nav">{nav.map(([href, label]) => <li><a href={href} aria-current={sciezka === href ? 'page' : undefined}>{label}</a></li>)}</ul>
       </nav>
       <button class="theme" type="button" aria-label="Przełącz tryb jasny i ciemny" title="Tryb jasny / ciemny">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
@@ -134,7 +145,8 @@ const nav = [
   nav { margin-left: auto; }
   .nav { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
   .nav a { color: var(--ink-2); text-decoration: none; font-size: 0.92rem; font-weight: 500; padding-block: 8px; }
-  .nav a:hover { color: var(--ink); }
+  .nav a:hover, .nav a[aria-current='page'] { color: var(--ink); }
+  .nav a[aria-current='page'] { box-shadow: inset 0 -2px var(--accent); }
   .theme { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 3px; cursor: pointer; transition: transform var(--t-2) var(--ease); }
   .theme[aria-pressed='true'] svg { transform: rotate(180deg); }
   .theme svg { transition: transform var(--t-2) var(--ease); }

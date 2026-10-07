@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import projekt from '../../data/pl/projekt-2848.json';
+import obecny from '../../data/pl/obecny-podatek.json';
+import { status } from '../../lib/status';
+const base = import.meta.env.BASE_URL;
+const s27 = obecny.stawki_maksymalne.find((s) => s.rok === 2027)!;
+const zl = (n: number) => n.toLocaleString('pl-PL', { maximumFractionDigits: 2 });
+const prog = projekt.stawki_progresja;
+const wejscie = new Date(projekt.wejscie_w_zycie).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+const W = 500000; // przykładowa wartość mieszkania
+// Każda odpowiedź opiera się na przepisie projektu (druk nr 2848 z autopoprawką) albo obecnej ustawy; przepis w nawiasie.
+const pytania: [string, string][] = [
+  ['Czy podatek katastralny obowiązuje w Polsce?',
+    `Nie. Podatek od nieruchomości liczy się od powierzchni. W Sejmie jest poselski projekt podatku od wartości mieszkań (druk nr ${projekt.druk}), etap: ${status.etap}.`],
+  ['Od kiedy miałby obowiązywać?',
+    `Według projektu ustawa weszłaby w życie ${wejscie} (art. 9 w brzmieniu autopoprawki), o ile zostanie uchwalona. Wartość z cen transakcyjnych można stosować od podatku za 2028 r. (art. 7 projektu).`],
+  ['Kogo dotyczy projekt?',
+    'Właścicieli budynków mieszkalnych jednorodzinnych i wielorodzinnych oraz lokali mieszkalnych. Budynki i grunty związane z działalnością gospodarczą zostają przy stawkach od m² (art. 5a projektu).'],
+  ['Ile zapłacę za jedno albo dwa mieszkania?',
+    `0,02% wartości rocznie, ale nie więcej niż według obecnych zasad (art. 5a ust. 1 pkt 1 i art. 8 projektu). Mieszkanie warte ${zl(W)} zł: 0,02% to ${zl(W * 0.0002)} zł. Jeśli dziś płacisz mniej, np. ${zl(50 * s27.budynki_mieszkalne)} zł za 50 m² przy stawce maksymalnej na 2027 r., zapłacisz tyle co dziś.`],
+  ['Ile za trzecie i kolejne mieszkanie?',
+    `${zl(prog[0])}% wartości w pierwszym roku, potem stawka rośnie o 0,2 pkt proc. rocznie do ${zl(prog.at(-1)!)}% (art. 5a ust. 1 pkt 2). Mieszkanie warte ${zl(W)} zł: ${zl(W * prog[0] / 100)} zł w pierwszym roku, ${zl(W * prog.at(-1)! / 100)} zł przy stawce ${zl(prog.at(-1)!)}%.`],
+  ['Które mieszkanie jest pierwsze, a które trzecie?',
+    'Decyduje kolejność według dnia nabycia (art. 5a ust. 3). Liczą się wszystkie budynki i lokale mieszkalne w Polsce, których podatnik jest właścicielem lub współwłaścicielem (ust. 2). Gdy właściciel kupi kilka lokali tego samego dnia, za pierwszy uznaje się ten o najniższej wartości (ust. 4).'],
+  ['Co ze współwłasnością i spadkiem?',
+    'Do liczby mieszkań nie wlicza się udziału we współwłasności, który został odziedziczony albo jest mniejszy niż 1/2 (art. 5a ust. 6). Przy współwłasności podatek ustala się dla każdego współwłaściciela według liczby jego mieszkań (ust. 5).'],
+  ['Czy wynajmowane mieszkanie ma osobne zasady?',
+    'Projekt nie wyróżnia mieszkań na wynajem. Liczy się liczba posiadanych lokali. Wyjątek: lokale dzierżawione przez społeczną agencję najmu zawsze mają stawkę 0,02% (art. 5a ust. 8 pkt 2).'],
+  ['A mieszkania spółdzielni i TBS?',
+    'Budynki i lokale mieszkalne spółdzielni mieszkaniowych, towarzystw budownictwa społecznego, społecznych inicjatyw mieszkaniowych i państwowych osób prawnych zawsze mają stawkę 0,02%, niezależnie od liczby lokali (art. 5a ust. 8 pkt 1).'],
+  ['Jak zostałaby ustalona wartość mieszkania?',
+    'Powierzchnia użytkowa × średnia cena transakcyjna 1 m² w gminie z Portalu Danych o Obrocie Mieszkaniami, według stanu na 30 września roku poprzedniego. Bez tych danych: wskaźnik kosztu odtworzenia 1 m² ogłaszany przez wojewodę (art. 4 ust. 1 pkt 2a). Rada gminy może tę podstawę mnożyć przez współczynnik od 0,2 do 2, np. ze względu na rok budowy, lokalizację albo efektywność energetyczną (art. 5b).'],
+  ['Ile dziś płacę od mieszkania?',
+    `Powierzchnia użytkowa × stawka gminy, maksymalnie ${zl(s27.budynki_mieszkalne)} zł za m² w 2027 r. (art. 5 ust. 1 pkt 2 lit. a ustawy o podatkach i opłatach lokalnych). Wartość mieszkania nie ma znaczenia.`],
+];
+---
+<Base okruszek="FAQ" title="Podatek katastralny: pytania i odpowiedzi (FAQ)"
+  description="Czy podatek katastralny obowiązuje, od kiedy, ile za drugie i trzecie mieszkanie, co ze spadkiem, współwłasnością i spółdzielnią. Odpowiedzi z przepisami projektu."
+  schema={[{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: pytania.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }]}>
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / FAQ</p>
+      <h1>Podatek katastralny: pytania i odpowiedzi</h1>
+      <p class="lead">Odpowiedzi według poselskiego projektu (druk nr {projekt.druk}, {projekt.wersja}) i obecnej ustawy. Przy każdej
+        podajemy przepis. Projekt nie obowiązuje i może się zmienić w Sejmie.</p>
+      {pytania.map(([q, a]) => <section class="qa"><h2>{q}</h2><p>{a}</p></section>)}
+      <p class="more"><a class="btn" href={`${base}kalkulator/`}>Policz swój podatek</a> <a class="btn btn--ghost" href={`${base}projekt-ustawy/`}>Wszystkie zasady projektu</a></p>
+      <p class="src">Źródła: {projekt.zrodla.map((z, i) => <>{i > 0 && ' · '}<a href={z.url}>{z.nazwa}</a></>)} · <a href={obecny.ustawa.url}>{obecny.ustawa.nazwa}</a>.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 820px; }
+  .qa { border-top: 1px solid var(--line); padding: 18px 0 4px; }
+  .qa h2 { font-size: 1.25rem; margin: 0 0 8px; }
+  .qa p { color: var(--ink-2); }
+  .more { display: flex; flex-wrap: wrap; gap: 10px 12px; margin: 28px 0; }
+</style>

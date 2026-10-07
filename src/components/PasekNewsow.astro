@@ -1,7 +1,7 @@
 ---
-import newsy from '../data/newsy.json';
+import { pozycje } from '../lib/newsy';
 
-const rolka = newsy.pozycje.slice(0, 16);
+const rolka = pozycje.slice(0, 16);
 const krotko = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'numeric', month: 'short' });
 ---
 <aside class="pasek" aria-label="Najnowsze nagłówki mediów o podatku katastralnym">

@@ -34,14 +34,17 @@ const base = import.meta.env.BASE_URL;
 
       <h3>Strony tematyczne redakcji</h3>
       <ul>{cfg.tagi.map((z) => <li>{z.nazwa}: <a href={z.url}>{z.url.replace(/^https:\/\//, '')}</a></li>)}</ul>
-      <h3>Kanały RSS redakcji (filtrowane po temacie)</h3>
+      <h3>Kanały RSS redakcji (filtrowane po temacie, publikowane po sprawdzeniu)</h3>
+      <p>Kanały ogólne obejmują wszystkie teksty redakcji, a automat ocenia temat tylko po tytule. Dlatego nagłówek z takiego
+        kanału pojawia się w serwisie dopiero po sprawdzeniu przez redakcję. Nagłówki ze stron tematycznych publikujemy od razu,
+        bo przypisała je do tematu sama redakcja.</p>
       <ul>{cfg.rss.map((z) => <li>{z.nazwa}: <a href={z.url}>{z.url.replace(/^https:\/\//, '')}</a></li>)}</ul>
       <h3>Źródła, z których świadomie nie korzystamy</h3>
       <ul>{cfg.odrzucone.map((z) => <li>{z.nazwa}: {z.powod}.</li>)}</ul>
 
       <h2>Usunięcie albo korekta</h2>
       <p>Jeśli jesteś wydawcą i nie chcesz, żeby Twoje nagłówki pojawiały się w serwisie, albo znalazłeś błąd w danych,
-        <a href="https://github.com/seodemtechniczny-cpu/podatek-katastralny/issues/new">zgłoś to</a>. Źródło usuwamy
+        napisz na <a href="mailto:contact@kiodem.com?subject=podatek-katastralny.pl">contact@kiodem.com</a>. Źródło usuwamy
         z listy przy najbliższej aktualizacji. Możesz też zablokować automat w robots.txt (<code>User-agent: PodatekKatastralnyBot</code>).</p>
     </div>
   </article>

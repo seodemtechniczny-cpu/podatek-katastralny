@@ -74,9 +74,11 @@ const nav = [
     })();
   </script>
   {intro && <script is:inline>
-    // Wejście strony głównej tylko bez ograniczonego ruchu. Bezpiecznik: po 6 s strona odsłania się sama,
-    // nawet gdyby skrypt hero się nie wykonał.
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Wejście strony głównej tylko przy pierwszej wizycie i bez ograniczonego ruchu: kto wraca po zmianę statusu,
+    // nie ogląda intro drugi raz. Bezpiecznik: po 6 s strona odsłania się sama, nawet gdyby skrypt hero się nie wykonał.
+    let byl = false;
+    try { byl = localStorage.getItem('intro-widziane') === '1'; localStorage.setItem('intro-widziane', '1'); } catch (e) {}
+    if (!byl && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('intro');
       setTimeout(() => document.documentElement.classList.remove('intro'), 6000);
     }
@@ -102,7 +104,7 @@ const nav = [
   <footer class="foot">
     <div class="wrap foot__in">
       <p><strong>podatek-katastralny.pl</strong> — niezależny serwis informacyjny. Nie popieramy ani nie zwalczamy żadnego rozwiązania. Każda liczba ma źródło i datę sprawdzenia.</p>
-      <p class="muted">Treści mają charakter informacyjny i nie są poradą podatkową. <a href={`${base}zrodla/`}>Źródła i zasady</a> · <a href={`${base}zmiany.xml`}>Kanał zmian (RSS)</a></p>
+      <p class="muted">Treści mają charakter informacyjny i nie są poradą podatkową. <a href={`${base}metodologia/`}>Metodologia i korekty</a> · <a href={`${base}zrodla/`}>Źródła i zasady</a> · <a href={`${base}o-serwisie/`}>O serwisie</a> · <a href={`${base}zmiany.xml`}>Kanał zmian (RSS)</a></p>
     </div>
   </footer>
   <script>

@@ -7,7 +7,7 @@
 //   i meta „tdm-reservation”); zastrzeżenie albo zakaz = źródło pomijamy (art. 26^3 ust. 1–2),
 // - przedstawiamy się w User-Agent z adresem strony z zasadami, odstęp między żądaniami 1,5 s,
 // - Google News RSS NIE jest używany: robots.txt news.google.com blokuje /rss.
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 
 const CFG = JSON.parse(readFileSync('src/data/zrodla-newsow.json', 'utf8'));
 const PLIK = 'src/data/newsy.json';
@@ -83,6 +83,23 @@ const meta = (t, ...nazwy) => {
 const dataZ = (t) => meta(t, 'article:published_time', 'og:article:published_time', 'datePublished', 'pubdate')
   || (t.match(/"datePublished"\s*:\s*"([^"]+)"/)?.[1]) || (t.match(/<time[^>]+datetime=["']([^"']+)/i)?.[1]) || '';
 
+// --zglos (monitoring, raz dziennie): nagłówki czekające na akceptację → monitor/newsy/<data>.txt do PR.
+// Plik w main = akceptacja (strona czyta te pliki); zamknięty PR = odrzucenie, bo adres zostaje w stan.json jako zgłoszony.
+if (process.argv.includes('--zglos')) {
+  const stan = JSON.parse(readFileSync('monitor/stan.json', 'utf8'));
+  const zgloszone = new Set(stan.newsy_zgloszone ?? []);
+  const nowe = JSON.parse(readFileSync(PLIK, 'utf8')).pozycje.filter((p) => p.akceptacja && !zgloszone.has(p.url));
+  if (nowe.length) {
+    mkdirSync('monitor/newsy', { recursive: true });
+    writeFileSync(`monitor/newsy/${new Date().toISOString().slice(0, 10)}.txt`,
+      nowe.map((p) => `${p.url}  # ${p.tytul} (${p.zrodlo}, ${p.data.slice(0, 10)})`).join('\n') + '\n');
+    stan.newsy_zgloszone = [...zgloszone, ...nowe.map((p) => p.url)].slice(-2000);
+    writeFileSync('monitor/stan.json', JSON.stringify(stan, null, 1) + '\n');
+  }
+  console.log(`Do akceptacji: ${nowe.length}`);
+  process.exit(0);
+}
+
 const stary = existsSync(PLIK) ? JSON.parse(readFileSync(PLIK, 'utf8')) : {};
 // Pozycje z Google News (linki news.google.com) usuwamy: źródło nie spełnia zasad.
 const pozycjeStare = (stary.pozycje ?? []).filter((p) => !p.url.includes('news.google.com'));
@@ -126,7 +143,8 @@ for (const z of CFG.rss) {
     for (const [, it] of tekst.matchAll(/<item>([\s\S]*?)<\/item>/g)) {
       const pole = (tag) => encje(it.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`))?.[1] ?? '');
       const tytul = pole('title'), data = pole('pubDate');
-      if (TEMAT.test(tytul) && !Number.isNaN(Date.parse(data))) { nowe.push({ tytul, zrodlo: z.nazwa, url: pole('link'), data: new Date(data).toISOString() }); n++; }
+      // Ogólny kanał, dopasowanie tylko po tytule: na stronę dopiero po akceptacji (PR z monitoringu, raz dziennie).
+      if (TEMAT.test(tytul) && !Number.isNaN(Date.parse(data))) { nowe.push({ tytul, zrodlo: z.nazwa, url: pole('link'), data: new Date(data).toISOString(), akceptacja: true }); n++; }
     }
     log.push(`${z.nazwa} RSS: ${n}`);
   } catch (e) { log.push(`${z.nazwa} RSS: ${e.message}`); }

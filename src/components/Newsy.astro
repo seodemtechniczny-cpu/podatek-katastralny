@@ -1,11 +1,11 @@
 ---
-import newsy from '../data/newsy.json';
+import { pozycje, pobrano as pobranoIso } from '../lib/newsy';
 
-const lista = newsy.pozycje;
+const lista = pozycje;
 const glowne = lista.slice(0, 9);
 const starsze = lista.slice(9, 40);
 const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
-const pobrano = new Date(newsy.pobrano).toLocaleString('pl-PL', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Warsaw' });
+const pobrano = new Date(pobranoIso).toLocaleString('pl-PL', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Warsaw' });
 const media = new Set(lista.map((n) => n.zrodlo)).size;
 ---
 <section class="section newsy" id="newsy" aria-labelledby="newsy-h">

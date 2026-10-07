@@ -6,6 +6,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 jobs:
   monitor:
     runs-on: ubuntu-latest
@@ -15,16 +16,38 @@ jobs:
         with:
           node-version: 24
       - run: node scripts/monitor.mjs
-      # Zmiany idą jako PR do redakcji, nigdy prosto na stronę.
-      - name: PR z nowymi zdarzeniami
+      - run: node scripts/newsy.mjs --zglos
+      - name: Stan na main, zdarzenia jako PR
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ ! -s monitor/nowe.md ]; then echo "Brak zmian."; exit 0; fi
-          b="monitor/$(date +%F)"
           git config user.name "monitor"; git config user.email "monitor@users.noreply.github.com"
-          git switch -c "$b"
-          git add monitor
-          git commit -m "Monitoring: nowe zdarzenia $(date +%F)"
-          git push -u origin "$b"
-          gh pr create --title "Monitoring: nowe zdarzenia $(date +%F)" --body-file monitor/nowe.md --base main
+          # 1. Data sprawdzenia i znane etapy prosto na main: strona pokazuje, kiedy automat naprawdę sprawdził Sejm.
+          git add monitor/stan.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Monitoring: sprawdzono $(date +%F)"
+            git pull --rebase --autostash
+            git push
+          fi
+          # 2. Nowe zdarzenia jako PR do redakcji, nigdy prosto na stronę. PR z etapem druku 2848 zawiera już
+          #    zmiany w danych (stan sprawy, oś czasu): scalenie = publikacja.
+          if [ -s monitor/nowe.md ]; then
+            t="$(head -1 monitor/nowe.md | sed 's/^# //')"
+            git switch -c "monitor/$(date +%F-%H%M)"
+            git add monitor/nowe.md src/data/pl
+            git commit -m "$t"
+            git push -u origin HEAD
+            gh pr create --title "$t" --body-file monitor/nowe.md --base main
+          fi
+          # 3. Nagłówki z ogólnych RSS do akceptacji: jeden PR dziennie z plikiem listy.
+          if ls monitor/newsy/*.txt >/dev/null 2>&1 && [ -n "$(git status --porcelain monitor/newsy)" ]; then
+            git switch main
+            git switch -c "newsy/$(date +%F)"
+            git add monitor/newsy
+            git commit -m "Newsy do akceptacji $(date +%F)"
+            git push -u origin HEAD
+            gh pr create --title "Newsy do akceptacji $(date +%F)" --base main \
+              --body "Nagłówki z ogólnych kanałów RSS. Scalenie = publikacja wszystkich. Żeby odrzucić jeden, usuń jego linię z pliku przed scaleniem. Zamknięcie PR = odrzucenie wszystkich."
+          fi
+          # Push z GITHUB_TOKEN nie uruchamia innych workflow, więc wdrożenie wywołujemy jawnie.
+          gh workflow run deploy.yml --ref main

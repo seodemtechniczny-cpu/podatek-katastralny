@@ -1,0 +1,82 @@
+---
+import Base from '../../layouts/Base.astro';
+import stats from '../../data/stats.json';
+import { podstawaZrodlo } from '../../lib/europa';
+import { status } from '../../lib/status';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Metodologia i korekty — podatek-katastralny.pl" description="Jak serwis podatek-katastralny.pl sprawdza stan prac nad projektem, skąd bierze liczby, jak liczy kalkulator i jak poprawia błędy.">
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / Metodologia</p>
+      <h1>Metodologia i korekty</h1>
+      <p class="lead">Każda informacja w serwisie ma źródło i datę sprawdzenia. Poniżej opisujemy, jak sprawdzamy stan prac
+        w Sejmie, skąd bierzemy liczby, jak liczy kalkulator i co robimy, gdy znajdziemy błąd.</p>
+
+      <h2>Trzy daty przy stanie sprawy</h2>
+      <dl>
+        <dt>Monitoring Sejmu ({status.sprawdzono})</dt>
+        <dd>Ostatni udany przebieg automatu, który odpytuje API Sejmu o przebieg procesu legislacyjnego. Gdy API jest
+          niedostępne, data się nie zmienia, więc zawsze widać, kiedy dane naprawdę sprawdzono.</dd>
+        <dt>Ostatnia zmiana w procesie ({status.zmiana})</dt>
+        <dd>Data ostatniego etapu zapisanego przez Sejm w przebiegu procesu.</dd>
+        <dt>Przegląd redakcji ({status.przeglad})</dt>
+        <dd>Kiedy człowiek ostatnio porównał dane w serwisie z dokumentami źródłowymi.</dd>
+      </dl>
+
+      <h2>Jak trafia do nas zmiana</h2>
+      <ol>
+        <li><strong>Wykrycie.</strong> Automat codziennie porównuje przebieg procesu w API Sejmu z zapisanym stanem. Sprawdza
+          też nowe projekty dotyczące podatku od nieruchomości i nowe obwieszczenia ministra finansów o stawkach maksymalnych
+          (Monitor Polski, API ELI).</li>
+        <li><strong>Weryfikacja.</strong> Wykryta zmiana nie trafia na stronę automatycznie. Automat przygotowuje propozycję
+          wpisu z linkiem do źródła, a redakcja sprawdza ją z dokumentem.</li>
+        <li><strong>Publikacja.</strong> Po sprawdzeniu zmieniają się jednocześnie stan sprawy, oś czasu i kanał
+          <a href={`${base}zmiany.xml`}>zmiany.xml</a>.</li>
+      </ol>
+
+      <h2>Liczby</h2>
+      <ul>
+        <li><strong>Projekt ustawy:</strong> parametry (stawki, progi, daty) przepisujemy z druku nr {status.druk} i autopoprawki,
+          przy każdym podajemy artykuł projektu.</li>
+        <li><strong>Obecny podatek:</strong> stawki maksymalne z obwieszczeń ministra finansów w Monitorze Polskim.</li>
+        <li><strong>Europa, wpływy:</strong> {stats.source}. Pokazujemy udział w PKB, bo kwoty w walutach narodowych
+          nie dają się porównać. Pobrane {stats.fetched}.</li>
+        <li><strong>Europa, podstawa podatku:</strong> {podstawaZrodlo.nazwa}; przy każdym państwie podajemy stronę źródłową.
+          Sprawdzone {podstawaZrodlo.zweryfikowano}.</li>
+      </ul>
+
+      <h2>Kalkulator</h2>
+      <p>Kalkulator liczy według aktualnej wersji projektu i nie jest poradą podatkową.</p>
+      <ul>
+        <li>Dziś: powierzchnia × stawka gminy (domyślnie stawka maksymalna).</li>
+        <li>1. i 2. lokal: 0,02% × powierzchnia × cena m², ale nie więcej niż dziś (art. 8 projektu).</li>
+        <li>3. i kolejne: wartość × stawka z danego roku (0,5% w pierwszym roku, +0,2 pkt proc. rocznie, maks. 1,5%).</li>
+        <li>Pomijamy współczynniki gminy (0,2–2, art. 5b), zasady współwłasności i spadku (art. 5a ust. 5–6) oraz wyjątki dla
+          spółdzielni i TBS (art. 5a ust. 8).</li>
+      </ul>
+      <p>Dane wpisane do kalkulatora nie opuszczają Twojego urządzenia.</p>
+
+      <h2>Bezstronność</h2>
+      <p>Serwis nie popiera ani nie zwalcza żadnego rozwiązania. Nie używamy słów wartościujących; opinie pokazujemy tylko jako
+        cytat z przypisaniem. Jeśli serwis będzie miał sponsorów, sponsor nie wpływa na stan sprawy, kalkulator, opisy projektu,
+        dobór argumentów ani na publikację aktualizacji. Sponsorowanie będzie wyraźnie oznaczone, a podmioty prowadzące lobbing
+        za albo przeciw podatkowi nie mogą sponsorować stanu sprawy, kalkulatora ani alertów.</p>
+
+      <h2>Korekty</h2>
+      <p>Gdy znajdziemy błąd albo ktoś nam go zgłosi, poprawiamy go i zapisujemy korektę z datą. Historia każdej zmiany danych
+        jest publiczna w <a href="https://github.com/seodemtechniczny-cpu/podatek-katastralny/commits/main">repozytorium serwisu</a>.
+        Błąd zgłosisz mailem: <a href="mailto:contact@kiodem.com?subject=podatek-katastralny.pl%3A%20b%C5%82%C4%85d">contact@kiodem.com</a>.
+        Podaj, której informacji dotyczy, i jeśli możesz, źródło poprawnej.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 820px; }
+  .prose h2 { margin-top: 1.6em; font-size: 1.6rem; }
+  .prose li { margin-bottom: 8px; }
+  .prose dt { font-weight: 650; margin-top: 12px; }
+  .prose dd { margin: 4px 0 0; color: var(--ink-2); }
+  .prose a { overflow-wrap: anywhere; }
+</style>

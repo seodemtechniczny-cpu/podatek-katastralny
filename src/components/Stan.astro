@@ -1,5 +1,6 @@
 ---
 import projekt from '../data/pl/projekt-2848.json';
+import { status } from '../lib/status';
 
 const fmt = (iso: string) => new Date(iso).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
 
@@ -27,7 +28,8 @@ const kroki = ['Wpłynięcie do Sejmu', 'I czytanie', 'Komisja', 'II i III czyta
           </li>
         ))}
       </ol>
-      <p class="src">Źródło: <a href={projekt.zrodla[0].url}>Sejm RP, przebieg procesu legislacyjnego</a>, sprawdzone {fmt(projekt.zrodla[0].zweryfikowano)}. Etap „I czytanie” oznacza, że projekt czeka na pierwsze czytanie na posiedzeniu Sejmu.</p>
+      <p class="src">Źródło: <a href={projekt.zrodla[0].url}>Sejm RP, przebieg procesu legislacyjnego</a>. Automat sprawdził
+        go {status.sprawdzono}, ostatnia zmiana w procesie: {status.zmiana}, ostatni przegląd redakcji: {status.przeglad}.</p>
     </div>
 
   </div>

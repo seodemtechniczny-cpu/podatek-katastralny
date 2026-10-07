@@ -1,8 +1,7 @@
 ---
 import projekt from '../data/pl/projekt-2848.json';
 import { mapa, dane, klasa, etykieta, pct, grupa, legenda, PODSTAWA, NAZWA_PODSTAWY, KROTKO } from '../lib/europa';
-
-const dzis = new Date().toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+import { status } from '../lib/status';
 const pol = mapa.countries.find((c) => c.iso === 'POL')!;
 const inne = mapa.countries.filter((c) => c.iso !== 'POL');
 const [x0, y0, x1, y1] = mapa.bbox;
@@ -40,10 +39,20 @@ function parcels(seed: number, depth: number, w = 1600, h = 1000) {
 }
 const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
 ---
+<!-- Status poza warstwą intro: widoczny od pierwszego malowania, nie czeka na animację mapy. -->
+<div class="sb" role="status">
+  <p class="sb__in">
+    <strong class="sb__stan">{status.obowiazuje ? 'Uchwalony' : 'Nie obowiązuje'}</strong>
+    <span>Druk nr {status.druk}: {status.etap}</span>
+    <span class="sb__d">Monitoring Sejmu: <time datetime={status.sprawdzonoIso}>{status.sprawdzono}</time></span>
+    <span class="sb__d">Ostatnia zmiana w procesie: {status.zmiana}</span>
+    <span class="sb__d">Przegląd redakcji: {status.przeglad}</span>
+  </p>
+</div>
 <section class="hero" id="mapa" aria-labelledby="h1" data-vb={mapa.viewBox} data-vb-mobile={vbMobile}>
   <div class="hero__content">
     <div class="hero__head">
-      <p class="eyebrow">Stan na {dzis}</p>
+      <p class="eyebrow">Monitor projektu ustawy</p>
       <h1 id="h1">Czy będzie podatek katastralny w&nbsp;Polsce?</h1>
       <span class="hero__line" aria-hidden="true"></span>
     </div>
@@ -367,7 +376,13 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
 </section>
 
 <style>
-  .hero { position: relative; height: calc(100svh - 64px); min-height: 640px; max-height: 1080px; overflow: clip; isolation: isolate; }
+  .sb { border-bottom: 1px solid var(--line); background: var(--bg); position: relative; z-index: 4; }
+  .sb__in { margin: 0; padding: 9px var(--gut); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; font-size: 0.84rem; color: var(--ink-2); }
+  .sb__stan { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-text); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.8rem; }
+  .sb__stan::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .sb__in > span + span { padding-left: 18px; border-left: 1px solid var(--line-2); }
+  .sb__d { color: var(--ink-3); }
+  .hero { position: relative; height: calc(100svh - 64px - 40px); min-height: 640px; max-height: 1080px; overflow: clip; isolation: isolate; }
   .hero__map { position: absolute; inset: 0; z-index: 0; }
   .hm { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
@@ -493,6 +508,11 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   }
 
   @media (max-width: 760px) {
+    /* Telefon: stan, etap i data monitoringu; pozostałe dwie daty są w sekcji „Stan sprawy”. */
+    .sb__in { font-size: 0.8rem; gap: 2px 12px; padding-block: 8px; }
+    .sb__in > span + span { padding-left: 0; border-left: 0; }
+    .sb__d { flex-basis: 100%; }
+    .sb__d ~ .sb__d { display: none; }
     .hero { height: auto; min-height: calc(100svh - 96px); max-height: none; display: flex; flex-direction: column; }
     .hero__map { position: relative; order: -1; height: 92vw; flex: none; }
     .hero__content { position: relative; bottom: auto; padding-block: 8px 28px; order: 1; }

@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Nie ma takiej strony — podatek-katastralny.pl" description="Strona nie istnieje." noindex>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Błąd 404</p>
+      <h1>Nie ma takiej strony</h1>
+      <p class="lead">Adres mógł się zmienić albo zawiera literówkę.</p>
+      <p><a class="btn" href={base}>Stan podatku katastralnego</a></p>
+      <p><a href={`${base}metodologia/`}>Metodologia</a> · <a href={`${base}zrodla/`}>Źródła i zasady</a> · <a href={`${base}o-serwisie/`}>O serwisie</a></p>
+    </div>
+  </section>
+</Base>

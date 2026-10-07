@@ -1,0 +1,275 @@
+{
+ "zweryfikowano": "2026-10-07",
+ "kraje": {
+  "AUT": {
+   "podstawa": "wartosc",
+   "rok_wyceny": 1973,
+   "aktualizacja": "wartości jednostkowe (Einheitswerte) wg stanu na 1.01.1973, podwyższone ryczałtowo łącznie o 35% w latach 1977–1983; od tego czasu bez nowej wyceny głównej",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "VfGH, B 298/10 (Grundsteuer); BMF – Einheitsbewertung",
+    "url": "https://www.vfgh.gv.at/downloads/VfGH_B_298-10_Grundsteuer.pdf"
+   }
+  },
+  "BEL": {
+   "podstawa": "wartosc",
+   "rok_wyceny": 1975,
+   "aktualizacja": "dochód katastralny ustalony wg wartości czynszowych z 1.01.1975, indeksowany co roku; bez nowej wyceny ogólnej od 1975",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "notaire.be – Le revenu cadastral",
+    "url": "https://www.notaire.be/immobilier/aspects-fiscaux-de-lachat-la-vente-dun-bien/le-revenu-cadastral"
+   }
+  },
+  "BGR": {
+   "podstawa": "mieszany",
+   "rok_wyceny": null,
+   "aktualizacja": "ocena podatkowa wg wzoru ustawowego (powierzchnia × wartość bazowa za m² × współczynniki, zał. 2 do ustawy o podatkach lokalnych); propozycja aktualizacji co 2 lata odrzucona przez parlament w grudniu 2023; rok ustalenia obecnych wartości bazowych niepotwierdzony",
+   "pewnosc": "niska",
+   "zrodlo": {
+    "nazwa": "BTA – MPs Reject Update of Property Tax Assessed Value (12.12.2023)",
+    "url": "https://bta.bg/en/news/585943-mps-reject-update-of-property-tax-assessed-value"
+   }
+  },
+  "HRV": {
+   "podstawa": "powierzchnia",
+   "rok_wyceny": null,
+   "aktualizacja": "od 1.01.2025 podatek od nieruchomości (zastąpił podatek od domów letniskowych): 0,60–8,00 EUR/m² wg uchwały gminy; nieruchomości służące stałemu zamieszkaniu zwolnione",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Vlada RH – Porezna reforma 2025",
+    "url": "https://vlada.gov.hr/UserDocsImages/2016/Sjednice/2024/Prosinac/47_sjednica_VRH/Porezna_reforma_2025.pdf"
+   }
+  },
+  "CYP": {
+   "podstawa": "brak",
+   "rok_wyceny": null,
+   "aktualizacja": "państwowy podatek od nieruchomości zniesiony od 1.01.2017 (wcześniej liczony od wartości z 1.01.1980); ewentualne opłaty gminne niezweryfikowane",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Mondaq – Cyprus Tax Facts & Figures 2023: Immovable Property Tax",
+    "url": "https://mondaq.com/cyprus/property-taxes/1342724/tax-facts-figures-2023-immovable-property-tax"
+   }
+  },
+  "CZE": {
+   "podstawa": "powierzchnia",
+   "rok_wyceny": null,
+   "aktualizacja": "stawka za m² powierzchni zabudowanej (budynki) lub skorygowanej powierzchni podłogowej (lokale) × współczynniki gminne; stawki waloryzowane współczynnikiem inflacyjnym",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Zákon č. 338/1992 Sb. o dani z nemovitých věcí (§ 10, § 12ab)",
+    "url": "https://www.zakonyprolidi.cz/cs/1992-338"
+   }
+  },
+  "DNK": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "2024 (indeksowana wycena z 1.01.2022)",
+   "aktualizacja": "podatek 2024 od wyceny 2022; podatek 2025–2026 od wyceny 2024, będącej techniczną projekcją wyceny 2022 wg dynamiki cen; wyceny co 2 lata; ustawa L 3 (2026) przedłuża wyceny indeksowe na 2026 i 2027",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "BDO Danmark – To ejendomsvurderinger, men kun én klagemulighed",
+    "url": "https://www.bdo.dk/da-dk/faglig-info/depechen/depechen-artikler-2025/to-ejendomsvurderinger,-men-kun-en-klagemulighed"
+   }
+  },
+  "EST": {
+   "podstawa": "wartosc",
+   "rok_wyceny": 2022,
+   "aktualizacja": "opodatkowany tylko grunt (budynki nie), od wartości z ogólnokrajowej wyceny masowej 2022, stosowanej od 2024; gminy ustalają limit rocznego wzrostu podatku; częstotliwość kolejnych wycen niepotwierdzona w źródle",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "ERR News – Land tax to go up for many in 2026",
+    "url": "https://news.err.ee/1609890121/land-tax-to-go-up-for-many-in-2026"
+   }
+  },
+  "FIN": {
+   "podstawa": "wartosc",
+   "rok_wyceny": 2025,
+   "aktualizacja": "wartość podatkowa ustalana co roku; podatek 2026 od wartości z 2025; wartości odtworzeniowe budynków indeksowane kosztami budowy, regionalne ceny gruntów w 2025 bez zmian",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Verohallinto – Ennakkotietoa kiinteistöverotuksesta 2026",
+    "url": "https://vero.fi/tietoa-verohallinnosta/tilastot/kiinteistoverotilastoj/ennakkotietoa-kiinteistoverotuksesta-2026/"
+   }
+  },
+  "FRA": {
+   "podstawa": "wartosc",
+   "rok_wyceny": 1970,
+   "aktualizacja": "wartości czynszowe katastralne wg 1.01.1970, waloryzowane corocznie współczynnikiem ustawowym; rewizja dla lokali mieszkalnych przesunięta, nowe wartości od 1.01.2031",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "collectivites-locales.gouv.fr – Réforme des valeurs locatives",
+    "url": "https://www.collectivites-locales.gouv.fr/index.php/gerer-les-finances-publiques-locales/fiscalite-locale/fiscalite-directe-locale/reforme-des-valeurs-locatives"
+   }
+  },
+  "DEU": {
+   "podstawa": "mieszany",
+   "rok_wyceny": "2022 (dzień odniesienia)",
+   "aktualizacja": "nowe wartości wg stanu na 1.01.2022 stosowane od 2025; wycena główna co 7 lat (§ 221 BewG), następna wg stanu na 1.01.2029; model federalny oparty na wartości, Bawaria – model powierzchniowy, Hamburg, Hesja, Dolna Saksonia – powierzchnia z czynnikiem lokalizacji, Badenia-Wirtembergia – wartość gruntu",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Bewertungsgesetz § 221 (gesetze-im-internet.de)",
+    "url": "https://www.gesetze-im-internet.de/bewg/__221.html"
+   }
+  },
+  "GRC": {
+   "podstawa": "mieszany",
+   "rok_wyceny": 2021,
+   "aktualizacja": "ENFIA: powierzchnia × stawka zależna od ceny strefowej (wartości obiektywne) × współczynniki; ceny strefowe zrewidowane w 2021, obowiązują od 1.01.2022; kolejna rewizja zapowiadana na 2027 (doniesienia prasowe)",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "Athens News (rua.gr), 27.09.2026 – objective values",
+    "url": "https://en.rua.gr/2026/09/27/real-estate-in-greece-where-objective-values-will-increase-and-what-taxes-will-follow/"
+   }
+  },
+  "HUN": {
+   "podstawa": "mieszany",
+   "rok_wyceny": null,
+   "aktualizacja": "podatek od budynków fakultatywny dla gmin; podstawa wg wyboru gminy: powierzchnia użytkowa w m² albo skorygowana wartość rynkowa",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "1990. évi C. törvény a helyi adókról, § 15 (njt.jog.gov.hu)",
+    "url": "https://njt.jog.gov.hu/jogszabaly/1990-100-00-00"
+   }
+  },
+  "IRL": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "2025 (1 listopada)",
+   "aktualizacja": "samoocena w przedziałach wartości; wartość wg stanu na 1.11.2025 obowiązuje dla lat 2026–2030",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Revenue – Local Property Tax: valuing your property",
+    "url": "https://www.revenue.ie/en/property/local-property-tax/what-to-do/valuing-your-property.aspx"
+   }
+  },
+  "ITA": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "1988–1989",
+   "aktualizacja": "renta katastralna z taryf ustalonych na podstawie wartości z lat 1988–1989 (rewizja ogólna z 1990)",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "D.M. 20.01.1990 – Revisione generale degli estimi del catasto edilizio urbano",
+    "url": "https://www.geototus.altervista.org/normativa/1990/Decreto-art1-20-01-1990.pdf"
+   }
+  },
+  "LVA": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "2012–2013 (dane rynkowe)",
+   "aktualizacja": "podatek od „fiskalnej” wartości katastralnej opartej na danych rynkowych z lat 2012–2013; od 2025 równolegle ustalana „uniwersalna” wartość (transakcje do 1.07.2022), niestosowana do podatku",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "PwC Worldwide Tax Summaries – Latvia, Other taxes",
+    "url": "https://taxsummaries.pwc.com/latvia/corporate/other-taxes"
+   }
+  },
+  "LTU": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "2025 (wycena masowa, stosowana od 2026)",
+   "aktualizacja": "nowa wycena masowa Centrum Rejestrów obowiązuje od 1.01.2026 (poprzednia z 2021); nowa ustawa przewiduje aktualizację co 3 lata zamiast co 5",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "LRT – Lithuania revises real estate tax values after five-year boom (1.10.2025)",
+    "url": "https://lrt.lt/en/news-in-english/19/2698422/lithuania-revises-real-estate-tax-values-after-five-year-boom"
+   }
+  },
+  "LUX": {
+   "podstawa": "wartosc",
+   "rok_wyceny": 1941,
+   "aktualizacja": "wartości jednostkowe wg czynszów z 1.01.1941, przeliczane wskaźnikiem; reforma (projekt ustawy 8082A) w toku legislacyjnym",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Guichet.lu – Impôt foncier",
+    "url": "https://guichet.public.lu/fr/citoyens/fiscalite/immobilier/impots-taxes-plus-value/impot-foncier.html"
+   }
+  },
+  "MLT": {
+   "podstawa": "brak",
+   "rok_wyceny": null,
+   "aktualizacja": "brak cyklicznego podatku od nieruchomości mieszkalnych (dane Komisji Europejskiej za 2019)",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "Komisja Europejska, Discussion Paper 156 (2022), tabela 3.1",
+    "url": "https://economy-finance.ec.europa.eu/document/download/5a135889-dd26-479f-89c9-eb740b2656b9_en?filename=dp156_en.pdf"
+   }
+  },
+  "NLD": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "2025 (1 stycznia)",
+   "aktualizacja": "wartość WOZ ustalana co roku przez gminę; data wyceny to 1 stycznia roku poprzedzającego rok podatkowy",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Gemeente Den Haag – Property value and appraisal report",
+    "url": "https://denhaag.nl/en/taxes/property-value-and-appraisal-report"
+   }
+  },
+  "POL": {
+   "podstawa": "powierzchnia",
+   "rok_wyceny": null,
+   "aktualizacja": "stawka kwotowa za m² powierzchni użytkowej budynku, ustalana przez radę gminy w granicach stawki maksymalnej",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Ustawa o podatkach i opłatach lokalnych, t.j. Dz.U. 2025 poz. 707, art. 4",
+    "url": "https://api.sejm.gov.pl/eli/acts/DU/2025/707/text.pdf"
+   }
+  },
+  "PRT": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "2012 (ocena ogólna) lub rok późniejszej wyceny",
+   "aktualizacja": "wartość podatkowa (VPT) z wyceny indywidualnej lub oceny ogólnej 2012; aktualizacja co 3 lata współczynnikiem, dla mieszkań 75% współczynnika deprecjacji waluty (art. 138 CIMI)",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "Portal das Finanças – CIMI art. 138.º",
+    "url": "https://info.portaldasfinancas.gov.pt/pt/informacao_fiscal/codigos_tributarios/cimi/Pages/cimi138.aspx"
+   }
+  },
+  "ROU": {
+   "podstawa": "powierzchnia",
+   "rok_wyceny": null,
+   "aktualizacja": "wartość podlegająca opodatkowaniu = powierzchnia × wartość normatywna lei/m² z Kodeksu podatkowego × współczynnik strefy; wartości na 2026 podwyższone ustawą 239/2025",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "Primăria Buzău – formula de calcul 2026 (art. 457 Cod fiscal)",
+    "url": "https://primariabuzau.ro/wp-content/uploads/2026/01/FORMULA-de-calcul-a-impozitului-pentru-2026-la-cladiri-rezidentiale-din-proprietatea-persoanelor-fizice.pdf"
+   }
+  },
+  "SVK": {
+   "podstawa": "powierzchnia",
+   "rok_wyceny": null,
+   "aktualizacja": "budynki: powierzchnia zabudowy w m²; lokale: powierzchnia podłogowa w m²; stawki ustala gmina",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Zákon č. 582/2004 Z. z. (§ 11, § 15) – Slov-Lex",
+    "url": "https://static.slov-lex.sk/static/SK/ZZ/2004/582/vyhlasene_znenie.html"
+   }
+  },
+  "SVN": {
+   "podstawa": "powierzchnia",
+   "rok_wyceny": null,
+   "aktualizacja": "opłata za użytkowanie gruntu budowlanego (NUSZ) od powierzchni mieszkalnej, punkty i wartość punktu ustala gmina",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "FURS – Zakon o stavbnih zemljiščih (ZSZ-84), tekst ujednolicony",
+    "url": "https://www.fu.gov.si/fileadmin/Internet/Davki_in_druge_dajatve/Podrocja/Nadomestilo_za_uporabo_stavbnega_zemljisca/Zakonodaja/ZSZ-84_NPB.pdf"
+   }
+  },
+  "ESP": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "różny – rok wejścia w życie ponencji gminy",
+   "aktualizacja": "wartość katastralna z gminnej ponencji wartości; nowa ponencja ogólna możliwa po 5 latach i wymagana po 10 latach od poprzedniej (art. 28 TRLCI); w okresie pośrednim współczynniki z ustawy budżetowej (art. 32 TRLCI)",
+   "pewnosc": "srednia",
+   "zrodlo": {
+    "nazwa": "BOE – Real Decreto Legislativo 1/2004 (Ley del Catastro Inmobiliario)",
+    "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-4163"
+   }
+  },
+  "SWE": {
+   "podstawa": "wartosc",
+   "rok_wyceny": "2022 (poziom cen)",
+   "aktualizacja": "wartość taksacyjna z uproszczonej taksacji domów 2024 (poziom cen 2022, 75% wartości rynkowej); opłata 0,75% z limitem kwotowym; następna ogólna taksacja domów 2027 (poziom cen 2025)",
+   "pewnosc": "wysoka",
+   "zrodlo": {
+    "nazwa": "Skatteverket – Har ditt taxeringsvärde förändrats?",
+    "url": "https://www.skatteverket.se/privat/fastigheterochbostad/fastighetstaxering/taxeringsvardesmahus/harditttaxeringsvardeforandrats.4.76a43be412206334b89800042837.html"
+   }
+  }
+ }
+}

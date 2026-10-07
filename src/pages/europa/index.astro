@@ -1,7 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import MapaEuropy from '../../components/MapaEuropy.astro';
-import { stats } from '../../lib/europa';
+import { stats, dane, PODSTAWA } from '../../lib/europa';
+import rw from '../../data/rok-wyceny.json';
+// Rok wartości, od których liczy się podatek dziś (państwa UE z podstawą od wartości albo mieszaną, wg klasyfikacji mapy).
+const rok = (r: unknown) => (String(r ?? '').match(/\d{4}/) ?? ['9999'])[0];
+const wiersze = Object.entries(rw.kraje)
+  .filter(([iso]) => ['wartosc', 'mieszany'].includes(PODSTAWA[iso]?.podstawa ?? ''))
+  .map(([iso, r]) => ({ iso, n: dane[iso]?.n ?? iso, ...r }))
+  .sort((a, b) => rok(a.rok_wyceny).localeCompare(rok(b.rok_wyceny)));
 ---
 <Base okruszek="Europa" title="Podatek katastralny w Europie: porównanie państw (OECD)"
   description="Ile państwa Europy pobierają z podatków od nieruchomości i czy liczą je od wartości, czy od powierzchni. Ranking według OECD z podstawą podatku w każdym państwie."
@@ -9,4 +16,32 @@ import { stats } from '../../lib/europa';
     description: 'Wpływy z cyklicznych podatków od nieruchomości jako odsetek PKB (OECD, kategoria 4100) oraz podstawa podatku (wartość albo powierzchnia) w państwach Europy.',
     creator: { '@type': 'Organization', name: 'podatek-katastralny.pl' }, isBasedOn: stats.url, dateModified: stats.fetched, inLanguage: 'pl' }]}>
   <MapaEuropy />
+  <section class="section" aria-labelledby="rw-h">
+    <div class="wrap">
+      <h2 id="rw-h">„Od wartości” nie znaczy „od dzisiejszej wartości”</h2>
+      <p class="lead">Część państw liczy podatek od wartości ustalonych dziesiątki lat temu i tylko je indeksuje. Rok, z którego
+        pochodzą wartości użyte w podatku na 2026 r., w państwach UE z podatkiem od wartości albo mieszanym.</p>
+      <div class="tw"><table class="rw">
+        <thead><tr><th scope="col">Państwo</th><th scope="col">Wartości z</th><th scope="col">Jak się zmieniają</th></tr></thead>
+        <tbody>{wiersze.map((w) => <tr>
+          <th scope="row">{w.n}</th>
+          <td class="rw__r">{w.rok_wyceny ?? '—'}</td>
+          <td>{w.aktualizacja}{w.pewnosc === 'niska' && <em> (niepewne: źródła niepełne)</em>} <a class="rw__z" href={w.zrodlo.url}>źródło</a></td>
+        </tr>)}</tbody>
+      </table></div>
+      <p class="src">Opracowanie podatek-katastralny.pl na podstawie źródeł krajowych i unijnych, sprawdzone {rw.zweryfikowano.split('-').reverse().join('.')}. Państwa z podatkiem od powierzchni (jak Polska) i bez podatku pominięte.</p>
+    </div>
+  </section>
 </Base>
+
+<style>
+  .tw { overflow-x: auto; margin-top: 24px; }
+  .rw { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  .rw th, .rw td { text-align: left; vertical-align: top; padding: 10px 16px 10px 0; border-top: 1px solid var(--line); }
+  .rw thead th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border-top: 0; }
+  .rw__r { font-weight: 650; width: 13rem; font-variant-numeric: tabular-nums; }
+  .rw th[scope=row] { width: 9rem; }
+  .rw td { color: var(--ink-2); }
+  .rw em { color: var(--ink-3); }
+  .rw__z { font-size: 0.85rem; white-space: nowrap; }
+</style>

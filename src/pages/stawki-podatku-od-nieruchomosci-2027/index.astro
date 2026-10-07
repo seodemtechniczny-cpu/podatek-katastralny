@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import obecny from '../../data/pl/obecny-podatek.json';
+import { miasta } from '../../lib/gminy';
 const base = import.meta.env.BASE_URL;
 const s26 = obecny.stawki_maksymalne.find((s) => s.rok === 2026)!;
 const s27 = obecny.stawki_maksymalne.find((s) => s.rok === 2027)!;
@@ -72,6 +73,8 @@ const m = s27.budynki_mieszkalne;
       </ul>
 
       <h2>Jak sprawdzić stawkę swojej gminy</h2>
+      <p>Stawki 20 największych miast z numerami uchwał zebraliśmy na stronie <a href={`${base}gmina/`}>podatek od nieruchomości w miastach</a>
+        (np. {miasta.slice(0, 6).map((m, i) => <>{i > 0 && ', '}<a href={`${base}gmina/${m.slug}/`}>{m.nazwa}</a></>)}).</p>
       <p>Szukaj uchwały rady gminy „w sprawie określenia wysokości stawek podatku od nieruchomości” na 2027 r. Uchwałę
         publikuje Biuletyn Informacji Publicznej gminy i wojewódzki dziennik urzędowy. Stawkę znajdziesz też w decyzji
         podatkowej, którą gmina wysyła na początku roku.</p>

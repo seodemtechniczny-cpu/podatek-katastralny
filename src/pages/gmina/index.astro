@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { miasta, zrodla, max27, max26, zl } from '../../lib/gminy';
+const base = import.meta.env.BASE_URL;
+const lista = [...miasta].sort((a, b) => a.nazwa.localeCompare(b.nazwa, 'pl'));
+const nizsze = miasta.filter((m) => m.stawki_2026.budynki_mieszkalne < max26.budynki_mieszkalne).length;
+---
+<Base okruszek="Miasta" title="Podatek od nieruchomości w 20 największych miastach: stawki 2026 i 2027"
+  description={`Stawki podatku od mieszkań w 20 największych miastach Polski na 2026 r. z numerami uchwał. ${nizsze} z nich ma stawkę niższą od maksymalnej. Stawki na 2027 r. w miarę publikacji uchwał.`}>
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / Miasta</p>
+      <h1>Podatek od nieruchomości w 20 największych miastach</h1>
+      <p class="lead">Stawka za m² mieszkania w 2026 r. W {20 - nizsze} miastach to maksimum ({zl(max26.budynki_mieszkalne)} zł), w {nizsze} mniej.
+        Na 2027 r. maksimum wynosi {zl(max27.budynki_mieszkalne)} zł; stawki miast dopisujemy, gdy rady opublikują uchwały.</p>
+      <table>
+        <thead><tr><th scope="col">Miasto</th><th scope="col">2026</th><th scope="col">2027</th><th scope="col">Mieszkanie 50 m², 2026</th></tr></thead>
+        <tbody>{lista.map((m) => <tr>
+          <th scope="row"><a href={`${base}gmina/${m.slug}/`}>{m.nazwa}</a></th>
+          <td>{zl(m.stawki_2026.budynki_mieszkalne)} zł</td>
+          <td>{m.stawki_2027 ? `${zl(m.stawki_2027.budynki_mieszkalne)} zł` : '—'}</td>
+          <td>{zl(50 * m.stawki_2026.budynki_mieszkalne)} zł</td>
+        </tr>)}</tbody>
+      </table>
+      <p class="src">Źródło: <a href={zrodla.stawki.url}>{zrodla.stawki.nazwa}</a>; każdą uchwałę sprawdziliśmy w dzienniku urzędowym województwa. „—” = brak opublikowanej uchwały na 2027 r.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 860px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 24px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 10px 14px 10px 0; border-top: 1px solid var(--line); }
+  thead th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border-top: 0; }
+  td { white-space: nowrap; }
+</style>

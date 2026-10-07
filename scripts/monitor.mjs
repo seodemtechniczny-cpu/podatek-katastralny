@@ -119,6 +119,36 @@ for (const rok of [new Date().getFullYear() - 1, new Date().getFullYear()]) {
   }
 }
 
+// 4. Uchwały rad 20 miast o stawkach na kolejny rok (dzienniki wojewódzkie, ELI). Dwa razy w tygodniu:
+//    lista aktów województwa to kilka MB, nie pobieramy jej codziennie. Stawkę z uchwały przepisuje redakcja.
+const gminy = JSON.parse(readFileSync('src/data/pl/gminy.json', 'utf8'));
+if ([1, 4].includes(new Date().getDay()) || process.argv.includes('--uchwaly')) {
+  stan.uchwaly ??= [];
+  const rok = +(process.argv.find((a) => a.startsWith("--rok="))?.slice(6) ?? new Date().getFullYear());
+  const dzienniki = new Map();
+  for (const m of Object.values(gminy.miasta)) {
+    const [, host, kod] = m.uchwala_2026.url.match(/^(https:\/\/[^/]+)\/(WDU_\w)\//);
+    dzienniki.set(`${host}|${kod}`, [...(dzienniki.get(`${host}|${kod}`) ?? []), m]);
+  }
+  for (const [klucz, lista] of dzienniki) {
+    const [host, kod] = klucz.split('|');
+    let akty;
+    // Część dzienników zwraca klucze wielką literą (Items, Title, Pos): ujednolicamy.
+    const male = (o) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k[0].toLowerCase() + k.slice(1), v]));
+    try { const j = await get(`${host}/api/eli/acts/${kod}/${rok}`); akty = (j.items ?? j.Items ?? []).map(male); }
+    catch (e) { console.log(`::warning title=Dziennik ${kod} niedostępny::${e.message}`); continue; }
+    for (const a of akty) {
+      if (stan.uchwaly.includes(a.eli) || !/^Uchwała/.test(a.title) || /Kolegium|Izby/.test(a.title) || !/stawek\s+(w\s+)?podatku\s+od\s+nieruchomo/i.test(a.title)) continue;
+      const m = lista.find((x) => new RegExp(`Rady (Miasta (Stołecznego )?|Miejskiej (we? )?|m\\. ?st\\. ?)(${x.rdzen})`, "i").test(a.title));
+      if (!m) continue;
+      stan.uchwaly.push(a.eli);
+      nowe.push({ data: (a.promulgation ?? '').slice(0, 10), typ: 'uchwała', kto: m.nazwa, tytul: a.title,
+        opis: `Sprawdź, czy dotyczy ${rok + 1} r., i przepisz stawkę dla budynków mieszkalnych do src/data/pl/gminy.json (${Object.keys(gminy.miasta).find((k) => gminy.miasta[k] === m)}: stawki_${rok + 1}, uchwala_${rok + 1}).`,
+        url: `${host}/${kod}/${rok}/${a.pos}/akt.pdf` });
+    }
+  }
+}
+
 if (bazowy) nowe.length = 0;
 stan.sprawdzono = new Date().toISOString();
 writeFileSync(PLIK, JSON.stringify(stan, null, 1) + '\n');

@@ -1,0 +1,92 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { miasta, zrodla, max27, prog, zl, data, type Miasto } from '../../../lib/gminy';
+import projekt from '../../../data/pl/projekt-2848.json';
+
+export function getStaticPaths() {
+  return miasta.map((m) => ({ params: { miasto: m.slug }, props: { m } }));
+}
+const { m } = Astro.props as { m: Miasto };
+const base = import.meta.env.BASE_URL;
+const s26 = m.stawki_2026.budynki_mieszkalne;
+const s27 = m.stawki_2027?.budynki_mieszkalne ?? null;
+const A = 50; // przykładowe mieszkanie
+const wartosc = A * m.cena_m2_mediana_2024;
+const dzis = A * s26;
+const pierwsze = Math.min(wartosc * 0.0002, dzis);
+const trzecie = wartosc * prog[0] / 100;
+const inne = miasta.filter((x) => x.slug !== m.slug).sort((a, b) => a.nazwa.localeCompare(b.nazwa, 'pl'));
+---
+<Base okruszek={`Podatek od nieruchomości: ${m.nazwa}`}
+  title={`Podatek od nieruchomości ${m.nazwa} 2026 i 2027: stawki, uchwała, ile zapłacisz`}
+  description={`Stawka podatku od mieszkań w ${m.miejscownik}: ${zl(s26)} zł/m² w 2026 r. (uchwała ${m.uchwala_2026.nr}). Maksimum na 2027 r.: ${zl(max27.budynki_mieszkalne)} zł/m². Ile zapłacisz dziś i według projektu podatku od wartości.`}>
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / <a href={`${base}gmina/`}>Miasta</a> / {m.nazwa}</p>
+      <h1>Podatek od nieruchomości w {m.miejscownik}</h1>
+      <p class="lead">W 2026 r. właściciel mieszkania w {m.miejscownik} płaci <strong>{zl(s26)} zł za m²</strong> powierzchni użytkowej rocznie.
+        {s26 < 1.25 ? ` To mniej niż maksymalne ${zl(1.25)} zł, na które pozwala ustawa.` : ' To stawka maksymalna na 2026 r.'}
+        {s27 === null ? ` Stawki na 2027 r. rada miasta jeszcze nie opublikowała; ustawa pozwala na najwyżej ${zl(max27.budynki_mieszkalne)} zł.` : ` Na 2027 r. rada miasta uchwaliła ${zl(s27)} zł.`}</p>
+
+      <div class="kpi">
+        <p><b>{zl(s26)} zł</b><span>za m² mieszkania w 2026 r.</span></p>
+        <p><b>{s27 === null ? 'czeka na uchwałę' : `${zl(s27)} zł`}</b><span>za m² w 2027 r. (maks. {zl(max27.budynki_mieszkalne)} zł)</span></p>
+        <p><b>{zl(dzis)} zł</b><span>rocznie za mieszkanie {A} m² w 2026 r.</span></p>
+      </div>
+
+      <h2>Stawki w {m.miejscownik}</h2>
+      <table>
+        <thead><tr><th scope="col">Przedmiot</th><th scope="col">2026</th><th scope="col">2027</th></tr></thead>
+        <tbody>
+          {([['budynki_mieszkalne', 'Budynki mieszkalne (mieszkania, domy)'], ['grunty_pozostale', 'Grunty pozostałe (np. pod domem)'], ['budynki_dzialalnosc', 'Budynki związane z działalnością gospodarczą']] as const).map(([k, n]) =>
+            <tr><th scope="row">{n}</th><td>{zl(m.stawki_2026[k])} zł/m²</td><td>{m.stawki_2027 ? `${zl(m.stawki_2027[k])} zł/m²` : '—'}</td></tr>)}
+        </tbody>
+      </table>
+      {m.stawki_2026.zroznicowane && <p class="note">Rada miasta zróżnicowała część stawek na 2026 r. (np. dla wybranych rodzajów działalności). Szczegóły w uchwale.</p>}
+      <p class="src">2026: uchwała nr {m.uchwala_2026.nr} z {data(m.uchwala_2026.data)}, <a href={m.uchwala_2026.url}>{m.uchwala_2026.dziennik}</a>.{' '}
+        {m.uchwala_2027 ? <>2027: uchwała nr {m.uchwala_2027.nr} z {data(m.uchwala_2027.data)}, <a href={m.uchwala_2027.url}>{m.uchwala_2027.dziennik}</a>.</> : '2027: uchwała jeszcze nieopublikowana; sprawdzamy dziennik urzędowy dwa razy w tygodniu.'}{' '}
+        Stawki sprawdzone z treścią uchwał {m.uchwala_2026.sprawdzono.split('-').reverse().join('.')}.</p>
+
+      <h2>Ile zapłacisz za mieszkanie</h2>
+      <ul>{[35, 50, 70, 100].map((a) => <li>{a} m² × {zl(s26)} zł = <b>{zl(a * s26)} zł</b> rocznie</li>)}</ul>
+      <p>Do tego dochodzi podatek od udziału w gruncie. Podatek płacisz w ratach do 15 marca, 15 maja, 15 września i 15 listopada,
+        a gdy nie przekracza 100 zł, jednorazowo do 15 marca. <a href={`${base}stawki-podatku-od-nieruchomosci-2027/`}>Zasady i stawki maksymalne</a>.</p>
+
+      <h2>A według projektu podatku od wartości?</h2>
+      <p>Poselski projekt (druk nr {projekt.druk}, etap: {projekt.etap_krotko}) liczyłby podatek od wartości: powierzchnia × średnia
+        cena transakcyjna m² w gminie. Przybliżenie dla mieszkania {A} m² w {m.miejscownik} według mediany ceny z transakcji w 2024 r.
+        ({zl(m.cena_m2_mediana_2024, 0)} zł/m², GUS), czyli wartości ok. {zl(wartosc, 0)} zł:</p>
+      <ul>
+        <li>1. lub 2. mieszkanie: 0,02% wartości = {zl(wartosc * 0.0002)} zł, ale nie więcej niż dziś, więc <b>{zl(pierwsze)} zł</b> (art. 8 projektu).</li>
+        <li>3. i kolejne: {zl(prog[0], 1)}% wartości = <b>{zl(trzecie, 0)} zł</b> w pierwszym roku, do {zl(prog.at(-1)!, 1)}% = {zl(wartosc * prog.at(-1)! / 100, 0)} zł.</li>
+      </ul>
+      <p class="note">To przybliżenie. Projekt bierze cenę z Portalu Danych o Obrocie Mieszkaniami (ruszy 2 kwietnia 2027 r.), a bez niej
+        wskaźnik kosztu odtworzenia ogłaszany przez wojewodę. Rada miasta mogłaby też mnożyć podstawę przez współczynnik od 0,2 do 2 (art. 5b).
+        Policz własne mieszkania w <a href={`${base}kalkulator/`}>kalkulatorze</a>.</p>
+
+      <h2>Inne miasta</h2>
+      <ul class="miasta">{inne.map((x) => <li><a href={`${base}gmina/${x.slug}/`}>{x.nazwa}</a> <span>{zl(x.stawki_2026.budynki_mieszkalne)} zł</span></li>)}</ul>
+
+      <p class="src">Źródła: <a href={zrodla.stawki.url}>{zrodla.stawki.nazwa}</a> · <a href={zrodla.ceny.url}>{zrodla.ceny.nazwa}</a> · uchwała w dzienniku urzędowym (link wyżej).</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 860px; }
+  .prose h2 { margin-top: 1.6em; font-size: 1.5rem; }
+  .prose li { margin-bottom: 6px; }
+  .kpi { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 28px 0 8px; }
+  .kpi p { margin: 0; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; display: grid; gap: 4px; }
+  .kpi b { font: 600 1.6rem/1.15 var(--display); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+  .kpi span { font-size: 0.86rem; color: var(--ink-3); }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 10px 14px 10px 0; border-top: 1px solid var(--line); }
+  th { font-weight: 550; }
+  thead th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); border-top: 0; font-weight: 600; }
+  td { white-space: nowrap; font-weight: 650; }
+  .note { font-size: 0.9rem; color: var(--ink-3); }
+  .miasta { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 4px 20px; }
+  .miasta li { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding: 7px 0; margin: 0; }
+  .miasta span { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+</style>

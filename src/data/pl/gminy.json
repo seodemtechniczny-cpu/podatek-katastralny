@@ -1,0 +1,486 @@
+{
+ "zrodla": {
+  "stawki": {
+   "nazwa": "Ministerstwo Finansów, sprawozdania SP-1 za 2026 r. (dane.gov.pl, zbiór 2049, CC0)",
+   "url": "https://dane.gov.pl/pl/dataset/2049",
+   "zweryfikowano": "2026-10-07"
+  },
+  "ceny": {
+   "nazwa": "GUS, Bank Danych Lokalnych: mediana ceny 1 m² lokali mieszkalnych sprzedanych w transakcjach rynkowych, 2024 (P3787)",
+   "url": "https://bdl.stat.gov.pl/bdl/dane/podgrup/temat",
+   "zweryfikowano": "2026-10-07"
+  }
+ },
+ "miasta": {
+  "warszawa": {
+   "nazwa": "Warszawa",
+   "miejscownik": "Warszawie",
+   "wojewodztwo": "mazowieckie",
+   "teryt": "1465000",
+   "rdzen": "Warszaw",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XXIX/1066/2025",
+    "data": "2025-11-20",
+    "dziennik": "Dz. Urz. Woj. Mazowieckiego z 2025 r. poz. 9838",
+    "url": "https://edziennik.mazowieckie.pl/WDU_W/2025/9838/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 15402
+  },
+  "krakow": {
+   "nazwa": "Kraków",
+   "miejscownik": "Krakowie",
+   "wojewodztwo": "małopolskie",
+   "teryt": "1261000",
+   "rdzen": "Krak",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": true
+   },
+   "uchwala_2026": {
+    "nr": "XXXIX/810/25",
+    "data": "2025-10-29",
+    "dziennik": "Dz. Urz. Woj. Małopolskiego z 2025 r. poz. 6495",
+    "url": "https://edziennik.malopolska.uw.gov.pl/WDU_K/2025/6495/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 13472
+  },
+  "wroclaw": {
+   "nazwa": "Wrocław",
+   "miejscownik": "Wrocławiu",
+   "wojewodztwo": "dolnośląskie",
+   "teryt": "0264000",
+   "rdzen": "Wrocław",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XXV/500/25",
+    "data": "2025-11-20",
+    "dziennik": "Dz. Urz. Woj. Dolnośląskiego z 2025 r. poz. 4981",
+    "url": "https://edzienniki.duw.pl/WDU_D/2025/4981/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 11865
+  },
+  "lodz": {
+   "nazwa": "Łódź",
+   "miejscownik": "Łodzi",
+   "wojewodztwo": "łódzkie",
+   "teryt": "1061000",
+   "rdzen": "Łodzi|Łódź|Łodz",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XXII/608/25",
+    "data": "2025-10-22",
+    "dziennik": "Dz. Urz. Woj. Łódzkiego z 2025 r. poz. 10109",
+    "url": "https://dziennik.lodzkie.eu/WDU_E/2025/10109/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 8276
+  },
+  "poznan": {
+   "nazwa": "Poznań",
+   "miejscownik": "Poznaniu",
+   "wojewodztwo": "wielkopolskie",
+   "teryt": "3064000",
+   "rdzen": "Pozna",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": true
+   },
+   "uchwala_2026": {
+    "nr": "XXV/465/IX/2025",
+    "data": "2025-10-14",
+    "dziennik": "Dz. Urz. Woj. Wielkopolskiego z 2025 r. poz. 7465",
+    "url": "https://edziennik.poznan.uw.gov.pl/WDU_P/2025/7465/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 10289
+  },
+  "gdansk": {
+   "nazwa": "Gdańsk",
+   "miejscownik": "Gdańsku",
+   "wojewodztwo": "pomorskie",
+   "teryt": "2261000",
+   "rdzen": "Gdańsk",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XX/437/25",
+    "data": "2025-10-30",
+    "dziennik": "Dz. Urz. Woj. Pomorskiego z 2025 r. poz. 3966",
+    "url": "https://edziennik.gdansk.uw.gov.pl/WDU_G/2025/3966/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 11418
+  },
+  "szczecin": {
+   "nazwa": "Szczecin",
+   "miejscownik": "Szczecinie",
+   "wojewodztwo": "zachodniopomorskie",
+   "teryt": "3262000",
+   "rdzen": "Szczecin(?!e?k)",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XV/397/25",
+    "data": "2025-10-09",
+    "dziennik": "Dz. Urz. Woj. Zachodniopomorskiego z 2025 r. poz. 4433",
+    "url": "https://e-dziennik.szczecin.uw.gov.pl/WDU_Z/2025/4433/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 8824
+  },
+  "bydgoszcz": {
+   "nazwa": "Bydgoszcz",
+   "miejscownik": "Bydgoszczy",
+   "wojewodztwo": "kujawsko-pomorskie",
+   "teryt": "0461000",
+   "rdzen": "Bydgoszcz",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XXIII/352/2025",
+    "data": "2025-10-29",
+    "dziennik": "Dz. Urz. Woj. Kujawsko-pomorskiego z 2025 r. poz. 5055",
+    "url": "https://edzienniki.bydgoszcz.uw.gov.pl/WDU_C/2025/5055/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 7844
+  },
+  "lublin": {
+   "nazwa": "Lublin",
+   "miejscownik": "Lublinie",
+   "wojewodztwo": "lubelskie",
+   "teryt": "0663000",
+   "rdzen": "Lublin",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "434/XIV/2025",
+    "data": "2025-10-23",
+    "dziennik": "Dz. Urz. Woj. Lubelskiego z 2025 r. poz. 4990",
+    "url": "https://edziennik.lublin.uw.gov.pl/WDU_L/2025/4990/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 9488
+  },
+  "bialystok": {
+   "nazwa": "Białystok",
+   "miejscownik": "Białymstoku",
+   "wojewodztwo": "podlaskie",
+   "teryt": "2061000",
+   "rdzen": "Białyst|Białegostoku|Białymstoku",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XVII/246/25",
+    "data": "2025-09-29",
+    "dziennik": "Dz. Urz. Woj. Podlaskiego z 2025 r. poz. 3991",
+    "url": "https://edziennik.bialystok.uw.gov.pl/WDU_B/2025/3991/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": {
+    "budynki_mieszkalne": 1.29,
+    "grunty_pozostale": 0.8,
+    "budynki_dzialalnosc": 36.49
+   },
+   "uchwala_2027": {
+    "nr": "XXIX/460/26",
+    "data": "2026-09-15",
+    "dziennik": "Dz. Urz. Woj. Podlaskiego z 2026 r. poz. 3645",
+    "url": "https://edziennik.bialystok.uw.gov.pl/WDU_B/2026/3645/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "cena_m2_mediana_2024": 9016
+  },
+  "katowice": {
+   "nazwa": "Katowice",
+   "miejscownik": "Katowicach",
+   "wojewodztwo": "śląskie",
+   "teryt": "2469000",
+   "rdzen": "Katowic",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XXI/357/25",
+    "data": "2025-10-23",
+    "dziennik": "Dz. Urz. Woj. Śląskiego z 2025 r. poz. 5982",
+    "url": "https://dzienniki.slask.eu/WDU_S/2025/5982/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 9426
+  },
+  "gdynia": {
+   "nazwa": "Gdynia",
+   "miejscownik": "Gdyni",
+   "wojewodztwo": "pomorskie",
+   "teryt": "2262000",
+   "rdzen": "Gdyn",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.2,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XXIII/558/25",
+    "data": "2025-10-22",
+    "dziennik": "Dz. Urz. Woj. Pomorskiego z 2025 r. poz. 3709",
+    "url": "https://edziennik.gdansk.uw.gov.pl/WDU_G/2025/3709/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 11000
+  },
+  "czestochowa": {
+   "nazwa": "Częstochowa",
+   "miejscownik": "Częstochowie",
+   "wojewodztwo": "śląskie",
+   "teryt": "2464000",
+   "rdzen": "Częstochow",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": true
+   },
+   "uchwala_2026": {
+    "nr": "259.XXV.2025",
+    "data": "2025-10-23",
+    "dziennik": "Dz. Urz. Woj. Śląskiego z 2025 r. poz. 5975",
+    "url": "https://dzienniki.slask.eu/WDU_S/2025/5975/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 6862
+  },
+  "radom": {
+   "nazwa": "Radom",
+   "miejscownik": "Radomiu",
+   "wojewodztwo": "mazowieckie",
+   "teryt": "1463000",
+   "rdzen": "Radom",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1,
+    "grunty_pozostale": 0.73,
+    "budynki_dzialalnosc": 32.7,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XXXIII/312/2025",
+    "data": "2025-10-27",
+    "dziennik": "Dz. Urz. Woj. Mazowieckiego z 2025 r. poz. 9258",
+    "url": "https://edziennik.mazowieckie.pl/WDU_W/2025/9258/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 7084
+  },
+  "rzeszow": {
+   "nazwa": "Rzeszów",
+   "miejscownik": "Rzeszowie",
+   "wojewodztwo": "podkarpackie",
+   "teryt": "1863000",
+   "rdzen": "Rzesz",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.24,
+    "grunty_pozostale": 0.64,
+    "budynki_dzialalnosc": 35.36,
+    "zroznicowane": true
+   },
+   "uchwala_2026": {
+    "nr": "XXXIV/668/2025",
+    "data": "2025-11-25",
+    "dziennik": "Dz. Urz. Woj. Podkarpackiego z 2025 r. poz. 4697",
+    "url": "https://edziennik.rzeszow.uw.gov.pl/WDU_R/2025/4697/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 8693
+  },
+  "torun": {
+   "nazwa": "Toruń",
+   "miejscownik": "Toruniu",
+   "wojewodztwo": "kujawsko-pomorskie",
+   "teryt": "0463000",
+   "rdzen": "Toru",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "343/25",
+    "data": "2025-11-20",
+    "dziennik": "Dz. Urz. Woj. Kujawsko-pomorskiego z 2025 r. poz. 5398",
+    "url": "https://edzienniki.bydgoszcz.uw.gov.pl/WDU_C/2025/5398/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 8662
+  },
+  "sosnowiec": {
+   "nazwa": "Sosnowiec",
+   "miejscownik": "Sosnowcu",
+   "wojewodztwo": "śląskie",
+   "teryt": "2475000",
+   "rdzen": "Sosnow",
+   "stawki_2026": {
+    "budynki_mieszkalne": 0.75,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "314/XX/2025",
+    "data": "2025-10-30",
+    "dziennik": "Dz. Urz. Woj. Śląskiego z 2025 r. poz. 6496",
+    "url": "https://dzienniki.slask.eu/WDU_S/2025/6496/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 5851
+  },
+  "kielce": {
+   "nazwa": "Kielce",
+   "miejscownik": "Kielcach",
+   "wojewodztwo": "świętokrzyskie",
+   "teryt": "2661000",
+   "rdzen": "Kielc",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.19,
+    "grunty_pozostale": 0.73,
+    "budynki_dzialalnosc": 34,
+    "zroznicowane": true
+   },
+   "uchwala_2026": {
+    "nr": "V/105/2024",
+    "data": "2024-08-29",
+    "dziennik": "Dz. Urz. Woj. Świętokrzyskiego z 2024 r. poz. 3159",
+    "url": "https://edziennik.kielce.uw.gov.pl/WDU_T/2024/3159/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 8589
+  },
+  "gliwice": {
+   "nazwa": "Gliwice",
+   "miejscownik": "Gliwicach",
+   "wojewodztwo": "śląskie",
+   "teryt": "2466000",
+   "rdzen": "Gliwic",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": true
+   },
+   "uchwala_2026": {
+    "nr": "XVIII/298/2025",
+    "data": "2025-10-23",
+    "dziennik": "Dz. Urz. Woj. Śląskiego z 2025 r. poz. 6026",
+    "url": "https://dzienniki.slask.eu/WDU_S/2025/6026/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 6904
+  },
+  "olsztyn": {
+   "nazwa": "Olsztyn",
+   "miejscownik": "Olsztynie",
+   "wojewodztwo": "warmińsko-mazurskie",
+   "teryt": "2862000",
+   "rdzen": "Olsztyn(?!e?k)",
+   "stawki_2026": {
+    "budynki_mieszkalne": 1.25,
+    "grunty_pozostale": 0.77,
+    "budynki_dzialalnosc": 35.53,
+    "zroznicowane": false
+   },
+   "uchwala_2026": {
+    "nr": "XIX/274/25",
+    "data": "2025-10-29",
+    "dziennik": "Dz. Urz. Woj. Warmińsko-mazurskiego z 2025 r. poz. 4079",
+    "url": "https://edzienniki.olsztyn.uw.gov.pl/WDU_N/2025/4079/akt.pdf",
+    "sprawdzono": "2026-10-07"
+   },
+   "stawki_2027": null,
+   "uchwala_2027": null,
+   "cena_m2_mediana_2024": 8571
+  }
+ }
+}

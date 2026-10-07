@@ -15,7 +15,10 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
+      # Dzienniki małopolski i łódzki nie wysyłają certyfikatu pośredniego Certum, dokładamy go z repo.
       - run: node scripts/monitor.mjs
+        env:
+          NODE_EXTRA_CA_CERTS: monitor/certum-dv-tls-g2-r39.pem
       - run: node scripts/newsy.mjs --zglos
       - name: Stan na main, zdarzenia jako PR
         env:

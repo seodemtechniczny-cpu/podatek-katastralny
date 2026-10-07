@@ -12,7 +12,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 const CFG = JSON.parse(readFileSync('src/data/zrodla-newsow.json', 'utf8'));
 const PLIK = 'src/data/newsy.json';
 // Temat wąsko: kataster albo podatek od wartości (nie każdy tekst o podatku od nieruchomości).
-const TEMAT = /katastr|podat\w* od wartości|wartości (nieruchomości|mieszka|lokal)\w* .{0,30}podat|podat\w* od (mieszka|lokal)\w* .{0,40}(wartoś|lewic|2848|projekt)/i;
+const TEMAT = /katastr(?!of)|kataster|podat\w* od wartości|wartości (nieruchomości|mieszka|lokal)\w* .{0,30}podat|podat\w* od (mieszka|lokal)\w* .{0,40}(wartoś|lewic|2848|projekt)/i;
 const NA_ZRODLO = 25; // maks. nowych artykułów sprawdzanych na źródło w jednym przebiegu
 const czekaj = (ms) => new Promise((r) => setTimeout(r, ms));
 

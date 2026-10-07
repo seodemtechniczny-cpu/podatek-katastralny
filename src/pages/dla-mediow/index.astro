@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import { status } from '../../lib/status';
+import { dane, pct, panstwa, PODSTAWA, stats } from '../../lib/europa';
+import { miasta, max27, zl } from '../../lib/gminy';
+import projekt from '../../data/pl/projekt-2848.json';
+const base = import.meta.env.BASE_URL;
+const ranking = panstwa.filter((c) => dane[c.iso].g !== undefined).sort((a, b) => dane[b.iso].g! - dane[a.iso].g!);
+const miejsce = ranking.findIndex((c) => c.iso === 'POL') + 1;
+const ile = (p: string) => Object.values(PODSTAWA).filter((x) => x.podstawa === p).length;
+const nizsze = miasta.filter((m) => m.stawki_2026.budynki_mieszkalne < 1.25).length;
+const liczby: [string, string][] = [
+  [status.obowiazuje ? 'uchwalony' : 'nie obowiązuje', `Podatek katastralny w Polsce. Poselski projekt (druk nr ${status.druk}): ${status.etap}. Stan z ${status.sprawdzono}.`],
+  [pct(dane.POL.g!), `PKB: wpływy z podatków od nieruchomości w Polsce (${dane.POL.y}, OECD). ${miejsce}. miejsce na ${ranking.length} państw Europy z danymi.`],
+  [`${ile('wartosc')} vs ${ile('powierzchnia')}`, `Państwa Europy liczące podatek od wartości vs od powierzchni (jak Polska); ${ile('mieszany')} ma system mieszany.`],
+  [`${zl(max27.budynki_mieszkalne)} zł`, `Maksymalna stawka za m² mieszkania w 2027 r. (M.P. 2026 poz. 741). W ${nizsze} z 20 największych miast stawka na 2026 r. była niższa od maksymalnej.`],
+  [`0,02% / ${projekt.stawki_progresja[0].toLocaleString('pl-PL')}–${projekt.stawki_progresja.at(-1)!.toLocaleString('pl-PL')}%`, 'Stawki z projektu: 1. i 2. mieszkanie / 3. i kolejne (rośnie o 0,2 pkt proc. rocznie).'],
+];
+const pliki = [
+  ['dane/europa.csv', 'Europa: podstawa podatku, wpływy jako % PKB i % podatków (OECD), rok wartości w podatku'],
+  ['dane/stawki-miasta.csv', '20 największych miast: stawki 2026 i 2027, numery i linki uchwał, mediana ceny m² (GUS 2024)'],
+  ['dane/projekt-2848.csv', 'Projekt (druk nr 2848): zasady z przepisami i zmiany między wersjami'],
+  ['dane/os-czasu.csv', 'Oś czasu sprawy od 1994 r. ze źródłami'],
+];
+---
+<Base okruszek="Dla mediów" title="Podatek katastralny: dane dla mediów (CSV, liczby, grafiki)"
+  description="Najważniejsze liczby o podatku katastralnym i podatku od nieruchomości w Polsce i Europie, pliki CSV ze źródłami, grafika i kontakt dla dziennikarzy.">
+  <article class="section">
+    <div class="wrap prose">
+      <p class="eyebrow"><a href={base}>Strona główna</a> / Dla mediów</p>
+      <h1>Dane dla mediów</h1>
+      <p class="lead">Liczby, pliki i grafika do tekstów o podatku katastralnym. Każda liczba ma źródło; dane aktualizujemy automatycznie
+        (stan sprawy codziennie, nagłówki co 3 godziny) i po przeglądzie redakcji.</p>
+
+      <h2>Pięć liczb</h2>
+      <dl class="liczby">{liczby.map(([v, o]) => <div><dt>{v}</dt><dd>{o}</dd></div>)}</dl>
+
+      <h2>Pliki CSV</h2>
+      <p>Format polskiego Excela: separator średnik, przecinek dziesiętny, UTF-8.</p>
+      <ul>{pliki.map(([h, o]) => <li><a href={base + h} download>{h.split('/')[1]}</a>: {o}</li>)}</ul>
+
+      <h2>Grafika</h2>
+      <p><a href={`${base}og.png`}><img src={`${base}og.png`} width="1200" height="630" alt="Mapa Europy: państwa liczące podatek od nieruchomości od wartości i od powierzchni, Polska wyróżniona" loading="lazy" /></a></p>
+      <p>Mapa 1200 × 630 px (PNG). Interaktywna wersja: <a href={base}>strona główna</a>.</p>
+
+      <h2>Jak cytować</h2>
+      <p>Podaj źródło: <strong>podatek-katastralny.pl</strong> (online: link do strony, z której korzystasz). Dane zewnętrzne (OECD, GUS,
+        Ministerstwo Finansów, Sejm) podlegają warunkom swoich źródeł; zestawienie źródeł: <a href={`${base}zrodla/`}>źródła i zasady</a>,
+        metoda: <a href={`${base}metodologia/`}>metodologia</a>.</p>
+
+      <h2>Kontakt</h2>
+      <p><a href="mailto:contact@kiodem.com?subject=podatek-katastralny.pl%3A%20media">contact@kiodem.com</a></p>
+      <p class="src">Wpływy: <a href={stats.url}>{stats.source}</a>, pobrane {stats.fetched}.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .prose { max-width: 860px; }
+  .prose h2 { margin-top: 1.6em; font-size: 1.5rem; }
+  .liczby { margin: 0; }
+  .liczby > div { display: grid; grid-template-columns: 12rem 1fr; gap: 6px 24px; padding: 14px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .liczby dt { font: 600 1.4rem/1.15 var(--display); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+  .liczby dd { margin: 0; color: var(--ink-2); }
+  img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+  @media (max-width: 700px) { .liczby > div { grid-template-columns: 1fr; } }
+</style>

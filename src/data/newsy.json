@@ -1,6 +1,12 @@
 {
- "pobrano": "2026-10-05T22:01:43.745Z",
+ "pobrano": "2026-10-07T13:23:23.597Z",
  "pozycje": [
+  {
+   "tytul": "Kaczyński nie odpuszcza Sikorskiemu. Jest skarga kasacyjna ws. słów na temat katastrofy smoleńskiej",
+   "zrodlo": "Rzeczpospolita",
+   "url": "https://www.rp.pl/dobra-osobiste/art45266301-kaczynski-nie-odpuszcza-sikorskiemu-jest-skarga-kasacyjna-ws-slow-na-temat-katastrofy-smolenskiej",
+   "data": "2026-10-07T12:36:00.000Z"
+  },
   {
    "tytul": "\"Jedna z największych katastrof\" nigeryjskiego wojska. Nie żyją 32 osoby",
    "zrodlo": "Polsat News",
@@ -474,12 +480,6 @@
    "zrodlo": "Fakt",
    "url": "https://www.fakt.pl/pieniadze/wprowadzenie-podatku-katastralnego-i-jego-wplyw-na-rynek-nieruchomosci/d0v9wkb",
    "data": "2025-05-09T03:30:00.000Z"
-  },
-  {
-   "tytul": "To dlatego Nawrocki jest przeciw podatkowi katastralnemu? W tle dwa mieszkania",
-   "zrodlo": "Fakt",
-   "url": "https://www.fakt.pl/polityka/to-dlatego-nawrocki-nie-chce-wprowadzac-podatku-katastralnego-w-tle-dwa-mieszkania/2edf047",
-   "data": "2025-05-06T17:20:00.000Z"
   }
  ],
  "sprawdzone": [
@@ -786,6 +786,19 @@
   "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11324505,wojsko-polskie-zmienia-mundury-po-33-latach-kwota-robi-wrazenie.html",
   "https://forsal.pl/gospodarka/cyfryzacja/artykuly/11324537,ue-chce-zmienic-prawo-autorskie-i-ograniczyc-prawo-darmowego-dozwolon.html",
   "https://forsal.pl/swiat/bezpieczenstwo/artykuly/11324543,nowa-strategia-nato-na-wypadek-ataku-rosji-kluczowy-dokument-zostanie.html",
-  "https://forsal.pl/swiat/rosja/artykuly/11323805,dzuma-w-rosji-wladze-podejmuja-kolejne-dzialania-jest-juz-reakcja-usa.html"
+  "https://forsal.pl/swiat/rosja/artykuly/11323805,dzuma-w-rosji-wladze-podejmuja-kolejne-dzialania-jest-juz-reakcja-usa.html",
+  "https://www.bankier.pl/wiadomosc/Balcerowicz-wzywa-do-ciec-Prywatyzacja-wszystkiego-i-socjal-do-likwidacji-9208045.html",
+  "https://www.bankier.pl/wiadomosc/Przy-obecnych-cenach-gazu-Orlen-bedzie-wnioskowal-do-URE-o-wzrost-taryfy-wiceprezes-9208466.html",
+  "https://www.bankier.pl/wiadomosc/Iranowi-udalo-sie-wylaczyc-system-Starlink-Teheran-ujawnil-szczegoly-9207885.html",
+  "https://forsal.pl/swiat/bezpieczenstwo/artykuly/11326776,rosjanie-odebrali-nowe-samoloty-jednej-informacji-unikaja-jak-ognia.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11326634,likwidacja-trzech-swiadczen-800-plus-trzynastej-i-czternastej-emerytury-rekordowy-dlug-publiczny-rodzi-pytania-o-przyszlosc-tych-programow-ostrzegaja-ekonomisci.html",
+  "https://forsal.pl/swiat/bezpieczenstwo/artykuly/11326709,rosja-gromadzi-setki-rakiet-balistycznych-glowne-uderzenie-nadejdzie-zima.html",
+  "https://forsal.pl/finanse/aktualnosci/artykuly/11326585,podwyzki-podatkow-2027---akcyza-na-alkohol-oplata-cukrowa-zmiany-w-pit-i-cit-walka-rzadu-z-dziurawym-budzetem-i-procedura-nadmiernego-deficytu-z-ue-40-mld-zl-mf-gov-pl.html",
+  "https://forsal.pl/biznes/energetyka/artykuly/11326755,wielka-inwestycja-orlenu-na-baltyku-to-ma-byc-przelom-dla-polskiej-energetyki.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11326694,europejski-przemysl-umrze-za-kilkanascie-lat-nie-bedzie-juz-czego-ratowac-ekspert-wskazal-glowne-zagrozenie.html",
+  "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11326643,polskie-czolgi-nadchodza-szybciej-niz-zakladano-skala-robi-wrazenie.html",
+  "https://forsal.pl/swiat/rosja/artykuly/11326636,dzuma-w-rosji-waszyngton-chce-dodatkowych-informacji-od-moskwy.html",
+  "https://forsal.pl/lifestyle/edukacja/artykuly/11326653,ksoiw-nszz-solidarnosc-chce-zawetowania-ustawy-o-wychowaniu-patrioty.html",
+  "https://forsal.pl/swiat/unia-europejska/artykuly/11326672,mistral-ai-model-z-ue-ujawnienie-dane.html"
  ]
 }

@@ -1,5 +1,5 @@
 {
- "pobrano": "2026-10-07T13:23:23.597Z",
+ "pobrano": "2026-10-09T01:14:07.181Z",
  "pozycje": [
   {
    "tytul": "9 tys. zł – taki podatek od mieszkania zapłacą Polacy którzy zdecydują się na zakup tych nieruchomości. Im większa wartość nieruchomości, tym wyższa danina",
@@ -54,6 +54,12 @@
    "zrodlo": "Bezprawnik",
    "url": "https://bezprawnik.pl/podatek-katastralny-od-trzeciego-mieszkania/",
    "data": "2026-03-28T13:29:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/temat/podatek-katastralny",
+   "data": "2026-03-25T08:29:53.000Z"
   },
   {
    "tytul": "Nowy podatek od mieszkań już w Sejmie. Policzyliśmy, ile zapłacimy",
@@ -462,6 +468,12 @@
    "zrodlo": "Fakt",
    "url": "https://www.fakt.pl/pieniadze/wprowadzenie-podatku-katastralnego-i-jego-wplyw-na-rynek-nieruchomosci/d0v9wkb",
    "data": "2025-05-09T03:30:00.000Z"
+  },
+  {
+   "tytul": "Podatek katastralny - Najważniejsze informacje",
+   "zrodlo": "Fakt",
+   "url": "https://www.fakt.pl/temat/podatek-katastralny?page=3",
+   "data": "2016-11-04T13:02:50.000Z"
   }
  ],
  "sprawdzone": [
@@ -781,6 +793,24 @@
   "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11326643,polskie-czolgi-nadchodza-szybciej-niz-zakladano-skala-robi-wrazenie.html",
   "https://forsal.pl/swiat/rosja/artykuly/11326636,dzuma-w-rosji-waszyngton-chce-dodatkowych-informacji-od-moskwy.html",
   "https://forsal.pl/lifestyle/edukacja/artykuly/11326653,ksoiw-nszz-solidarnosc-chce-zawetowania-ustawy-o-wychowaniu-patrioty.html",
-  "https://forsal.pl/swiat/unia-europejska/artykuly/11326672,mistral-ai-model-z-ue-ujawnienie-dane.html"
+  "https://forsal.pl/swiat/unia-europejska/artykuly/11326672,mistral-ai-model-z-ue-ujawnienie-dane.html",
+  "https://www.bankier.pl/wiadomosc/Tajne-rozmowy-USA-i-Rosji-Amerykanie-chca-wejsc-w-Nord-Stream-i-dzielic-zyski-z-gazu-9209266.html",
+  "https://www.bankier.pl/wiadomosc/Konsorcjum-Polimeksu-Mostostal-wycofalo-sie-z-przetargu-na-budowe-terminalu-pasazerskiego-CPK-9209239.html",
+  "https://www.bankier.pl/wiadomosc/Bezlitosne-ciecia-w-Amazonie-Gigant-tnie-etaty-i-nazywa-to-niewielka-redukcja-9209259.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11327533,masowa-ucieczka-od-znanego-operatora-jeden-gigant-ma-118-tys-na-minusie-inny-bije-rekordy.html",
+  "https://forsal.pl/transport/kolej/artykuly/11327360,hiszpanie-jednak-maja-szybki-pociag-dla-polski-wiemy-co-proponuje-ta.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11327468,brutalny-raport-o-poziomie-zycia-w-unii-przepasc-miedzy-krajami-po-prostu-zwala-z-nog.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11317916,emerytur-od-marca-2027-r-rzad-podjal-wazna-decyzje-ktora-zapadla-tuz-po-braku-porozumienia-w-rds.html",
+  "https://forsal.pl/swiat/niemcy/artykuly/11327463,francuzi-beda-wsciekli-brytyjczycy-maja-oferte-dla-berlina-chodzi-o-mysliwiec-przyszlosci.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly-infor-pl/11327325,srednia-krajowa-to-mit-te-dane-pokazuja-ile-naprawde-zarabia-przecietny-polak.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11327447,nowy-podatek-paliwowy-juz-od-1112026.html",
+  "https://forsal.pl/gospodarka/demografia/artykuly/11326714,polski-region-wyprzedzil-cala-europe-praga-i-utrecht-zostaly-z-tylu.html",
+  "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11327494,zmiany-w-przepisach-szkoly-w-polsce-szykuja-sie-na-atak-z-powietrza.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/10496385,jezeli-przejdziesz-na-emeryture-w-tym-miesiacu-to-odbierzesz-wyzsze-swiadczenie-z-zus-emerytura-moze-byc-nawet-500-zl-wyzsza.html",
+  "https://www.fakt.pl/informacyjne/fakt-redakcja/ghzdbwk",
+  "https://www.fakt.pl/autorzy/andrzej-zwolinski",
+  "https://www.fakt.pl/autorzy/bartlomiej-szewczyk",
+  "https://www.fakt.pl/temat/podatek-katastralny?page=2",
+  "https://www.fakt.pl/temat/podatek-katastralny?page=3"
  ]
 }

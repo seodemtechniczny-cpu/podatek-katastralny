@@ -12,7 +12,8 @@
     "astro": "astro",
     "dane": "node scripts/fetch-stats.mjs",
     "mapa": "node scripts/build-map.mjs",
-    "monitor": "node scripts/monitor.mjs"
+    "monitor": "node scripts/monitor.mjs",
+    "ruch": "node scripts/ruch.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

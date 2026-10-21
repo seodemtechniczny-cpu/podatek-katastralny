@@ -145,7 +145,8 @@ const ld = [
 </html>
 
 <style>
-  .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); border-bottom: 1px solid var(--line); }
+  /* Pełne tło: przy przezroczystym treść pod paskiem prześwitywała przez nawigację. */
+  .top { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
   .top__in { display: flex; align-items: center; gap: 24px; min-height: 64px; }
   .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font: 650 1rem/1 var(--sans); letter-spacing: -0.01em; }
   .logo svg { color: var(--accent); flex: none; }

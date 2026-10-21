@@ -153,7 +153,8 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     const panel = hero.querySelector('.panel');
     const dane = JSON.parse(hero.querySelector('.hero__dane').textContent);
     const root = document.documentElement;
-    const mq = matchMedia('(max-width: 760px)');
+    // Układ pionowy (mapa nad tekstem) także na tablecie w pionie: obok tekstu mapa byłaby za mała.
+    const mq = matchMedia('(max-width: 760px), (max-width: 1100px) and (orientation: portrait)');
     const ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
     const xy = (el) => el.dataset.c.split(',').map(Number);
 
@@ -397,7 +398,11 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
   .sb__d { color: var(--ink-3); }
   .hero { position: relative; height: calc(100svh - 64px - 40px); min-height: 640px; max-height: 1080px; overflow: clip; isolation: isolate; }
   .hero__map { position: absolute; inset: 0; z-index: 0; }
-  .hm { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  /* Mapa przy prawej krawędzi (xMaxYMid meet). Gdy kadr jest ograniczony szerokością (tablet, okno bliskie kwadratu),
+     lewy margines pola zmniejsza mapę tak, żeby Europa (od x = 466 w viewBox 1600) zaczynała się za kolumną tekstu
+     (--gut + 27rem + 24px). Przy kadrze ograniczonym wysokością margines nic nie zmienia. */
+  .hm { --hm-l: max(0px, calc((var(--gut) + 27rem + 24px - 29.125vw) / 0.70875));
+    position: absolute; top: 0; bottom: 0; left: var(--hm-l); width: calc(100% - var(--hm-l)); height: 100%; display: block; }
 
   .hero__grid { position: absolute; inset: 0; pointer-events: none; }
   .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -521,14 +526,15 @@ const warstwy = [parcels(7, 3), parcels(41, 5), parcels(97, 7)];
     }
   }
 
-  @media (max-width: 760px) {
-    /* Telefon: stan, etap i data monitoringu; pozostałe dwie daty są w sekcji „Stan sprawy”. */
+  @media (max-width: 760px), (max-width: 1100px) and (orientation: portrait) {
+    /* Telefon i tablet w pionie: stan, etap i data monitoringu; pozostałe dwie daty są w sekcji „Stan sprawy”. */
     .sb__in { font-size: 0.8rem; gap: 2px 12px; padding-block: 8px; }
     .sb__in > span + span { padding-left: 0; border-left: 0; }
     .sb__d { flex-basis: 100%; }
     .sb__d ~ .sb__d { display: none; }
     .hero { height: auto; min-height: calc(100svh - 96px); max-height: none; display: flex; flex-direction: column; }
     .hero__map { position: relative; order: -1; height: 92vw; flex: none; }
+    .hm { --hm-l: 0px; }
     .hero__content { position: relative; bottom: auto; padding-block: 8px 28px; order: 1; }
     .hero__legend { position: static; order: 2; margin: 0 var(--gut) 24px; max-width: none; background: none; }
     .tip { display: none; }

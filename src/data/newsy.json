@@ -1,6 +1,12 @@
 {
- "pobrano": "2026-10-20T08:32:42.927Z",
+ "pobrano": "2026-10-23T17:06:59.920Z",
  "pozycje": [
+  {
+   "tytul": "Od 2027 r. ponad te kwoty oszczędności trzeba będzie zapłacić nowy podatek. Podatek Belki zostaje ale będą zwolnienia podatkowe dla właścicieli kont OKI",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/kraj/aktualnosci/artykuly/11261464,od-2027-r-ponad-te-kwoty-oszczednosci-trzeba-bedzie-zaplacic-nowy-podatek-podatek-belki-zostaje-ale-beda-zwolnienia-podatkowe-dla-wlascicieli-kont-oki.html",
+   "data": "2026-10-23T15:11:23.000Z"
+  },
   {
    "tytul": "Na ten podatek czeka wielu Polaków. Właściciele mieszkań mogą zapłacić nawet 9 tys. złotych",
    "zrodlo": "Forsal.pl",
@@ -474,12 +480,6 @@
    "zrodlo": "Fakt",
    "url": "https://www.fakt.pl/pieniadze/wprowadzenie-podatku-katastralnego-i-jego-wplyw-na-rynek-nieruchomosci/d0v9wkb",
    "data": "2025-05-09T03:30:00.000Z"
-  },
-  {
-   "tytul": "Podatek katastralny - Najważniejsze informacje",
-   "zrodlo": "Fakt",
-   "url": "https://www.fakt.pl/temat/podatek-katastralny?page=3",
-   "data": "2016-11-04T13:02:50.000Z"
   }
  ],
  "sprawdzone": [
@@ -833,6 +833,21 @@
   "https://forsal.pl/gospodarka/aktualnosci/artykuly/11333036,banki-blokuja-ludziom-konta-i-pytaja-o-dochody-dlaczego-trzeba-ujawniac-szczegoly.html",
   "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11299785,polacy-dostaja-karty-mobilizacyjne-wojsko-kaze-stawic-sie-w-wyznaczonym-miejscu-i-czasie-co-sie-dzieje.html",
   "https://forsal.pl/nieruchomosci/mieszkania/artykuly/11333049,rynek-nieruchomosci-zakupowi-mieszkania-sprzyjaja-stopy-procentowe-i.html",
-  "https://forsal.pl/swiat/usa/artykuly/11333058,odejdziemy-trump-grozi-europie-i-wzywa-ja-do-zamkniecia-granic.html"
+  "https://forsal.pl/swiat/usa/artykuly/11333058,odejdziemy-trump-grozi-europie-i-wzywa-ja-do-zamkniecia-granic.html",
+  "https://www.bankier.pl/wiadomosc/Sejm-odrzucil-projekt-PSL-dwoma-glosami-Tusk-odpowiada-Wrocmy-do-tego-i-przeglosujmy-jeszcze-raz-9217239.html",
+  "https://www.bankier.pl/wiadomosc/Lwow-zaskoczyl-Kijow-Decyzje-w-sprawie-UPA-i-Szuchewycza-maja-zostac-zablokowane-9216402.html",
+  "https://www.bankier.pl/wiadomosc/Plynie-juz-wiecej-ropy-z-Zatoki-Perskiej-niz-przed-wojna-Cena-jednak-bardzo-wysoka-9216095.html",
+  "https://www.bankier.pl/wiadomosc/Miliard-dolarow-strat-i-1-5-mln-urlopow-Premiera-GTA-VI-sparalizuje-amerykanska-gospodarke-9216537.html",
+  "https://www.bankier.pl/wiadomosc/Wegry-Zatrzymano-bylego-prezesa-banku-centralnego-ktory-sprawowal-funkcje-za-czasow-Orbana-9215953.html",
+  "https://forsal.pl/praca/aktualnosci/artykuly/11335557,31-grudnia-2026-r-ostateczny-termin-dla-pracownikow-przepadaja-dni-wolne-na-opieke-nad-dzieckiem-urlop-na-zadanie-urlop-opiekunczy-dni-okazjonalnej-pracy-zdalnej.html",
+  "https://forsal.pl/finanse/waluty/artykuly/11335618,ile-kosztuje-euro-dolar-i-frank-kursy-walut-23102026.html",
+  "https://forsal.pl/finanse/kredyty/artykuly/11332903,zdolnosc-kredytowa-a-bezpieczny-poziom-zadluzenia.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11335495,nawet-19-tys-zl-na-wyposazenie-domu-ruszyl-nowy-nabor-wnioskow-sprawdz-jak-dostac-pieniadze.html",
+  "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11335523,byla-strona-internetowa-po-przejeta-przerobione-zdjecia-kamil-kovalenko-i-niewybredne-zarty-internautow.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11334883,kolejne-zmiany-w-zasilku-pogrzebowym-nowe-zasady-wejda-w-zycie-juz-wkrotce.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11261464,od-2027-r-ponad-te-kwoty-oszczednosci-trzeba-bedzie-zaplacic-nowy-podatek-podatek-belki-zostaje-ale-beda-zwolnienia-podatkowe-dla-wlascicieli-kont-oki.html",
+  "https://forsal.pl/finanse/twoje-pieniadze/artykuly/11335436,co-daje-znaczny-stopien-niepelnosprawnosci-w-2026-r-lista-ulg-znizek-i-dofinansowan.html",
+  "https://forsal.pl/praca/aktualnosci/artykuly/11335390,dofinansowanie-z-pfron-do-zatrudnienia-pracownika-z-niepelnosprawnosci.html",
+  "https://forsal.pl/lifestyle/psychologia/artykuly/11335126,te-cechy-zdradzaja-korporacyjnego-psychopate-znany-przyklad-pochodzi-z-xvii-wieku.html"
  ]
 }

@@ -1,4 +1,15 @@
+# Boty wyszukiwarek i asystentów odpowiadających użytkownikom (Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User,
+# Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User) mają pełny dostęp — treść ma być cytowana u źródła.
 User-agent: *
 Allow: /
+
+# Pobieranie treści do trenowania modeli — zablokowane (decyzja 02.11.2026). Nie wpływa na widoczność w wyszukiwaniu.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: CCBot
+Disallow: /
 
 Sitemap: https://podatek-katastralny.pl/sitemap-index.xml

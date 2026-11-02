@@ -8,7 +8,7 @@ Statusy: ✅ zrobione · 🟡 częściowo · ⏳ po akceptacji prototypu · 👤
 | 2 | Regulamin | ⏳ | |
 | 3 | Jasne CTA | ✅ | kalkulator, projekt, RSS |
 | 4 | FAQ | ⏳ | z realnych pytań (Planner + „Podobne pytania”) |
-| 5 | robots.txt | ✅ | |
+| 5 | robots.txt | ✅ | 02.11: Disallow dla botów treningowych (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, meta-externalagent, CCBot); boty wyszukiwania i AI-search otwarte |
 | 6 | sitemap.xml | ✅ | @astrojs/sitemap |
 | 7 | Własna 404 | ⏳ | |
 | 8 | Alt text | ✅ | brak obrazów rastrowych; SVG dekoracyjne `aria-hidden`, mapa z `aria-label` per państwo |
@@ -20,9 +20,9 @@ Statusy: ✅ zrobione · 🟡 częściowo · ⏳ po akceptacji prototypu · 👤
 | 14 | Canonical | ✅ | na domenę docelową |
 | 15 | Cookie consent | ⏳ | baner dopiero z GA4; dziś zero obcych hostów (zmierzone) |
 | 16 | Responsywność | ✅ | 1440 i 390, zero przewijania poziomego |
-| 17 | Dostępność | 🟡 | mapa z klawiatury + tabela, skip link; pełny audyt Lighthouse po podstronach |
+| 17 | Dostępność | ✅ | mapa z klawiatury + tabela, skip link; 02.11 Lighthouse 24 podstron: dostępność 100 wszędzie; axe (kiodem-qa) 18/18 OK |
 | 18 | Test formularzy | 🟡 | kalkulator sprawdzony (3 lokale = 2617 zł) |
-| 19 | Broken links | ⏳ | skrypt sprawdzający źródła w CI |
+| 19 | Broken links | 🟡 | 02.11 check-seo-plus (lychee, 207 linków): 0 martwych wewn., 1 zewn. naprawiony (Fakt → /temat/); skrypt w CI ⏳ |
 | 20 | Szybkość | 🟡 | 0 JS frameworka, fonty lokalne; pomiar po wdrożeniu |
 | 21 | Google Search Console | ✅ | domena zweryfikowana, konto usługi z pełnym dostępem, sitemap wysłana |
 | 22 | index / noindex | ✅ | podgląd github.io = noindex; produkcja = index |
@@ -50,7 +50,7 @@ Statusy: ✅ zrobione · 🟡 częściowo · ⏳ po akceptacji prototypu · 👤
 | 44 | E-E-A-T | 🟡 | źródło + data przy każdym fakcie; metodologia, polityka korekt ⏳ |
 | 45 | Mobile | ✅ | zrzuty 390 |
 | 46 | Przeglądarki | ⏳ | Chrome ✅; WebKit, Firefox przy pełnej wersji |
-| 47 | Test szybkości po publikacji | ⏳ | |
+| 47 | Test szybkości po publikacji | ✅ | 02.11 Lighthouse (build, 24 podstron): wydajność min 96 / mediana 100, SEO 100, dobre praktyki 96 (lokalny CORS beacona); kiodem-qa płynność 18/18 OK |
 | 48 | Indeksacja po wdrożeniu | ⏳ 👤 | Google ma jeszcze stronę GoDaddy z 03.10; prośba o zindeksowanie w GSC |
 | 49 | Monitoring GSC | ⏳ 👤 | |
-| 50 | Linki i przekierowania po publikacji | ⏳ | |
+| 50 | Linki i przekierowania po publikacji | ✅ | 02.11 SiteOne 51 adresów: 0×4xx/5xx/3xx; 7 zewn. hostów anty-bot do obserwacji |

@@ -1,6 +1,12 @@
 {
- "pobrano": "2026-10-23T17:06:59.920Z",
+ "pobrano": "2026-11-18T20:30:36.095Z",
  "pozycje": [
+  {
+   "tytul": "9 tys. zł – taki podatek od nieruchomości zapłacą Polacy którzy zdecydują się na zakup mieszkań lub domów. Im większa wartość nieruchomości, tym wyższa danina",
+   "zrodlo": "Forsal.pl",
+   "url": "https://forsal.pl/kraj/aktualnosci/artykuly/11285594,9-tys-zl-taki-podatek-od-nieruchomosci-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-mieszkan-lub-domow-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+   "data": "2026-11-18T15:55:41.000Z"
+  },
   {
    "tytul": "Od 2027 r. ponad te kwoty oszczędności trzeba będzie zapłacić nowy podatek. Podatek Belki zostaje ale będą zwolnienia podatkowe dla właścicieli kont OKI",
    "zrodlo": "Forsal.pl",
@@ -474,12 +480,6 @@
    "zrodlo": "Forsal.pl",
    "url": "https://forsal.pl/finanse/twoje-pieniadze/artykuly/9755518,zamiast-od-metra-kwadratowego-podatek-od-wartosci-mieszkania-lub-domu.html",
    "data": "2025-05-11T04:09:02.000Z"
-  },
-  {
-   "tytul": "Tego podatku i tak nie unikniemy. Eksperci mówią, jak zmienią się ceny",
-   "zrodlo": "Fakt",
-   "url": "https://www.fakt.pl/pieniadze/wprowadzenie-podatku-katastralnego-i-jego-wplyw-na-rynek-nieruchomosci/d0v9wkb",
-   "data": "2025-05-09T03:30:00.000Z"
   }
  ],
  "sprawdzone": [
@@ -848,6 +848,24 @@
   "https://forsal.pl/kraj/aktualnosci/artykuly/11261464,od-2027-r-ponad-te-kwoty-oszczednosci-trzeba-bedzie-zaplacic-nowy-podatek-podatek-belki-zostaje-ale-beda-zwolnienia-podatkowe-dla-wlascicieli-kont-oki.html",
   "https://forsal.pl/finanse/twoje-pieniadze/artykuly/11335436,co-daje-znaczny-stopien-niepelnosprawnosci-w-2026-r-lista-ulg-znizek-i-dofinansowan.html",
   "https://forsal.pl/praca/aktualnosci/artykuly/11335390,dofinansowanie-z-pfron-do-zatrudnienia-pracownika-z-niepelnosprawnosci.html",
-  "https://forsal.pl/lifestyle/psychologia/artykuly/11335126,te-cechy-zdradzaja-korporacyjnego-psychopate-znany-przyklad-pochodzi-z-xvii-wieku.html"
+  "https://forsal.pl/lifestyle/psychologia/artykuly/11335126,te-cechy-zdradzaja-korporacyjnego-psychopate-znany-przyklad-pochodzi-z-xvii-wieku.html",
+  "https://www.bankier.pl/wiadomosc/Carney-stawia-sprawe-jasno-Jesli-USA-nie-ustapia-Kanada-zwroci-sie-do-Chin-9229805.html",
+  "https://www.bankier.pl/wiadomosc/XTB-nurkuje-na-gieldzie-KNF-zapowiada-interwencje-na-rynku-CFD-9230231.html",
+  "https://www.bankier.pl/wiadomosc/Zamykaja-fabryke-mebli-Prace-straci-prawie-cala-zaloga-9229995.html",
+  "https://www.bankier.pl/wiadomosc/Saudi-Aramco-nie-zglosilo-do-tej-pory-checi-sprzedazy-udzialow-w-Rafinerii-Gdanskiej-Balczun-9229992.html",
+  "https://www.bankier.pl/wiadomosc/Waza-sie-losy-przedluzenia-programu-CPN-Domanki-Decyzja-zapadnie-w-najblizszych-tygodniach-9230528.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11285594,9-tys-zl-taki-podatek-od-nieruchomosci-zaplaca-polacy-ktorzy-zdecyduja-sie-na-zakup-mieszkan-lub-domow-im-wieksza-wartosc-nieruchomosci-tym-wyzsza-danina.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11347327,13-emerytura-2027-tyle-moze-wyniesc-dodatkowe-roczne-swiadczenie-dla-emerytow-i-rencistow.html",
+  "https://forsal.pl/kraj/aktualnosci/artykuly/11347096,nowy-abonament-za-prad-prawie-50-proc-wiecej-od-kiedy-podwyzka.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11347498,pellet-drozszy-od-gazu-i-wegla-cena-ogrzewania-domu-w-sezonie-202620.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11347524,koniec-krotkich-dni-i-dlugich-nocy-czas-letni-zostanie-na-stale-i-nie-trzeba-juz-bedzie-przestawiac-zegarkow-z-drugiej-na-trzecia-w-nocy.html",
+  "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11347113,pelna-gotowosc-bojowa-na-granicy-z-polska-bialoruskie-jednostki-dostaly-rozkaz.html",
+  "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11346435,atak-z-powietrza-mswia-wydalo-instrukcje-dla-mieszkancow-blokow-obowiazuje-zasada-dwoch-scian.html",
+  "https://forsal.pl/transport/artykuly/11347462,port-polska-podroz-kolejowa-z-wroclawia-do-warszawy-zajmie-tylko-100-minut.html",
+  "https://forsal.pl/kraj/bezpieczenstwo/artykuly/11347284,wojsko-odtwarza-scenariusz-ataku-na-polske-cztery-armie-nato-w-jednym-miejscu.html",
+  "https://forsal.pl/swiat/ukraina/artykuly/11347342,hotel-de-jarnac-paryz-skonfiskowany-kostiantyn-zewaho-wniosek-ukraina.html",
+  "https://forsal.pl/gospodarka/aktualnosci/artykuly/11347396,nie-trzy-a-cztery-niedziele-handlowe-z-rzedu-w-grudniu-2026-sklepy-apeluja-o-wazna-zmiane-w-przepisach.html",
+  "https://www.fakt.pl/temat/'+c.getWhitelistLink()+'",
+  "https://www.fakt.pl/temat/'+(e.clickInstruction||"
  ]
 }
